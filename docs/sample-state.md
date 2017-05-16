@@ -30,7 +30,7 @@
       user_id: 1,
     },
     2: {
-      id: 1,
+      id: 2,
       category: "dairy",
       name: "milk",
       quantity: 1,
@@ -38,7 +38,7 @@
       user_id: 1,
     },
     3: {
-      id: 1,
+      id: 3,
       category: "beverages",
       name: "tea",
       quantity: 2,

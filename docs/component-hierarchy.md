@@ -11,12 +11,12 @@ App  // component at the root
 
   GroceryContainer //all the items in the list
     Grocery
+    ** added to grocery index page as a groceryIndexItemGroceryItemDetailContainer //view an item in the list through Search
+    GroceryItemDetail
 
   NewGroceryItemContainer //adding a new item in list
     NewGroceryItemForm
 
-  GroceryItemDetailContainer //view an item in the list through Search
-    GroceryItemDetail
 
   UpdateGroceryItemContainer //update an existing item from list
     UpdateGroceryItemForm
@@ -32,7 +32,7 @@ App  // component at the root
     NewPantryItemForm
 
   PantryItemDetailContainer //view an item in pantry list through Search
-    PantryItemDetail
+    PantryItemDetail  **Same for this one
 
   UpdatePantryItemContainer //update an existing item from list
     UpdatePantryItemForm
@@ -72,11 +72,10 @@ path="/home"	component={HomeContainer}
 
 Index and Show Routes?
 path="/grocery"	component={GroceryContainer}
-path="/grocery/:id"	component={GroceryItemDetailContainer}
-path="/grocery/:id"	component={NewGroceryItemContainer}
-path="/grocery/:id"	component={UpdateGroceryItemContainer}
-path="/grocery/:id"	component={RemoveGroceryItemContainer}
 
+path="/grocery/:id"	component={NewGroceryItemContainer}
+
+** same for this
 path="/pantry"	component={PantryContainer}
 path="/pantry/:id"	component={NewPantryItemContainer}
 path="/pantry/:id"	component={PantryItemDetailContainer}

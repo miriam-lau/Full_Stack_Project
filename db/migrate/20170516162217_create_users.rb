@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :session_token, null: false
       t.timestamps
     end
-    add_index :users, :username, :email, :session_token
+    add_index :users, :username
+    add_index :users, :email
+    add_index :users, :session_token
   end
 end

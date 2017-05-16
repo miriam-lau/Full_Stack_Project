@@ -53,20 +53,21 @@
       user_id: 1,
     }
   },
-  ingredient: {
+  recipeDetail: {
     1: {
-      id: 1
-      name: "string",
-      quantity: 2,
-      unit: "string",
-      recipe_id: 1,
-    },
-    2: {
-      id: 1
-      name: "string",
-      quantity: 1,
-      unit: "string",
-      recipe_id: 1,
+        id: 1,
+        ingredients: {
+          1: { id: 1, name: "string", quantity: 2, unit: "string" },
+          2: { id: 2, name: "string", quantity: 1, unit: "string" },
+        },
+        servings: "string",
+        nutrition: "string",
+        rating: number,
+        description: "string",
+        directions: "text",
+        notes: "string",
+        link: "string",  
+        recipe_id: 1
     }
   }
 }

@@ -33,13 +33,15 @@ Step 4: Phases
 Timeline
 Phase 1: Backend setup and Front End User Authentication (2 days)
   Objective: Functioning rails project with front-end Authentication
-Phase 2: Model, API, and components (2 days)
+Phase 2: Tasks- Model, API, and components (2 days)
+  Objectives:  User can add, update, and delete grocery items.
+Phase 3: Model, API, and components (2 days)
   Objective: Grocery lists can be created, read, edited and destroyed
     through the API.
-Phase 3: Pantry (2 days)
+Phase 4: Pantry (2 days)
   Objective: Pantry items can be created, read, edited and destroyed
     through the API.
-Phase 4: Search (1 day)
+Phase 5: Search (1 day)
   Objective: Pantry items are searchable.
 
 Bonus 1: Add Recipe Page (1 day, W2 Th 6pm)

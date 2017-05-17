@@ -16,8 +16,9 @@ Grocery
 column name	    | data type	| details
 ------------------------------------------------------------
 id	            | integer	  | not null, primary key
+category        | string    |
 name	          | string	  | not null
-quantity	      | integer	  | not null
+quantity	      | float  	  | not null
 unit	          | string	  | not null
 user_id         | integer   | not null, foreign key
 
@@ -31,9 +32,9 @@ Pantry
 column name	    | data type	| details
 ------------------------------------------------------------
 id	            | integer	  | not null, primary key
-category        | string    | not null
+category        | string    |
 name	          | string	  | not null
-quantity	      | integer	  | not null
+quantity	      | float 	  | not null
 unit	          | string	  | not null
 user_id         | integer   | not null, foreign key
 
@@ -48,16 +49,25 @@ column name	    | data type	| details
 ------------------------------------------------------------
 id	            | integer	  | not null, primary key
 name	          | string	  | not null
+image           | string    |
+servings        | integer   |
+nutrition       | string    |
+rating          | float     |
+description     | text      |
+directions      | text      |
+notes           | text      |
+link            | string    |
 user_id         | integer   | not null, foreign key
 
 belongs_to :user
-has_many: ingredients
+has_many :recipe_ingredients
 
 
-Ingredient
+RecipeIngredient
 column name	    | data type	| details
 ------------------------------------------------------------
 id	            | integer	  | not null, primary key
+category        | string    |
 name	          | string	  | not null
 quantity	      | integer	  | not null
 unit	          | string	  | not null

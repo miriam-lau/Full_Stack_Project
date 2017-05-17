@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class SignInForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', email: '', password: '' };
+    this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
@@ -21,15 +21,7 @@ class SessionForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    this.props.processForm({ user });
-  }
-
-  navLink() {
-    if (this.props.formType === 'signin') {
-      return <Link to="signup">Sign Up Instead</Link>
-    } else {
-      return <Link to="signin">Sign In Instead</Link>
-    }
+    this.props.receiveCurrentUser({user});
   }
 
   renderErrors() {
@@ -45,9 +37,8 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div className="signin-form-container">
-        <form onSubmit={ this.handleSubmit }>Pantry is Awesome!
+        <form onSubmit={ this.handleSubmit }>Welcome Back!
           <br />
-          Please { this.props.formType } or { this.navLink() }
           { this.renderErrors() }
           <div className="signin-form">
             <br />
@@ -57,19 +48,13 @@ class SessionForm extends React.Component {
                 className="signin-input" />
             </label>
             <br />
-            <label>Email:
-              <input type="text" value={ this.state.email }
-              onChange={ this.update('email') }
-              className="signin-input" />
-            </label>
-            <br />
             <label>Password:
               <input type="password" value={ this.state.password }
                 onChange={ this.update('password') }
                 className="signin-input" />
             </label>
             <br />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Sign In" />
           </div>
         </form>
       </div>
@@ -77,4 +62,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(SessionForm);
+export default withRouter(SignInForm);

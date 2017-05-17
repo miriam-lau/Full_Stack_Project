@@ -12,12 +12,14 @@ export const receiveErrors = (errors) => ({
   errors
 });
 
+// format of object being passed in {user}
 export const signup = (user) => dispatch => (
   APIUtil.signup(user).then(user =>(dispatch(receiveCurrentUser(user))),
     err => (dispatch(receiveErrors(err.responseJSON)))
   )
 );
 
+// format of object being passed in {user}
 export const signin = (user) => dispatch => (
   APIUtil.signin(user).then(user =>(dispatch(receiveCurrentUser(user))),
     err => (dispatch(receiveErrors(err.responseJSON)))

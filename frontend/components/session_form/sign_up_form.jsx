@@ -21,11 +21,11 @@ class SignUpForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.loggedIn) {
+  //     this.props.history.push('/');
+  //   }
+  // }
 
   update(property) {
     return event => this.setState({ [property]: event.currentTarget.value });
@@ -96,7 +96,7 @@ class SignUpForm extends React.Component {
               message="Passwords must match" />
             <br />
             <br />
-            
+
             { this.renderErrors() }
             <input className="session-button" type="submit"
               value="Create Account" />

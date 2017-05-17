@@ -34,7 +34,7 @@ column name	    | data type	| details
 id	            | integer	  | not null, primary key
 category        | string    |
 name	          | string	  | not null
-quantity	      | float 	  | not null
+quantity	      | decimal   | not null
 unit	          | string	  | not null
 user_id         | integer   | not null, foreign key
 

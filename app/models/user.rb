@@ -6,6 +6,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   #add_associations
+  has_many :pantry_items
 
   def password=(password)
     @password = password

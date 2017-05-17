@@ -15,6 +15,10 @@ class SignInForm extends React.Component {
     }
   }
 
+  // componentWillUnmount(props) {
+  //   this.props.errors = [];
+  // }
+
   update(property) {
     return event => this.setState({ [property]: event.currentTarget.value });
   }

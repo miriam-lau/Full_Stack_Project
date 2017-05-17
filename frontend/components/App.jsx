@@ -12,9 +12,9 @@ const App = () => (
       <div>
         <p className="logo">LOGO</p>
       </div>
-      <header>
-        <h1 className="greeting">Pantry!</h1>
-      </header>
+      <div>
+        <h1 className="greeting">myPantry</h1>
+      </div>
       <div>
         <GreetingContainer />
       </div>
@@ -27,7 +27,8 @@ const App = () => (
     </Switch>
 
     <footer>
-      <div className="footer">Copyright 2017 Company. All rights reserved.
+      <div className="footer">Image courtesy of Brooke Lark</div>
+      <div className="footer">Copyright 2017 myPantry. All rights reserved.
       </div>
     </footer>
   </div>

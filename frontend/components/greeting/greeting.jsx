@@ -10,7 +10,7 @@ const sessionLinks = () => (
       <Link className="link" to="/signin">Sign In</Link>
     </span>
     <span className="nav-link">
-      <Link className="link" to="/signup">Sign Up</Link>
+      <Link className="link" to="/signup">Create Account</Link>
     </span>
   </nav>
 );

@@ -1,0 +1,19 @@
+.header-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #E6E6FA;
+  color: black;
+  border-radius: 5px;
+  border: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  transition: 0.5s;
+  background-color: #333399;
+  color: white;
+  border: 1px solid #E6E6FA;
+}

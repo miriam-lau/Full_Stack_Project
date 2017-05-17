@@ -15,16 +15,21 @@
 }
 
 .greeting {
-  font-size: 30px;
-  letter-spacing: 2px;
+  font-size: 40px;
+  letter-spacing: 5px;
+  font-family: 'Pacifico', cursive;
+  width: 100%;
+  align-content: center;
 }
 
 .nav-link {
-  width: 100px;
-  align-items: center;
+  align-items: flex-end;
   margin-left: 50px;
 }
 
+.nav-link:first-child {
+  margin: 0;
+}
 .nav-link:hover {
   font-weight: bold;
   text-decoration: underline;

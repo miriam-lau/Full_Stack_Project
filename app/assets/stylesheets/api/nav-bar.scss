@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-between;
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   padding: 20px;
   background-color: #333399;
   color: white;
+  align-items: center;
 }
 
 .logo {
@@ -18,8 +19,14 @@
   letter-spacing: 2px;
 }
 
-.link {
-  display: flex;
-  justify-content: space-between;
-  color: white;
+.nav-link {
+  width: 100px;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
 }

@@ -44,7 +44,7 @@ class SignUpForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="sign-up-error">
         { this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{ error }</li>
         ))}
@@ -57,7 +57,6 @@ class SignUpForm extends React.Component {
       <div className="session-form-container">
         <form onSubmit={ this.handleSubmit }>
           <br />
-          { this.renderErrors() }
           <div className="session-form">
             <h2 className="session-title">Create Account</h2>
             <br />
@@ -97,6 +96,8 @@ class SignUpForm extends React.Component {
               message="Passwords must match" />
             <br />
             <br />
+            
+            { this.renderErrors() }
             <input className="session-button" type="submit"
               value="Create Account" />
           </div>

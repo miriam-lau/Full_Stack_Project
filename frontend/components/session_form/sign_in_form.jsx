@@ -27,7 +27,7 @@ class SignInForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+        <ul className="sign-up-error">
         { this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{ error }</li>
         ))}
@@ -40,7 +40,6 @@ class SignInForm extends React.Component {
       <div className="session-form-container">
         <form onSubmit={ this.handleSubmit }>
           <br />
-          { this.renderErrors() }
           <div className="session-form">
             <h2 className="session-title">Sign In</h2>
             <br />
@@ -60,6 +59,7 @@ class SignInForm extends React.Component {
               className="signin-input" />
             <br />
             <br />
+            { this.renderErrors() }
 
             <input className="session-button" type="submit" value="Sign In" />
           </div>
@@ -67,21 +67,13 @@ class SignInForm extends React.Component {
         <div className="session-form">
           <br />
           <h3 className="session-question">New to Pantry?</h3>
-
-          <button className="session-button">
-            Create Account
-          </button>
-
+          <span className="button-link">
+            <Link to="/signup">Create Account</Link>
+          </span>
         </div>
       </div>
     );
   }
 }
-
-// <form action={<Link to="/api/users" component={SignUpFormContainer}></Link>}>
-// <button className="session-button" type="link">
-//   Create Account
-// </button>
-// </form>
 
 export default withRouter(SignInForm);

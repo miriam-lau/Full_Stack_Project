@@ -30,12 +30,14 @@
 }
 
 .sign-up-error {
-  display: flex;
-  width: 100%;
+  width: 220px;
+  margin: auto;
+  text-align: center;
   padding: 20px;
+  list-style: none;
   color: red;
   font-family: 'Nunito', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   font-style: italic;
 }
@@ -50,12 +52,14 @@
   border-radius: 5px;
   border: 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .session-button:hover {
   background-color: #E6E6FA;
   color: black;
   border: 1px solid #333399;
+  transition: 0.5s;
 }
 
 input {
@@ -67,4 +71,24 @@ input {
 button {
   padding: 5px;
   width: 100%;
+}
+
+.button-link {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 0;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+
+.button-link:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
 }

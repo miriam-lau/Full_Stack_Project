@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import SignUpFormContainer from './sign_up_form_container';
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -36,27 +37,40 @@ class SignInForm extends React.Component {
 
   render() {
     return(
-      <div className="signin-form-container">
-        <form onSubmit={ this.handleSubmit }>Welcome Back!
+      <div className="session-form-container">
+        <form onSubmit={ this.handleSubmit }>
           <br />
           { this.renderErrors() }
-          <div className="signin-form">
+          <div className="session-form">
+            <h2 className="session-title">Sign In</h2>
             <br />
-            <label>Username:
-              <input type="text" value={ this.state.username }
-                onChange={ this.update('username') }
-                className="signin-input" />
-            </label>
+
+            <label>Username</label>
             <br />
-            <label>Password:
-              <input type="password" value={ this.state.password }
-                onChange={ this.update('password') }
-                className="signin-input" />
-            </label>
+            <input type="text" value={ this.state.username }
+              onChange={ this.update('username') }
+              className="signin-input" />
             <br />
-            <input type="submit" value="Sign In" />
+            <br />
+
+            <label>Password</label>
+            <br />
+            <input type="password" value={ this.state.password }
+              onChange={ this.update('password') }
+              className="signin-input" />
+            <br />
+            <br />
+
+            <input className="session-button" type="submit" value="Sign In" />
           </div>
         </form>
+        <div className="session-form">
+          <br />
+          <h3 className="session-question">New to Pantry?</h3>
+          <button className="session-button">
+            Create Account
+          </button>
+        </div>
       </div>
     );
   }

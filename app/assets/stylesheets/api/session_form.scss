@@ -1,20 +1,68 @@
-.signin-form-container {
-  display: flex;
-  flex-direction: column;
+.session-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin: auto;
   width: 100%;
 }
 
-.signin-form {
+.session-question {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.session-form-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.session-form {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: auto;
+  width: 220px;
+}
+
+.sign-up-error {
   display: flex;
   width: 100%;
   padding: 20px;
-  font-family: sans-serif;
+  color: red;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
 }
 
-.signup-form-container {
-
+.session-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #7FFFD4;
+  border-radius: 5px;
+  border: 0;
+  text-align: center;
 }
 
-.signup-form {
+.session-button:hover {
+  background-color: #333399;
+  color: white;
+}
 
+input {
+  padding: 5px;
+  width: 94%;
+  border: 1px solid #D3D3D3;
+}
+
+button {
+  padding: 5px;
+  width: 100%;
 }

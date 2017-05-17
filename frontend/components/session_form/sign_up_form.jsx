@@ -54,39 +54,51 @@ class SignUpForm extends React.Component {
 
   render() {
     return(
-      <div className="signup-form-container">
-        <form onSubmit={ this.handleSubmit }>Pantry is Awesome!
+      <div className="session-form-container">
+        <form onSubmit={ this.handleSubmit }>
           <br />
           { this.renderErrors() }
-          <div className="signup-form">
+          <div className="session-form">
+            <h2 className="session-title">Create Account</h2>
             <br />
-            <label>Username:
-              <input type="text" value={ this.state.username }
-                onChange={ this.update('username') }
-                className="signup-input" />
-            </label>
             <br />
-            <label>Email:
-              <input type="text" value={ this.state.email }
-              onChange={ this.update('email') }
+
+            <label>Username</label>
+            <br />
+            <input type="text" value={ this.state.username }
+              onChange={ this.update('username') }
               className="signup-input" />
-            </label>
             <br />
-            <label>Password:
-              <input type="password" value={ this.state.password }
-                onChange={ this.update('password') }
-                className="signup-input" />
-            </label>
             <br />
-            <label>Re-enter Password:
-              <input type="password" value={ this.state.re_entered_password }
-                onChange={ this.update('re_entered_password') }
-                className="signup-input" />
-            </label>
+
+            <label>Email</label>
+            <br />
+            <input type="text" value={ this.state.email }
+            onChange={ this.update('email') }
+            className="signup-input" />
+            <br />
+            <br />
+
+            <label>Password</label>
+            <br />
+            <input type="password" value={ this.state.password }
+              onChange={ this.update('password') }
+              className="signup-input" />
+            <br />
+            <br />
+
+            <label>Re-enter Password</label>
+            <br />
+            <input type="password" value={ this.state.re_entered_password }
+              onChange={ this.update('re_entered_password') }
+              className="signup-input" />
+
             <ErrorBanner shouldShow={!this.state.matching_passwords}
               message="Passwords must match" />
             <br />
-            <input type="submit" value="Sign Up" />
+            <br />
+            <input className="session-button" type="submit"
+              value="Create Account" />
           </div>
         </form>
       </div>

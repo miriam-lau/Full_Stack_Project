@@ -7,15 +7,28 @@ import { AuthRoute, Link } from '../util/route_util';
 
 const App = () => (
   <div>
-    <header>
-      <h1>Welcome to Pantry!</h1>
-      <GreetingContainer />
-    </header>
-
+    <section className="nav-bar">
+      <div>
+        <p className="logo">LOGO</p>
+      </div>
+      <header>
+        <h1 className="greeting">Welcome to Pantry!</h1>
+      </header>
+      <div>
+        <GreetingContainer />
+      </div>
+    </section>
     <Switch>
       <AuthRoute path='/signin' component={ SignInFormContainer } />
       <AuthRoute path='/signup' component={ SignUpFormContainer } />
     </Switch>
+    <section className="image-snaps">
+      
+    </section>
+    <footer>
+      <div className="footer">Copyright 2017 Company. All rights reserved.
+      </div>
+    </footer>
   </div>
 );
 

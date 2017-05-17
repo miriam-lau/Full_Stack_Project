@@ -67,13 +67,21 @@ class SignInForm extends React.Component {
         <div className="session-form">
           <br />
           <h3 className="session-question">New to Pantry?</h3>
+
           <button className="session-button">
             Create Account
           </button>
+
         </div>
       </div>
     );
   }
 }
+
+// <form action={<Link to="/api/users" component={SignUpFormContainer}></Link>}>
+// <button className="session-button" type="link">
+//   Create Account
+// </button>
+// </form>
 
 export default withRouter(SignInForm);

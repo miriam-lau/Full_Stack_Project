@@ -2,6 +2,7 @@ import * as APIUtil from '../util/pantry_items_api_util';
 export const RECEIVE_ALL_PANTRY_ITEMS = 'RECEIVE_ALL_PANTRY_ITEMS';
 export const RECEIVE_SINGLE_PANTRY_ITEM = 'RECEIVE_SINGLE_PANTRY_ITEM';
 export const RECEIVE_NEW_PANTRY_ITEM = 'RECEIVE_NEW_PANTRY_ITEM';
+export const REMOVE_PANTRY_ITEM  = 'REMOVE_PANTRY_ITEM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveAllPantryItems = () => ({
@@ -18,6 +19,17 @@ export const receiveNewPantryItem = (pantry_item) => ({
   type: RECEIVE_NEW_PANTRY_ITEM,
   pantry_item
 });
+
+// should only pass in id
+export const removePantryItem = (pantry_item) => ({
+  type: REMOVE_PANTRY_ITEM,
+  pantry_item
+})
+
+export const updatePantryItem = (pantry_item) => ({
+  type: UPDATE_PANTRY_ITEM,
+  pantry_item
+})
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
@@ -44,10 +56,10 @@ export const createNewPantryItem = (pantry_item) => dispatch => (
 
 export const updatePantryItem = (id) => dispatch => (
   APIUtil.updatePantryItem(id)
-    .then(pantry_item => (dispatch(receiveSinglePantryItem(pantry_item)))
+    .then(pantry_item => (dispatch(updatePantryItem(pantry_item)))
 );
 
 export const deletePantryItem = (id) => dispatch => (
   APIUtil.deletePantryItem(id)
-    .then(pantry_item => (dispatch(receiveSinglePantryItem(pantry_item)))
+    .then(pantry_item => (dispatch(removePantryItem(pantry_item)))
 );

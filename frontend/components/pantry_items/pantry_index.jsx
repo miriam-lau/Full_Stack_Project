@@ -1,5 +1,5 @@
 import React from 'react';
-// import PantryIndexItem from './pantry_index_item';
+import PantryIndexItem from './pantry_index_item';
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -13,10 +13,9 @@ class PantryIndex extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          <li>hello</li>
-          {this.props.pantry_items.map((item, idx) =>
-            <li key={idx}>{item.name}</li>
+        <ul className="pantry-items">
+          {this.props.pantry_items.map(item =>
+            <PantryIndexItem key={item.id} pantry_item={item} />
           )}
         </ul>
       </div>
@@ -25,6 +24,3 @@ class PantryIndex extends React.Component {
 }
 
 export default PantryIndex;
-
-
-// <li><PantryIndexItem key={item.id} pantry_item={item} /></li>

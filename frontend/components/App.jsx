@@ -10,10 +10,9 @@ const App = () => (
   <div>
     <section className="nav-bar">
       <div>
-        <p className="logo">LOGO</p>
+        <h1 className="greeting">myPantry</h1>
       </div>
       <div>
-        <h1 className="greeting">myPantry</h1>
       </div>
       <div>
         <GreetingContainer />

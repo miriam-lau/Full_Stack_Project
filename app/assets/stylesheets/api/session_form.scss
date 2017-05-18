@@ -33,7 +33,6 @@
   width: 220px;
   margin: auto;
   text-align: center;
-  padding: 20px;
   list-style: none;
   color: red;
   font-family: 'Nunito', sans-serif;
@@ -50,9 +49,10 @@
   background-color: #333399;
   color: white;
   border-radius: 5px;
-  border: 0;
+  border: 1px solid #333399;
   text-align: center;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .session-button:hover {
@@ -68,11 +68,6 @@ input {
   border: 1px solid #D3D3D3;
 }
 
-button {
-  padding: 5px;
-  width: 100%;
-}
-
 .button-link {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
@@ -80,10 +75,13 @@ button {
   background-color: #333399;
   color: white;
   border-radius: 5px;
-  border: 0;
+  border: 1px solid #333399;
   text-align: center;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 100%;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .button-link:hover {

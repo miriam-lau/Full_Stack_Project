@@ -4,3 +4,31 @@
   width: auto\9;
   display: block;
 }
+
+.guest-sign-in {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%,-80%);
+  background-color: #333399;
+  color: white;
+  padding: 15px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 1px solid #333399;
+  width: 45%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.guest-sign-in:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
+}

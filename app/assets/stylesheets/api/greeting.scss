@@ -1,19 +1,40 @@
+.header-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header {
+  align-items: center;
+}
+
+.header-name {
+  margin-right: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .header-button {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-weight: bold;
-  width: 100%;
+  width: 100px;
   background-color: #E6E6FA;
   color: black;
   border-radius: 5px;
-  border: 0;
+  border: 1px solid #E6E6FA;
+  align-self: center;
   text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .header-button:hover {
-  transition: 0.5s;
   background-color: #333399;
   color: white;
   border: 1px solid #E6E6FA;
+  transition: 0.5s;
 }

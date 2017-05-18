@@ -16,10 +16,14 @@ const sessionLinks = (clearErrors) => (
 );
 
 const personalGreeting = (currentUser, signout) => (
-  <hgroup className="header-group">
-    <h2 className="header-name">Hello, { currentUser.username }!</h2>
-    <button className="header-button" onClick={ signout }>Sign Out</button>
-  </hgroup>
+  <div className="header-group">
+    <div className="header">
+      <h2 className="header-name">Hello, { currentUser.username }!</h2>
+    </div>
+    <div className="header">
+      <button className="header-button" onClick={ signout }>Sign Out</button>
+    </div>
+  </div>
 );
 
 const Greeting = ({ currentUser, signout, clearErrors }) => (

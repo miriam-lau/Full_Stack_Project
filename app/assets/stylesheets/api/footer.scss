@@ -1,13 +1,17 @@
 .footer {
   display: flex;
-  position: fixed;
-  bottom: 0;
-  margin: auto;
-  text-align: center;
+  justify-content: space-around;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: bold;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #E6E6FA;
   width: 100%;
 }
+
+
+// position: fixed;
+// bottom: 0;
+// margin: auto;
+// text-align: center;

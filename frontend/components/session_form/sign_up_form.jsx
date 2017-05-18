@@ -90,8 +90,10 @@ class SignUpForm extends React.Component {
               message="Passwords must match" />
             <br />
             <br />
-
-            { this.renderErrors() }
+            <div>
+              { this.renderErrors() }
+            </div>
+            <br />
             <input className="session-button" type="submit"
               value="Create Account" />
           </div>

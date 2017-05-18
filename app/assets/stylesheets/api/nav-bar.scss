@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   padding: 20px;
   background-color: #333399;
@@ -10,21 +10,20 @@
   align-items: center;
 }
 
-.logo {
-  display: flex;
-}
-
 .greeting {
   font-size: 40px;
   letter-spacing: 5px;
   font-family: 'Pacifico', cursive;
   width: 100%;
+  margin: auto;
   align-self: center;
+  flex: 1;
 }
 
 .nav-link {
   align-items: flex-end;
   margin-left: 50px;
+  flex: 1;
 }
 
 .nav-link:first-child {

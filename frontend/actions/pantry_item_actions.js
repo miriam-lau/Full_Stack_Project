@@ -1,6 +1,6 @@
 import * as APIUtil from '../util/pantry_items_api_util';
 export const RECEIVE_ALL_PANTRY_ITEMS = 'RECEIVE_ALL_PANTRY_ITEMS';
-export const RECEIVE_SINGLE_PANTRY_ITEM = 'RECEIVE_SINGLE_PANTRY_ITEM';
+export const RECEIVE_PANTRY_ITEM = 'RECEIVE_PANTRY_ITEM';
 export const RECEIVE_NEW_PANTRY_ITEM = 'RECEIVE_NEW_PANTRY_ITEM';
 export const REMOVE_PANTRY_ITEM  = 'REMOVE_PANTRY_ITEM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -11,7 +11,7 @@ export const receiveAllPantryItems = () => ({
 });
 
 export const receiveSinglePantryItem = (pantry_item) => ({
-  type: RECEIVE_SINGLE_PANTRY_ITEM,
+  type: RECEIVE_PANTRY_ITEM,
   pantry_item
 });
 
@@ -23,13 +23,14 @@ export const receiveNewPantryItem = (pantry_item) => ({
 // should only pass in id
 export const removePantryItem = (pantry_item) => ({
   type: REMOVE_PANTRY_ITEM,
-  pantry_item
+  pantry_item.id
 })
 
-export const updatePantryItem = (pantry_item) => ({
-  type: UPDATE_PANTRY_ITEM,
-  pantry_item
-})
+// is this needed?
+// export const updatePantryItem = (pantry_item) => ({
+//   type: UPDATE_PANTRY_ITEM,
+//   pantry_item
+// })
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,

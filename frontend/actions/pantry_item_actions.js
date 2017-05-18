@@ -6,7 +6,7 @@ export const UPDATE_PANTRY_ITEM = 'UPDATE_PANTRY_ITEM';
 export const REMOVE_PANTRY_ITEM  = 'REMOVE_PANTRY_ITEM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
-export const receiveAllPantryItems = () => ({
+export const receiveAllPantryItems = (pantry_items) => ({
   type: RECEIVE_ALL_PANTRY_ITEMS,
   pantry_items
 });

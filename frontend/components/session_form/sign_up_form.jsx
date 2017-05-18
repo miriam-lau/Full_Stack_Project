@@ -13,6 +13,10 @@ function ErrorBanner(props) {
   }
 }
 
+// function clearErrors(props) {
+//   this.props.errors = [];
+// }
+
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +29,10 @@ class SignUpForm extends React.Component {
   //   if (nextProps.loggedIn) {
   //     this.props.history.push('/');
   //   }
+  // }
+
+  // componentWillUnMount(props) {
+  //   this.props.clearErrors;
   // }
 
   update(property) {

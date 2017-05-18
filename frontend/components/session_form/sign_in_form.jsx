@@ -9,12 +9,13 @@ class SignInForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
+  }
 
+// use for unmounting errors
   // componentWillUnmount(props) {
   //   this.props.errors = [];
   // }
@@ -72,7 +73,7 @@ class SignInForm extends React.Component {
           <br />
           <h3 className="session-question">New to Pantry?</h3>
           <span className="button-link">
-            <Link to="/signup">Create Account</Link>
+            <Link onClick={this.props.clearErrors} to="/signup">Create Account</Link>
           </span>
         </div>
       </div>

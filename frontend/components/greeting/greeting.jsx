@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const sessionLinks = () => (
+const sessionLinks = (clearErrors) => (
   <nav>
   <span className="nav-link">
     <Link className="link" to="/">Home Page</Link>
   </span>
     <span className="nav-link">
-      <Link className="link" to="/signin">Sign In</Link>
+      <Link onClick={clearErrors} className="link" to="/signin">Sign In</Link>
     </span>
     <span className="nav-link">
-      <Link className="link" to="/signup">Create Account</Link>
+      <Link onClick={clearErrors} className="link" to="/signup">Create Account</Link>
     </span>
   </nav>
 );
@@ -22,8 +22,8 @@ const personalGreeting = (currentUser, signout) => (
   </hgroup>
 );
 
-const Greeting = ({ currentUser, signout }) => (
-  currentUser ? personalGreeting(currentUser, signout) : sessionLinks()
+const Greeting = ({ currentUser, signout, clearErrors }) => (
+  currentUser ? personalGreeting(currentUser, signout) : sessionLinks(clearErrors)
 );
 
 export default Greeting;

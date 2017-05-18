@@ -13,10 +13,6 @@ function ErrorBanner(props) {
   }
 }
 
-// function clearErrors(props) {
-//   this.props.errors = [];
-// }
-
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
@@ -24,16 +20,6 @@ class SignUpForm extends React.Component {
       re_entered_password: '', matching_passwords: "true" };
     this.handleSubmit = this.handleSubmit.bind(this);
   };
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }
-
-  // componentWillUnMount(props) {
-  //   this.props.clearErrors;
-  // }
 
   update(property) {
     return event => this.setState({ [property]: event.currentTarget.value });

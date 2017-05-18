@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/sign_up_form_container';
 import SignInFormContainer from './session_form/sign_in_form_container';
-import Home from './home/home';
+import HomeContainer from './home/home_container';
 import { AuthRoute, Link } from '../util/route_util';
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
     </section>
 
     <Switch>
-      <AuthRoute exact path='/' component={ Home }/>
+      <AuthRoute exact path='/' component={ HomeContainer }/>
       <AuthRoute path='/signin' component={ SignInFormContainer } />
       <AuthRoute path='/signup' component={ SignUpFormContainer } />
     </Switch>

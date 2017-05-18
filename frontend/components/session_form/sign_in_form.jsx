@@ -9,17 +9,6 @@ class SignInForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
-  }
-
-// use for unmounting errors
-  // componentWillUnmount(props) {
-  //   this.props.errors = [];
-  // }
-
   update(property) {
     return event => this.setState({ [property]: event.currentTarget.value });
   }

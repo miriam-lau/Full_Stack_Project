@@ -23,7 +23,7 @@ const App = () => (
           <AuthRoute exact path='/' component={ HomeContainer }/>
           <AuthRoute path='/signin' component={ SignInFormContainer } />
           <AuthRoute path='/signup' component={ SignUpFormContainer } />
-          <Route exact path='/pantry_items' component={ PantryIndexContainer }/>
+          <Route path='/pantry_items' component={ PantryIndexContainer }/>
         </Switch>
       </div>
       <div  id="footer">

@@ -1,4 +1,4 @@
-class Api::PantryItemController < ApplicationController
+class Api::PantryItemsController < ApplicationController
   before_filter :require_signed_in
 
   def index

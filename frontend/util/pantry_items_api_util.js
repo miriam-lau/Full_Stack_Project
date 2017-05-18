@@ -1,4 +1,4 @@
-import { receiveAllPantryItems, receiveSinglePantryItem, receiveNewPantryItem,
+import { receiveAllPantryItems, receivePantryItem, receiveNewPantryItem,
   receiveErrors} from '../actions/pantry_item_actions';
 
 export const fetchAllPantryItems = () => {
@@ -8,7 +8,7 @@ export const fetchAllPantryItems = () => {
   });
 };
 
-export const fetchSinglePantryItem = (id) => {
+export const fetchPantryItem = (id) => {
   return $.ajax({
     method: "GET",
     url: `/api/pantry_items/${id}`
@@ -18,7 +18,7 @@ export const fetchSinglePantryItem = (id) => {
 export const createPantryItem = (pantry_item) => {
   return $.ajax({
     method: "POST",
-    url: "api/pantry_items"
+    url: "api/pantry_items",
     data: pantry_item
   });
 };
@@ -26,7 +26,7 @@ export const createPantryItem = (pantry_item) => {
 export const updatePantryItem = (id) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/pantry_items/${id}`
+    url: `/api/pantry_items/${id}`,
     data: pantry_item
   });
 }

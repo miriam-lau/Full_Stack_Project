@@ -1,17 +1,21 @@
 import React from 'react';
+import { AuthRoute } from '../../util/route_util';
 import { Link } from 'react-router-dom';
+
+import PantryIndexContainer from '../pantry_items/pantry_index_container';
 
 const sessionLinks = (clearErrors) => (
   <nav>
-  <span className="nav-link">
-    <Link className="link" to="/">Home Page</Link>
-  </span>
+    <span className="nav-link">
+      <Link className="link" to="/">Home Page</Link>
+    </span>
     <span className="nav-link">
       <Link onClick={clearErrors} className="link" to="/signin">Sign In</Link>
     </span>
     <span className="nav-link">
       <Link onClick={clearErrors} className="link" to="/signup">Create Account</Link>
     </span>
+
   </nav>
 );
 
@@ -26,8 +30,12 @@ const personalGreeting = (currentUser, signout) => (
   </div>
 );
 
-const Greeting = ({ currentUser, signout, clearErrors }) => (
-  currentUser ? personalGreeting(currentUser, signout) : sessionLinks(clearErrors)
-);
+const Greeting = ({ currentUser, signout, clearErrors }) => {
+  return (
+    <div>
+      {currentUser ? personalGreeting(currentUser, signout) : sessionLinks(clearErrors)}
+    </div>
+  )
+};
 
 export default Greeting;

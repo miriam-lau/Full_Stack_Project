@@ -7,30 +7,33 @@ import HomeContainer from './home/home_container';
 import { AuthRoute, Link } from '../util/route_util';
 
 const App = () => (
-  <div>
-    <section className="nav-bar">
-      <div>
-        <h1 className="greeting">myPantry</h1>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <section className="nav-bar">
+          <h1 className="greeting">myPantry</h1>
+          <div>
+          <GreetingContainer />
+          </div>
+          </section>
+        </div>
+      <div id="content">
+        <Switch>
+          <AuthRoute exact path='/' component={ HomeContainer }/>
+          <AuthRoute path='/signin' component={ SignInFormContainer } />
+          <AuthRoute path='/signup' component={ SignUpFormContainer } />
+        </Switch>
       </div>
-      <div>
+      <div  id="footer">
+        <footer className="footer">
+          <div>Image courtesy of Brooke Lark</div>
+          <br />
+          <div>Copyright 2017 myPantry. All rights reserved.
+          </div>
+        </footer>
       </div>
-      <div>
-        <GreetingContainer />
-      </div>
-    </section>
-
-    <Switch>
-      <AuthRoute exact path='/' component={ HomeContainer }/>
-      <AuthRoute path='/signin' component={ SignInFormContainer } />
-      <AuthRoute path='/signup' component={ SignUpFormContainer } />
-    </Switch>
-
-    <footer>
-      <div className="footer">Image courtesy of Brooke Lark</div>
-      <div className="footer">Copyright 2017 myPantry. All rights reserved.
-      </div>
-    </footer>
-  </div>
+    </div>
+  </body>
 );
 
 export default App;

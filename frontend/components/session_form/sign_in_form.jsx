@@ -16,7 +16,6 @@ class SignInForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    console.log(this.props.receiveCurrentUser({user}));
     this.props.receiveCurrentUser({user})
       .then(() => this.props.history.push('/pantry_items'));
   }

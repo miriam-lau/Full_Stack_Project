@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: '', name: '', quantity: 0, unit: '' };
+    this.state = { category: '', name: '', quantity: 0, unit: 'each' };
 
     this.categories = ['Beverage', 'Bread & Bakery', 'Canned & Jarred',
       'Dairy', 'Dry & Baking', 'Frozen', 'Fruit', 'Meat & Seafood',

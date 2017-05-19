@@ -9,7 +9,6 @@ class Api::PantryItemsController < ApplicationController
         @pantry_items.push(item)
       end
     end
-    puts "in pantry controller"
     render :index
   end
 
@@ -21,7 +20,7 @@ class Api::PantryItemsController < ApplicationController
     @pantry_item = PantryItem.new(pantry_item_params)
     @pantry_item.user_id = current_user.id
     if @pantry_item.save
-      render "/api/pantry_items"
+      render :show
     else
       render json: @pantry_item.errors.full_messages, status: 422
     end
@@ -38,7 +37,7 @@ class Api::PantryItemsController < ApplicationController
   def update
     @pantry_item = current_user.pantry_items.find(params[:id])
     if @pantry_item.update_attributes(pantry_item_params)
-      render "/api/pantry_items"
+      render :index
     else
       render json: @pantry_item.errors.full_messages, status: 422
     end
@@ -47,7 +46,7 @@ class Api::PantryItemsController < ApplicationController
   def destroy
     pantry_item = PantryItem.find(params[:id])
     pantry_item.destroy
-    render "/api/pantry_items"
+    render :index
   end
 
   private

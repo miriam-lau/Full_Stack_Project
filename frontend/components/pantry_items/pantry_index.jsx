@@ -25,8 +25,8 @@ class PantryIndex extends React.Component {
           <div className="col-4">Category</div>
         </div>
         <ul className="pantry-items">
-          {this.props.pantry_items.map(item  =>
-            <PantryIndexItem key={item.id} pantry_item={item} />
+          {this.props.pantry_items.map((item, idx)  =>
+            <PantryIndexItem key={idx} pantry_item={item} />
           )}
         </ul>
 

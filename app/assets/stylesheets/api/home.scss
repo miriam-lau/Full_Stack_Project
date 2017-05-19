@@ -1,8 +1,9 @@
 .image img {
   max-width: 100%;
-  height: auto;
+  height: 860px;
   width: auto\9;
   display: block;
+  object-fit: cover
 }
 
 .guest-sign-in {

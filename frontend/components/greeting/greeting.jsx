@@ -1,7 +1,5 @@
 import React from 'react';
-import { AuthRoute } from '../../util/route_util';
-import { Link } from 'react-router-dom';
-
+import { Route, Link } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 
 const sessionLinks = (clearErrors) => (
@@ -20,13 +18,15 @@ const sessionLinks = (clearErrors) => (
 );
 
 const personalGreeting = (currentUser, signout) => (
-    <div className="header-group">
-      <div className="header">
-        <h2 className="header-name">Hello, { currentUser.username }!</h2>
-      </div>
-      <div className="header">
-        <button className="header-button" onClick={ signout }>Sign Out</button>
-      </div>
+  <div className="header-group">
+    <div className="header">
+      <h2 className="header-name">Hello, { currentUser.username }!</h2>
+    </div>
+    <div className="header">
+      <button className="header-button" onClick={ signout }>Sign Out</button>
+    </div>
+    <div>
+    </div>
   </div>
 );
 
@@ -39,3 +39,5 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
 };
 
 export default Greeting;
+
+// <Route exact path="/pantry_items" component={ PantryIndexContainer } />

@@ -41,3 +41,24 @@
   text-align: center;
   width: 25%;
 }
+
+.pantry-form, .pantry-input, label, select {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  width: 500px;
+}
+
+.pantry-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #333399;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}

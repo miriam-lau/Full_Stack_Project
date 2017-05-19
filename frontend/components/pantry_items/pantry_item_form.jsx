@@ -57,14 +57,14 @@ class PantryItemForm extends React.Component {
 
           <label>Item Name</label>
           <br />
-          <input type="text" value={this.state.name}
+          <input className="pantry-input" type="text" value={this.state.name}
             onChange={this.update('name')}/>
           <br/>
           <br/>
 
           <label>Quantity</label>
           <br />
-          <input type="number" value={this.state.quantity}
+          <input className="pantry-input" type="number" value={this.state.quantity}
             onChange={this.update('quantity')}/>
           <br/>
           <br/>
@@ -79,7 +79,8 @@ class PantryItemForm extends React.Component {
           </select>
 
           <br />
-          <button>Add Pantry Item</button>
+          <br />
+          <button className="pantry-button">Add Pantry Item</button>
         </form>
       </div>
     );

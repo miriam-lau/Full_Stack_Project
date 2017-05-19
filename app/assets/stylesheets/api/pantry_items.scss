@@ -1,7 +1,43 @@
-.pantry-items li {
-  font-family: 'Nunito', sans-serif;
+.pantry-items {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pantry-table-column-titles {
+  display: flex;
+  font-family: 'Pacifico', cursive;
   font-size: 25px;
   font-weight: bold;
-  margin: auto;
+  letter-spacing: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   width: 100%;
+  background-color: #E6E6FA;
+  border-bottom: 5px solid #333399;
+  color: #333399;
+}
+
+.pantry-table-columns {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.col-2, .col-3 {
+  flex: 1;
+  text-align: center;
+  width: 25%;
+}
+
+.col-1, .col-4 {
+  flex: 1;
+  text-align: center;
+  width: 25%;
 }

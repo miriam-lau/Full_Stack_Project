@@ -49,8 +49,8 @@ export const requestPantryItem = (id) => dispatch => (
   )
 );
 
-export const createNewPantryItem = (pantry_item) => dispatch => (
-  APIUtil.createNewPantryItem(pantry_item)
+export const createPantryItem = (pantry_item) => dispatch => (
+  APIUtil.createPantryItem(pantry_item)
     .then(pantry_item => (dispatch(receiveNewPantryItem(pantry_item))),
     err => (dispatch(receivePantryErrors(err.responseJSON)))
   )

@@ -16,7 +16,7 @@ class Api::SessionsController < ApplicationController
     if @user
       sign_out
       #should it render to index?
-      render json: {}
+      render "api/users/show"
     else
       render(json: ["Not Signed In"], status: 404)
     end

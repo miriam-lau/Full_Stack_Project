@@ -9,6 +9,7 @@ class Api::PantryItemsController < ApplicationController
         @pantry_items.push(item)
       end
     end
+    puts "in pantry controller"
     render :index
   end
 

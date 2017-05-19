@@ -1,5 +1,6 @@
 import React from 'react';
 import PantryIndexItem from './pantry_index_item';
+import PantryItemForm from './pantry_item_form';
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -11,8 +12,16 @@ class PantryIndex extends React.Component {
   }
 
   render() {
+    console.log(this.props.pantry_items);
     return (
       <div className="pantry-items">
+        <div>
+          <PantryItemForm createPantryItem= { createPantryItem }
+            errors={ errors } />
+        </div>
+
+        <br />
+        <br />
         <div className="pantry-table-column-titles">
           <div className="col-1">Item</div>
           <div className="col-2">Quantity</div>

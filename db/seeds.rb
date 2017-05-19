@@ -34,6 +34,6 @@ pantry7 = PantryItem.create(name: "brussel sprouts",
 pantry8 = PantryItem.create(category: "meat", name: "steak",
   quantity: 1, unit: "each", user_id: mir.id)
 pantry9 = PantryItem.create(category: "bakery", name: "french bread",
-  quantity: 1, unit: "loaf", user_id: mir.id)
+  quantity: 1, unit: "each", user_id: mir.id)
 pantry10 = PantryItem.create(category: "beverage", name: "rootbeer",
   quantity: 4, unit: "each", user_id: mir.id)

@@ -21,13 +21,13 @@ class SignInForm extends React.Component {
 
   renderErrors() {
     return (
-        <div >
-          <ul className="sign-up-error">
-          { this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>{ error }</li>
-          ))}
-        </ul>
-      </div>
+      <div >
+        <ul className="sign-up-error">
+        { this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{ error }</li>
+        ))}
+      </ul>
+    </div>
     );
   }
 

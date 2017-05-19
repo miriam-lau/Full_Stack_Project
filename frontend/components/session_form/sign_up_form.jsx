@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ErrorBanner(props) {
   if (!props.shouldShow) {
@@ -32,7 +32,8 @@ class SignUpForm extends React.Component {
     } else {
       this.setState({matching_passwords: true});
       const user = this.state;
-      return this.props.receiveCurrentUser({user});
+      return this.props.receiveCurrentUser({user})
+        // .then(() => this.props.history.push('/pantry_items'));
     }
   }
 
@@ -103,4 +104,4 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default withRouter(SignUpForm);
+export default SignUpForm;

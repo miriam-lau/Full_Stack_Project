@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SignUpFormContainer from './sign_up_form_container';
 
 class SignInForm extends React.Component {
@@ -16,7 +16,9 @@ class SignInForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    this.props.receiveCurrentUser({user});
+    console.log(this.props.receiveCurrentUser({user}));
+    this.props.receiveCurrentUser({user})
+      .then(() => this.props.history.push('/pantry_items'));
   }
 
   renderErrors() {
@@ -75,4 +77,4 @@ class SignInForm extends React.Component {
   }
 }
 
-export default withRouter(SignInForm);
+export default SignInForm;

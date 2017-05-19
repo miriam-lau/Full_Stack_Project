@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { signin, signout, signup, receiveErrors } from '../../actions/session_actions';
 import SignInForm from './sign_in_form';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearErrors: () => dispatch(receiveErrors([]))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInForm));

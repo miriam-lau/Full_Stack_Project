@@ -42,7 +42,7 @@ class PantryItemForm extends React.Component {
     return (
       <div className="pantry-item-form">
         <form className="pantry-form" onSubmit={this.handleSubmit}>
-          <ul>{this.errors()}</ul>
+          <ul>{this.renderErrors()}</ul>
 
           <label>Category</label>
           <br />

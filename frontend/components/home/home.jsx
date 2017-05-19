@@ -20,7 +20,7 @@ class Home extends React.Component {
     return (
       <div className="main-content">
         <button className="guest-sign-in" onClick={ this.handleSubmit }>Guest Sign In</button>
-        <Carousel className="image" wrapAround={true} autopaly={true}>
+        <Carousel className="image" wrapAround={true} autoplay={true} autoInterval={3000}>
           <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1079&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
            alt="splash-img"/>
           <img src="https://images.unsplash.com/photo-1492739159057-7d1896b3c63f?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=844&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="

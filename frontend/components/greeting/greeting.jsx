@@ -23,7 +23,7 @@ const personalGreeting = (currentUser, signout) => (
       <h2 className="header-name">Hello, { currentUser.username }!</h2>
     </div>
     <div className="header">
-      <button className="header-button" onClick={ signout }>Sign Out</button>
+      <Link className="header-button" onClick={ signout } to="/">Sign Out</Link>
     </div>
     <div>
     </div>

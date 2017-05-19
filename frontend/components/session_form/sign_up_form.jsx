@@ -30,7 +30,6 @@ class SignUpForm extends React.Component {
     if (this.state.password !== this.state.re_entered_password) {
       this.setState({matching_passwords: false});
     } else {
-      console.log("here");
       this.setState({matching_passwords: true});
       const user = this.state;
       return this.props.receiveCurrentUser({user}).then(() => this.props.history.push('/pantry_items'));

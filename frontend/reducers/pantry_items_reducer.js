@@ -3,7 +3,11 @@ import { RECEIVE_ALL_PANTRY_ITEMS, RECEIVE_PANTRY_ITEM,
   RECEIVE_NEW_PANTRY_ITEM, UPDATE_PANTRY_ITEM, REMOVE_PANTRY_ITEM,
   RECEIVE_ERRORS } from '../actions/pantry_item_actions';
 
-const PantryItemsReducer = (state = {}, action) => {
+const noErrors = Object.freeze({
+  errors: []
+});
+
+const PantryItemsReducer = (state = noErrors, action) => {
   Object.freeze(state)
   switch(action.type) {
     case RECEIVE_ALL_PANTRY_ITEMS:
@@ -19,7 +23,7 @@ const PantryItemsReducer = (state = {}, action) => {
       delete newState[action.pantry_item.id]
       return newState;
     case RECEIVE_ERRORS:
-      return merge({}, action.errors);
+      return merge({}, state, action.errors);
     default:
       return state;
   }

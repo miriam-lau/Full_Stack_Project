@@ -1,6 +1,8 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
+
 import PantryIndexItem from './pantry_index_item';
-import PantryItemForm from './pantry_item_form';
+import PantryItemFormContainer from './pantry_item_form_container';
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -12,16 +14,9 @@ class PantryIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props.pantry_items);
-    const { createPantryItem, errors } = this.props;
     return (
-      <div className="pantry-items">
-        <div>
-          <PantryItemForm createPantryItem= { createPantryItem }
-            errors={ errors } />
-        </div>
-
-        <br />
+      <div>
+        <Route exact path="/pantry_items" component={ PantryItemFormContainer } />
         <br />
         <div className="pantry-table-column-titles">
           <div className="col-1">Item</div>
@@ -29,9 +24,12 @@ class PantryIndex extends React.Component {
           <div className="col-3">Unit</div>
           <div className="col-4">Category</div>
         </div>
-        {this.props.pantry_items.map(item  =>
-          <PantryIndexItem key={item.id} pantry_item={item} />
-        )}
+        <ul className="pantry-items">
+          {this.props.pantry_items.map(item  =>
+            <PantryIndexItem key={item.id} pantry_item={item} />
+          )}
+        </ul>
+
       </div>
     );
   }

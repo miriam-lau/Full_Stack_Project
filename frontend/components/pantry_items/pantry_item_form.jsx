@@ -21,15 +21,15 @@ class PantryItemForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <div >
+    if (this.props.errors) {
+      return (
         <ul className="pantry-form-error">
-        { this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{ error }</li>
-        ))}
-      </ul>
-    </div>
-    );
+          { this.props.errors.map((error, idx) => (
+            <li key={`error-${idx}`}>{ error }</li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   update(property) {
@@ -55,7 +55,7 @@ class PantryItemForm extends React.Component {
           <br/>
           <br/>
 
-          <label>Name</label>
+          <label>Item Name</label>
           <br />
           <input type="text" value={this.state.name}
             onChange={this.update('name')}/>

@@ -13,6 +13,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PantryItemForm));
-
-
-// clearErrors: () => dispatch(receiveErrors([]))

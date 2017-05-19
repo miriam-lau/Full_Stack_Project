@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
 }
 
@@ -30,6 +30,22 @@
   width: 100%;
 }
 
+.pantry-button {
+  flex-direction: column;
+  flex: 1;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #333399;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
 .col-2, .col-3 {
   flex: 1;
   text-align: center;
@@ -47,18 +63,4 @@
   font-size: 20px;
   font-weight: bold;
   width: 500px;
-}
-
-.pantry-button {
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  width: 100%;
-  background-color: #333399;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid #333399;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.5s;
 }

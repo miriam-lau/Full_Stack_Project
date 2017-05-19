@@ -15,6 +15,7 @@ class PantryIndex extends React.Component {
 
   render() {
     const deletePantryItem = this.props.deletePantryItem;
+    const editPantryItem = this.props.editPantryItem;
     const pantry_items = this.props.pantry_items;
     return (
       <div>
@@ -29,7 +30,8 @@ class PantryIndex extends React.Component {
         <ul className="pantry-items">
           {this.props.pantry_items.map((item, idx) => {
             return (<PantryIndexItem key={idx} pantry_item={item}
-              deletePantryItem={deletePantryItem} />)
+              deletePantryItem={deletePantryItem}
+              editPantryItem={editPantryItem} />)
           })}
         </ul>
 

@@ -28,8 +28,6 @@ const App = () => (
       </div>
       <div  id="footer">
         <footer className="footer">
-          <div>Image courtesy of Brooke Lark</div>
-          <br />
           <div>Copyright 2017 myPantry. All rights reserved.
           </div>
         </footer>

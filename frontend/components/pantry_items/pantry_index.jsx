@@ -14,6 +14,8 @@ class PantryIndex extends React.Component {
   }
 
   render() {
+    const deletePantryItem = this.props.deletePantryItem;
+    const pantry_items = this.props.pantry_items;
     return (
       <div>
         <Route exact path="/pantry_items" component={ PantryItemFormContainer } />
@@ -25,9 +27,10 @@ class PantryIndex extends React.Component {
           <div className="col-4">Category</div>
         </div>
         <ul className="pantry-items">
-          {this.props.pantry_items.map((item, idx)  =>
-            <PantryIndexItem key={idx} pantry_item={item} />
-          )}
+          {this.props.pantry_items.map((item, idx) => {
+            return (<PantryIndexItem key={idx} pantry_item={item}
+              deletePantryItem={deletePantryItem} />)
+          })}
         </ul>
 
       </div>

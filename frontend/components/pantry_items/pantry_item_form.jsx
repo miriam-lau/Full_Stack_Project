@@ -11,12 +11,15 @@ class PantryItemForm extends React.Component {
       'Vegetable'];
 
     this.units = ['each', 'cup', 'pint', 'quart', 'gallon', 'fluid ounce',
-      'teaspoon', 'tablespoon', 'ounce', 'pound'] ;
+      'teaspoon', 'tablespoon', 'ounce', 'pound'];
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.createPantryItem(this.state)
+    const pantry_item = this.state;
+    this.props.createPantryItem({pantry_item})
       .then(data => this.props.history.push(`/pantry_items/${data.id}`));
   }
 

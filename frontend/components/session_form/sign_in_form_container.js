@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import { signin, signout, signup, receiveErrors } from '../../actions/session_actions';
 import SignInForm from './sign_in_form';
-import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {

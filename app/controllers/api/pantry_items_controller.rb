@@ -2,7 +2,13 @@ class Api::PantryItemsController < ApplicationController
   before_filter :require_signed_in
 
   def index
-    @pantry_items = PantryItem.all
+    items = PantryItem.all
+    @pantry_items = [];
+    items.each do |item|
+      if item.user_id == current_user.id
+        @pantry_items.push(item)
+      end
+    end
     render :index
   end
 

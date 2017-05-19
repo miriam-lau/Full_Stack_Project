@@ -12,7 +12,6 @@ class Home extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
     const user = this.state;
     this.props.receiveCurrentUser({user});
   }

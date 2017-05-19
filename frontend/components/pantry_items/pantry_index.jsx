@@ -19,7 +19,7 @@ class PantryIndex extends React.Component {
           <div className="col-3">Unit</div>
           <div className="col-4">Category</div>
         </div>
-        {this.props.pantry_items.map(item =>
+        {this.props.pantry_items.map(item  =>
           <PantryIndexItem key={item.id} pantry_item={item} />
         )}
       </div>

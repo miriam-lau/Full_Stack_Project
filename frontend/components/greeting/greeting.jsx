@@ -1,41 +1,80 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
+import GroceryIndex from '../grocery/grocery_index';
 
 const sessionLinks = (clearErrors) => (
-  <nav>
-    <span className="nav-link">
-      <Link className="link" to="/">Home Page</Link>
-    </span>
-    <span className="nav-link">
-      <Link onClick={clearErrors} className="link" to="/signin">Sign In</Link>
-    </span>
-    <span className="nav-link">
-      <Link onClick={clearErrors} className="link" to="/signup">Create Account</Link>
-    </span>
-
+  <nav className="header-group">
+    <div className="header">
+      <h1 className="greeting">myPantry</h1>
+    </div>
+    <div clasName="header">
+      <span className="nav-link">
+        <Link className="link" to="/">Home Page</Link>
+      </span>
+      <span className="nav-link">
+        <Link onClick={clearErrors} className="link" to="/signin">Sign In</Link>
+      </span>
+      <span className="nav-link">
+        <Link onClick={clearErrors} className="link" to="/signup">Create Account</Link>
+      </span>
+    </div>
   </nav>
 );
 
 const personalGreeting = (currentUser, signout) => (
-  <div className="header-group">
+  <nav className="header-group2">
     <div className="header">
-      <h2 className="header-name">Hello, { currentUser.username }!</h2>
+      <h1 className="greeting">myPantry</h1>
     </div>
+
     <div className="header">
-      <Link className="header-button" onClick={ signout } to="/">Sign Out</Link>
+      <section className="header2">
+        <h2 className="header-name">Hello, { currentUser.username }!</h2>
+      </section>
+      <section className="header2">
+        <Link className="header-button" onClick={ signout } to="/">Sign Out</Link>
+      </section>
     </div>
-    <div>
-    </div>
-  </div>
+
+  </nav>
 );
 
 const Greeting = ({ currentUser, signout, clearErrors }) => {
-  return (
-    <div>
-      {currentUser ? personalGreeting(currentUser, signout) : sessionLinks(clearErrors)}
-    </div>
-  )
+  if (currentUser) {
+    return (
+      <div className="greeting-wrapper">
+        <div className="greeting-one">
+          { personalGreeting(currentUser, signout) }
+        </div>
+
+        <div className="greeting-two">
+          <ul>
+            <li className="nav-titles">Grocery</li>
+            <li className="nav-titles">Pantry</li>
+          </ul>
+        </div>
+
+        <div className="greeting-three">
+            <Route path='/grocery' component={GroceryIndex} />
+            <Route path='/pantry_items' component={PantryIndexContainer} />
+        </div>
+
+        <div className="greeting-four">
+          <footer className="footer">
+            <div>Copyright 2017 myPantry. All rights reserved.
+            </div>
+          </footer>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        {sessionLinks(clearErrors)}
+      </div>
+    )
+  }
 };
 
 export default Greeting;

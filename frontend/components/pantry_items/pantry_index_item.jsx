@@ -1,28 +1,70 @@
 import React from 'react';
+import TextField from 'material-ui/TextField';
+
 import { Link } from 'react-router-dom';
 
+const textboxUnderlineStyle = {
+  'border-color': '#333399'
+}
+
+// var changeTimer = false;
+
 class PantryIndexItem extends React.Component {
+  constructor(props) {
+    super(props)
+    let pantry_item = this.props.pantry_item
+    this.state = { name: pantry_item.name, quantity: pantry_item.quantity,
+      unit: pantry_item.unit }
+  }
+
+  update(property) {
+    return e => this.setState({ [property]: e.target.value });
+  }
+
+  handleChange(event) {
+    event.preventDefault();
+    const pantry_item = this.state;
+    // if (changeTimer !== false) {
+    //   clearTimeout(changeTimer);
+    //   changeTimer = setTimeout(function(){
+    this.props.editPantryItem({pantry_item})
+      .then(data => this.props.history.push(`/pantry_items/${data.id}`));
+      //   changeTimer = false;
+      // },300);
+    // }
+  }
+
   render() {
     const pantry_item = this.props.pantry_item;
     const deletePantryItem = this.props.deletePantryItem;
 
     return (
-      <div className="pantry-items">
-        <div className="pantry-table-columns">
-          <div className="col-1">{ pantry_item.name }</div>
-          <div className="col-2">{ pantry_item.quantity }</div>
-          <div className="col-3">{ pantry_item.unit }</div>
-          <div className="col-4">{ pantry_item.category }</div>
-        </div>
-        <div className="button-link">
-          <Link to={`/pantry_items/${pantry_item.id}/edit`}>
-            Update Pantry Item
-          </Link>
-        </div>
-        <button className="pantry-button"
-          onClick={ () => {deletePantryItem(pantry_item.id)} }>
-          Delete Pantry Item
-        </button>
+      <div>
+        <li>
+          <TextField className="pantry-item-col1" id="text-field-default"
+            value={ this.state.name }
+            onChange={this.handleChange}
+            underlineFocusStyle ={textboxUnderlineStyle}
+            style={{width: '30%'}}
+          />
+
+          <TextField className="pantry-item-col" id="text-field-default"
+            value={ this.state.quantity }
+            underlineFocusStyle ={textboxUnderlineStyle}
+            style={{width: '5%'}}
+          />
+
+          <TextField className="pantry-item-col" id="text-field-default"
+            value={ pantry_item.unit }
+            underlineFocusStyle ={textboxUnderlineStyle}
+            style={{width: '10%'}}
+          />
+
+          <button className="pantry-button"
+            onClick={ () => {deletePantryItem(pantry_item.id)} }>
+            Delete Item
+          </button>
+        </li>
       </div>
     );
   }

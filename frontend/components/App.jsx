@@ -11,28 +11,25 @@ import PantryIndexContainer from './pantry_items/pantry_index_container';
 const App = () => (
     <div id="wrapper">
       <div id="header">
-        <section className="nav-bar">
-          <h1 className="greeting">myPantry</h1>
           <div>
           <GreetingContainer />
           </div>
-          </section>
-        </div>
-      <div id="content">
-        <Switch>
-          <AuthRoute exact path='/' component={ HomeContainer }/>
-          <AuthRoute path='/signin' component={ SignInFormContainer } />
-          <AuthRoute path='/signup' component={ SignUpFormContainer } />
-          <Route path='/pantry_items' component={ PantryIndexContainer }/>
-        </Switch>
       </div>
-      <div  id="footer">
-        <footer className="footer">
-          <div>Copyright 2017 myPantry. All rights reserved.
-          </div>
-        </footer>
-      </div>
+    <div id="content">
+
+      <Switch>
+        <AuthRoute exact path='/' component={ HomeContainer }/>
+        <AuthRoute path='/signin' component={ SignInFormContainer } />
+        <AuthRoute path='/signup' component={ SignUpFormContainer } />
+      </Switch>
     </div>
+  </div>
 );
 
 export default App;
+
+
+// <section className="nav-bar">
+// </section>
+
+// <Route path='/pantry_items' component={ PantryIndexContainer }/>

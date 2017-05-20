@@ -1,15 +1,36 @@
 .header-group {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  background-color: #333399;
+  color: white;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.header-group2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333399;
+  color: white;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .header {
+  display: flex;
   align-items: center;
 }
 
+.header2 {
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 30px;
+}
+
 .header-name {
-  margin-right: 50px;
+  padding: 10px;
   font-family: 'Nunito', sans-serif;
   font-size: 25px;
   font-weight: bold;
@@ -39,4 +60,104 @@
   color: white;
   border: 1px solid #E6E6FA;
   transition: 0.5s;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px;
+  background-color: #333399;
+  color: white;
+  align-items: center;
+}
+
+.greeting {
+  font-size: 40px;
+  letter-spacing: 5px;
+  font-family: 'Pacifico', cursive;
+  width: 260px;
+  text-align: center;
+  flex: 1;
+}
+
+.nav-link {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: flex-end;
+  margin-left: 50px;
+  flex: 1;
+}
+
+.nav-link:first-child {
+  margin: 0;
+}
+
+.nav-link:last-child {
+  margin-right: 50px;
+}
+.nav-link:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.greeting-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  grid-template-areas:
+    "greeting-one greeting-one greeting-one greeting-one
+      greeting-one greeting-one greeting-one greeting-one"
+    "greeting-two greeting-three greeting-three greeting-three
+      greeting-three greeting-three greeting-three greeting-three"
+    "greeting-four greeting-four greeting-four greeting-four
+      greeting-four greeting-four greeting-four greeting-four";
+  width: 100%;
+}
+
+.greeting-one {
+  grid-column: 1 / 8;
+  grid-row: 1;
+}
+
+.greeting-two {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  background-color: #E6E6FA;
+}
+
+.greeting-three {
+  grid-column: 2 / 8;
+  grid-row: 2 / 4;
+  padding: 20px;
+}
+
+.greeting-four {
+  grid-column: 1 / 8;
+}
+
+.nav-titles {
+  font-family: 'Nunito', sans-serif;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #333399;
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
 }

@@ -19,23 +19,27 @@ class PantryIndex extends React.Component {
     const editPantryItem = this.props.editPantryItem;
     const pantry_items = this.props.pantry_items;
     return (
-      <div>
-        <Route exact path="/pantry_items" component={ PantryItemFormContainer } />
+      <div className="pantry-wrapper">
+        <div className="pantry-one">
+          <Route exact path="/pantry_items" component={ PantryItemFormContainer } />
+        </div>
+
         <Route path="/pantry_items/:id/edit" component={ PantryItemUpdateFormContainer } />
         <br />
-        <div className="pantry-table-column-titles">
-          <div className="col-1">Item</div>
-          <div className="col-2">Quantity</div>
-          <div className="col-3">Unit</div>
-          <div className="col-4">Category</div>
+
+        <div className="pantry-two">
+          <h2>Current Pantry Items</h2>
         </div>
-        <ul className="pantry-items">
-          {this.props.pantry_items.map((item, idx) => {
-            return (<PantryIndexItem key={idx} pantry_item={item}
-              deletePantryItem={deletePantryItem}
-              editPantryItem={editPantryItem} />)
-          })}
-        </ul>
+
+        <div className="pantry-three">
+          <ul className="pantry-items">
+            {this.props.pantry_items.map((item, idx) => {
+              return (<PantryIndexItem key={idx} pantry_item={item}
+                deletePantryItem={deletePantryItem}
+                editPantryItem={editPantryItem} />)
+            })}
+          </ul>
+        </div>
 
       </div>
     );
@@ -43,3 +47,11 @@ class PantryIndex extends React.Component {
 }
 
 export default PantryIndex;
+
+
+// <div className="pantry-table-column-titles">
+// <div className="col-1">Item</div>
+// <div className="col-2">Quantity</div>
+// <div className="col-3">Unit</div>
+// <div className="col-4">Category</div>
+// </div>

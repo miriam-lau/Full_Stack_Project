@@ -1,15 +1,19 @@
 import React from 'react';
+import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
+
+const textboxUnderlineStyle = {
+  'border-color': '#333399'
+}
+
+// hintText="Custom Underline Focus Color"
+// underline ={textboxStyles.underlineStyle}
 
 class PantryItemUpdateForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: this.props.category, name: this.props.name,
+    this.state = { name: this.props.name,
       quantity: this.props.quantity, unit: this.props.unit};
-
-    this.categories = ['Beverage', 'Bread & Bakery', 'Canned & Jarred',
-      'Dairy', 'Dry & Baking', 'Frozen', 'Fruit', 'Meat & Seafood',
-      'Vegetable'];
 
     this.units = ['each', 'cup', 'pint', 'quart', 'gallon', 'fluid ounce',
       'teaspoon', 'tablespoon', 'ounce', 'pound'];
@@ -18,6 +22,7 @@ class PantryItemUpdateForm extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
     this.props.requestPantryItem(this.props.match.params.id)
       .then(()=> {this.setState(this.props.pantry_item);});
   }
@@ -53,48 +58,22 @@ class PantryItemUpdateForm extends React.Component {
 
   render() {
     return (
-      <div className="pantry-item-form">
-        <form className="pantry-form" onSubmit={this.handleSubmit}>
-          <ul>{this.renderErrors()}</ul>
+      <div className="update-item">
+        <TextField className="update-field" id="text-field-default"
+          defaultValue={this.state.name}
+          underlineFocusStyle ={textboxUnderlineStyle}/>
+        <br />
 
-          <label>Category</label>
-          <br />
-          <select value={this.state.category} onChange={this.update('category')}
-            defaultValue="Select Food Category">
-            {this.categories.map((category, idx) => {
-              return <option key={idx} value={category} >{category}</option>;
-            })}
-          </select>
-          <br/>
-          <br/>
+        <TextField id="text-field-default"
+          defaultValue={this.state.quantity}
+          underlineFocusStyle ={textboxUnderlineStyle}/>
+        <br />
 
-          <label>Item Name</label>
-          <br />
-          <input className="pantry-input" type="text" value={this.state.name}
-            onChange={this.update('name')}/>
-          <br/>
-          <br/>
+        <TextField id="text-field-default"
+          defaultValue={this.state.unit}
+          underlineFocusStyle ={textboxUnderlineStyle}/>
+        <br />
 
-          <label>Quantity</label>
-          <br />
-          <input className="pantry-input" type="number" value={this.state.quantity}
-            onChange={this.update('quantity')}/>
-          <br/>
-          <br/>
-
-          <label>Unit</label>
-          <br />
-          <select value={this.state.unit} onChange={this.update('unit')}
-            defaultValue="Select Unit of Measure">
-            {this.units.map((unit, idx) => {
-              return <option key={idx} value={unit} >{unit}</option>;
-            })}
-          </select>
-
-          <br />
-          <br />
-          <button className="pantry-button">Update Pantry Item</button>
-        </form>
         <Link to="/pantry_items">Back to Pantry Index</Link>
       </div>
     )
@@ -102,3 +81,34 @@ class PantryItemUpdateForm extends React.Component {
 }
 
 export default PantryItemUpdateForm;
+
+
+// <form className="pantry-form" onSubmit={this.handleSubmit}>
+// <ul>{this.renderErrors()}</ul>
+// <label>Item Name</label>
+// <br />
+// <input className="pantry-input" type="text" value={this.state.name}
+//   onChange={this.update('name')}/>
+// <br/>
+// <br/>
+// <label>Quantity</label>
+// <br />
+// <input className="pantry-input" type="number" value={this.state.quantity}
+// onChange={this.update('quantity')}/>
+// <br/>
+// <br/>
+//
+// <label>Unit</label>
+// <br />
+// <select value={this.state.unit} onChange={this.update('unit')}
+// defaultValue="Select Unit of Measure">
+// {this.units.map((unit, idx) => {
+//   return <option key={idx} value={unit} >{unit}</option>;
+// })}
+// </select>
+//
+// <br />
+// <br />
+// <button className="pantry-button">Update Pantry Item</button>
+// </form>
+//

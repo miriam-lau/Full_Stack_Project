@@ -20,6 +20,7 @@ class Home extends React.Component {
     return (
       <div className="main-content">
         <button className="guest-sign-in" onClick={ this.handleSubmit }>Guest Sign In</button>
+
         <Carousel className="image" wrapAround={true} autoplay={true} autoInterval={5000}>
           <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1079&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
            alt="splash-img"/>
@@ -30,6 +31,14 @@ class Home extends React.Component {
           <img src="https://images.unsplash.com/photo-1491994778642-b286df793bf6?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
             alt="splash-img"/>
        </Carousel>
+
+       <div id="footer">
+         <footer className="home-footer">
+           <div>Copyright 2017 myPantry. All rights reserved.
+           </div>
+         </footer>
+       </div>
+
       </div>
     )
   }

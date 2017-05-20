@@ -34,3 +34,16 @@
   border: 1px solid #333399;
   transition: 0.5s;
 }
+
+.home-footer {
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 5px solid #333399;
+  background-color: #E6E6FA;
+  width: 100%;
+}

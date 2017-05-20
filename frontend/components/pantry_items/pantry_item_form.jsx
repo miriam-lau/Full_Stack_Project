@@ -5,10 +5,6 @@ class PantryItemForm extends React.Component {
     super(props);
     this.state = { category: 'None', name: '', quantity: 0, unit: 'each' };
 
-    this.categories = ['None', 'Beverage', 'Bread & Bakery', 'Canned & Jarred',
-      'Dairy', 'Dry & Baking', 'Frozen', 'Fruit', 'Meat & Seafood',
-      'Vegetable'];
-
     this.units = ['each', 'cup', 'pint', 'quart', 'gallon', 'fluid ounce',
       'teaspoon', 'tablespoon', 'ounce', 'pound'];
 
@@ -42,45 +38,37 @@ class PantryItemForm extends React.Component {
 //split on space
   render() {
     return (
-      <div className="pantry-item-form">
+      <div>
         <form className="pantry-form" onSubmit={this.handleSubmit}>
           <ul>{this.renderErrors()}</ul>
 
-          <label>Category</label>
-          <br />
-          <select value={this.state.category} onChange={this.update('category')}>
-            {this.categories.map((category, idx) => {
-              return <option key={idx} value={category} >{category}</option>;
-            })}
-          </select>
-          <br/>
-          <br/>
+          <section className="pantry-form-section">
+            <label>Item Name</label>
+            <br />
+            <input className="pantry-input" type="text" value={this.state.name}
+              onChange={this.update('name')}/>
+            <br/>
+          </section>
 
-          <label>Item Name</label>
-          <br />
-          <input className="pantry-input" type="text" value={this.state.name}
-            onChange={this.update('name')}/>
-          <br/>
-          <br/>
+          <section className="pantry-form-section">
+            <label>Quantity</label>
+            <br />
+            <input className="pantry-input" type="number" value={this.state.quantity}
+              onChange={this.update('quantity')}/>
+            <br/>
+          </section>
 
-          <label>Quantity</label>
-          <br />
-          <input className="pantry-input" type="number" value={this.state.quantity}
-            onChange={this.update('quantity')}/>
-          <br/>
-          <br/>
+          <section className="pantry-form-section">
+            <label>Unit</label>
+            <br />
+            <select value={this.state.unit} onChange={this.update('unit')}>
+              {this.units.map((unit, idx) => {
+                return <option key={idx} value={unit} >{unit}</option>;
+              })}
+            </select>
+          </section>
 
-          <label>Unit</label>
-          <br />
-          <select value={this.state.unit} onChange={this.update('unit')}>
-            {this.units.map((unit, idx) => {
-              return <option key={idx} value={unit} >{unit}</option>;
-            })}
-          </select>
-
-          <br />
-          <br />
-          <button className="pantry-button">Add Pantry Item</button>
+          <button className="pantry-button">Add Item</button>
         </form>
       </div>
     );

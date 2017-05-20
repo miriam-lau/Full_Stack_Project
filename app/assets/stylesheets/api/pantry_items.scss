@@ -1,66 +1,103 @@
-.pantry-items {
+
+.pantry-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  grid-template-areas:
+    "pantry-one pantry-one pantry-one pantry-one"
+    "pantry-two pantry-two pantry-two pantry-two"
+    "pantry-three pantry-three pantry-three pantry-three";
+  width: 100%;
+}
+
+.pantry-one {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  padding-bottom: 50px;
+}
+
+.pantry-two {
+  grid-column: 1 / 5;
+  grid-row: 2 / 4;
+  background-color: #333399;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.pantry-three {
+  grid-column: 1 / 5;
+  grid-row: 3 /4;
+  background-color: #E6E6FA;
+}
+
+.pantry-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pantry-form-section, .pantry-input, label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pantry-form-section, select {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  width: 30%;
+}
+
+.pantry-items li {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
 
-.pantry-table-column-titles {
-  display: flex;
-  font-family: 'Pacifico', cursive;
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 5px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width: 100%;
-  background-color: #E6E6FA;
-  border-bottom: 5px solid #333399;
-  color: #333399;
-}
-
-.pantry-table-columns {
-  display: flex;
+.pantry-item-col {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.pantry-item-col1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  text-align: center;
   width: 100%;
 }
 
 .pantry-button {
-  flex-direction: column;
-  flex: 1;
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
-  width: 100%;
+  width: 130px;
   background-color: #333399;
   color: white;
-  border-radius: 5px;
+  border-radius: 7px;
   border: 1px solid #333399;
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.col-2, .col-3 {
-  flex: 1;
-  text-align: center;
-  width: 25%;
-}
-
-.col-1, .col-4 {
-  flex: 1;
-  text-align: center;
-  width: 25%;
-}
-
-.pantry-form, .pantry-input, label, select {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  width: 500px;
+.pantry-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
 }

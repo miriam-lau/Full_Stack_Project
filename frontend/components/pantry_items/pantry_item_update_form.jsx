@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-class PantryItemForm extends React.Component {
+class PantryItemUpdateForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: 'None', name: '', quantity: 0, unit: 'each' };
+    this.state = { category: this.props.category, name: this.props.name,
+      quantity: this.props.quantity, unit: this.props.unit};
 
-    this.categories = ['None', 'Beverage', 'Bread & Bakery', 'Canned & Jarred',
+    this.categories = ['Beverage', 'Bread & Bakery', 'Canned & Jarred',
       'Dairy', 'Dry & Baking', 'Frozen', 'Fruit', 'Meat & Seafood',
       'Vegetable'];
 
@@ -15,10 +17,21 @@ class PantryItemForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.requestPantryItem(this.props.match.params.id)
+      .then(()=> {this.setState(this.props.pantry_item);});
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.requestPantryItem(nextProps.match.params.id);
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const pantry_item = this.state;
-    this.props.createPantryItem({pantry_item})
+    this.props.editPantryItem({pantry_item})
       .then(data => this.props.history.push(`/pantry_items/${data.id}`));
   }
 
@@ -34,12 +47,10 @@ class PantryItemForm extends React.Component {
     }
   }
 
-  update(property) {
-    return e => this.setState({ [property]: e.target.value });
+  update (property) {
+    return e => this.setState({[property]: e.target.value});
   }
 
-//quantity and unit of measure in one input
-//split on space
   render() {
     return (
       <div className="pantry-item-form">
@@ -48,7 +59,8 @@ class PantryItemForm extends React.Component {
 
           <label>Category</label>
           <br />
-          <select value={this.state.category} onChange={this.update('category')}>
+          <select value={this.state.category} onChange={this.update('category')}
+            defaultValue="Select Food Category">
             {this.categories.map((category, idx) => {
               return <option key={idx} value={category} >{category}</option>;
             })}
@@ -72,7 +84,8 @@ class PantryItemForm extends React.Component {
 
           <label>Unit</label>
           <br />
-          <select value={this.state.unit} onChange={this.update('unit')}>
+          <select value={this.state.unit} onChange={this.update('unit')}
+            defaultValue="Select Unit of Measure">
             {this.units.map((unit, idx) => {
               return <option key={idx} value={unit} >{unit}</option>;
             })}
@@ -80,11 +93,12 @@ class PantryItemForm extends React.Component {
 
           <br />
           <br />
-          <button className="pantry-button">Add Pantry Item</button>
+          <button className="pantry-button">Update Pantry Item</button>
         </form>
+        <Link to="/pantry_items">Back to Pantry Index</Link>
       </div>
-    );
+    )
   }
 }
 
-export default PantryItemForm;
+export default PantryItemUpdateForm;

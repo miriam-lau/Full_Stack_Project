@@ -62,18 +62,6 @@
   transition: 0.5s;
 }
 
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 20px;
-  background-color: #333399;
-  color: white;
-  align-items: center;
-}
-
 .greeting {
   font-size: 40px;
   letter-spacing: 5px;
@@ -88,8 +76,9 @@
   font-size: 18px;
   font-weight: bold;
   align-items: flex-end;
+  width: auto;
+  text-align: center;
   margin-left: 50px;
-  flex: 1;
 }
 
 .nav-link:first-child {

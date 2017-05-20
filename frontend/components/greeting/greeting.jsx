@@ -8,16 +8,16 @@ const sessionLinks = (clearErrors) => (
     <div className="header">
       <h1 className="greeting">myPantry</h1>
     </div>
-    <div clasName="header">
-      <span className="nav-link">
+    <div className="header">
+      <div className="nav-link">
         <Link className="link" to="/">Home Page</Link>
-      </span>
-      <span className="nav-link">
+      </div>
+      <div className="nav-link">
         <Link onClick={clearErrors} className="link" to="/signin">Sign In</Link>
-      </span>
-      <span className="nav-link">
+      </div>
+      <div className="nav-link">
         <Link onClick={clearErrors} className="link" to="/signup">Create Account</Link>
-      </span>
+      </div>
     </div>
   </nav>
 );

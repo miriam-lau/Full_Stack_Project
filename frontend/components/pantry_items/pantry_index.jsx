@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 
 import PantryIndexItem from './pantry_index_item';
 import PantryItemFormContainer from './pantry_item_form_container';
@@ -20,6 +20,7 @@ class PantryIndex extends React.Component {
     return (
       <div>
         <Route exact path="/pantry_items" component={ PantryItemFormContainer } />
+        <Route path="/pantry_items/:id/edit" component={ PantryItemFormContainer } />
         <br />
         <div className="pantry-table-column-titles">
           <div className="col-1">Item</div>

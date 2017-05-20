@@ -37,16 +37,16 @@ class Api::PantryItemsController < ApplicationController
   def update
     @pantry_item = current_user.pantry_items.find(params[:id])
     if @pantry_item.update_attributes(pantry_item_params)
-      render :index
+      render :show
     else
       render json: @pantry_item.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    pantry_item = PantryItem.find(params[:id])
-    pantry_item.destroy
-    render :index
+    @pantry_item = PantryItem.find(params[:id])
+    @pantry_item.destroy
+    render :show
   end
 
   private

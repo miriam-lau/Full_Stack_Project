@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-const mapDispatchToProps = (dispatch, {pantry_item}) => ({
+const mapDispatchToProps = (dispatch) => ({
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
   deletePantryItem: (id) => dispatch(deletePantryItem(id)),
   editPantryItem: (id) => dispatch(editPantryItem(id))

@@ -63,8 +63,8 @@ export const editPantryItem = (id) => dispatch => (
   )
 );
 
-export const deletePantryItem = (id) => dispatch => (
-  APIUtil.deletePantryItem(id)
-    .then(pantry_item => (dispatch(removePantryItem(pantry_item.id)))
+export const deletePantryItem = (id) => dispatch => {
+  return APIUtil.deletePantryItem(id)
+    .then(pantry_item => (dispatch(removePantryItem(pantry_item)))
   )
-);
+};

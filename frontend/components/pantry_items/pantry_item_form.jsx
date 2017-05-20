@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 class PantryItemForm extends React.Component {
   constructor(props) {
@@ -90,4 +89,4 @@ class PantryItemForm extends React.Component {
   }
 }
 
-export default withRouter(PantryItemForm);
+export default PantryItemForm;

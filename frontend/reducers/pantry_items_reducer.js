@@ -20,7 +20,7 @@ const PantryItemsReducer = (state = noErrors, action) => {
       return merge({}, state, action.pantry_item);
     case REMOVE_PANTRY_ITEM:
       const newState = merge({}, state);
-      delete newState[action.pantry_item.id]
+      delete newState[Object.keys(action.pantry_item)[0]];
       return newState;
     case RECEIVE_ERRORS:
       return merge({}, state, action.errors);

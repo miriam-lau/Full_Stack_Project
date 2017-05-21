@@ -34,6 +34,9 @@ class PantryIndex extends React.Component {
         <div className="pantry-three">
           <ul className="pantry-items">
             {this.props.pantry_items.map((item, idx) => {
+              console.log('------------');
+              console.log(item);
+              console.log(idx);
               return (<PantryIndexItem key={idx} pantry_item={item}
                 deletePantryItem={deletePantryItem}
                 editPantryItem={editPantryItem} />)

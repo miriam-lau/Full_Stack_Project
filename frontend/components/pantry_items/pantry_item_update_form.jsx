@@ -22,7 +22,6 @@ class PantryItemUpdateForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.props.requestPantryItem(this.props.match.params.id)
       .then(()=> {this.setState(this.props.pantry_item);});
   }

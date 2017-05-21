@@ -111,7 +111,7 @@ class PantryIndexItem extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.state.temp == null) {
+    if (this.state.temp === '') {
       const pantry_item = this.state;
       this.props.editPantryItem({pantry_item})
         .then(data => this.props.history.push(`/pantry_items/${data.id}`));
@@ -138,7 +138,7 @@ class PantryIndexItem extends React.Component {
         <form className="update-pantry-form" onSubmit={this.handleSubmit}>
           <div className="update-pantry-col1">
             <TextField id="text-field-default"
-              defaultValue={ quantity }
+              value={ quantity }
               underlineFocusStyle ={textboxUnderlineStyle}
               style={addItemTextBoxStyle1}
               onChange={this.update('temp')}
@@ -146,14 +146,14 @@ class PantryIndexItem extends React.Component {
           </div>
           <div className="update-pantry-col2">
             <TextField id="text-field-default"
-              defaultValue={ this.state.name }
+              value={ this.state.name }
               underlineFocusStyle ={textboxUnderlineStyle}
               style={addItemTextBoxStyle2}
               onChange={this.update('name')}
             />
           </div>
-
         </form>
+
         <button className="pantry-button"
           onClick={ () => {deletePantryItem(pantry_item.id)} }>
           Delete

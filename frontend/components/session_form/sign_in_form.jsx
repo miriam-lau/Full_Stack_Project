@@ -17,7 +17,7 @@ class SignInForm extends React.Component {
     event.preventDefault();
     const user = this.state;
     this.props.receiveCurrentUser({user})
-      .then(() => this.props.history.push('/pantry_items'));
+      .then(this.props.history.push('/pantry_items'));
   }
 
   renderErrors() {

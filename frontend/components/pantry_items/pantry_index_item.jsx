@@ -66,16 +66,22 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
+      console.log("parseAddItem first return");
       return false;
     }
 
     words = splitFirstWord.concat(words);
-    words = words.filter(function(entry) { return entry.trim() != ''; });
+    words = words.filter(function(el) {
+      console.log("parseAddItem word filter return");
+      return (el.trim() !== '');
+    });
+
     let quantity = words.shift();
     let unit = words[0];
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
+      console.log("parseAddItem 2nd return");
      return false;
     }
 
@@ -92,10 +98,6 @@ class PantryIndexItem extends React.Component {
 
     if (convertedUnit != null) {
       words.shift();
-    }
-
-    if (words.length == 0) {
-     return false;
     }
 
     if (convertedUnit === null) {
@@ -127,8 +129,6 @@ class PantryIndexItem extends React.Component {
   update (property) {
     return e => this.setState({[property]: e.target.value}, () => {
       if (this.state.temp === '') {
-        console.log("in update state.temp is ''");
-        console.log(this.state);
         const pantry_item = this.state;
         this.props.editPantryItem({pantry_item});
           // .then(data => this.props.history.push(`/pantry_items/${data.id}`));
@@ -174,14 +174,6 @@ class PantryIndexItem extends React.Component {
 }
 
 export default PantryIndexItem;
-// <TextField id="text-field-default"
-// value={this.state.temp}
-// underlineFocusStyle ={textboxUnderlineStyle}
-// style={addItemTextBoxStyle1}
-// hintText="e.g. "
-// onChange={this.update('temp')}
-// />
-// <div className="update-pantry-col1">
 
 // onChange={this.handleChange}
 // <Link to={`/pantry_items/${pantry_item.id}`}></Link>
@@ -189,10 +181,3 @@ export default PantryIndexItem;
 //   onClick={ () => {editPantryItem(pantry_item.id)} }>
 //   Update Pantry Item
 // </button>
-//
-// handleSubmit(event) {
-//   event.preventDefault();
-//   const pantry_item = this.state;
-//   this.props.editPantryItem({pantry_item})
-//   .then(data => this.props.history.push(`/pantry_items/${data.id}`));
-// }

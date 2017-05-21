@@ -68,26 +68,32 @@
   width: 100%;
 }
 
+.update-pantry-form-div {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
 .update-pantry-form {
   display: flex;
   justify-content: space-between;
   width: 800px;
 }
 
-.update-pantry-col2 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 50px;
-  width: 50%;
-}
-
-.update-pantry-col1 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  text-align: center;
-  width: 10%;
-}
+// .update-pantry-col2 {
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   padding-left: 50px;
+//   width: 60%;
+// }
+//
+// .update-pantry-col1 {
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   padding-left: 10px;
+//   text-align: center;
+//   width: 20%;
+// }
 
 .pantry-button {
   font-family: 'Nunito', sans-serif;
@@ -102,6 +108,8 @@
   cursor: pointer;
   transition: 0.5s;
   margin-left: 50px;
+  height: 40px;
+  align-self: center;
 }
 
 .pantry-button:hover {

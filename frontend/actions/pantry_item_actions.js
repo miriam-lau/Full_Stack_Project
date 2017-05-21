@@ -56,8 +56,8 @@ export const createPantryItem = (pantry_item) => dispatch => (
   )
 );
 
-export const editPantryItem = (id) => dispatch => (
-  APIUtil.updatePantryItem(id)
+export const editPantryItem = (pantry_item) => dispatch => (
+  APIUtil.updatePantryItem(pantry_item)
     .then(pantry_item => (dispatch(updatePantryItem(pantry_item))),
     err => (dispatch(receivePantryErrors(err.responseJSON)))
   )

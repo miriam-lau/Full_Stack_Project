@@ -23,10 +23,12 @@ export const createPantryItem = (pantry_item) => {
   });
 };
 
-export const updatePantryItem = (id) => {
+export const updatePantryItem = (pantry_item) => {
+  console.log("in api util update");
+  console.log(pantry_item);
   return $.ajax({
     method: "PATCH",
-    url: `/api/pantry_items/${id}`,
+    url: `/api/pantry_items/${pantry_item.pantry_item.id}`,
     data: pantry_item
   });
 }

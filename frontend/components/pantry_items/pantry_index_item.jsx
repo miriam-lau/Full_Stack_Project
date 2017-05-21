@@ -9,18 +9,19 @@ const textboxUnderlineStyle = {
 
 const addItemTextBoxStyle1 = {
   "font-family": "'Nunito', sans-serif",
-  "font-size": "25px",
+  "font-size": "22px",
   "font-weight": "bold",
-  "width": "20%",
+  "width": "35%",
   "display": "inline",
-  "text-align": "left"
+  "text-align": "left",
+  "margin-right": "50px"
 }
 
 const addItemTextBoxStyle2 = {
   "font-family": "'Nunito', sans-serif",
-  "font-size": "25px",
+  "font-size": "22px",
   "font-weight": "bold",
-  "width": "20%",
+  "width": "65%",
   "display": "inline"
 }
 
@@ -55,7 +56,8 @@ class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props)
     let pantry_item = this.props.pantry_item
-    this.state = { name: pantry_item.name, quantity: pantry_item.quantity,
+    console.log(pantry_item);
+    this.state = { id: pantry_item.id, name: pantry_item.name, quantity: pantry_item.quantity,
       unit: pantry_item.unit, temp: '' }
   }
 
@@ -101,57 +103,65 @@ class PantryIndexItem extends React.Component {
     }
 
   this.setState({quantity: parseInt(quantity), unit: convertedUnit, temp: ''}, () => {
+      console.log('in parseAdd item update');
       const pantry_item = this.state
-      this.props.editPantryItem({pantry_item})
-          .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+      this.props.editPantryItem({pantry_item});
+          // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
       });
 
     return true;
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    if (this.state.temp === '') {
-      const pantry_item = this.state;
-      this.props.editPantryItem({pantry_item})
-        .then(data => this.props.history.push(`/pantry_items/${data.id}`));
-    } else {
-      this.parseAddItem(this.state.temp);
-    }
-  }
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   console.log("in handle submit");
+  //   if (this.state.temp === '') {
+  //     const pantry_item = this.state;
+  //     this.props.editPantryItem({pantry_item})
+  //       .then(data => this.props.history.push(`/pantry_items/${data.id}`));
+  //   } else {
+  //     this.parseAddItem(this.state.temp);
+  //   }
+  // }
 
   update (property) {
-    return e => this.setState({[property]: e.target.value});
+    return e => this.setState({[property]: e.target.value}, () => {
+      if (this.state.temp === '') {
+        console.log("in update state.temp is ''");
+        console.log(this.state);
+        const pantry_item = this.state;
+        this.props.editPantryItem({pantry_item});
+          // .then(data => this.props.history.push(`/pantry_items/${data.id}`));
+      } else {
+        this.parseAddItem(this.state.temp);
+      }
+    });
   }
-
 
   render() {
     const pantry_item = this.props.pantry_item;
     const deletePantryItem = this.props.deletePantryItem;
-    let quantity = this.state.quantity;
-    if (this.state.unit !== null) {
-      quantity = quantity + " " + this.state.unit;
+    let quantity = pantry_item.quantity;
+    if (pantry_item.unit !== null) {
+      quantity = quantity + " " + pantry_item.unit;
     }
 
     return (
-      <div>
+      <div className="update-pantry-form-div">
         <form className="update-pantry-form" onSubmit={this.handleSubmit}>
-          <div className="update-pantry-col1">
-            <TextField id="text-field-default"
-              value={ quantity }
-              underlineFocusStyle ={textboxUnderlineStyle}
-              style={addItemTextBoxStyle1}
-              onChange={this.update('temp')}
-            />
-          </div>
-          <div className="update-pantry-col2">
-            <TextField id="text-field-default"
-              value={ this.state.name }
-              underlineFocusStyle ={textboxUnderlineStyle}
-              style={addItemTextBoxStyle2}
-              onChange={this.update('name')}
-            />
-          </div>
+          <TextField id="text-field-default"
+            defaultValue={ quantity }
+            underlineFocusStyle ={textboxUnderlineStyle}
+            style={addItemTextBoxStyle1}
+            onChange={this.update('temp')}
+          />
+          <TextField id="text-field-default"
+            defaultValue={ pantry_item.name }
+            underlineFocusStyle ={textboxUnderlineStyle}
+            style={addItemTextBoxStyle2}
+            onChange={this.update('name')}
+          />
+
         </form>
 
         <button className="pantry-button"
@@ -164,6 +174,14 @@ class PantryIndexItem extends React.Component {
 }
 
 export default PantryIndexItem;
+// <TextField id="text-field-default"
+// value={this.state.temp}
+// underlineFocusStyle ={textboxUnderlineStyle}
+// style={addItemTextBoxStyle1}
+// hintText="e.g. "
+// onChange={this.update('temp')}
+// />
+// <div className="update-pantry-col1">
 
 // onChange={this.handleChange}
 // <Link to={`/pantry_items/${pantry_item.id}`}></Link>

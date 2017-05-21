@@ -43,8 +43,9 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: 'None', name: '', quantity: 0, unit: '' };
+    this.state = { category: '', name: '', quantity: 0, unit: '', temp: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.parseAddItem = this.parseAddItem.bind(this);
   }
 
   parseAddItem(str) {
@@ -52,18 +53,17 @@ class PantryItemForm extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-   	  return null;
+   	  return false;
     }
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(entry) { return entry.trim() != ''; });
     let quantity = words.shift();
     let unit = words[0];
-    let name = words.slice(1).join(' ');
     let convertedUnit = null;
 
-    if (unit === null || unit.length === 0) {
-     return null;
+    if (unit == null || unit.length === 0) {
+     return false;
     }
 
     if (unit[unit.length - 1] == '.') {
@@ -82,38 +82,44 @@ class PantryItemForm extends React.Component {
     }
 
     if (words.length == 0) {
-     return null;
+     return false;
     }
 
-    this.setState({quantity: quantity});
     if (convertedUnit === null) {
-      this.setState({unit: ''});
-    } else {
-      this.setState({unit: convertedUnit});
+      convertedUnit = '';
     }
     let item = words.join(' ');
-    this.setState({name: item});
+
+    this.setState({name: item, quantity: parseInt(quantity), unit: convertedUnit, temp: ''}, () => {
+      const pantry_item = this.state
+      this.props.createPantryItem({pantry_item})
+          .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+      });
+
+
+    return true;
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const pantry_item = this.state;
-    return (this.props.createPantryItem({pantry_item})
-      .then(data => this.props.history.push(`/pantry_items/${data.id}`))
-    )
+    this.parseAddItem(this.state.temp);
   }
 
-  renderErrors() {
-    if (this.props.errors) {
-      return (
-        <ul className="pantry-form-error">
-          { this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>{ error }</li>
-          ))}
-        </ul>
-      );
-    }
+  update (property) {
+    return e => this.setState({[property]: e.target.value});
   }
+
+  // renderErrors() {
+  //   if (this.props.errors) {
+  //     return (
+  //       <ul className="pantry-form-error">
+  //         { this.props.errors.map((error, idx) => (
+  //           <li key={`error-${idx}`}>{ error }</li>
+  //         ))}
+  //       </ul>
+  //     );
+  //   }
+  // }
 
   render() {
     return (
@@ -122,10 +128,11 @@ class PantryItemForm extends React.Component {
         <br/>
         <div className="pantry-form-fields">
           <TextField id="text-field-default"
+            value={this.state.temp}
             underlineFocusStyle ={textboxUnderlineStyle}
             style={addItemTextBoxStyle}
             hintText="e.g. '2 Oranges' or '3 cups Milk'"
-            onChange={this.parseAddItem("value")}
+            onChange={this.update('temp')}
           />
           <button className="pantry-button-add">Add</button>
         </div>
@@ -135,36 +142,3 @@ class PantryItemForm extends React.Component {
 }
 
 export default PantryItemForm;
-
-// update(value) {
-//   // parse input and set State
-//   return e => this.setState({ [property]: e.target.value });
-// }
-// <form className="pantry-form" >
-// <ul>{this.renderErrors()}</ul>
-//
-// <section className="pantry-form-section">
-// <label>Item Name</label>
-// <br />
-// <input className="pantry-input" type="text" value={this.state.name}
-// onChange={this.handleSubmit}/>
-// <br/>
-// </section>
-//
-// <section className="pantry-form-section">
-// <label>Quantity</label>
-// <br />
-// <input className="pantry-input" type="number" value={this.state.quantity}
-// onChange={this.update('quantity')}/>
-// <br/>
-// </section>
-//
-// <section className="pantry-form-section">
-// <label>Unit</label>
-// <br />
-// <select value={this.state.unit} onChange={this.update('unit')}>
-// {this.units.map((unit, idx) => {
-//   return <option key={idx} value={unit} >{unit}</option>;
-// })}
-// </select>
-// </section>

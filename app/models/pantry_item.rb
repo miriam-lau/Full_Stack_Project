@@ -1,5 +1,5 @@
 class PantryItem < ApplicationRecord
-  validates :name, :quantity, :unit, :user, presence: true
+  validates :name, :quantity, :user, presence: true
 
   belongs_to :user
 end

@@ -55,7 +55,7 @@ class PantryIndexItem extends React.Component {
           />
 
           <TextField className="pantry-item-col" id="text-field-default"
-            value={ pantry_item.unit }
+            value={ this.state.unit }
             underlineFocusStyle ={textboxUnderlineStyle}
             style={{width: '10%'}}
           />

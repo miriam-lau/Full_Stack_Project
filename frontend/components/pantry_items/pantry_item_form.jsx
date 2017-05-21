@@ -1,21 +1,106 @@
 import React from 'react';
+import TextField from 'material-ui/TextField';
+
+const textboxUnderlineStyle = {
+  'border-color': '#333399'
+}
+
+const addItemTextBoxStyle ={
+  "font-family": "'Nunito', sans-serif",
+  "font-size": "25px",
+  "font-weight": "bold",
+  "width": "100%",
+  "display": "inline"
+}
+
+const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
+const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
+const fluidounce = ['fluid ounce', 'fluid ounces', 'fl oz'];
+const gill = ['gill', 'gills'];
+const cup = ['cup', 'cups', 'c'];
+const pint = ['pint', 'pints', 'p', 'pt', 'fl pt'];
+const quart = ['quart', 'quarts', 'q', 'qt', 'fl qt'];
+const gallon = ['gallon', 'gallons', 'g', 'gal'];
+const milliliter = ['milliliter', 'milliliters', 'millilitre', 'millilitres', 'ml', 'cc', 'mL'];
+const liter = ['liter', 'liters', 'litre', 'litres', 'L'];
+const deciliter = ['deciliter', 'deciliters', 'decilitre', 'decilitres', 'dL'];
+const pound = ['pound', 'pounds', 'lb', 'lbs'];
+const ounce = ['ounce', 'ounces', 'oz'];
+const milligram = ['milligram', 'milligrams', 'milligramme', 'milligrammes', 'mg'];
+const gram = ['gram', 'grams', 'gramme', 'grammes', 'g'];
+const kilogram = ['kilogram', 'kilograms', 'kilogramme', 'kilogrammes', 'kg', 'kgs'];
+const millimeter = ['millimeter', 'millimeters', 'millimetre', 'millimetres', 'mm'];
+const centimeter = ['centimeter', 'centimeters', 'centimetre', 'centimetres', 'cm'];
+const meter = ['meter', 'meters', 'metre', 'metres', 'm'];
+const inch = ['inch', 'inches', 'in', '"'];
+const foot = ['foot', 'feet', '\''];
+
+const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
+  pint, quart, gallon, milliliter, liter, deciliter, pound, ounce,
+  milligram, gram, kilogram, millimeter, centimeter, meter, inch, foot];
+
 
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: 'None', name: '', quantity: 0, unit: 'each' };
-
-    this.units = ['each', 'cup', 'pint', 'quart', 'gallon', 'fluid ounce',
-      'teaspoon', 'tablespoon', 'ounce', 'pound'];
-
+    this.state = { category: 'None', name: '', quantity: 0, unit: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  parseAddItem(str) {
+    let words = str.split(' ');
+    let firstNum = /(^\d+(?:\.\d+)?)/;
+    let splitFirstWord = words.shift().split(firstNum);
+    if (splitFirstWord.length === 1) {
+   	  return null;
+    }
+
+    words = splitFirstWord.concat(words);
+    words = words.filter(function(entry) { return entry.trim() != ''; });
+    let quantity = words.shift();
+    let unit = words[0];
+    let name = words.slice(1).join(' ');
+    let convertedUnit = null;
+
+    if (unit === null || unit.length === 0) {
+     return null;
+    }
+
+    if (unit[unit.length - 1] == '.') {
+    unit = unit.substring(0, unit.length - 1);
+    }
+
+    for (let i = 0; i < allMeasurements.length; i++) {
+      if (allMeasurements[i].includes(unit)) {
+        convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+        break;
+      }
+    }
+
+    if (convertedUnit != null) {
+      words.shift();
+    }
+
+    if (words.length == 0) {
+     return null;
+    }
+
+    this.setState({quantity: quantity});
+    if (convertedUnit === null) {
+      this.setState({unit: ''});
+    } else {
+      this.setState({unit: convertedUnit});
+    }
+    let item = words.join(' ');
+    this.setState({name: item});
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const pantry_item = this.state;
-    this.props.createPantryItem({pantry_item})
-      .then(data => this.props.history.push(`/pantry_items/${data.id}`));
+    return (this.props.createPantryItem({pantry_item})
+      .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+    )
   }
 
   renderErrors() {
@@ -30,49 +115,56 @@ class PantryItemForm extends React.Component {
     }
   }
 
-  update(property) {
-    return e => this.setState({ [property]: e.target.value });
-  }
-
-//quantity and unit of measure in one input
-//split on space
   render() {
     return (
-      <div>
-        <form className="pantry-form" onSubmit={this.handleSubmit}>
-          <ul>{this.renderErrors()}</ul>
-
-          <section className="pantry-form-section">
-            <label>Item Name</label>
-            <br />
-            <input className="pantry-input" type="text" value={this.state.name}
-              onChange={this.update('name')}/>
-            <br/>
-          </section>
-
-          <section className="pantry-form-section">
-            <label>Quantity</label>
-            <br />
-            <input className="pantry-input" type="number" value={this.state.quantity}
-              onChange={this.update('quantity')}/>
-            <br/>
-          </section>
-
-          <section className="pantry-form-section">
-            <label>Unit</label>
-            <br />
-            <select value={this.state.unit} onChange={this.update('unit')}>
-              {this.units.map((unit, idx) => {
-                return <option key={idx} value={unit} >{unit}</option>;
-              })}
-            </select>
-          </section>
-
-          <button className="pantry-button">Add Item</button>
-        </form>
-      </div>
+      <form className="pantry-form" onSubmit={this.handleSubmit}>
+        <label className="pantry-form-label">Add an Item</label>
+        <br/>
+        <div className="pantry-form-fields">
+          <TextField id="text-field-default"
+            underlineFocusStyle ={textboxUnderlineStyle}
+            style={addItemTextBoxStyle}
+            hintText="e.g. '2 Oranges' or '3 cups Milk'"
+            onChange={this.parseAddItem("value")}
+          />
+          <button className="pantry-button-add">Add</button>
+        </div>
+      </form>
     );
   }
 }
 
 export default PantryItemForm;
+
+// update(value) {
+//   // parse input and set State
+//   return e => this.setState({ [property]: e.target.value });
+// }
+// <form className="pantry-form" >
+// <ul>{this.renderErrors()}</ul>
+//
+// <section className="pantry-form-section">
+// <label>Item Name</label>
+// <br />
+// <input className="pantry-input" type="text" value={this.state.name}
+// onChange={this.handleSubmit}/>
+// <br/>
+// </section>
+//
+// <section className="pantry-form-section">
+// <label>Quantity</label>
+// <br />
+// <input className="pantry-input" type="number" value={this.state.quantity}
+// onChange={this.update('quantity')}/>
+// <br/>
+// </section>
+//
+// <section className="pantry-form-section">
+// <label>Unit</label>
+// <br />
+// <select value={this.state.unit} onChange={this.update('unit')}>
+// {this.units.map((unit, idx) => {
+//   return <option key={idx} value={unit} >{unit}</option>;
+// })}
+// </select>
+// </section>

@@ -33,9 +33,18 @@
 }
 
 .pantry-form {
+  width: 600px;
+}
+
+.pantry-form-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.pantry-form-fields {
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
 
 .pantry-form-section, .pantry-input, label {
@@ -93,9 +102,33 @@
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
+  margin-left: 50px;
 }
 
 .pantry-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
+}
+
+.pantry-button-add {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  width: 130px;
+  background-color: #333399;
+  color: white;
+  border-radius: 7px;
+  border: 1px solid #333399;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 30px;
+  height: 40px;
+}
+
+.pantry-button-add:hover {
   background-color: #E6E6FA;
   color: black;
   border: 1px solid #333399;

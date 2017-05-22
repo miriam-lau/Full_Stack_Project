@@ -7,33 +7,40 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 PantryItem.destroy_all
+Grocery.destroy_all
 
 
 guest = User.create(username: "guest", password: "password",
   email: "guest@pantry.com")
 
-pantry1 = PantryItem.create(category: "", name: "apple",
+pantry1 = PantryItem.create(category: "", name: "Apple",
   quantity: 2, unit: "", user_id: guest.id)
-pantry2 = PantryItem.create(category: "", name: "orange",
+pantry2 = PantryItem.create(category: "", name: "Orange",
   quantity: 1, unit: "", user_id: guest.id)
-pantry3 = PantryItem.create(category: "", name: "eggs",
-  quantity: 12, unit: "", user_id: guest.id)
-pantry4 = PantryItem.create(category: "", name: "cheese",
+pantry3 = PantryItem.create(category: "", name: "Watermelon",
+  quantity: 12, unit: "cups", user_id: guest.id)
+pantry4 = PantryItem.create(category: "", name: "Blueberry",
   quantity: 5.5, unit: "ounce", user_id: guest.id)
-pantry5 = PantryItem.create(category: "", name: "beer",
-  quantity: 4, unit: "", user_id: guest.id)
+pantry5 = PantryItem.create(category: "", name: "Strawberry",
+  quantity: 4, unit: "ounce", user_id: guest.id)
+
+grocery1 = Grocery.create(category: "", name: "Banana",
+  quantity: 2, unit: "", user_id: guest.id)
 
 
 mir = User.create(username: "mir", password: "password",
   email: "mir@pantry.com")
 
-pantry6 = PantryItem.create(category: "", name: "mango",
-  quantity: 4, unit: "", user_id: mir.id)
-pantry7 = PantryItem.create(name: "brussel sprouts",
-  quantity: 10, unit: "ounce", user_id: mir.id)
-pantry8 = PantryItem.create(category: "", name: "steak",
-  quantity: 1, unit: "", user_id: mir.id)
-pantry9 = PantryItem.create(category: "", name: "french bread",
-  quantity: 1, unit: "", user_id: mir.id)
-pantry10 = PantryItem.create(category: "", name: "rootbeer",
-  quantity: 4, unit: "", user_id: mir.id)
+pantry6 = PantryItem.create(category: "", name: "Salmon",
+  quantity: 4, unit: "ounces", user_id: mir.id)
+pantry7 = PantryItem.create(name: "Rib-eye steak",
+  quantity: 10, unit: "ounces", user_id: mir.id)
+pantry8 = PantryItem.create(category: "", name: "Chicken thighs",
+  quantity: 1, unit: "pound", user_id: mir.id)
+pantry9 = PantryItem.create(category: "", name: "Sea bass",
+  quantity: 1.5, unit: "pounds", user_id: mir.id)
+pantry10 = PantryItem.create(category: "", name: "Pork shoulder",
+  quantity: 4, unit: "pounds", user_id: mir.id)
+
+grocery2 = Grocery.create(category: "", name: "Pork chop",
+  quantity: 2, unit: "", user_id: mir.id)

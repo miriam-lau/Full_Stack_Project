@@ -1,15 +1,4 @@
-.pantry-bckgd-img {
-  position: absolute;
-  opacity: 0.5;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  z-index: -1;
-}
-
 .pantry-wrapper {
-  // background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1190&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg=");
-  // background-size: cover;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(80px, auto);

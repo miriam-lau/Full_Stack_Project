@@ -4,21 +4,21 @@ import { receiveAllGroceryItems, receiveGroceryItem, receiveNewGroceryItem,
 export const fetchAllGroceryItems = () => {
   return $.ajax({
     method: "GET",
-    url: "/api/grocery"
+    url: "/api/groceries"
   });
 };
 
 export const fetchGroceryItem = (id) => {
   return $.ajax({
     method: "GET",
-    url: `/api/grocery/${id}`
+    url: `/api/groceries/${id}`
   });
 };
 
 export const createGroceryItem = (grocery_item) => {
   return $.ajax({
     method: "POST",
-    url: "api/grocery",
+    url: "api/groceries",
     data: grocery_item
   });
 };
@@ -26,7 +26,7 @@ export const createGroceryItem = (grocery_item) => {
 export const updateGroceryItem = (grocery_item) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/grocery/${grocery.grocery_item.id}`,
+    url: `/api/groceries/${grocery.grocery_item.id}`,
     data: grocery_item
   });
 }
@@ -34,6 +34,6 @@ export const updateGroceryItem = (grocery_item) => {
 export const deleteGroceryItem = (id) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/grocery/${id}`
+    url: `/api/groceries/${id}`
   });
 }

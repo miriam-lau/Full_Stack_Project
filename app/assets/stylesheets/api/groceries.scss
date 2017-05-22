@@ -1,3 +1,148 @@
-// Place all the styles related to the api/groceries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.grocery-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  grid-template-areas:
+    "grocery-one grocery-one grocery-one grocery-one"
+    "grocery-two grocery-two grocery-two grocery-two"
+    "grocery-three grocery-three grocery-three grocery-three";
+  width: 100%;
+  z-index: 1;
+}
+
+.grocery-one {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  padding-bottom: 50px;
+  margin-left: 20px;
+  z-index: 1;
+}
+
+.grocery-two {
+  grid-column: 1 / 5;
+  grid-row: 2 / 4;
+  background-color: #333399;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.grocery-two h2 {
+  margin-left: 20px;
+}
+
+.grocery-three {
+  grid-column: 1 / 5;
+  grid-row: 3 /4;
+  background-color: #E6E6FA;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.grocery-form {
+  width: 600px;
+}
+
+.grocery-form-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.grocery-form-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grocery-form-section, .grocery-input, label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.grocery-form-section, select {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  width: 30%;
+}
+
+.grocery-items li {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.update-grocery-form-div {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.update-grocery-form {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.grocery-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  width: 130px;
+  background-color: #333399;
+  color: white;
+  border-radius: 7px;
+  border: 1px solid #333399;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 50px;
+  height: 40px;
+  align-self: center;
+}
+
+.grocery-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
+}
+
+.grocery-button-add {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  width: 130px;
+  background-color: #333399;
+  color: white;
+  border-radius: 7px;
+  border: 1px solid #333399;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 30px;
+  height: 40px;
+}
+
+.grocery-button-add:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
+}
+
+.grocery-item-error {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  color: red;
+  margin-left: 20px;
+}

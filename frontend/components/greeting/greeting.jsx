@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
 
@@ -52,7 +52,7 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
           <div>
             <ul>
               <div className="nav-titles">
-                <Link to="/grocery">Grocery</Link>
+                <Link to="/groceries">Grocery</Link>
               </div>
               <div className="nav-titles">
                 <Link to="/pantry_items">Pantry</Link>
@@ -64,8 +64,10 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
         </div>
 
         <div className="greeting-three">
-            <Route path='/grocery' component={GroceryIndexContainer} />
+          <Switch>
+            <Route path='/groceries' component={GroceryIndexContainer} />
             <Route path='/pantry_items' component={PantryIndexContainer} />
+          </Switch>
         </div>
 
         <div className="greeting-four">
@@ -86,5 +88,3 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
 };
 
 export default Greeting;
-
-// <Route exact path="/pantry_items" component={ PantryIndexContainer } />

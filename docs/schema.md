@@ -19,7 +19,7 @@ id	            | integer	  | not null, primary key
 category        | string    |
 name	          | string	  | not null
 quantity	      | float  	  | not null
-unit	          | string	  | not null
+unit	          | string	  |
 user_id         | integer   | not null, foreign key
 
 belongs_to :user
@@ -35,7 +35,7 @@ id	            | integer	  | not null, primary key
 category        | string    |
 name	          | string	  | not null
 quantity	      | decimal   | not null
-unit	          | string	  | not null
+unit	          | string	  |
 user_id         | integer   | not null, foreign key
 
 belongs_to :user

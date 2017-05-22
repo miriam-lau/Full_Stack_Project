@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   #add_associations
   has_many :pantry_items
+  has_many :groceries
 
   def password=(password)
     @password = password

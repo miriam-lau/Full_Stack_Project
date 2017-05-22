@@ -50,6 +50,7 @@ class Api::PantryItemsController < ApplicationController
   end
 
   private
+
   def pantry_item_params
     params.require(:pantry_item).permit(:name, :quantity, :unit,
       :category)

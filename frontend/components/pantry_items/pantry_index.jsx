@@ -15,13 +15,11 @@ class PantryIndex extends React.Component {
   }
 
   render() {
-    const deletePantryItem = this.props.deletePantryItem;
-    const editPantryItem = this.props.editPantryItem;
     const pantry_items = this.props.pantry_items;
     return (
       <div className="pantry-wrapper">
         <div className="pantry-one">
-          <Route exact path="/pantry_items" component={ PantryItemFormContainer } />
+          <Route path="/pantry_items" component={ PantryItemFormContainer } />
         </div>
 
         <Route path="/pantry_items/:id/edit" component={ PantryItemUpdateFormContainer } />
@@ -33,10 +31,15 @@ class PantryIndex extends React.Component {
 
         <div className="pantry-three">
           <ul className="pantry-items">
-            {this.props.pantry_items.map((item, idx) => {
-              return (<PantryIndexItem key={idx} pantry_item={item}
-                deletePantryItem={deletePantryItem}
-                editPantryItem={editPantryItem} />)
+            {this.props.pantry_items.map(item => {
+              // console.log("in pantry index");
+              // console.log(item);
+              return (<PantryIndexItem
+                key={item.id}
+                pantry_item={item}
+                requestPantryItem={this.props.requestPantryItem}
+                deletePantryItem={this.props.deletePantryItem}
+                editPantryItem={this.props.editPantryItem} />)
             })}
           </ul>
         </div>

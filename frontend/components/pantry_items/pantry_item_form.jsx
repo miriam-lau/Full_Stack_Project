@@ -2,13 +2,13 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 
 const textboxUnderlineStyle = {
-  'border-color': '#333399'
+  'borderColor': '#333399'
 }
 
 const addItemTextBoxStyle ={
-  "font-family": "'Nunito', sans-serif",
-  "font-size": "25px",
-  "font-weight": "bold",
+  "fontFamily": "'Nunito', sans-serif",
+  "fontSize": "25px",
+  "fontWeight": "bold",
   "width": "100%",
   "display": "inline"
 }

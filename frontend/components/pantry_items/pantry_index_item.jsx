@@ -4,23 +4,23 @@ import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
 
 const textboxUnderlineStyle = {
-  'border-color': '#333399'
+  'borderColor': '#333399'
 }
 
 const addItemTextBoxStyle1 = {
-  "font-family": "'Nunito', sans-serif",
-  "font-size": "22px",
-  "font-weight": "bold",
+  "fontFamily": "'Nunito', sans-serif",
+  "fontSize": "22px",
+  "fontWeight": "bold",
   "width": "35%",
   "display": "inline",
-  "text-align": "left",
-  "margin-right": "50px"
+  "textAlign": "left",
+  "marginRight": "50px"
 }
 
 const addItemTextBoxStyle2 = {
-  "font-family": "'Nunito', sans-serif",
-  "font-size": "22px",
-  "font-weight": "bold",
+  "fontFamily": "'Nunito', sans-serif",
+  "fontSize": "22px",
+  "fontWeight": "bold",
   "width": "65%",
   "display": "inline"
 }
@@ -54,25 +54,41 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
 
 class PantryIndexItem extends React.Component {
   constructor(props) {
-    super(props)
-    let pantry_item = this.props.pantry_item
+    super(props);
+    let pantry_item = this.props.pantry_item;
+
+    console.log("in constructor pantry index item");
     console.log(pantry_item);
-    this.state = { id: pantry_item.id, name: pantry_item.name, quantity: pantry_item.quantity,
-      unit: pantry_item.unit, temp: '' }
+    this.state = { id: pantry_item.id, user_id: pantry_item.user_id, temp: '' }
+    this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
   }
 
-  parseAddItem(str) {
+  // componentDidMount() {
+  //   console.log("in component did mount");
+  //   console.log(this.props);
+  //   this.props.requestPantryItem(this.props.pantry_item.match.params.id)
+  //     .then(() => {this.setState(this.props.pantry_item); });
+  // }
+
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("in pantry INDEX ITEM componentWillReceiveProps");
+  //   if (this.props.pantry_item.match.params.id !== nextProps.pantry_item.match.params.id) {
+  //     this.props.requestPantryItem(nextProps.pantry_item.match.params.id);
+  //   }
+  // }
+
+  parseUpdateQuantity(str) {
     let words = str.split(' ');
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      console.log("parseAddItem first return");
+      console.log("parseUpdateQuantity first return");
       return false;
     }
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(el) {
-      console.log("parseAddItem word filter return");
+      console.log("parseUpdateQuantity word filter return");
       return (el.trim() !== '');
     });
 
@@ -81,7 +97,7 @@ class PantryIndexItem extends React.Component {
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
-      console.log("parseAddItem 2nd return");
+      console.log("parseUpdateQuantity 2nd return");
      return false;
     }
 
@@ -105,7 +121,7 @@ class PantryIndexItem extends React.Component {
     }
 
   this.setState({quantity: parseInt(quantity), unit: convertedUnit, temp: ''}, () => {
-      console.log('in parseAdd item update');
+      // console.log('in parseAdd item update');
       const pantry_item = this.state
       this.props.editPantryItem({pantry_item});
           // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
@@ -114,26 +130,15 @@ class PantryIndexItem extends React.Component {
     return true;
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   console.log("in handle submit");
-  //   if (this.state.temp === '') {
-  //     const pantry_item = this.state;
-  //     this.props.editPantryItem({pantry_item})
-  //       .then(data => this.props.history.push(`/pantry_items/${data.id}`));
-  //   } else {
-  //     this.parseAddItem(this.state.temp);
-  //   }
-  // }
 
-  update (property) {
+  update(property) {
     return e => this.setState({[property]: e.target.value}, () => {
       if (this.state.temp === '') {
         const pantry_item = this.state;
         this.props.editPantryItem({pantry_item});
           // .then(data => this.props.history.push(`/pantry_items/${data.id}`));
       } else {
-        this.parseAddItem(this.state.temp);
+        this.parseUpdateQuantity(this.state.temp);
       }
     });
   }
@@ -146,9 +151,12 @@ class PantryIndexItem extends React.Component {
       quantity = quantity + " " + pantry_item.unit;
     }
 
+    console.log("pantry index item");
+    console.log(pantry_item);
+
     return (
       <div className="update-pantry-form-div">
-        <form className="update-pantry-form" onSubmit={this.handleSubmit}>
+        <form className="update-pantry-form">
           <TextField id="text-field-default"
             defaultValue={ quantity }
             underlineFocusStyle ={textboxUnderlineStyle}
@@ -163,11 +171,11 @@ class PantryIndexItem extends React.Component {
           />
 
         </form>
-
         <button className="pantry-button"
-          onClick={ () => {deletePantryItem(pantry_item.id)} }>
+          onClick={() => deletePantryItem(pantry_item.id)}>
           Delete
         </button>
+
       </div>
     );
   }
@@ -175,9 +183,27 @@ class PantryIndexItem extends React.Component {
 
 export default PantryIndexItem;
 
+// <button className="pantry-button"
+// onClick={ () => {deletePantryItem(pantry_item.id)} }>
+// Delete
+// </button>
+
+
 // onChange={this.handleChange}
 // <Link to={`/pantry_items/${pantry_item.id}`}></Link>
 // <button className="pantry-button"
 //   onClick={ () => {editPantryItem(pantry_item.id)} }>
 //   Update Pantry Item
 // </button>
+
+// handleSubmit(event) {
+//   event.preventDefault();
+//   console.log("in handle submit");
+//   if (this.state.temp === '') {
+//     const pantry_item = this.state;
+//     this.props.editPantryItem({pantry_item})
+//       .then(data => this.props.history.push(`/pantry_items/${data.id}`));
+//   } else {
+//     this.parseUpdateQuantity(this.state.temp);
+//   }
+// }

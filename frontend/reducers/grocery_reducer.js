@@ -7,7 +7,7 @@ const noErrors = Object.freeze({
   errors: []
 });
 
-const PantryItemsReducer = (state = noErrors, action) => {
+const GroceryReducer = (state = noErrors, action) => {
   Object.freeze(state)
   switch(action.type) {
     case RECEIVE_ALL_GROCERY_ITEMS:

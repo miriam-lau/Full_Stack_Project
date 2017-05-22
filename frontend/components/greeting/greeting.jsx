@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
-import GroceryIndex from '../grocery/grocery_index';
+import GroceryIndexContainer from '../grocery/grocery_index_container';
 
 const sessionLinks = (clearErrors) => (
   <nav className="header-group">
@@ -64,7 +64,7 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
         </div>
 
         <div className="greeting-three">
-            <Route path='/grocery' component={GroceryIndex} />
+            <Route path='/grocery' component={GroceryIndexContainer} />
             <Route path='/pantry_items' component={PantryIndexContainer} />
         </div>
 

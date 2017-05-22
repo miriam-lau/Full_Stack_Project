@@ -14,27 +14,33 @@ class GroceryIndex extends React.Component {
   }
 
   render() {
-    // const deleteGroceryItem = this.props.deleteGroceryItem;
-    // const editGroceryItem = this.props.editGroceryItem;
-    // const grocery_items = this.props.grocery_items;
+    const grocery_items = this.props.grocery_items;
     return (
-      <div>GroceryIndex</div>
-        // <Route exact path="/grocery_items" component={ GroceryItemFormContainer } />
-        // <Route path="/grocery_items/:id/edit" component={ GroceryItemUpdateFormContainer } />
-        // <br />
-        // <div className="grocery-table-column-titles">
-        //   <div className="col-1">Item</div>
-        //   <div className="col-2">Quantity</div>
-        //   <div className="col-3">Unit</div>
-        //   <div className="col-4">Category</div>
-        // </div>
-        // <ul className="grocery-items">
-        //   {this.props.grocery_items.map((item, idx) => {
-        //     return (<GroceryIndexItem key={idx} grocery_item={item}
-        //       deleteGroceryItem={deleteGroceryItem}
-        //       editGroceryItem={editGroceryItem} />)
-        //   })}
-        // </ul>
+      <div>
+        <div className="grocery-wrapper">
+          <div className="grocery-one">
+            <Route exact path="/grocery" component={ GroceryItemFormContainer } />
+          </div>
+          <br />
+
+          <div className="grocery-two">
+            <h2>Current Grocery List</h2>
+          </div>
+
+          <div className="grocery-three">
+            <ul className="grocery-items">
+              {this.props.grocery_items.map(item => {
+                return (<GroceryIndexItem
+                  key={item.id}
+                  grocery_item={item}
+                  requestGroceryItem={this.props.requestGroceryItem}
+                  deleteGroceryItem={this.props.deleteGroceryItem}
+                  editGroceryItem={this.props.editGroceryItem} />)
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
     );
   }
 }

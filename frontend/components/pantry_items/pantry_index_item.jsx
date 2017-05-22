@@ -167,7 +167,7 @@ class PantryIndexItem extends React.Component {
     }
   }
 
-
+// put onBlur for name update
   render() {
     const pantry_item = this.props.pantry_item;
     const deletePantryItem = this.props.deletePantryItem;
@@ -194,7 +194,7 @@ class PantryIndexItem extends React.Component {
               onChange={this.update('name')}
             />
           </form>
-    
+
           <button className="pantry-button"
             onClick={() => deletePantryItem(pantry_item.id)}>
             Delete

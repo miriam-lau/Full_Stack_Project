@@ -1,9 +1,12 @@
+
 .image img {
-  max-width: 100%;
+  width: 100%;
   height: 1000px;
   width: auto\9;
   display: block;
-  object-fit: cover
+  object-fit: cover;
+  filter: brightness(50%);
+  z-index: -1;
 }
 
 .guest-sign-in {
@@ -35,6 +38,19 @@
   transition: 0.5s;
 }
 
+.home-titles {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 80px;
+  letter-spacing: 5px;
+  color: white;
+  z-index: 1;
+}
+
 .home-footer {
   display: flex;
   justify-content: space-around;
@@ -47,3 +63,8 @@
   background-color: #E6E6FA;
   width: 100%;
 }
+
+// fixed
+// v-h viewport height
+// top of 90%
+// font-awesome

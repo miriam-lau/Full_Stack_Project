@@ -20,16 +20,30 @@ class Home extends React.Component {
     return (
       <div className="main-content">
         <button className="guest-sign-in" onClick={ this.handleSubmit }>Guest Sign In</button>
-
         <Carousel className="image" wrapAround={true} autoplay={true} autoInterval={5000}>
-          <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1079&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
-           alt="splash-img"/>
-          <img src="https://images.unsplash.com/photo-1492739159057-7d1896b3c63f?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=844&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
-            alt="splash-img"/>
-          <img src="https://images.unsplash.com/photo-1482012792084-a0c3725f289f?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
-           alt="splash-img"/>
-          <img src="https://images.unsplash.com/photo-1491994778642-b286df793bf6?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
-            alt="splash-img"/>
+          <div className="home-panels">
+            <h2 className="home-titles">Keep Track of Your Pantry</h2>
+            <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1079&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
+              alt="splash-img"/>
+          </div>
+
+          <div>
+            <h2 className="home-titles">Auto-Update Your Pantry</h2>
+            <img src="https://images.unsplash.com/photo-1492739159057-7d1896b3c63f?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=844&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
+              alt="splash-img"/>
+          </div>
+
+          <div>
+            <h2 className="home-titles">Make Grocery Lists</h2>
+            <img src="https://images.unsplash.com/photo-1482012792084-a0c3725f289f?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
+             alt="splash-img"/>
+          </div>
+
+          <div>
+            <h2 className="home-titles">Auto-Generate Grocery Lists</h2>
+            <img src="https://images.unsplash.com/photo-1491994778642-b286df793bf6?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
+              alt="splash-img"/>
+          </div>
        </Carousel>
 
        <div id="footer">

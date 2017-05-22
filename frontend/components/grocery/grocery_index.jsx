@@ -19,7 +19,7 @@ class GroceryIndex extends React.Component {
       <div>
         <div className="grocery-wrapper">
           <div className="grocery-one">
-            <Route exact path="/grocery" component={ GroceryItemFormContainer } />
+            <Route exact path="/groceries" component={ GroceryItemFormContainer } />
           </div>
           <br />
 

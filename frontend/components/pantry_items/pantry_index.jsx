@@ -9,7 +9,8 @@ class PantryIndex extends React.Component {
     super(props)
   }
 
-  componentDidMount() {
+// componentDidMount or WillMount?
+  componentWillMount() {
     this.props.requestAllPantryItems();
   }
 

@@ -59,14 +59,16 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
               </div>
             </ul>
           </div>
+
           <div className="greeting-nav-background">
           </div>
+          
         </div>
 
         <div className="greeting-three">
           <Switch>
-            <Route path='/groceries' component={GroceryIndexContainer} />
-            <Route path='/pantry_items' component={PantryIndexContainer} />
+            <Route exact path="/pantry_items" component={PantryIndexContainer} />
+            <Route exact path="/groceries" component={GroceryIndexContainer} />
           </Switch>
         </div>
 

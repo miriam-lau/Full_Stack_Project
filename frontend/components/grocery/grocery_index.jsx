@@ -9,7 +9,8 @@ class GroceryIndex extends React.Component {
     super(props)
   }
 
-  componentDidMount() {
+// componentDidMount or WillMount?
+  componentWillMount() {
     this.props.requestAllGroceryItems();
   }
 

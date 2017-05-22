@@ -39,11 +39,25 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
   pint, quart, gallon, milliliter, liter, deciliter, pound, ounce,
   milligram, gram, kilogram, millimeter, centimeter, meter, inch, foot];
 
+function ErrorBanner(props) {
+  console.log("errorBanner");
+  console.log(props);
+  if (props.shouldShow) {
+    return (
+      <div className="pantry-item-error">
+        { props.message }
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
 
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: '', name: '', quantity: 0, unit: '', temp: '' };
+    this.state = { category: '', name: '', quantity: 0, unit: '',
+      temp: '', errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
   }
@@ -53,7 +67,8 @@ class PantryItemForm extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-   	  return false;
+      console.log("in parseAddItem first return");
+   	  return this.setState({errors: true});
     }
 
     words = splitFirstWord.concat(words);
@@ -63,7 +78,8 @@ class PantryItemForm extends React.Component {
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
-     return false;
+      console.log("in parseAddItem 2nd return");
+     return this.setState({errors: true})
     }
 
     if (unit[unit.length - 1] == '.') {
@@ -82,7 +98,8 @@ class PantryItemForm extends React.Component {
     }
 
     if (words.length == 0) {
-     return false;
+      console.log("in parseAddItem 3rd return");
+     return this.setState({errors: true});
     }
 
     if (convertedUnit === null) {
@@ -90,12 +107,12 @@ class PantryItemForm extends React.Component {
     }
     let item = words.join(' ');
 
-    this.setState({name: item, quantity: parseInt(quantity), unit: convertedUnit, temp: ''}, () => {
-      const pantry_item = this.state
-      this.props.createPantryItem({pantry_item})
-          .then(data => this.props.history.push(`/pantry_items/${data.id}`))
-      });
-
+    this.setState({name: item, quantity: parseInt(quantity),
+      unit: convertedUnit, temp: '', errors: false}, () => {
+        const pantry_item = this.state
+        this.props.createPantryItem({pantry_item})
+            .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+        });
 
     return true;
   }
@@ -125,7 +142,7 @@ class PantryItemForm extends React.Component {
     return (
       <form className="pantry-form" onSubmit={this.handleSubmit}>
         <label className="pantry-form-label">Add an Item</label>
-        <br/>
+        <br />
         <div className="pantry-form-fields">
           <TextField id="text-field-default"
             value={this.state.temp}
@@ -134,8 +151,11 @@ class PantryItemForm extends React.Component {
             hintText="e.g. '2 Oranges' or '3 cups Milk'"
             onChange={this.update('temp')}
           />
+
           <button className="pantry-button-add">Add</button>
         </div>
+        <ErrorBanner shouldShow={this.state.errors}
+        message="Invalid entry. Entry must have 'quantity' and 'item name'" />
       </form>
     );
   }

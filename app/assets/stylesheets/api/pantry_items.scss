@@ -1,4 +1,3 @@
-
 .pantry-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -140,4 +139,12 @@
   color: black;
   border: 1px solid #333399;
   transition: 0.5s;
+}
+
+.pantry-item-error {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  color: red;
 }

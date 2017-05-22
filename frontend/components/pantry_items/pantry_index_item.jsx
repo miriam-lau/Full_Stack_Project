@@ -14,7 +14,8 @@ const addItemTextBoxStyle1 = {
   "width": "35%",
   "display": "inline",
   "textAlign": "left",
-  "marginRight": "50px"
+  "marginRight": "50px",
+  "marginLeft": "20px"
 }
 
 const addItemTextBoxStyle2 = {
@@ -182,20 +183,19 @@ class PantryIndexItem extends React.Component {
             onChange={this.update('temp')}
             onBlur={this.checkError}
           />
+          <ErrorBanner1 message={this.state.quantityError} />
           <TextField id="text-field-default"
             defaultValue={ pantry_item.name }
             underlineFocusStyle ={textboxUnderlineStyle}
             style={addItemTextBoxStyle2}
             onChange={this.update('name')}
           />
+          <ErrorBanner2 message={this.state.nameError} />
         </form>
         <button className="pantry-button"
           onClick={() => deletePantryItem(pantry_item.id)}>
           Delete
         </button>
-        <br />
-        <ErrorBanner1 message={this.state.quantityError} />
-        <ErrorBanner2 message={this.state.nameError} />
       </div>
     );
   }

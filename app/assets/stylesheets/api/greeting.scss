@@ -136,6 +136,24 @@
   padding-bottom: 10px;
   font-weight: bold;
   text-align: center;
+  border-top: 1px #E6E6FA solid;
+  border-bottom: 1px #E6E6FA solid;
+  transition: 0.5s;
+}
+
+.nav-titles:hover {
+  font-family: 'Nunito', sans-serif;
+  background-color: #333399;
+  color: white;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  border-top: 1px #E6E6FA solid;
+  border-bottom: 1px #E6E6FA solid;
+  transition: 0.5s;
 }
 
 .footer {

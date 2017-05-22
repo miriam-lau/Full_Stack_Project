@@ -27,9 +27,3 @@ const App = () => (
 );
 
 export default App;
-
-
-// <section className="nav-bar">
-// </section>
-
-// <Route path='/pantry_items' component={ PantryIndexContainer }/>

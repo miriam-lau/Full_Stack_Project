@@ -5,7 +5,7 @@ import GroceryReducer from './grocery_reducer';
 
 const rootReducer = combineReducers({
   session: SessionReducer,
-  pantry_items: PantryItemsReducer
+  pantry_items: PantryItemsReducer,
   grocery: GroceryReducer
 });
 

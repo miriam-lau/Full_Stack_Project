@@ -51,13 +51,39 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
   pint, quart, gallon, milliliter, liter, deciliter, pound, ounce,
   milligram, gram, kilogram, millimeter, centimeter, meter, inch, foot];
 
+function ErrorBanner1(props) {
+  if (props.message != null) {
+    return (
+      <div className="pantry-item-error">
+        { props.message }
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
+
+function ErrorBanner2(props) {
+  if (props.message != null) {
+    return (
+      <div className="pantry-item-error">
+        { props.message }
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
 
 class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     let pantry_item = this.props.pantry_item;
-    this.state = { id: pantry_item.id, user_id: pantry_item.user_id, temp: '' }
+    this.state = { id: pantry_item.id, user_id: pantry_item.user_id,
+      temp: '', quantityError: '', nameError: '' };
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
+    this.checkError = this.checkError.bind(this);
+    this.currentQuantity = '';
   }
 
   parseUpdateQuantity(str) {
@@ -65,7 +91,7 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return false;
+      return "Quantity must begin with a number";
     }
 
     words = splitFirstWord.concat(words);
@@ -77,50 +103,66 @@ class PantryIndexItem extends React.Component {
     let unit = words[0];
     let convertedUnit = null;
 
-    if (unit == null || unit.length === 0) {
-     return false;
-    }
+    if (unit != null) {
+      if (unit[unit.length - 1] == '.') {
+        unit = unit.substring(0, unit.length - 1);
+      }
 
-    if (unit[unit.length - 1] == '.') {
-    unit = unit.substring(0, unit.length - 1);
-    }
-
-    for (let i = 0; i < allMeasurements.length; i++) {
-      if (allMeasurements[i].includes(unit)) {
-        convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
-        break;
+      for (let i = 0; i < allMeasurements.length; i++) {
+        if (allMeasurements[i].includes(unit)) {
+          convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+          break;
+        }
       }
     }
 
-    if (convertedUnit != null) {
-      words.shift();
+    if (convertedUnit === null && unit != null) {
+      return "Quantity must have a valid unit";
     }
 
-    if (convertedUnit === null) {
-      convertedUnit = '';
-    }
-
-  this.setState({quantity: parseInt(quantity), unit: convertedUnit, temp: ''}, () => {
+    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
+      temp: '', quantityError: ''}, () => {
       const pantry_item = this.state
       this.props.editPantryItem({pantry_item});
           // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
       });
 
-    return true;
+    return null;
   }
 
 
   update(property) {
-    return e => this.setState({[property]: e.target.value}, () => {
-      if (this.state.temp === '') {
-        const pantry_item = this.state;
-        this.props.editPantryItem({pantry_item});
-          // .then(data => this.props.history.push(`/pantry_items/${data.id}`));
-      } else {
-        this.parseUpdateQuantity(this.state.temp);
+    return e => {
+      if (property == 'temp') {
+        this.currentQuantity = e.target.value;
       }
-    });
+      if (property === 'name' && e.target.value === '') {
+        return this.setState({nameError: "Name cannot be blank"});
+      }
+
+      if (property === 'name' && e.target.value !== '') {
+        this.setState({nameError: ''});
+      }
+
+      this.setState({[property]: e.target.value}, () => {
+        if (this.state.temp === '') {
+          const pantry_item = this.state;
+          this.props.editPantryItem({pantry_item});
+            // .then(data => this.props.history.push(`/pantry_items/${data.id}`));
+        } else {
+          this.parseUpdateQuantity(this.state.temp);
+        }
+      });
+    }
   }
+
+  checkError() {
+    let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
+    if (errorMessage != null) {
+      this.setState({quantityError: errorMessage});
+    }
+  }
+
 
   render() {
     const pantry_item = this.props.pantry_item;
@@ -138,6 +180,7 @@ class PantryIndexItem extends React.Component {
             underlineFocusStyle ={textboxUnderlineStyle}
             style={addItemTextBoxStyle1}
             onChange={this.update('temp')}
+            onBlur={this.checkError}
           />
           <TextField id="text-field-default"
             defaultValue={ pantry_item.name }
@@ -145,13 +188,14 @@ class PantryIndexItem extends React.Component {
             style={addItemTextBoxStyle2}
             onChange={this.update('name')}
           />
-
         </form>
         <button className="pantry-button"
           onClick={() => deletePantryItem(pantry_item.id)}>
           Delete
         </button>
-
+        <br />
+        <ErrorBanner1 message={this.state.quantityError} />
+        <ErrorBanner2 message={this.state.nameError} />
       </div>
     );
   }

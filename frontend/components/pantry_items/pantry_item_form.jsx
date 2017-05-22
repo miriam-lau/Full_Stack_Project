@@ -40,8 +40,6 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
   milligram, gram, kilogram, millimeter, centimeter, meter, inch, foot];
 
 function ErrorBanner(props) {
-  console.log("errorBanner");
-  console.log(props);
   if (props.shouldShow) {
     return (
       <div className="pantry-item-error">
@@ -125,18 +123,6 @@ class PantryItemForm extends React.Component {
   update (property) {
     return e => this.setState({[property]: e.target.value});
   }
-
-  // renderErrors() {
-  //   if (this.props.errors) {
-  //     return (
-  //       <ul className="pantry-form-error">
-  //         { this.props.errors.map((error, idx) => (
-  //           <li key={`error-${idx}`}>{ error }</li>
-  //         ))}
-  //       </ul>
-  //     );
-  //   }
-  // }
 
   render() {
     return (

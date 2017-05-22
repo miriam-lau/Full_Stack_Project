@@ -84,7 +84,10 @@ class PantryIndexItem extends React.Component {
       temp: '', quantityError: '', nameError: '' };
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
-    this.currentQuantity = '';
+    this.currentQuantity = this.props.pantry_item.quantity;
+    if (pantry_item.unit != null && pantry_item.unit.length !== 0) {
+      this.currentQuantity = this.currentQuantity + " " + pantry_item.unit;
+    }
   }
 
   parseUpdateQuantity(str) {
@@ -134,7 +137,7 @@ class PantryIndexItem extends React.Component {
 
   update(property) {
     return e => {
-      if (property == 'temp') {
+      if (property === 'temp') {
         this.currentQuantity = e.target.value;
       }
       if (property === 'name' && e.target.value === '') {
@@ -174,28 +177,32 @@ class PantryIndexItem extends React.Component {
     }
 
     return (
-      <div className="update-pantry-form-div">
-        <form className="update-pantry-form">
-          <TextField id="text-field-default"
-            defaultValue={ quantity }
-            underlineFocusStyle ={textboxUnderlineStyle}
-            style={addItemTextBoxStyle1}
-            onChange={this.update('temp')}
-            onBlur={this.checkError}
-          />
-          <ErrorBanner1 message={this.state.quantityError} />
-          <TextField id="text-field-default"
-            defaultValue={ pantry_item.name }
-            underlineFocusStyle ={textboxUnderlineStyle}
-            style={addItemTextBoxStyle2}
-            onChange={this.update('name')}
-          />
-          <ErrorBanner2 message={this.state.nameError} />
-        </form>
-        <button className="pantry-button"
-          onClick={() => deletePantryItem(pantry_item.id)}>
-          Delete
-        </button>
+      <div>
+        <div className="update-pantry-form-div">
+          <form className="update-pantry-form">
+            <TextField id="text-field-default"
+              defaultValue={ quantity }
+              underlineFocusStyle ={textboxUnderlineStyle}
+              style={addItemTextBoxStyle1}
+              onChange={this.update('temp')}
+              onBlur={this.checkError}
+            />
+            <TextField id="text-field-default"
+              defaultValue={ pantry_item.name }
+              underlineFocusStyle ={textboxUnderlineStyle}
+              style={addItemTextBoxStyle2}
+              onChange={this.update('name')}
+            />
+          </form>
+    
+          <button className="pantry-button"
+            onClick={() => deletePantryItem(pantry_item.id)}>
+            Delete
+          </button>
+        </div>
+
+        <ErrorBanner1 message={this.state.quantityError} />
+        <ErrorBanner2 message={this.state.nameError} />
       </div>
     );
   }

@@ -16,6 +16,7 @@ class PantryIndex extends React.Component {
   render() {
     const pantry_items = this.props.pantry_items;
     return (
+
       <div>
         <div className="pantry-wrapper">
           <div className="pantry-one">

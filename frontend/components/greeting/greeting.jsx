@@ -49,14 +49,18 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
         </div>
 
         <div className="greeting-two">
-          <ul>
-            <div className="nav-titles">
-              <Link to="/grocery">Grocery</Link>
-            </div>
-            <div className="nav-titles">
-              <Link to="/pantry_items">Pantry</Link>
-            </div>
-          </ul>
+          <div>
+            <ul>
+              <div className="nav-titles">
+                <Link to="/grocery">Grocery</Link>
+              </div>
+              <div className="nav-titles">
+                <Link to="/pantry_items">Pantry</Link>
+              </div>
+            </ul>
+          </div>
+          <div className="greeting-nav-background">
+          </div>
         </div>
 
         <div className="greeting-three">

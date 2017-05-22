@@ -1,9 +1,10 @@
 .pantry-bckgd-img {
-  display: absolute;
+  position: absolute;
   opacity: 0.5;
   max-width: 100%;
   height: auto;
   display: block;
+  z-index: -1;
 }
 
 .pantry-wrapper {
@@ -17,6 +18,7 @@
     "pantry-two pantry-two pantry-two pantry-two"
     "pantry-three pantry-three pantry-three pantry-three";
   width: 100%;
+  z-index: 1;
 }
 
 .pantry-one {
@@ -24,6 +26,7 @@
   grid-row: 1;
   padding-bottom: 50px;
   margin-left: 20px;
+  z-index: 1;
 }
 
 .pantry-two {
@@ -152,4 +155,5 @@
   font-weight: bold;
   font-style: italic;
   color: red;
+  margin-left: 20px;
 }

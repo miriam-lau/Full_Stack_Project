@@ -3,7 +3,6 @@ import {Route, Link} from 'react-router-dom';
 
 import PantryIndexItem from './pantry_index_item';
 import PantryItemFormContainer from './pantry_item_form_container';
-import PantryItemUpdateFormContainer from './pantry_item_update_form_container';
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -21,8 +20,6 @@ class PantryIndex extends React.Component {
         <div className="pantry-one">
           <Route path="/pantry_items" component={ PantryItemFormContainer } />
         </div>
-
-        <Route path="/pantry_items/:id/edit" component={ PantryItemUpdateFormContainer } />
         <br />
 
         <div className="pantry-two">
@@ -32,8 +29,6 @@ class PantryIndex extends React.Component {
         <div className="pantry-three">
           <ul className="pantry-items">
             {this.props.pantry_items.map(item => {
-              // console.log("in pantry index");
-              // console.log(item);
               return (<PantryIndexItem
                 key={item.id}
                 pantry_item={item}
@@ -50,11 +45,3 @@ class PantryIndex extends React.Component {
 }
 
 export default PantryIndex;
-
-
-// <div className="pantry-table-column-titles">
-// <div className="col-1">Item</div>
-// <div className="col-2">Quantity</div>
-// <div className="col-3">Unit</div>
-// <div className="col-4">Category</div>
-// </div>

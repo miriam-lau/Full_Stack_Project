@@ -56,39 +56,20 @@ class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     let pantry_item = this.props.pantry_item;
-
-    console.log("in constructor pantry index item");
-    console.log(pantry_item);
     this.state = { id: pantry_item.id, user_id: pantry_item.user_id, temp: '' }
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
   }
-
-  // componentDidMount() {
-  //   console.log("in component did mount");
-  //   console.log(this.props);
-  //   this.props.requestPantryItem(this.props.pantry_item.match.params.id)
-  //     .then(() => {this.setState(this.props.pantry_item); });
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   console.log("in pantry INDEX ITEM componentWillReceiveProps");
-  //   if (this.props.pantry_item.match.params.id !== nextProps.pantry_item.match.params.id) {
-  //     this.props.requestPantryItem(nextProps.pantry_item.match.params.id);
-  //   }
-  // }
 
   parseUpdateQuantity(str) {
     let words = str.split(' ');
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      console.log("parseUpdateQuantity first return");
       return false;
     }
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(el) {
-      console.log("parseUpdateQuantity word filter return");
       return (el.trim() !== '');
     });
 
@@ -97,7 +78,6 @@ class PantryIndexItem extends React.Component {
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
-      console.log("parseUpdateQuantity 2nd return");
      return false;
     }
 
@@ -121,7 +101,6 @@ class PantryIndexItem extends React.Component {
     }
 
   this.setState({quantity: parseInt(quantity), unit: convertedUnit, temp: ''}, () => {
-      // console.log('in parseAdd item update');
       const pantry_item = this.state
       this.props.editPantryItem({pantry_item});
           // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
@@ -151,9 +130,6 @@ class PantryIndexItem extends React.Component {
       quantity = quantity + " " + pantry_item.unit;
     }
 
-    console.log("pantry index item");
-    console.log(pantry_item);
-
     return (
       <div className="update-pantry-form-div">
         <form className="update-pantry-form">
@@ -182,28 +158,3 @@ class PantryIndexItem extends React.Component {
 }
 
 export default PantryIndexItem;
-
-// <button className="pantry-button"
-// onClick={ () => {deletePantryItem(pantry_item.id)} }>
-// Delete
-// </button>
-
-
-// onChange={this.handleChange}
-// <Link to={`/pantry_items/${pantry_item.id}`}></Link>
-// <button className="pantry-button"
-//   onClick={ () => {editPantryItem(pantry_item.id)} }>
-//   Update Pantry Item
-// </button>
-
-// handleSubmit(event) {
-//   event.preventDefault();
-//   console.log("in handle submit");
-//   if (this.state.temp === '') {
-//     const pantry_item = this.state;
-//     this.props.editPantryItem({pantry_item})
-//       .then(data => this.props.history.push(`/pantry_items/${data.id}`));
-//   } else {
-//     this.parseUpdateQuantity(this.state.temp);
-//   }
-// }

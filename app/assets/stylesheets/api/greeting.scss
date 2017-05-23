@@ -38,7 +38,7 @@
 
 .header-button {
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   width: 100px;
   background-color: #E6E6FA;
@@ -47,10 +47,10 @@
   border: 1px solid #E6E6FA;
   align-self: center;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -63,7 +63,7 @@
 }
 
 .greeting {
-  font-size: 30px;
+  font-size: 25px;
   letter-spacing: 5px;
   font-family: 'Pacifico', cursive;
   width: 260px;
@@ -73,7 +73,7 @@
 
 .nav-link {
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   align-items: flex-end;
   width: auto;

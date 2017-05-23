@@ -32,6 +32,7 @@ class GroceryIndex extends React.Component {
 
           <div className="grocery-two">
             <h2>Current Grocery List</h2>
+            <p className="edit-instructions">Click on item to edit</p>
           </div>
 
           <div className="grocery-three">
@@ -53,6 +54,7 @@ class GroceryIndex extends React.Component {
           <br />
           <div className="grocery-four">
           <h2>Purchased</h2>
+          <p className="edit-instructions">Click on item to edit</p>
           </div>
 
           <div className="grocery-five">

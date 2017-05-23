@@ -27,6 +27,7 @@ class PantryIndex extends React.Component {
 
           <div className="pantry-two">
             <h2>Current Pantry Items</h2>
+            <p className="edit-instructions">Click on item to edit</p>
           </div>
 
           <div className="pantry-three">

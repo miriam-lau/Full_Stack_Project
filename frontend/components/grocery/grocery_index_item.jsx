@@ -148,14 +148,10 @@ class GroceryIndexItem extends React.Component {
     event.preventDefault();
     console.log(checked);
     if (checked) {
-      console.log("in handlecheck");
-      // this.update('purchased');
       this.setState({purchased: true}, () => {
-        console.log(this.state);
         const grocery_item = this.state;
         this.props.editGroceryItem({grocery_item});
       })
-      // console.log(this.state);
     } else {
       this.setState({purchased: false}, () => {
         const grocery_item = this.state;
@@ -178,7 +174,6 @@ class GroceryIndexItem extends React.Component {
       }
 
       if (property === 'purchased') {
-        console.log("in update property");
         this.setState({purchased: true});
         console.log(this.state);
       }
@@ -215,8 +210,6 @@ class GroceryIndexItem extends React.Component {
     if (grocery_item.unit !== null) {
       quantity = quantity + " " + grocery_item.unit;
     }
-    // console.log("in grocery index item");
-    // console.log(grocery_item);
 
     return (
       <div className="update-grocery-list">
@@ -258,8 +251,3 @@ class GroceryIndexItem extends React.Component {
 }
 
 export default GroceryIndexItem;
-  // onClick={this.update('purchased'), checked}
-  // onClick={this.handleClick(event, checked)}
-
-
-  // {button won't appear unless purchased is false}

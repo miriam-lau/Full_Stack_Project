@@ -21,9 +21,8 @@ export const signup = (user) => dispatch => (
 
 // format of object being passed in {user}
 export const signin = (user) => dispatch => (
-  APIUtil.signin(user).then(user =>(dispatch(receiveCurrentUser(user))),
-    err => (dispatch(receiveErrors(err.responseJSON)))
-  )
+  APIUtil.signin(user).then(user =>(dispatch(receiveCurrentUser(user))))
+    .fail(err => (dispatch(receiveErrors(err.responseJSON))))
 );
 
 export const signout = () => dispatch => (

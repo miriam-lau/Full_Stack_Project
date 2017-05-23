@@ -10,25 +10,24 @@ const textboxUnderlineStyle = {
 
 const addItemTextBoxStyle1 = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "22px",
+  "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "35%",
+  "width": "150px",
   "display": "inline",
   "textAlign": "left",
-  "marginRight": "50px",
-  "marginLeft": "20px"
+  "marginRight": "20px"
 }
 
 const addItemTextBoxStyle2 = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "22px",
+  "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "65%",
+  "width": "220px",
   "display": "inline"
 }
 
 const styles = {
-  "width": "10%",
+  "width": "50px",
   "alignItems": "center"
 }
 
@@ -154,6 +153,10 @@ class GroceryIndexItem extends React.Component {
         this.setState({nameError: ''});
       }
 
+      if (property === 'purchased') {
+        this.setState({purchased: true});
+      }
+
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === '') {
           const grocery_item = this.state;
@@ -183,12 +186,13 @@ class GroceryIndexItem extends React.Component {
     }
 
     return (
-      <div>
+      <div className="update-grocery-list">
         <div className="update-grocery-form-div">
 
           <Checkbox className="update-grocery-checkbox"
             style={styles}
             iconStyle={{fill: "#33339"}}
+            onClick={this.update('purchased')}
           />
 
           <form className="update-grocery-form">

@@ -1,17 +1,19 @@
 .grocery-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: minmax(80px, auto);
   grid-template-areas:
-    "grocery-one grocery-one grocery-one grocery-one"
-    "grocery-two grocery-two grocery-two grocery-two"
-    "grocery-three grocery-three grocery-three grocery-three";
-  width: 100%;
+    "grocery-one grocery-one grocery-one grocery-one grocery-one"
+    "grocery-two grocery-two grocery-two grocery-two grocery-two"
+    "grocery-three grocery-three grocery-three grocery-three grocery-three"
+    "grocery-four grocery-four grocery-four grocery-four grocery-four"
+    "grocery-five grocery-five grocery-five grocery-five grocery-five";
+  width: 600px;
   z-index: 1;
 }
 
 .grocery-one {
-  grid-column: 1 / 5;
+  grid-column: 1 / 6;
   grid-row: 1;
   padding-bottom: 50px;
   margin-left: 20px;
@@ -19,14 +21,17 @@
 }
 
 .grocery-two {
-  grid-column: 1 / 5;
-  grid-row: 2 / 4;
+  grid-column: 1 / 6;
+  grid-row: 2 / 6;
   background-color: #333399;
   color: white;
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
+  font-weight: 900;
   text-align: left;
-  border-radius: 20px;
+  border-radius: 10px;
+  width: 100%;
+  padding-top: 30px;
 }
 
 .grocery-two h2 {
@@ -34,55 +39,65 @@
 }
 
 .grocery-three {
-  grid-column: 1 / 5;
-  grid-row: 3 /4;
+  grid-column: 1 / 6;
+  grid-row: 3 / 6;
   background-color: #E6E6FA;
+  margin: 0 20px 20px 20px;
+  border-radius: 10px;
+}
+
+.grocery-four {
+  grid-column: 1 / 6;
+  grid-row: 7/ 11;
+  background-color: #333399;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: left;
+  border-radius: 10px;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.grocery-five {
+  grid-column: 1 / 6;
+  grid-row: 8 / 11;
+  background-color: #E6E6FA;
+  margin: 0 20px 20px 20px;
+  border-radius: 10px;
+}
+
+
+.grocery-four h2 {
+  align-items: center;
   margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  border-radius: 20px;
 }
 
 .grocery-form {
-  width: 600px;
+  width: 100%;
 }
 
 .grocery-form-label {
   font-family: 'Nunito', sans-serif;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .grocery-form-fields {
   display: flex;
-  justify-content: space-between;
 }
 
-.grocery-form-section, .grocery-input, label {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.grocery-form-section, select {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  width: 30%;
-}
-
-.grocery-items li {
+.grocery-items ul {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
+  width: 50%;
+  padding-right: 20px;
 }
 
 .update-grocery-form-div {
   display: flex;
-  justify-content: space-between;
-  width: 800px;
   margin-left: 20px;
 }
 
@@ -95,15 +110,13 @@
 
 .update-grocery-form {
   display: flex;
-  justify-content: space-between;
-  width: 800px;
 }
 
 .grocery-button {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
-  width: 130px;
+  width: 60px;
   background-color: #333399;
   color: white;
   border-radius: 7px;
@@ -111,8 +124,8 @@
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
-  margin-left: 50px;
-  height: 40px;
+  margin-right: 10px;
+  height: 30px;
   align-self: center;
 }
 
@@ -125,9 +138,9 @@
 
 .grocery-button-add {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
-  width: 130px;
+  width: 60px;
   background-color: #333399;
   color: white;
   border-radius: 7px;
@@ -136,7 +149,7 @@
   cursor: pointer;
   transition: 0.5s;
   margin-left: 30px;
-  height: 40px;
+  height: 30px;
 }
 
 .grocery-button-add:hover {
@@ -148,7 +161,7 @@
 
 .grocery-item-error {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 12px;
   font-weight: bold;
   font-style: italic;
   color: red;

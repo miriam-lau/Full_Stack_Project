@@ -7,9 +7,9 @@ const textboxUnderlineStyle = {
 
 const addItemTextBoxStyle ={
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "25px",
+  "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "100%",
+  "width": "500px",
   "display": "inline"
 }
 

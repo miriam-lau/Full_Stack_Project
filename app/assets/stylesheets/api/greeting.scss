@@ -14,8 +14,8 @@
   align-items: center;
   background-color: #333399;
   color: white;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .header {
@@ -32,13 +32,13 @@
 .header-name {
   padding: 10px;
   font-family: 'Nunito', sans-serif;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .header-button {
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   width: 100px;
   background-color: #E6E6FA;
@@ -63,7 +63,7 @@
 }
 
 .greeting {
-  font-size: 40px;
+  font-size: 30px;
   letter-spacing: 5px;
   font-family: 'Pacifico', cursive;
   width: 260px;
@@ -73,7 +73,7 @@
 
 .nav-link {
   font-family: 'Nunito', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   align-items: flex-end;
   width: auto;
@@ -96,20 +96,20 @@
 
 .greeting-wrapper {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: minmax(80px, auto);
   grid-template-areas:
     "greeting-one greeting-one greeting-one greeting-one
-      greeting-one greeting-one greeting-one greeting-one"
+      greeting-one greeting-one greeting-one greeting-one greeting-one"
     "greeting-two greeting-three greeting-three greeting-three
-      greeting-three greeting-three greeting-three greeting-three"
+      greeting-three greeting-three greeting-three greeting-three greeting-three"
     "greeting-four greeting-four greeting-four greeting-four
-      greeting-four greeting-four greeting-four greeting-four";
+      greeting-four greeting-four greeting-four greeting-four greeting-four";
   width: 100%;
 }
 
 .greeting-one {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   grid-row: 1;
 }
 
@@ -131,19 +131,19 @@
 }
 
 .greeting-three {
-  grid-column: 2 / 8;
+  grid-column: 2 / 9;
   grid-row: 2 / 4;
   padding: 50px;
 }
 
 .greeting-four {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   z-index: 1;
 }
 
 .nav-titles {
   font-family: 'Nunito', sans-serif;
-  font-size: 25px;
+  font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: bold;
@@ -157,7 +157,7 @@
   font-family: 'Nunito', sans-serif;
   background-color: #333399;
   color: white;
-  font-size: 25px;
+  font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: bold;
@@ -172,7 +172,7 @@
   display: flex;
   justify-content: space-around;
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   background-color: #333399;
   color: white;

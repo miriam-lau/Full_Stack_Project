@@ -42,7 +42,7 @@ Phase 3: Pantry (2 days)
   Objective: Pantry items can be created, read, edited and destroyed
     through the API.
 Phase 4: Search (1 day)
-  Objective: Pantry items are searchable.
+  Objective: Pantry and grocery items are searchable.
 
 Bonus 1: Add Recipe Page (1 day, W2 Th 6pm)
   Objective: Add RecipeScreen, RecipeView, and create a form to add

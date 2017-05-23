@@ -19,6 +19,7 @@ class Api::GroceriesController < ApplicationController
   def create
     @grocery_item = Grocery.new(grocery_item_params)
     @grocery_item.user_id = current_user.id
+    @grocery_item.purchased = false
     if @grocery_item.save
       render :show
     else

@@ -40,6 +40,10 @@ class GroceryIndex extends React.Component {
               })}
             </ul>
           </div>
+
+          <br />
+          <br />
+
         </div>
       </div>
     );
@@ -47,3 +51,21 @@ class GroceryIndex extends React.Component {
 }
 
 export default GroceryIndex;
+
+
+// <div className="grocery-four">
+// <h2>Purchased</h2>
+// </div>
+//
+// <div className="grocery-five">
+// <ul className="purchased-grocery-items">
+// {this.props.grocery_items.map(item => {
+//   return (<GroceryIndexItem
+//     key={item.id}
+//     grocery_item={item}
+//     requestGroceryItem={this.props.requestGroceryItem}
+//     deleteGroceryItem={this.props.deleteGroceryItem}
+//     editGroceryItem={this.props.editGroceryItem} />)
+//   })}
+//   </ul>
+//   </div>

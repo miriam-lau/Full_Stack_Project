@@ -26,7 +26,7 @@ export const createGroceryItem = (grocery_item) => {
 export const updateGroceryItem = (grocery_item) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/groceries/${grocery.grocery_item.id}`,
+    url: `/api/groceries/${grocery_item.grocery_item.id}`,
     data: grocery_item
   });
 }

@@ -86,9 +86,14 @@ class GroceryIndexItem extends React.Component {
     super(props);
     let grocery_item = this.props.grocery_item;
     this.state = { id: grocery_item.id, user_id: grocery_item.user_id,
-      temp: '', quantityError: '', nameError: '' };
+      purchased: grocery_item.purchased, temp: '', quantityError: '',
+      nameError: '' };
+
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+    this.update = this.update.bind(this);
+
     this.currentQuantity = this.props.grocery_item.quantity;
     if (grocery_item.unit != null && grocery_item.unit.length !== 0) {
       this.currentQuantity = this.currentQuantity + " " + grocery_item.unit;
@@ -139,6 +144,25 @@ class GroceryIndexItem extends React.Component {
     return null;
   }
 
+  handleCheck(event, checked) {
+    event.preventDefault();
+    console.log(checked);
+    if (checked) {
+      console.log("in handlecheck");
+      // this.update('purchased');
+      this.setState({purchased: true}, () => {
+        console.log(this.state);
+        const grocery_item = this.state;
+        this.props.editGroceryItem({grocery_item});
+      })
+      // console.log(this.state);
+    } else {
+      this.setState({purchased: false}, () => {
+        const grocery_item = this.state;
+        this.props.editGroceryItem({grocery_item});
+      })
+    }
+  }
 
   update(property) {
     return e => {
@@ -154,12 +178,20 @@ class GroceryIndexItem extends React.Component {
       }
 
       if (property === 'purchased') {
+        console.log("in update property");
         this.setState({purchased: true});
+        console.log(this.state);
       }
+      console.log("in update property");
+      console.log(this.state);
 
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === '') {
           const grocery_item = this.state;
+
+          console.log("in update property2");
+          console.log(this.state);
+
           this.props.editGroceryItem({grocery_item});
             // .then(data => this.props.history.push(`/grocery_items/${data.id}`));
         } else {
@@ -176,7 +208,6 @@ class GroceryIndexItem extends React.Component {
     }
   }
 
-
   render() {
     const grocery_item = this.props.grocery_item;
     const deleteGroceryItem = this.props.deleteGroceryItem;
@@ -184,6 +215,8 @@ class GroceryIndexItem extends React.Component {
     if (grocery_item.unit !== null) {
       quantity = quantity + " " + grocery_item.unit;
     }
+    // console.log("in grocery index item");
+    // console.log(grocery_item);
 
     return (
       <div className="update-grocery-list">
@@ -192,8 +225,9 @@ class GroceryIndexItem extends React.Component {
           <Checkbox className="update-grocery-checkbox"
             style={styles}
             iconStyle={{fill: "#33339"}}
-            onClick={this.update('purchased')}
-          />
+            checked={this.state.purchased ? true : false}
+            onCheck={this.handleCheck}
+            />
 
           <form className="update-grocery-form">
             <TextField id="text-field-default"
@@ -210,7 +244,6 @@ class GroceryIndexItem extends React.Component {
               onChange={this.update('name')}
             />
           </form>
-
           <button className="grocery-button"
             onClick={() => deleteGroceryItem(grocery_item.id)}>
             Delete
@@ -225,3 +258,8 @@ class GroceryIndexItem extends React.Component {
 }
 
 export default GroceryIndexItem;
+  // onClick={this.update('purchased'), checked}
+  // onClick={this.handleClick(event, checked)}
+
+
+  // {button won't appear unless purchased is false}

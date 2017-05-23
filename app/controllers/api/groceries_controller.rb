@@ -36,7 +36,7 @@ class Api::GroceriesController < ApplicationController
   end
 
   def update
-    @grocery_item = current_user.grocery_items.find(params[:id])
+    @grocery_item = current_user.groceries.find(params[:id])
     if @grocery_item.update_attributes(grocery_item_params)
       render :show
     else
@@ -54,6 +54,6 @@ class Api::GroceriesController < ApplicationController
 
   def grocery_item_params
     params.require(:grocery_item).permit(:name, :quantity, :unit,
-      :category)
+      :category, :purchased)
   end
 end

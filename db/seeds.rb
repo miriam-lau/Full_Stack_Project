@@ -25,7 +25,7 @@ pantry5 = PantryItem.create(category: "", name: "Strawberry",
   quantity: 4, unit: "ounce", user_id: guest.id)
 
 grocery1 = Grocery.create(category: "", name: "Banana",
-  quantity: 2, unit: "", user_id: guest.id)
+  quantity: 2, unit: "", user_id: guest.id, purchased: false)
 
 
 mir = User.create(username: "mir", password: "password",
@@ -43,4 +43,4 @@ pantry10 = PantryItem.create(category: "", name: "Pork shoulder",
   quantity: 4, unit: "pounds", user_id: mir.id)
 
 grocery2 = Grocery.create(category: "", name: "Pork chop",
-  quantity: 2, unit: "", user_id: mir.id)
+  quantity: 2, unit: "", user_id: mir.id, purchased: false)

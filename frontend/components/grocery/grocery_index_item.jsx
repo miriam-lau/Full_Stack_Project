@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import Checkbox from 'material-ui/Checkbox';
 
 import { Link } from 'react-router-dom';
 
@@ -24,6 +25,11 @@ const addItemTextBoxStyle2 = {
   "fontWeight": "bold",
   "width": "65%",
   "display": "inline"
+}
+
+const styles = {
+  "width": "10%",
+  "alignItems": "center"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
@@ -179,6 +185,12 @@ class GroceryIndexItem extends React.Component {
     return (
       <div>
         <div className="update-grocery-form-div">
+
+          <Checkbox className="update-grocery-checkbox"
+            style={styles}
+            iconStyle={{fill: "#33339"}}
+          />
+
           <form className="update-grocery-form">
             <TextField id="text-field-default"
               defaultValue={ quantity }

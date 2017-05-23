@@ -83,6 +83,14 @@
   display: flex;
   justify-content: space-between;
   width: 800px;
+  margin-left: 20px;
+}
+
+.update-grocery-checkbox {
+  align-self: center;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
 }
 
 .update-grocery-form {

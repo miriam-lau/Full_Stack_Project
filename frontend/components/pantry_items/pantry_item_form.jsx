@@ -173,7 +173,8 @@ class PantryItemForm extends React.Component {
             onChange={this.update('temp')}
           />
 
-          <i className="material-icons">add_circle</i>
+          <i className="material-icons"
+            onClick={this.handleSubmit}>add_circle</i>
         </div>
         <ErrorBanner shouldShow={this.state.errors}
         message="Invalid entry. Entry must have 'quantity' and 'item name'" />

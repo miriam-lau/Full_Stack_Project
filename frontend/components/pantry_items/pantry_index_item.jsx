@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-
 import { Link } from 'react-router-dom';
+import FontIcon from 'material-ui/FontIcon';
 
 const textboxUnderlineStyle = {
   'borderColor': '#333399'
@@ -194,10 +194,9 @@ class PantryIndexItem extends React.Component {
             />
           </form>
 
-          <button className="pantry-button"
+          <i className="material-icons"
             onClick={() => deletePantryItem(pantry_item.id)}>
-            Delete
-          </button>
+            delete_forever</i>
         </div>
 
         <ErrorBanner1 message={this.state.quantityError} />
@@ -208,3 +207,8 @@ class PantryIndexItem extends React.Component {
 }
 
 export default PantryIndexItem;
+
+// <button className="pantry-button"
+//   onClick={() => deletePantryItem(pantry_item.id)}>
+//   Delete
+// </button>

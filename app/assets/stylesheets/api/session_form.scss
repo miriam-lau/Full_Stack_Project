@@ -1,3 +1,15 @@
+.form-greeting {
+  font-size: 16px;
+  letter-spacing: 5px;
+  font-family: 'Pacifico', cursive;
+  width: 100%;
+  text-align: center;
+  background-color: #333399;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .session-title {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
@@ -19,8 +31,8 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 500px;
+  // padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .session-form {
@@ -58,6 +70,30 @@
 }
 
 .session-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
+}
+
+.guest-session-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  width: 220px;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #333399;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.5s;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.guest-session-button:hover {
   background-color: #E6E6FA;
   color: black;
   border: 1px solid #333399;

@@ -146,7 +146,6 @@
   border-radius: 7px;
   border: 1px solid #333399;
   text-align: center;
-  cursor: pointer;
   transition: 0.5s;
   margin-left: 30px;
   height: 30px;
@@ -155,6 +154,7 @@
 .grocery-button-add:hover {
   background-color: #E6E6FA;
   color: black;
+  cursor: pointer;
   border: 1px solid #333399;
   transition: 0.5s;
 }

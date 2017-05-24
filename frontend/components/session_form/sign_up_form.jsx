@@ -32,17 +32,25 @@ class SignUpForm extends React.Component {
     } else {
       this.setState({matching_passwords: true});
       const user = this.state;
-      return this.props.receiveCurrentUser({user})
+      return this.props.signup({user})
         .then( () => {
           this.props.history.push('/pantry_items');
         })
     }
   }
 
+  handleGuestSignIn(event) {
+    event.preventDefault();
+    const user = {username: 'guest', password: 'password'};
+    this.props.signin({user}).then( () => {this.props.history.push('/pantry_items');
+    })
+  }
+
   renderErrors() {
+    let signUpErrors = (this.props.errors == undefined ? [] : this.props.errors);
     return (
       <ul className="sign-up-error">
-        { this.props.errors.map((error, i) => (
+        { signUpErrors.map((error, i) => (
           <li key={`error-${i}`}>{ error }</li>
         ))}
       </ul>
@@ -53,10 +61,13 @@ class SignUpForm extends React.Component {
     return(
       <div className="session-form-container">
         <form onSubmit={ this.handleSubmit }>
+          <div className="form-greeting">
+            <h3>myPantry</h3>
+          </div>
           <br />
+
           <div className="session-form">
             <h2 className="session-title">Create Account</h2>
-            <br />
             <br />
 
             <label>Username</label>
@@ -101,6 +112,9 @@ class SignUpForm extends React.Component {
               value="Create Account" />
           </div>
         </form>
+        <br />
+        <br />
+        <button className="guest-session-button" onClick={ this.handleGuestSignIn }>Guest Sign In</button>
       </div>
     );
   }

@@ -66,7 +66,7 @@
   font-size: 25px;
   letter-spacing: 5px;
   font-family: 'Pacifico', cursive;
-  width: 260px;
+  width: 200px;
   text-align: center;
   flex: 1;
 }
@@ -151,6 +151,7 @@
   border-top: 1px #E6E6FA solid;
   border-bottom: 1px #E6E6FA solid;
   transition: 0.5s;
+  display: block;
 }
 
 .nav-titles:hover {
@@ -166,6 +167,7 @@
   border-top: 1px #E6E6FA solid;
   border-bottom: 1px #E6E6FA solid;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .footer {

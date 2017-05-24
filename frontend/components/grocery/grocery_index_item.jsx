@@ -237,10 +237,10 @@ class GroceryIndexItem extends React.Component {
               onChange={this.update('name')}
             />
           </form>
-          <button className="grocery-button"
-            onClick={() => deleteGroceryItem(grocery_item.id)}>
-            Delete
-          </button>
+
+          <i className="material-icons"
+            onClick={() => deletePantryItem(pantry_item.id)}>
+            delete_forever</i>
         </div>
 
         <ErrorBanner1 message={this.state.quantityError} />

@@ -2,25 +2,39 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
+import ModalForm from '../modal/modal_form';
 
-const sessionLinks = (clearErrors) => (
-  <nav className="header-group">
-    <div className="header">
-      <h1 className="greeting">myPantry</h1>
-    </div>
-    <div className="header">
-      <div className="nav-link">
-        <Link className="link" to="/">Home Page</Link>
+const sessionLinks = ({signin, signup, errors, clearErrors}) => {
+  return(
+    <nav className="header-group">
+      <div className="header">
+        <h1 className="greeting">myPantry</h1>
       </div>
-      <div className="nav-link">
-        <Link onClick={clearErrors} className="link" to="/signin">Sign In</Link>
+      <div className="header">
+        <div className="nav-link">
+          <Link className="link" to="/">Home Page</Link>
+        </div>
+        <div className="nav-link">
+          <ModalForm
+            signInForm={true}
+            signin={signin}
+            errors={errors}
+            clearErrors={clearErrors}
+          />
+        </div>
+        <div className="nav-link">
+          <ModalForm
+            signInForm={false}
+            signin={signin}
+            signup={signup}
+            errors={errors}
+            clearErrors={clearErrors}
+          />
+        </div>
       </div>
-      <div className="nav-link">
-        <Link onClick={clearErrors} className="link" to="/signup">Create Account</Link>
-      </div>
-    </div>
-  </nav>
-);
+    </nav>
+  )
+};
 
 const personalGreeting = (currentUser, signout) => (
   <nav className="header-group2">
@@ -40,7 +54,7 @@ const personalGreeting = (currentUser, signout) => (
   </nav>
 );
 
-const Greeting = ({ currentUser, signout, clearErrors }) => {
+const Greeting = ({ currentUser, signin, signup, signout, clearErrors }) => {
   if (currentUser) {
     return (
       <div className="greeting-wrapper">
@@ -51,11 +65,11 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
         <div className="greeting-two">
           <div>
             <ul>
-              <div className="nav-titles">
-                <Link to="/groceries">Grocery</Link>
+              <div >
+                <Link className="nav-titles" to="/groceries">Grocery</Link>
               </div>
-              <div className="nav-titles">
-                <Link to="/pantry_items">Pantry</Link>
+              <div>
+                <Link className="nav-titles" to="/pantry_items">Pantry</Link>
               </div>
             </ul>
           </div>
@@ -83,7 +97,7 @@ const Greeting = ({ currentUser, signout, clearErrors }) => {
   } else {
     return (
       <div>
-        {sessionLinks(clearErrors)}
+        {sessionLinks({signin, signup, clearErrors})}
       </div>
     )
   }

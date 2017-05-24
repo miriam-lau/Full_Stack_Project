@@ -42,6 +42,7 @@ class SignUpForm extends React.Component {
 
   handleGuestSignIn(event) {
     event.preventDefault();
+    // this.props.errors = [];
     const user = {username: 'guest', password: 'password'};
     this.props.signin({user})
       .then( () => {this.props.history.push('/pantry_items');
@@ -66,11 +67,6 @@ class SignUpForm extends React.Component {
     return(
       <div className="session-form-container">
         <form onSubmit={ this.handleSubmit }>
-          <div className="form-greeting">
-            <h3>myPantry</h3>
-          </div>
-          <br />
-
           <div className="session-form">
             <h2 className="session-title">Create Account</h2>
             <br />
@@ -126,3 +122,8 @@ class SignUpForm extends React.Component {
 }
 
 export default SignUpForm;
+
+
+// <div className="form-greeting">
+// <h3>myPantry</h3>
+// </div>

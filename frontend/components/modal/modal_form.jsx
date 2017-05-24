@@ -2,8 +2,8 @@ import React from 'react';
 import Modal from 'react-modal';
 import FontIcon from 'material-ui/FontIcon';
 
-import SignInForm from '../session_form/sign_in_form';
-import SignUpForm from '../session_form/sign_up_form';
+import SignInFormContainer from '../session_form/sign_in_form_container';
+import SignUpFormContainer from '../session_form/sign_up_form_container';
 
 class ModalForm extends React.Component {
   constructor(props) {
@@ -14,8 +14,6 @@ class ModalForm extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    console.log("in modal form constructor");
-    console.log(this.props.errors);
   }
 
   componentWillMount() {
@@ -23,6 +21,8 @@ class ModalForm extends React.Component {
   }
 
   openModal() {
+    this.props.clearErrors();
+    this.closeModal();
     this.setState({modalIsOpen: true});
   }
 
@@ -36,59 +36,51 @@ class ModalForm extends React.Component {
   }
 
   render() {
-    console.log("in modal form");
-    console.log(this.props.errors);
-    // const padding = 90; // adjust this to your needs
-    //     let height = (this.state.contentHeight + padding);
-    //     let heightPx = height + 'px';
-    //     let heightOffset = height / 2;
-    //     let offsetPx = heightOffset + 'px';
-
     const style = {
-      content: {
-        borderRadius: '10px',
-        bottom: 'auto',
-        // height: heightPx,  // set height
-        left: '35%',
-        position: 'fixed',
-        right: 'auto',
-        top: '20%', // start from center
-        // transform: 'translate(-50%,-' + offsetPx + ')', // adjust top "up" based on height
-        width: '30%',
-        maxWidth: '40rem'
+      overlay : {
+       position          : 'fixed',
+       top               : 0,
+       left              : 0,
+       right             : 0,
+       bottom            : 0,
+       opactiy: '1',
+       backgroundColor   : 'rgba(55, 55, 55, 0.9)'
+      },
+      content : {
+        position                   : 'fixed',
+        top                        : '20%',
+        left                       : '35%',
+        right                      : '40px',
+        bottom                     : 'auto',
+        border                     : '1px solid #ccc',
+        // background                 : '#fff',
+        overflow                   : 'auto',
+        WebkitOverflowScrolling    : 'touch',
+        borderRadius               : '10px',
+        outline                    : 'none',
+        // padding                    : '20px',
+        width: '25%'
       }
     };
 
-    let formType;
-    if (this.props.signInForm) {
-      formType = "Sign In";
-    } else {
-      formType = "Create Account";
-    }
 
+    const open = Boolean(this.props.modalOpen)
+    const {openModal, modalOpen} = this.props;
+    const form = modalOpen === 'signin' ? (<SignInFormContainer openModal={openModal}/>) :
+      (<SignUpFormContainer openModal={openModal}/>);
     return (
       <div>
-        <button onClick={this.openModal}>{formType}</button>
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={open}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
+          onRequestClose={openModal("")}
           style={style}
           contentLabel="session-form"
         >
 
-        {(this.props.signInForm) ?
-          <SignInForm
-            signin={this.props.signin}
-            errors={this.props.errors}
-          /> : <SignUpForm
-            signin={this.props.signin}
-            signup={this.props.signup}
-            errors={this.props.errors}
-          />
-        }
+        {form}
           <i className="material-icons"
-            onClick={this.closeModal}>close</i>
+            onClick={openModal("")}>close</i>
         </Modal>
       </div>
     );

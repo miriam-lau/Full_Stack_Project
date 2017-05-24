@@ -2,9 +2,10 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
-import ModalForm from '../modal/modal_form';
+import ModalFormContainer from '../modal/modal_container';
 
-const sessionLinks = ({signin, signup, errors, clearErrors}) => {
+const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
+
   return(
     <nav className="header-group">
       <div className="header">
@@ -12,25 +13,12 @@ const sessionLinks = ({signin, signup, errors, clearErrors}) => {
       </div>
       <div className="header">
         <div className="nav-link">
-          <Link className="link" to="/">Home Page</Link>
+          <button onClick={openModal("signin")}>Sign In</button>
         </div>
         <div className="nav-link">
-          <ModalForm
-            signInForm={true}
-            signin={signin}
-            errors={errors}
-            clearErrors={clearErrors}
-          />
+          <button onClick={openModal("signup")}>Create Account</button>
         </div>
-        <div className="nav-link">
-          <ModalForm
-            signInForm={false}
-            signin={signin}
-            signup={signup}
-            errors={errors}
-            clearErrors={clearErrors}
-          />
-        </div>
+        <ModalFormContainer openModal={openModal} modalOpen={modalOpen} />
       </div>
     </nav>
   )
@@ -54,53 +42,87 @@ const personalGreeting = (currentUser, signout) => (
   </nav>
 );
 
-const Greeting = ({ currentUser, signin, signup, signout, errors, clearErrors }) => {
-  if (currentUser) {
-    return (
-      <div className="greeting-wrapper">
+class Greeting extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = ({modalOpen: ""});
+    this.openModal = this.openModal.bind(this);
+  }
+
+  openModal(type) {
+    return () => this.setState({modalOpen: type});
+  }
+
+  render() {
+    const { currentUser, signin, signup, signout, errors, clearErrors } = this.props;
+    const openModal = this.openModal;
+    const {modalOpen} = this.state;
+    if (currentUser) {
+      return (
+        <div className="greeting-wrapper">
         <div className="greeting-one">
-          { personalGreeting(currentUser, signout) }
+        { personalGreeting(currentUser, signout) }
         </div>
 
         <div className="greeting-two">
-          <div>
-            <ul>
-              <div >
-                <Link className="nav-titles" to="/groceries">Grocery</Link>
-              </div>
-              <div>
-                <Link className="nav-titles" to="/pantry_items">Pantry</Link>
-              </div>
-            </ul>
-          </div>
+        <div>
+        <ul>
+        <div >
+        <Link className="nav-titles" to="/groceries">Grocery</Link>
+        </div>
+        <div>
+        <Link className="nav-titles" to="/pantry_items">Pantry</Link>
+        </div>
+        </ul>
+        </div>
 
-          <div className="greeting-nav-background">
-          </div>
+        <div className="greeting-nav-background">
+        </div>
 
         </div>
 
         <div className="greeting-three">
-          <Switch>
-            <Route path="/pantry_items" component={PantryIndexContainer} />
-            <Route path="/groceries" component={GroceryIndexContainer} />
-          </Switch>
+        <Switch>
+        <Route path="/pantry_items" component={PantryIndexContainer} />
+        <Route path="/groceries" component={GroceryIndexContainer} />
+        </Switch>
         </div>
 
         <div className="greeting-four">
-          <footer className="footer">
-            <div>Copyright 2017 myPantry. All rights reserved.
-            </div>
-          </footer>
+        <footer className="footer">
+        <div>Copyright 2017 myPantry. All rights reserved.
         </div>
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        {sessionLinks({signin, signup, errors, clearErrors})}
-      </div>
-    )
+        </footer>
+        </div>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+        {sessionLinks({modalOpen, openModal, signin, signup, errors, clearErrors})}
+        </div>
+      )
+    }
+
   }
-};
+}
 
 export default Greeting;
+
+// <div className="nav-link">
+//   <Link className="link" to="/">Guest</Link>
+// </div>
+
+// <ModalFormContainer signInForm={true} />
+//   signin={signin}
+//   errors={errors}
+//   clearErrors={clearErrors}
+// />
+// </div>
+// <div className="nav-link">
+// <ModalFormContainer signInForm={false} />
+//   signin={signin}
+//   signup={signup}
+//   errors={errors}
+//   clearErrors={clearErrors}
+// />

@@ -21,7 +21,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="main-content">
-        <button className="guest-sign-in" onClick={ this.handleSubmit }>Guest Sign In</button>
         <Carousel className="image" wrapAround={true} autoplay={true} autoInterval={5000}>
           <div className="home-panels">
             <h2 className="home-titles">Keep Track of Your Pantry</h2>
@@ -61,3 +60,6 @@ class Home extends React.Component {
 }
 
 export default Home;
+
+
+// <button className="guest-sign-in" onClick={ this.handleSubmit }>Guest Sign In</button>

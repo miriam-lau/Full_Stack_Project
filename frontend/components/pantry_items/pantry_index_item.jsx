@@ -207,8 +207,3 @@ class PantryIndexItem extends React.Component {
 }
 
 export default PantryIndexItem;
-
-// <button className="pantry-button"
-//   onClick={() => deletePantryItem(pantry_item.id)}>
-//   Delete
-// </button>

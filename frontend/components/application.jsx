@@ -10,7 +10,6 @@ import PantryIndexContainer from './pantry_items/pantry_index_container';
 import ModalContainer from './modal/modal_container';
 
 const App = () => {
-  console.log('in app');
   return (
     <div id="wrapper">
       <div id="header">

@@ -239,7 +239,7 @@ class GroceryIndexItem extends React.Component {
           </form>
 
           <i className="material-icons"
-            onClick={() => deletePantryItem(pantry_item.id)}>
+            onClick={() => deleteGroceryItem(grocery_item.id)}>
             delete_forever</i>
         </div>
 

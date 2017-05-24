@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import SignUpFormContainer from './sign_up_form_container';
-import ModalForm from '../modal/modal_form'
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -18,14 +16,11 @@ class SignInForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    console.log("in signInForm handle submit");
-    console.log(this.props);
     this.props.signin({user})
-      .then( () => {
-        console.log("sign in form in handle submit 2");
-        console.log(this);
-        console.log(this.props);
-        console.log(this.props.history);
+    // .then( () => {
+    //   this.props.clearErrors()
+    // })
+    .then( () => {
         this.props.history.push('/pantry_items');
       })
   }
@@ -53,16 +48,9 @@ class SignInForm extends React.Component {
   }
 
   render() {
-    console.log("in sign-in form");
-    console.log(this.props);
     return(
       <div className="session-form-container">
         <form onSubmit={ this.handleSubmit }>
-          <div className="form-greeting">
-            <h3>myPantry</h3>
-          </div>
-          <br />
-
           <div className="session-form">
             <h2 className="session-title">Sign In</h2>
             <br />
@@ -90,21 +78,23 @@ class SignInForm extends React.Component {
             <input className="session-button" type="submit" value="Sign In" />
           </div>
         </form>
+
         <div className="session-form">
           <br />
           <br />
-          <h3 className="session-question">New to Pantry?</h3>
+          <section className="session-question-div">
+            <span className="session-question">New to</span>
+            <span className="session-question-logo"> myPantry</span>
+            <span className="session-question">?</span>
+          </section>
           <br />
-          <div className="button-link">
-            <ModalForm
-              signInForm={false}
-              signin={this.props.signin}
-              signup={this.props.signup}
-              errors={this.props.errors}
-              clearErrors={this.props.clearErrors}
-            />
+          <br />
+
+          <div >
+            <input className="create-session-button" onClick={this.props.openModal("signup")} value="Create Account" />
           </div>
         </div>
+
         <br />
         <br />
         <button className="guest-session-button" onClick={ this.handleGuestSignIn }>Guest Sign In</button>

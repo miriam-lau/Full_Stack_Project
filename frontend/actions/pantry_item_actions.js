@@ -7,6 +7,7 @@ export const REMOVE_PANTRY_ITEM  = 'REMOVE_PANTRY_ITEM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveAllPantryItems = (pantry_items) => ({
+  // junk: console.log(pantry_items),
   type: RECEIVE_ALL_PANTRY_ITEMS,
   pantry_items
 });
@@ -39,7 +40,10 @@ export const receivePantryErrors = (errors) => ({
 
 export const requestAllPantryItems = () => dispatch => (
   APIUtil.fetchAllPantryItems()
-    .then(pantry_items => (dispatch(receiveAllPantryItems(pantry_items)))
+    .then(pantry_items => {
+      console.log(pantry_items);
+    return(dispatch(receiveAllPantryItems(pantry_items)))
+  }
   )
 );
 

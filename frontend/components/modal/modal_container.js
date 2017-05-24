@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signin, signup } from '../../actions/session_actions';
+import { signin, signup, receiveErrors } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
 import ModalForm from './modal_form';
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  receiveCurrentUser: user => dispatch(signin(user)),
-  signUpUser: user => dispatch(signup(user)),
+  signin: user => dispatch(signin(user)),
+  signup: user => dispatch(signup(user)),
   clearErrors: () => dispatch(receiveErrors([]))
 });
 

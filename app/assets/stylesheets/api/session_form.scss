@@ -16,6 +16,11 @@
   font-weight: 900;
   margin: auto;
   width: 100%;
+  padding-top: 20px;
+}
+
+.session-question-div {
+  text-align: center;
 }
 
 .session-question {
@@ -23,6 +28,15 @@
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+  width: 100%;
+}
+
+.session-question-logo {
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 3px;
+  font-size: 18px;
+  text-align: center;
+  color: #333399;
   width: 100%;
 }
 
@@ -66,6 +80,29 @@
   border: 1px solid #333399;
   text-align: center;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.create-session-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  width: 210px;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #333399;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.create-session-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
   transition: 0.5s;
 }
 

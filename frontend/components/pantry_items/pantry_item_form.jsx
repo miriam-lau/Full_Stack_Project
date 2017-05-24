@@ -67,7 +67,6 @@ class PantryItemForm extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      console.log("in parseAddItem first return");
    	  return this.setState({errors: true});
     }
 
@@ -78,7 +77,6 @@ class PantryItemForm extends React.Component {
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
-      console.log("in parseAddItem 2nd return");
      return this.setState({errors: true})
     }
 
@@ -98,7 +96,6 @@ class PantryItemForm extends React.Component {
     }
 
     if (words.length == 0) {
-      console.log("in parseAddItem 3rd return");
      return this.setState({errors: true});
     }
 
@@ -107,13 +104,49 @@ class PantryItemForm extends React.Component {
     }
     let item = words.join(' ');
 
+    let items = this.props.pantry_items;
     this.setState({name: item, quantity: parseInt(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {
-        const pantry_item = this.state
-        this.props.createPantryItem({pantry_item})
-            .then(data => this.props.history.push(`/pantry_items/${data.id}`))
-        });
+        let pantry_item = this.state;
+        let pantry_itemUnit = pantry_item.unit.toLowerCase();
+        if (pantry_itemUnit.charAt(pantry_itemUnit.length - 1) === 's') {
+          pantry_itemUnit = pantry_itemUnit.substring(0, (pantry_itemUnit.length - 1))
+        }
 
+        let items = this.props.pantry_items;
+        for (var i = 0; i < items.length; i++) {
+          let itemName = items[i].name.toLowerCase();
+          let itemUnit = items[i].unit.toLowerCase();
+          if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+            itemUnit = itemUnit.substring(0, (itemUnit.length - 1))
+          }
+          let newUnit;
+          if (pantry_item.name.toLowerCase() === itemName) {
+            itemName = itemName[0].toUpperCase() + itemName.substring(1);
+            if (pantry_itemUnit === itemUnit) {
+              if (pantry_itemUnit === "") {
+                newUnit = "";
+              } else {
+                newUnit = itemUnit;
+              }
+              let newQuantity = parseInt(items[i].quantity) + parseInt(pantry_item.quantity);
+              if (newQuantity > 1 && newUnit !== "") {
+                newUnit += 's';
+              }
+              return (
+                this.setState({id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit}, () => {
+                let pantry_item = this.state;
+                this.props.editPantryItem({pantry_item})
+                  // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+                })
+              )
+            }
+          }
+        }
+
+        this.props.createPantryItem({pantry_item})
+        .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+      });
     return true;
   }
 

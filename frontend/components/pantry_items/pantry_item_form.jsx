@@ -1,5 +1,7 @@
 import React from 'react';
+
 import TextField from 'material-ui/TextField';
+import FontIcon from 'material-ui/FontIcon';
 
 const textboxUnderlineStyle = {
   'borderColor': '#333399'
@@ -138,7 +140,7 @@ class PantryItemForm extends React.Component {
             onChange={this.update('temp')}
           />
 
-          <button className="pantry-button-add">Add</button>
+          <i className="material-icons">add_circle</i>
         </div>
         <ErrorBanner shouldShow={this.state.errors}
         message="Invalid entry. Entry must have 'quantity' and 'item name'" />

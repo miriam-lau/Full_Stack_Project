@@ -33,23 +33,23 @@ class SignInForm extends React.Component {
   handleGuestSignIn(event) {
     event.preventDefault();
     const user = {username: 'guest', password: 'password'};
-    this.props.signin({user}).then( () => {this.props.history.push('/pantry_items');
+    this.props.signin({user})
+      .then( () => {this.props.history.push('/pantry_items');
     })
   }
 
   renderErrors() {
-    let signInErrors = (this.props.errors == undefined ? [] : this.props.errors);
-    console.log("sign in form render errors");
-    console.log(this.props.errors);
-    return (
-      <div >
-        <ul className="sign-up-error">
-        { signInErrors.map((error, i) => (
-          <li key={`error-${i}`}>{ error }</li>
-        ))}
-      </ul>
-    </div>
-    );
+    if (this.props.errors) {
+      return (
+        <div >
+          <ul className="sign-up-error">
+          { this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>{ error }</li>
+          ))}
+        </ul>
+      </div>
+      );
+    }
   }
 
   render() {
@@ -98,6 +98,7 @@ class SignInForm extends React.Component {
           <div className="button-link">
             <ModalForm
               signInForm={false}
+              signin={this.props.signin}
               signup={this.props.signup}
               errors={this.props.errors}
               clearErrors={this.props.clearErrors}

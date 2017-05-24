@@ -54,7 +54,7 @@ const personalGreeting = (currentUser, signout) => (
   </nav>
 );
 
-const Greeting = ({ currentUser, signin, signup, signout, clearErrors }) => {
+const Greeting = ({ currentUser, signin, signup, signout, errors, clearErrors }) => {
   if (currentUser) {
     return (
       <div className="greeting-wrapper">
@@ -97,7 +97,7 @@ const Greeting = ({ currentUser, signin, signup, signout, clearErrors }) => {
   } else {
     return (
       <div>
-        {sessionLinks({signin, signup, clearErrors})}
+        {sessionLinks({signin, signup, errors, clearErrors})}
       </div>
     )
   }

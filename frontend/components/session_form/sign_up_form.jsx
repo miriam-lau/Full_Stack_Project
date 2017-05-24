@@ -19,6 +19,7 @@ class SignUpForm extends React.Component {
     this.state = { username: '', email: '', password: '',
       re_entered_password: '', matching_passwords: "true" };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuestSignIn = this.handleGuestSignIn.bind(this);
   };
 
   update(property) {
@@ -42,19 +43,23 @@ class SignUpForm extends React.Component {
   handleGuestSignIn(event) {
     event.preventDefault();
     const user = {username: 'guest', password: 'password'};
-    this.props.signin({user}).then( () => {this.props.history.push('/pantry_items');
+    this.props.signin({user})
+      .then( () => {this.props.history.push('/pantry_items');
     })
   }
 
   renderErrors() {
-    let signUpErrors = (this.props.errors == undefined ? [] : this.props.errors);
-    return (
-      <ul className="sign-up-error">
-        { signUpErrors.map((error, i) => (
-          <li key={`error-${i}`}>{ error }</li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors) {
+      return (
+        <div >
+          <ul className="sign-up-error">
+          { this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>{ error }</li>
+          ))}
+        </ul>
+      </div>
+      );
+    }
   }
 
   render() {

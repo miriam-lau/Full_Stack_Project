@@ -1,4 +1,5 @@
 import React from 'react';
+
 import TextField from 'material-ui/TextField';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -10,7 +11,7 @@ const addItemTextBoxStyle ={
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "500px",
+  "width": "100%",
   "display": "inline"
 }
 

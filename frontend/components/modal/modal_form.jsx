@@ -1,19 +1,9 @@
 import React from 'react';
+import Modal from 'react-modal';
+import FontIcon from 'material-ui/FontIcon';
+
 import SignInForm from '../session_form/sign_in_form';
 import SignUpForm from '../session_form/sign_up_form';
-import Modal from 'react-modal';
-
-const customStyles = {
-  content : {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    width: '300px'
-  }
-};
 
 class ModalForm extends React.Component {
   constructor(props) {
@@ -24,10 +14,12 @@ class ModalForm extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    console.log("in modal form constructor");
+    console.log(this.props.errors);
   }
 
   componentWillMount() {
-    Modal.setAppElement('body');
+    Modal.setAppElement('div');
   }
 
   openModal() {
@@ -44,6 +36,8 @@ class ModalForm extends React.Component {
   }
 
   render() {
+    console.log("in modal form");
+    console.log(this.props.errors);
     // const padding = 90; // adjust this to your needs
     //     let height = (this.state.contentHeight + padding);
     //     let heightPx = height + 'px';
@@ -56,7 +50,6 @@ class ModalForm extends React.Component {
         bottom: 'auto',
         // height: heightPx,  // set height
         left: '35%',
-        padding: '2rem',
         position: 'fixed',
         right: 'auto',
         top: '20%', // start from center
@@ -81,6 +74,7 @@ class ModalForm extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={style}
+          contentLabel="session-form"
         >
 
         {(this.props.signInForm) ?
@@ -93,7 +87,8 @@ class ModalForm extends React.Component {
             errors={this.props.errors}
           />
         }
-          <button onClick={this.closeModal}>close</button>
+          <i className="material-icons"
+            onClick={this.closeModal}>close</i>
         </Modal>
       </div>
     );

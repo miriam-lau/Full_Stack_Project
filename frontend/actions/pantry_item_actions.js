@@ -41,7 +41,6 @@ export const receivePantryErrors = (errors) => ({
 export const requestAllPantryItems = () => dispatch => (
   APIUtil.fetchAllPantryItems()
     .then(pantry_items => {
-      console.log(pantry_items);
     return(dispatch(receiveAllPantryItems(pantry_items)))
   }
   )
@@ -53,19 +52,36 @@ export const requestPantryItem = (id) => dispatch => (
   )
 );
 
-export const createPantryItem = (pantry_item) => dispatch => (
-  APIUtil.createPantryItem(pantry_item)
-    .then(pantry_item => (dispatch(receiveNewPantryItem(pantry_item))),
+export const createPantryItem = (pantry_item) => dispatch => {
+  console.log('creating new pantry item');
+  console.log(pantry_item);
+  return APIUtil.createPantryItem(pantry_item)
+    .then(pantry_item => {
+      let key = Object.keys(pantry_item)[0];
+      console.log('key');
+      console.log(pantry_item[key]);
+      dispatch(receiveNewPantryItem(pantry_item[key]));
+    },
+    err => (dispatch(receivePantryErrors(err.responseJSON)))
+  )
+};
+
+export const editPantryItem = (pantry_item) => dispatch => (
+  APIUtil.updatePantryItem(pantry_item)
+    .then(pantry_item => {
+      console.log('in edit');
+      console.log(pantry_item);
+      (dispatch(updatePantryItem(pantry_item)))},
     err => (dispatch(receivePantryErrors(err.responseJSON)))
   )
 );
 
-export const editPantryItem = (pantry_item) => dispatch => (
-  APIUtil.updatePantryItem(pantry_item)
-    .then(pantry_item => (dispatch(updatePantryItem(pantry_item))),
-    err => (dispatch(receivePantryErrors(err.responseJSON)))
-  )
-);
+export const editPantryItemDbOnly = (pantry_item) => dispatch => {
+  console.log('here');
+  console.log(pantry_item);
+  dispatch(updatePantryItem(pantry_item));
+  return APIUtil.updatePantryItem(pantry_item);
+};
 
 export const deletePantryItem = (id) => dispatch => {
   return APIUtil.deletePantryItem(id)

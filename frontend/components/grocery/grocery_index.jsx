@@ -3,25 +3,41 @@ import {Route, Link} from 'react-router-dom';
 
 import GroceryIndexItem from './grocery_index_item';
 import GroceryItemFormContainer from './grocery_item_form_container';
+import UpdatePantry from '../pantry_items/update_pantry';
 
 class GroceryIndex extends React.Component {
   constructor(props) {
     super(props)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.grocery_items = this.props.grocery_items;
   }
 
 // componentDidMount or WillMount?
   componentWillMount() {
     this.props.requestAllGroceryItems();
+    this.props.requestAllPantryItems();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props !== nextProps) {
-  //     this.props.requestAllGroceryItems();
-  //   }
-  // }
+  handleSubmit(event) {
+    console.log("in grocery index");
+    event.preventDefault();
+    this.props.grocery_items.map(grocery_item => {
+      if (grocery_item.purchased === true) {
+        let key = grocery_item.id;
+        console.log("in grocery index");
+        console.log(this.props.pantry_items);
+        UpdatePantry(key, grocery_item, this.props.pantry_items,
+          this.props.createPantryItem, this.props.editPantryItemDbOnly,
+          this.props.deleteGroceryItem);
+      }
+    })
+  }
 
   render() {
     const grocery_items = this.props.grocery_items;
+    const pantry_items = this.props.pantry_items;
+    console.log('here2');
+    console.log(pantry_items);
     return (
       <div>
         <div className="grocery-wrapper">
@@ -53,8 +69,14 @@ class GroceryIndex extends React.Component {
           <br />
           <br />
           <div className="grocery-four">
-          <h2>Purchased</h2>
-          <p className="edit-instructions">Click on item to edit</p>
+            <section>
+              <h2>Purchased</h2>
+              <p className="edit-instructions">Click on item to edit</p>
+            </section>
+            <section>
+              <button className="add-to-pantry-button"
+                onClick={this.handleSubmit}>Add to Pantry</button>
+            </section>
           </div>
 
           <div className="grocery-five">

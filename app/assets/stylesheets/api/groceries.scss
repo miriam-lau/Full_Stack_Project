@@ -58,6 +58,8 @@
   border-radius: 10px;
   width: 100%;
   padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .grocery-five {
@@ -166,4 +168,29 @@
   font-style: italic;
   color: red;
   margin-left: 20px;
+}
+
+.add-to-pantry-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  width: 100px;
+  background-color: #E6E6FA;
+  border-radius: 7px;
+  border: 1px solid #333399;
+  text-align: center;
+  transition: 0.5s;
+  margin-left: 30px;
+  margin-right: 20px;
+  height: 30px;
+  align-items: center;
+}
+
+.add-to-pantry-button:hover {
+  background-color: #333399;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #E6E6FA;
+  transition: 0.5s;
 }

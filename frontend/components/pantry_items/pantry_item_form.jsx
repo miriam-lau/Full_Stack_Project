@@ -105,10 +105,10 @@ class PantryItemForm extends React.Component {
     let item = words.join(' ');
 
     let items = this.props.pantry_items;
-    this.setState({name: item, quantity: parseInt(quantity),
+    this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {
-        let pantry_item = this.state;
-        let pantry_itemUnit = pantry_item.unit.toLowerCase();
+        let current_pantry_item = this.state;
+        let pantry_itemUnit = current_pantry_item.unit.toLowerCase();
         if (pantry_itemUnit.charAt(pantry_itemUnit.length - 1) === 's') {
           pantry_itemUnit = pantry_itemUnit.substring(0, (pantry_itemUnit.length - 1))
         }
@@ -121,7 +121,7 @@ class PantryItemForm extends React.Component {
             itemUnit = itemUnit.substring(0, (itemUnit.length - 1))
           }
           let newUnit;
-          if (pantry_item.name.toLowerCase() === itemName) {
+          if (current_pantry_item.name.toLowerCase() === itemName) {
             itemName = itemName[0].toUpperCase() + itemName.substring(1);
             if (pantry_itemUnit === itemUnit) {
               if (pantry_itemUnit === "") {
@@ -129,23 +129,19 @@ class PantryItemForm extends React.Component {
               } else {
                 newUnit = itemUnit;
               }
-              let newQuantity = parseInt(items[i].quantity) + parseInt(pantry_item.quantity);
+              let newQuantity = parseFloat(items[i].quantity) + parseFloat(current_pantry_item.quantity);
               if (newQuantity > 1 && newUnit !== "") {
                 newUnit += 's';
               }
-              return (
-                this.setState({id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit}, () => {
-                let pantry_item = this.state;
-                this.props.editPantryItem({pantry_item})
-                  // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
-                })
-              )
+              let unparsed_quantity = newQuantity + (newUnit != '' ? (' ' + newUnit) : '');
+              let pantry_item = {id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit, 'unparsed_quantity': unparsed_quantity};
+              this.props.editPantryItemDbOnly({pantry_item});
+              return true;
             }
           }
         }
 
-        this.props.createPantryItem({pantry_item})
-        .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+        this.props.createPantryItem({'pantry_item': current_pantry_item});
       });
     return true;
   }

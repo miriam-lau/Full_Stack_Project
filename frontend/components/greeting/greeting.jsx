@@ -5,7 +5,6 @@ import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';
 
 const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
-
   return(
     <nav className="header-group">
       <div className="header">
@@ -61,40 +60,37 @@ class Greeting extends React.Component {
       return (
         <div className="greeting-wrapper">
         <div className="greeting-one">
-        { personalGreeting(currentUser, signout) }
+          { personalGreeting(currentUser, signout) }
         </div>
 
         <div className="greeting-two">
-        <div>
-        <ul>
-        <div >
-        <Link className="nav-titles" to="/groceries">Grocery</Link>
-        </div>
-        <div>
-        <Link className="nav-titles" to="/pantry_items">Pantry</Link>
-        </div>
-        </ul>
-        </div>
+          <div>
+            <ul>
+              <div >
+                <Link className="nav-titles" to="/groceries">Grocery</Link>
+              </div>
+              <div>
+                <Link className="nav-titles" to="/pantry_items">Pantry</Link>
+              </div>
+            </ul>
+            </div>
 
-        <div className="greeting-nav-background">
-        </div>
-
+            <div className="greeting-nav-background"></div>
         </div>
 
         <div className="greeting-three">
-        <Switch>
-        <Route path="/pantry_items" component={PantryIndexContainer} />
-        <Route path="/groceries" component={GroceryIndexContainer} />
-        </Switch>
+          <Switch>
+            <Route path="/pantry_items" component={PantryIndexContainer} />
+            <Route path="/groceries" component={GroceryIndexContainer} />
+          </Switch>
         </div>
 
         <div className="greeting-four">
-        <footer className="footer">
-        <div>Copyright 2017 myPantry. All rights reserved.
+          <footer className="footer">
+            <div>Copyright 2017 myPantry. All rights reserved.</div>
+          </footer>
         </div>
-        </footer>
-        </div>
-        </div>
+      </div>
       )
     } else {
       return (
@@ -108,21 +104,3 @@ class Greeting extends React.Component {
 }
 
 export default Greeting;
-
-// <div className="nav-link">
-//   <Link className="link" to="/">Guest</Link>
-// </div>
-
-// <ModalFormContainer signInForm={true} />
-//   signin={signin}
-//   errors={errors}
-//   clearErrors={clearErrors}
-// />
-// </div>
-// <div className="nav-link">
-// <ModalFormContainer signInForm={false} />
-//   signin={signin}
-//   signup={signup}
-//   errors={errors}
-//   clearErrors={clearErrors}
-// />

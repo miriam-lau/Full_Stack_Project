@@ -16,6 +16,7 @@ class PantryIndex extends React.Component {
 
   render() {
     const pantry_items = this.props.pantry_items;
+    console.log(pantry_items);
     return (
 
       <div>
@@ -38,6 +39,7 @@ class PantryIndex extends React.Component {
                   pantry_item={item}
                   requestPantryItem={this.props.requestPantryItem}
                   deletePantryItem={this.props.deletePantryItem}
+                  editPantryItemDbOnly={this.props.editPantryItemDbOnly}
                   editPantryItem={this.props.editPantryItem} />)
               })}
             </ul>

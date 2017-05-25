@@ -80,8 +80,9 @@ class PantryIndexItem extends React.Component {
     super(props);
     let pantry_item = this.props.pantry_item;
     this.state = { id: pantry_item.id, user_id: pantry_item.user_id,
-      temp: '', quantityError: '', nameError: '' };
+      quantityError: '', nameError: '' };
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
+    this.unparsedQuantityString = '';
     this.checkError = this.checkError.bind(this);
     this.currentQuantity = this.props.pantry_item.quantity;
     if (pantry_item.unit != null && pantry_item.unit.length !== 0) {
@@ -94,7 +95,7 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return "Quantity must begin with a number";
+      return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -120,49 +121,51 @@ class PantryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return "Quantity must have a valid unit";
+      return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
     }
 
-    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
-      temp: '', quantityError: ''}, () => {
-      const pantry_item = this.state
-      this.props.editPantryItem({pantry_item});
-          // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
-      });
-
-    return null;
+    return {
+      convertedQuantity: {quantity: parseInt(quantity),
+        unit: convertedUnit,
+        quantityError: ''},
+      errorMessage: ''
+    };
   }
 
 
   update(property) {
     return e => {
-      if (property === 'temp') {
-        this.currentQuantity = e.target.value;
-      }
-      if (property === 'name' && e.target.value === '') {
-        return this.setState({nameError: "Name cannot be blank"});
-      }
-
-      if (property === 'name' && e.target.value !== '') {
-        this.setState({nameError: ''});
-      }
-
-      this.setState({[property]: e.target.value}, () => {
-        if (this.state.temp === '') {
-          const pantry_item = this.state;
-          this.props.editPantryItem({pantry_item});
-            // .then(data => this.props.history.push(`/pantry_items/${data.id}`));
-        } else {
-          this.parseUpdateQuantity(this.state.temp);
+      if (property === 'unparsed_quantity') {
+        let pantry_item = this.props.pantry_item;
+        let unparsedQuantity = e.target.value;
+        pantry_item.unparsed_quantity = unparsedQuantity;
+        let parsedUpdateQuantity = this.parseUpdateQuantity(unparsedQuantity);
+        console.log(parsedUpdateQuantity);
+        if (parsedUpdateQuantity.convertedQuantity != null) {
+          pantry_item.quantity = parsedUpdateQuantity.convertedQuantity.quantity;
+          pantry_item.unit = parsedUpdateQuantity.convertedQuantity.unit;
         }
-      });
+        this.props.editPantryItemDbOnly({pantry_item});
+      } else if (property === 'name') {
+        if (e.target.value === '') {
+          return this.setState({nameError: "Name cannot be blank"});
+        }
+
+        if (e.target.value !== '') {
+          this.setState({nameError: ''});
+        }
+
+        let pantry_item = this.props.pantry_item;
+        pantry_item.name = e.target.value;
+        this.props.editPantryItemDbOnly({pantry_item});
+      }
     }
   }
 
   checkError() {
-    let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
-    if (errorMessage != null) {
-      this.setState({quantityError: errorMessage});
+    let parsedQuantity = this.parseUpdateQuantity(this.currentQuantity);
+    if (parsedQuantity.convertedQuantity != null) {
+      this.setState({quantityError: parsedQuantity.errorMessage});
     }
   }
 
@@ -170,24 +173,20 @@ class PantryIndexItem extends React.Component {
   render() {
     const pantry_item = this.props.pantry_item;
     const deletePantryItem = this.props.deletePantryItem;
-    let quantity = pantry_item.quantity;
-    if (pantry_item.unit !== null) {
-      quantity = quantity + " " + pantry_item.unit;
-    }
 
     return (
       <div>
         <div className="update-pantry-form-div">
           <form className="update-pantry-form">
             <TextField id="text-field-default"
-              defaultValue={ quantity }
+              value={ pantry_item.unparsed_quantity }
               underlineFocusStyle ={textboxUnderlineStyle}
               style={addItemTextBoxStyle1}
-              onChange={this.update('temp')}
+              onChange={this.update('unparsed_quantity')}
               onBlur={this.checkError}
             />
             <TextField id="text-field-default"
-              defaultValue={ pantry_item.name }
+              value={ pantry_item.name }
               underlineFocusStyle ={textboxUnderlineStyle}
               style={addItemTextBoxStyle2}
               onChange={this.update('name')}

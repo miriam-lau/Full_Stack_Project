@@ -133,7 +133,10 @@
 .greeting-three {
   grid-column: 2 / 9;
   grid-row: 2 / 4;
-  padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .greeting-four {

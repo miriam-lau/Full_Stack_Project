@@ -3,11 +3,12 @@ import {Route, Link} from 'react-router-dom';
 
 import GroceryIndexItem from './grocery_index_item';
 import GroceryItemFormContainer from './grocery_item_form_container';
-import UpdatePantry from '../pantry_items/update_pantry';
+import updatePantry from '../pantry_items/update_pantry';
 
 class GroceryIndex extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {success: false};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.grocery_items = this.props.grocery_items;
   }
@@ -20,17 +21,19 @@ class GroceryIndex extends React.Component {
 
   handleSubmit(event) {
     console.log("in grocery index");
+    let successful = false;
     event.preventDefault();
     this.props.grocery_items.map(grocery_item => {
       if (grocery_item.purchased === true) {
         let key = grocery_item.id;
         console.log("in grocery index");
         console.log(this.props.pantry_items);
-        UpdatePantry(key, grocery_item, this.props.pantry_items,
+        successful = updatePantry(key, grocery_item, this.props.pantry_items,
           this.props.createPantryItem, this.props.editPantryItemDbOnly,
           this.props.deleteGroceryItem);
       }
     })
+    this.setState({success: successful});
   }
 
   render() {
@@ -66,8 +69,10 @@ class GroceryIndex extends React.Component {
             </ul>
           </div>
 
-          <br />
-          <br />
+          <div className="add-success">
+            {(this.state.success === true) ? "Add Successful!" : "" }
+          </div>
+
           <div className="grocery-four">
             <section>
               <h2>Purchased</h2>

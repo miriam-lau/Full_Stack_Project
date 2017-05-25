@@ -50,7 +50,7 @@ column name	    | data type	| details
 id	            | integer	  | not null, primary key
 name	          | string	  | not null
 image           | string    |
-servings        | integer   |
+serving         | integer   |
 nutrition       | string    |
 rating          | float     |
 description     | text      |

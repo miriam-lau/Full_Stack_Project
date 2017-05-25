@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :pantry_items
     resources :groceries
+    resources :recipes
   end
 
   root "static_pages#root"

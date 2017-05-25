@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
+
+
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';
@@ -29,6 +31,7 @@ const personalGreeting = (currentUser, signout) => (
   <nav className="header-group2">
     <div className="header">
       <h1 className="greeting">myPantry</h1>
+
       <div className="search-bar">
         <SearchFormContainer />
       </div>

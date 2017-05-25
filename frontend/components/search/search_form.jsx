@@ -2,60 +2,51 @@ import React from 'react';
 
 import TextField from 'material-ui/TextField';
 import FontIcon from 'material-ui/FontIcon';
+import AutoComplete from 'material-ui/AutoComplete';
 
-const textboxUnderlineStyle = {
-  'borderColor': '#333399'
-}
-
-const addItemTextBoxStyle = {
+const searchBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "450px",
   "display": "inline",
-  "marginLeft": "20px"
+  "borderColor": "#333399"
 }
-
-// const fontstyle = {
-//   "color": "#333399",
-//   "cursor": "pointer"
-// }
 
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
-    this.searchInput = "";
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {dataSource: []};
+    this.handleUpdateInput = this.handleUpdateInput.bind(this);
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //
-  // }
+  handleUpdateInput(value) {
+    event.preventDefault();
+    this.setState({
+      dataSource: []
+    });
+    console.log("in search form");
+  };
 
   render() {
-    return(
+    return (
       <div className="search-form-container">
-        <form className="search-form" onSubmit={this}>
-          <div className="search-form-div">
-
+        <div className="search-form-div">
             <i id="search-icon"
               className="material-icons"
-              onClick={this}>search</i>
-
-            <TextField id="text-field-default"
-            value={this.searchInput}
-            underlineFocusStyle ={textboxUnderlineStyle}
-            style={addItemTextBoxStyle}
-            hintText="e.g. '2 Oranges' or '3 cups Milk'"
-            />
-          </div>
-        </form>
+              onClick={this.handleUpdateInput}>search</i>
+            <div className="search-field">
+              <AutoComplete
+                hintText="Search for a pantry or grocery item"
+                dataSource={this.state.dataSource}
+                onUpdateInput={this.handleUpdateInput}
+                style={searchBoxStyle}
+                fullWidth={true}
+              />
+            </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
 export default SearchForm;
-
-// onChange={this.update('temp')}

@@ -15,4 +15,29 @@
   align-self: center;
   color: red;
   cursor: pointer;
+  // transition: 1s;
+  // transform: rotate3d(1,1,0,1080deg);
+}
+
+.search-form-container {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: #333399;
+  background-color: white;
+  width: 600px;
+}
+
+.search-form-div {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #333399;
+  background-color: white;
 }

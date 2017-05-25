@@ -21,6 +21,7 @@
 .header {
   display: flex;
   align-items: center;
+  padding-right: 30px;
 }
 
 .header2 {
@@ -69,6 +70,7 @@
   width: 200px;
   text-align: center;
   flex: 1;
+  padding-right: 5px;
 }
 
 .nav-link {
@@ -106,6 +108,7 @@
     "greeting-four greeting-four greeting-four greeting-four
       greeting-four greeting-four greeting-four greeting-four greeting-four";
   width: 100%;
+  margin-bottom: -142px;
 }
 
 .greeting-one {
@@ -120,6 +123,7 @@
   background-size: cover;
   width: 100%;
   height: 100%;
+  min-height: 1000px;
   opacity : 0.2;
 }
 
@@ -134,13 +138,15 @@
   grid-column: 2 / 9;
   grid-row: 2 / 4;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   padding-left: 50px;
   padding-right: 50px;
+  min-height: 900px;
 }
 
 .greeting-four {
   grid-column: 1 / 9;
+  // grid-row: 5 / 5;
   z-index: 1;
 }
 
@@ -172,6 +178,7 @@
   transition: 0.5s;
   cursor: pointer;
 }
+
 
 .footer {
   display: flex;

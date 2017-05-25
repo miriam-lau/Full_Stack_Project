@@ -3,6 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';
+import SearchFormContainer from '../search/search_form_container';
 
 const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
   return(
@@ -10,6 +11,7 @@ const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors
       <div className="header">
         <h1 className="greeting">myPantry</h1>
       </div>
+
       <div className="header">
         <div className="nav-link">
           <button onClick={openModal("signin")}>Sign In</button>
@@ -27,6 +29,9 @@ const personalGreeting = (currentUser, signout) => (
   <nav className="header-group2">
     <div className="header">
       <h1 className="greeting">myPantry</h1>
+      <div className="search-bar">
+        <SearchFormContainer />
+      </div>
     </div>
 
     <div className="header">
@@ -69,6 +74,7 @@ class Greeting extends React.Component {
               <div >
                 <Link className="nav-titles" to="/groceries">Grocery</Link>
               </div>
+
               <div>
                 <Link className="nav-titles" to="/pantry_items">Pantry</Link>
               </div>

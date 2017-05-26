@@ -1,6 +1,3 @@
-# README
-
-## myPantry
 [myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Meiyen Lau.
 
 myPantry is a web application for cooking enthusiasts. Inspired by
@@ -8,9 +5,7 @@ RemembertheMilk, myPantry allows users to add items to their pantry,
 update and delete current pantry items, make grocery lists and
 update their pantry with purchased grocery items.
 
-[myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Meiyen Lau.
-
-[homepage](./homepage.png)
+![homepage](./homepage.png)
 
 
 ## Features
@@ -22,11 +17,12 @@ update their pantry with purchased grocery items.
 - Auto-update your pantry with "Purchased" grocery items.
 - Searching for items in your grocery list and pantry.
 
-- [pantry page](./pantry.png)
-- [grocery page](./grocery.png)
+![pantry page](./pantry.png)
+
+![grocery page](./grocery.png)
 
 ## Project Design
-myPantry was designed and built in ~2 weeks.
+myPantry was designed and built in about 2 weeks.
 
 A [proposal](./docs/development_README.md) was drafted to with an implementation timeline
 during the development process.

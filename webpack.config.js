@@ -1,5 +1,8 @@
 var path = require("path");
-var wepack= require("webpack");
+var webpack = require("webpack");
+
+var plugins = [];
+var devPlugins = [];
 
 var prodPlugins = [
   new webpack.DefinePlugin({
@@ -18,7 +21,6 @@ plugins = plugins.concat(
   process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
 )
 
-
 module.exports = {
   context: __dirname,
   entry: "./frontend/pantry.jsx",
@@ -26,6 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
+  plugins: plugins,
   module: {
     loaders: [
       {

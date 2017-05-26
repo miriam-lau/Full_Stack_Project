@@ -29,16 +29,24 @@ grocery1 = Grocery.create(category: "", name: "Banana",
 grocery2 = Grocery.create(category: "", name: "Mango",
   quantity: 3, unit: "", user_id: guest.id, purchased: false)
 grocery3 = Grocery.create(category: "", name: "Pineapple",
+  quantity: 8, unit: "cups", user_id: guest.id, purchased: false)
+grocery4 = Grocery.create(category: "", name: "Blueberry",
+  quantity: 6, unit: "ounces", user_id: guest.id, purchased: false)
+grocery5 = Grocery.create(category: "", name: "Pear",
+  quantity: 5, unit: "", user_id: guest.id, purchased: false)
+grocery6 = Grocery.create(category: "", name: "Raspberry",
+  quantity: 10, unit: "tablespoons", user_id: guest.id, purchased: false)
+grocery7 = Grocery.create(category: "", name: "Peach",
+  quantity: 3, unit: "", user_id: guest.id, purchased: false)
+grocery8 = Grocery.create(category: "", name: "Canteloupe",
   quantity: 2, unit: "cups", user_id: guest.id, purchased: false)
+grocery9 = Grocery.create(category: "", name: "Watermelon",
+  quantity: 1, unit: "cups", user_id: guest.id, purchased: false)
+
 
 recipe1 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   nutrition: "", rating: 4.8, description: "", directions: "", notes: "",
   link: "", user_id: guest.id)
-
-
-
-
-
 
 
 

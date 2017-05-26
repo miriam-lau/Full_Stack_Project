@@ -47,6 +47,24 @@ class PantryIndex extends React.Component {
           </div>
 
           <div className="pantry-four">
+            <div className="tutorial-wrapper">
+            <div className="tutorial">
+              <h3>Tutorial</h3>
+              <br />
+              <p>Navigation:  Click between pages on the left.</p>
+              <br />
+              <p>Search:  Click the "search" icon and type in an item name.</p>
+              <br />
+              <p>Add: T ype in a number, unit(optional), and name. Press "Enter" or click "Add".</p>
+              <br />
+              <p>Adding a duplicate item (same name and unit) will auto-update
+                the same item in pantry.</p>
+              <br />
+              <p>Update:  Click on the item fields. Click off the field to save.</p>
+              <br />
+              <p>Delete:  Click on the "garbage can" icon.</p>
+            </div>
+            </div>
           </div>
         </div>
       </div>

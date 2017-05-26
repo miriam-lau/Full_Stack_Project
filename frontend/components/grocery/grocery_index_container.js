@@ -11,7 +11,7 @@ import { selectAllGroceryItems, selectAllPantryItems } from '../../reducers/sele
 const mapStateToProps = (state) => ({
   grocery_items: selectAllGroceryItems(state),
   pantry_items: selectAllPantryItems(state),
-  errors: state.errors
+  errors: state.grocery.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

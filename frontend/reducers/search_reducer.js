@@ -10,8 +10,7 @@ const SearchReducer = (state = noSearchItems, action) => {
   Object.freeze(state)
   switch(action.type) {
     case RECEIVE_ALL_SEARCH_ITEMS:
-      console.log("in search reducer");
-      return action.searchItems;
+      return merge({}, state, {searchItems: action.searchItems});
     case RECEIVE_ERRORS:
       return merge({}, state, action.errors);
     default:

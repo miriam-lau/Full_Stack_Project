@@ -8,6 +8,7 @@ import GreetingContainer from './greeting/greeting_container';
 import HomeContainer from './home/home_container';
 import PantryIndexContainer from './pantry_items/pantry_index_container';
 import ModalContainer from './modal/modal_container';
+import SearchResultsContainer from './search/search_results_container';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <AuthRoute path='/signin' component={ ModalContainer } />
         <AuthRoute path='/signup' component={ ModalContainer } />
       </Switch>
+      <Route exact path='/search' component={ SearchResultsContainer } />
     </div>
   </div>);
 }

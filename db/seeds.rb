@@ -31,6 +31,17 @@ grocery2 = Grocery.create(category: "", name: "Mango",
 grocery3 = Grocery.create(category: "", name: "Pineapple",
   quantity: 2, unit: "cups", user_id: guest.id, purchased: false)
 
+recipe1 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
+  nutrition: "", rating: 4.8, description: "", directions: "", notes: "",
+  link: "", user_id: guest.id)
+
+
+
+
+
+
+
+
 
 mir = User.create(username: "mir", password: "password",
   email: "mir@pantry.com")

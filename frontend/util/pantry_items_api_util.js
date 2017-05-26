@@ -1,5 +1,5 @@
-import { receiveAllPantryItems, receivePantryItem, receiveNewPantryItem,
-  receiveErrors} from '../actions/pantry_item_actions';
+// import { receiveAllPantryItems, receivePantryItem, receiveNewPantryItem,
+//   receiveErrors} from '../actions/pantry_item_actions';
 
 export const fetchAllPantryItems = () => {
   return $.ajax({

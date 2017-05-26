@@ -5,7 +5,7 @@ import GroceryItemForm from './grocery_item_form';
 import { createGroceryItem } from '../../actions/grocery_actions';
 
 const mapStateToProps = (state) => ({
-  errors: state.errors
+  errors: state.grocery.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

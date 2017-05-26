@@ -20,14 +20,11 @@ class GroceryIndex extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("in grocery index");
     let successful = false;
     event.preventDefault();
     this.props.grocery_items.map(grocery_item => {
       if (grocery_item.purchased === true) {
         let key = grocery_item.id;
-        console.log("in grocery index");
-        console.log(this.props.pantry_items);
         successful = updatePantry(key, grocery_item, this.props.pantry_items,
           this.props.createPantryItem, this.props.editPantryItemDbOnly,
           this.props.deleteGroceryItem);
@@ -39,8 +36,6 @@ class GroceryIndex extends React.Component {
   render() {
     const grocery_items = this.props.grocery_items;
     const pantry_items = this.props.pantry_items;
-    console.log('here2');
-    console.log(pantry_items);
     return (
       <div>
         <div className="grocery-wrapper">

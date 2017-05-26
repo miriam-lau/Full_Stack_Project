@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
-
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';

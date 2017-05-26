@@ -16,7 +16,6 @@ class PantryIndex extends React.Component {
 
   render() {
     const pantry_items = this.props.pantry_items;
-    console.log(pantry_items);
     return (
 
       <div>

@@ -140,7 +140,6 @@ class PantryIndexItem extends React.Component {
         let unparsedQuantity = e.target.value;
         pantry_item.unparsed_quantity = unparsedQuantity;
         let parsedUpdateQuantity = this.parseUpdateQuantity(unparsedQuantity);
-        console.log(parsedUpdateQuantity);
         if (parsedUpdateQuantity.convertedQuantity != null) {
           pantry_item.quantity = parsedUpdateQuantity.convertedQuantity.quantity;
           pantry_item.unit = parsedUpdateQuantity.convertedQuantity.unit;

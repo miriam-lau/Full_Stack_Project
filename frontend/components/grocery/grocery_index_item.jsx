@@ -146,7 +146,6 @@ class GroceryIndexItem extends React.Component {
 
   handleCheck(event, checked) {
     event.preventDefault();
-    console.log(checked);
     if (checked) {
       this.setState({purchased: true}, () => {
         const grocery_item = this.state;
@@ -175,18 +174,11 @@ class GroceryIndexItem extends React.Component {
 
       if (property === 'purchased') {
         this.setState({purchased: true});
-        console.log(this.state);
       }
-      console.log("in update property");
-      console.log(this.state);
 
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === '') {
           const grocery_item = this.state;
-
-          console.log("in update property2");
-          console.log(this.state);
-
           this.props.editGroceryItem({grocery_item});
             // .then(data => this.props.history.push(`/grocery_items/${data.id}`));
         } else {

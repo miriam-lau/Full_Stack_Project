@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## myPantry
+[myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Meiyen Lau.
 
-Things you may want to cover:
+myPantry is a web application for cooking enthusiasts. Inspired by
+RemembertheMilk, myPantry allows users to add items to their pantry,
+update and delete current pantry items, make grocery lists and
+update their pantry with purchased grocery items.
 
-* Ruby version
+[myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Meiyen Lau.
 
-* System dependencies
+[homepage](./homepage.png)
 
-* Configuration
 
-* Database creation
+## Features
+- Users can create accounts with secure authentication
+- Add pantry and grocery items.
+- Update and delete pantry and grocery items.
+- Generate grocery lists and add items to "Purchased". Move items from
+  "Purchased" list back to grocery list.
+- Auto-update your pantry with "Purchased" grocery items.
+- Searching for items in your grocery list and pantry.
 
-* Database initialization
+- [pantry page](./pantry.png)
+- [grocery page](./grocery.png)
 
-* How to run the test suite
+## Project Design
+myPantry was designed and built in ~2 weeks.
 
-* Services (job queues, cache servers, search engines, etc.)
+A [proposal](./docs/development_README.md) was drafted to with an implementation timeline
+during the development process.
 
-* Deployment instructions
+A [database schema](./docs/schema.md) was prepared in addition to the design proposal.
 
-* ...
+
+## Technology
+myPantry is a single-page application utilizing the Rails framework and
+the React library.
+- [Backend Dependencies](./backend_tech.md)
+- [Frontend Dependencies](./frontend_tech.md)
+
+
+## Future Implementations
+New features and future implementations are listed in this
+[outline](./future_implementations.md).

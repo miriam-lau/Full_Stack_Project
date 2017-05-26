@@ -67,7 +67,6 @@ class GroceryItemForm extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      console.log("in parseAddItem first return");
    	  return this.setState({errors: true});
     }
 
@@ -78,7 +77,6 @@ class GroceryItemForm extends React.Component {
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
-      console.log("in parseAddItem 2nd return");
      return this.setState({errors: true})
     }
 
@@ -98,7 +96,6 @@ class GroceryItemForm extends React.Component {
     }
 
     if (words.length == 0) {
-      console.log("in parseAddItem 3rd return");
      return this.setState({errors: true});
     }
 

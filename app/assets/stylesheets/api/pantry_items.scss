@@ -7,20 +7,18 @@
     "pantry-two pantry-two pantry-two pantry-two pantry-four pantry-four"
     "pantry-three pantry-three pantry-three pantry-three pantry-four pantry-four";
   width: 100%;
-
 }
 
 .pantry-one {
   grid-column: 1 / 4;
   grid-row: 1;
-  padding-bottom: 50px;
   margin-left: 20px;
   width: 100%;
 }
 
 .pantry-two {
   grid-column: 1 / 4;
-  grid-row: 2 / 8;
+  grid-row: 2 / 6;
   background-color: #333399;
   color: white;
   font-family: 'Nunito', sans-serif;
@@ -30,19 +28,21 @@
   border-radius: 10px;
   width: 100%;
   padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .pantry-two h2 {
+  align-items: center;
   margin-left: 20px;
 }
 
 .pantry-three {
   grid-column: 1 / 4;
-  grid-row: 3 / 8;
+  grid-row: 3 / 6;
   background-color: #E6E6FA;
   margin: 0 20px 20px 20px;
   border-radius: 10px;
-  width: 100%;
 }
 
 .pantry-four {

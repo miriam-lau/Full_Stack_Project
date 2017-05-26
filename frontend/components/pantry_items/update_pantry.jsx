@@ -2,9 +2,6 @@ import React from 'react';
 
 const updatePantry = (key, grocery_item, pantry_items,
   createPantryItem, editPantryItemDbOnly, deleteGroceryItem) => {
-
-  console.log("in update pantry 1");
-  console.log(grocery_item);
   let groceryItemUnit = '';
   if (grocery_item.unit !== "") {
     groceryItemUnit = grocery_item.unit.toLowerCase();
@@ -12,11 +9,8 @@ const updatePantry = (key, grocery_item, pantry_items,
       groceryItemUnit = groceryItemUnit.substring(0, (groceryItemUnit.length - 1));
     }
   }
-  console.log("in update pantry 2");
-  console.log(pantry_items);
 
   for (var i = 0; i < pantry_items.length; i++) {
-    console.log("in update pantry for loop");
     let itemName = pantry_items[i].name.toLowerCase();
     let itemUnit = '';
     if (pantry_items[i].unit !== "") {

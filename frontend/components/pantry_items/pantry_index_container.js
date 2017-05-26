@@ -7,7 +7,6 @@ import { requestAllPantryItems, requestPantryItem, deletePantryItem,
 import { selectAllPantryItems } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
-  // junk: console.log(state),
   pantry_items: selectAllPantryItems(state),
   errors: state.errors
 });

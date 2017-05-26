@@ -1,9 +1,9 @@
 import { receiveAllSearchItems, receiveErrors} from '../actions/search_actions';
 
-export const fetchAllSearchItems = (value) => {
+export const fetchAllSearchItems = (name) => {
   return $.ajax({
     method: "GET",
     url: "/api/search",
-    data: value
+    data: name
   });
 };

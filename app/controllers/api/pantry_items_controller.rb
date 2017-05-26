@@ -50,6 +50,19 @@ class Api::PantryItemsController < ApplicationController
     render :show
   end
 
+  def search
+    search_grocery = Grocery.where("name ILIKE '%#{params[:name]}%'")
+    search_pantry = PantryItem.where("name ILIKE '%#{params[:name]}%'")
+    @search_items = []
+    search_grocery.each do |item|
+      @search_items.push(item)
+    end
+    search_pantry.each do |item|
+      @search_items.push(item)
+    end
+    render json: @search_items
+  end
+
   private
 
   def pantry_item_params

@@ -2,16 +2,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import SearchForm from './search_form';
-import { selectAllPantryItems, selectAllGroceryItems } from '../../reducers/selectors';
+import { requestAllSearchItems } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => ({
-  pantry_items: selectAllPantryItems(state),
-  grocery_items: selectAllGroceryItems(state)
+  searchItems: state.searchItems,
+  errors: state.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestAllPantryItems: () => dispatch(requestAllPantryItems()),
-  requestAllGroceryItems: () => dispatch(requestAllGroceryItems())
+  requestAllSearchItems: (name) => dispatch(requestAllSearchItems(name))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchForm));

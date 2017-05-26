@@ -12,9 +12,12 @@ export const receiveSearchErrors = (errors) => ({
   errors
 });
 
-export const requestAllSearchItems = () => dispatch => (
-  APIUtil.fetchAllSearchItems(value)
+export const requestAllSearchItems = (name) => dispatch => {
+  console.log("in search actions");
+  console.log(name);
+  return APIUtil.fetchAllSearchItems(name)
     .then(searchItems => {
+      console.log(searchItems);
     return(dispatch(receiveAllSearchItems(searchItems)))
   })
-);
+};

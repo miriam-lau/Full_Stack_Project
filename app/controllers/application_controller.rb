@@ -26,7 +26,4 @@ class ApplicationController < ActionController::Base
     render json: { base: ['Invalid Credentials'] }, status: 401 if !current_user
   end
 
-  def search
-    params(:value)
-  end
 end

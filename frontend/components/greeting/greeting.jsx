@@ -5,6 +5,7 @@ import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';
 import SearchFormContainer from '../search/search_form_container';
+import SearchResultsContainer from '../search/search_results_container';
 
 const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
   return(
@@ -90,6 +91,7 @@ class Greeting extends React.Component {
           <Switch>
             <Route path="/pantry_items" component={PantryIndexContainer} />
             <Route path="/groceries" component={GroceryIndexContainer} />
+            <Route path='/search' component={ SearchResultsContainer } />
           </Switch>
         </div>
 

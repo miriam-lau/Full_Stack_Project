@@ -5,16 +5,17 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return(
-      <div id="locate">
+      <div>
         {this.props.searchItems.map(item => {
           return(
-            <div>
-            <p>hi</p>
-            <span>{item.name}</span>
-            <span>{item.quantity}</span>
-            <span>{item.unit}</span>
+            <div className="search-item-info">
+              <span>Item Name: {item.name}</span>
+              <span>Quantity: {item.quantity}</span>
+              <span>Unit: {item.unit}</span>
+              <br/>
             </div>
           )
         })}
@@ -24,9 +25,3 @@ class SearchResults extends React.Component {
 }
 
 export default SearchResults;
-
-// {searchItems.map(item => {
-//   console.log("in search form");
-//   console.log(item);
-// })
-// }

@@ -26,8 +26,10 @@ class PantryIndex extends React.Component {
           <br />
 
           <div className="pantry-two">
-            <h2>Current Pantry Items</h2>
-            <p className="edit-instructions">Click on item to edit</p>
+            <section>
+              <h2>Current Pantry Items</h2>
+              <p className="edit-instructions">Click on item to edit</p>
+            </section>
           </div>
 
           <div className="pantry-three">
@@ -42,6 +44,9 @@ class PantryIndex extends React.Component {
                   editPantryItem={this.props.editPantryItem} />)
               })}
             </ul>
+          </div>
+
+          <div className="pantry-four">
           </div>
         </div>
       </div>

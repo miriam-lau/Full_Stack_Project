@@ -45,8 +45,10 @@ class GroceryIndex extends React.Component {
           <br />
 
           <div className="grocery-two">
-            <h2>Current Grocery List</h2>
-            <p className="edit-instructions">Click on item to edit</p>
+            <section>
+              <h2>Current Grocery List</h2>
+              <p className="edit-instructions">Click on item to edit</p>
+            </section>
           </div>
 
           <div className="grocery-three">
@@ -94,6 +96,8 @@ class GroceryIndex extends React.Component {
             </ul>
           </div>
 
+          <div className="grocery-six">
+          </div>
         </div>
       </div>
     );

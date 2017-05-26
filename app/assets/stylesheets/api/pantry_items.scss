@@ -3,23 +3,23 @@
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: minmax(80px, auto);
   grid-template-areas:
-    "pantry-one pantry-one pantry-one pantry-one pantry-one pantry-one"
-    "pantry-two pantry-two pantry-two pantry-two pantry-two pantry-two"
-    "pantry-three pantry-three pantry-three pantry-three pantry-three pantry-three";
-  width: 600px;
-  z-index: 1;
+    "pantry-one pantry-one pantry-one pantry-one pantry-four pantry-four"
+    "pantry-two pantry-two pantry-two pantry-two pantry-four pantry-four"
+    "pantry-three pantry-three pantry-three pantry-three pantry-four pantry-four";
+  width: 100%;
+
 }
 
 .pantry-one {
-  grid-column: 1 / 6;
+  grid-column: 1 / 4;
   grid-row: 1;
   padding-bottom: 50px;
   margin-left: 20px;
-  z-index: 1;
+  width: 100%;
 }
 
 .pantry-two {
-  grid-column: 1 / 6;
+  grid-column: 1 / 4;
   grid-row: 2 / 8;
   background-color: #333399;
   color: white;
@@ -37,11 +37,25 @@
 }
 
 .pantry-three {
-  grid-column: 1 / 6;
+  grid-column: 1 / 4;
   grid-row: 3 / 8;
   background-color: #E6E6FA;
   margin: 0 20px 20px 20px;
   border-radius: 10px;
+  width: 100%;
+}
+
+.pantry-four {
+  grid-column: 4 / 6;
+  grid-row: 1 / 8;
+  background-color: #E6E6FA;
+  margin: 0 0 0 40px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 1000px;
+  background-image: url("https://images.unsplash.com/photo-1452251889946-8ff5ea7b27ab?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1745&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg=");
+  background-size: cover;
 }
 
 .pantry-form {
@@ -63,13 +77,14 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 50%;
+  width: 100%;
   padding-right: 20px;
 }
 
 .update-pantry-form-div {
   display: flex;
-  margin-left: 70px;
+  padding-left: 70px;
+  margin-right: 70px;
 }
 
 .update-pantry-form {

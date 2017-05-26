@@ -5,7 +5,7 @@ import SearchResults from './search_results.jsx';
 import TextField from 'material-ui/TextField';
 import FontIcon from 'material-ui/FontIcon';
 import AutoComplete from 'material-ui/AutoComplete';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+
 
 const searchBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
@@ -20,6 +20,10 @@ const searchBoxStyle = {
   "height": "45px"
 }
 
+const textboxUnderlineStyle = {
+  'borderColor': '#333399'
+}
+
 const searchIcon = {
   "color": "white"
 }
@@ -28,7 +32,7 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {dataSource: [], name: "", toggle: false};
-    injectTapEventPlugin();
+
     this.searchResults = [];
     this.handleUpdateInput = this.handleUpdateInput.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
@@ -46,23 +50,15 @@ class SearchForm extends React.Component {
       const name = this.state.name
       this.props.requestAllSearchItems({name})
       .then((searchItems) => {
-        // console.log("in handle update input");
-        // console.log(searchItems);
-        // console.log("search items to search results");
         let searchResults = searchItems;
-        // console.log(this.searchResults);
         let retrievedSearchTerms = searchResults.map(function(result) {
           return result.name;
         })
         this.setState({dataSource: retrievedSearchTerms});
-        // console.log("in handle Update see state");
-        // console.log(this.state.dataSource);
       });
     });
   }
 
-  // onNewRequest(searchTerm) {
-  // }
 
   handleSubmit() {
         this.props.history.push("/search");
@@ -83,6 +79,7 @@ class SearchForm extends React.Component {
                   hintText="Search for a pantry or grocery item"
                   dataSource={this.state.dataSource}
                   onUpdateInput={this.handleUpdateInput}
+                  underlineFocusStyle ={textboxUnderlineStyle}
                   style={searchBoxStyle}
                   fullWidth={true}
                 />
@@ -96,14 +93,3 @@ class SearchForm extends React.Component {
 }
 
 export default SearchForm;
-
-// {this.props.map(item => {
-//   console.log("in search-form dataSource");
-//   console.log(this.state.dataSource);
-//   console.log("in search_form");
-//   console.log(item);
-//   return (<SearchResults
-//     key={item.id}
-//     searchResult={item} />
-//   )
-// })}

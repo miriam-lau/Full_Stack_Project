@@ -51,8 +51,8 @@ class Api::PantryItemsController < ApplicationController
   end
 
   def search
-    search_grocery = Grocery.where("name ILIKE '%#{params[:name]}%'")
-    search_pantry = PantryItem.where("name ILIKE '%#{params[:name]}%'")
+    search_grocery = Grocery.where("lower(name) LIKE '%#{params[:name].downcase}%'")
+    search_pantry = PantryItem.where("lower(name) LIKE '%#{params[:name].downcase}%'")
     @search_items = []
     search_grocery.each do |item|
       @search_items.push(item)
@@ -60,6 +60,7 @@ class Api::PantryItemsController < ApplicationController
     search_pantry.each do |item|
       @search_items.push(item)
     end
+
     render json: @search_items
   end
 

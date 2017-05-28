@@ -1,92 +1,53 @@
-Components:
-App  // component at the root
-----------------------------------------------------------------------
-  AuthFormContainer
-    AuthForm
+# Components Hierarchy
 
-  HomeContainer
-    Home
-    Sidebar
-----------------------------------------------------------------------
+**App**
+- Component at the root
 
-  GroceryContainer //all the items in the list
-    Grocery
-    ** added to grocery index page as a groceryIndexItemGroceryItemDetailContainer //view an item in the list through Search
-    GroceryItemDetail
+**AuthForm Container**
+- AuthForm
 
-  NewGroceryItemContainer //adding a new item in list
-    NewGroceryItemForm
+**Home Container**
+- Home
+  + Carousel
+  + SignIn, SignUp
 
+**Greeting Container**
+- Personal Greeting
+  + Search Container
+    + Search
+  + Sidebar
+    + Grocery Index Container
+    + Pantry Index Container
+  + Guide
+  + Measurements
+  + SignOut
 
-  UpdateGroceryItemContainer //update an existing item from list
-    UpdateGroceryItemForm
+**Grocery Index Container**
+- Grocery Index
+  + Grocery Index Item
+  + Grocery Form
 
-  RemoveGroceryItemContainer //remove an item from list
-    RemoveGroceryItem
-  ----------------------------------------------------------------------
-
-  PantryContainer //all the items in the pantry
-    Pantry
-
-  NewPantryItemContainer //adding a new item in pantry list
-    NewPantryItemForm
-
-  PantryItemDetailContainer //view an item in pantry list through Search
-    PantryItemDetail  **Same for this one
-
-  UpdatePantryItemContainer //update an existing item from list
-    UpdatePantryItemForm
-
-  RemovePantryItemContainer //remove an item from pantry list
-    RemovePantryItem
-  ----------------------------------------------------------------------
-
-  SearchResultsContainer
-    Search
-  ----------------------------------------------------------------------
-
-  RecipesContainer //all recipes in recipes
-    Recipes
-
-  NewRecipeContainer //adding a new recipe
-    NewRecipeForm
-
-  RecipeDetailContainer //show a recipe page
-    RecipeDetail
-
-  UpdateRecipeContainer //update an existing recipe
-    UpdateRecipeForm
-
-  RemoveRecipeContainer
-    RemoveRecipe
+**Pantry Index Container**
+- Pantry Index
+  + Pantry Index Item
+  + Pantry Form
 
 
+# Routes
 
-Routes
-path="/" component={App}
-
-path="/signup" component={AuthFormContainer} 	
-path="/signin"	component={AuthFormContainer}
-
-path="/home"	component={HomeContainer}
-
-Index and Show Routes?
-path="/grocery"	component={GroceryContainer}
-
-path="/grocery/:id"	component={NewGroceryItemContainer}
-
-** same for this
-path="/pantry"	component={PantryContainer}
-path="/pantry/:id"	component={NewPantryItemContainer}
-path="/pantry/:id"	component={PantryItemDetailContainer}
-path="/pantry/:id"	component={UpdatePantryItemContainer}
-path="/pantry/:id"	component={RemovePantryItemContainer}
-
-path="/search"	component={Search}
-
-Index and Show Routes?
-path="/recipes"	component={RecipeContainer}
-path="/new-recipe"	component={NewRecipeContainer}
-path="/recipes/:id"	component={RecipeDetailContainer}
-path="/recipes/:id"	component={UpdateRecipeContainer}
-path="/recipes/:id"	component={RemoveRecipeContainer}
+| Path                   | Component               |
+|------------------------|-------------------------|
+| /                      | App                     |
+| /signup                | AuthFormContainer       |
+| /signin                | AuthFormContainer       |
+| /home                  | HomeContainer           |
+| /groceries             | GroceryContainer        |
+| /groceries/new         | GroceryFormContainer    |
+| /groceries/:id/edit    | Update                  |
+| /groceries/:id         | Show                    |
+| /groceries/:id         | Delete                  |
+| /pantry_items          | PantryItemContainer     |
+| /pantry_items/new      | PantryItemFormContainer |
+| /pantry_items/:id/edit | Update                  |
+| /pantry_items/:id      | Show                    |
+| /pantry_items/:id      | Delete                  |

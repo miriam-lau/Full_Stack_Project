@@ -1,20 +1,23 @@
-Users
+# Schema
+
+## Users
 column name	    | data type	| details
------------------------------------------------------------
+----------------|-----------|--------------------------------
 id	            | integer	  | not null, primary key
 username	      | string	  | not null, indexed, unique
 email	          | string	  | not null, indexed, unique
 password_digest	| string	  | not null
 session_token	  | string	  | not null, indexed, unique
 
-has_one :grocery (should it be has_many?)
-has_one :pantry
-has_many: recipes
+#### Associations
+- has_one :grocery
+- has_one :pantry
+- has_many: recipes
 
 
-Grocery
+## Grocery
 column name	    | data type	| details
-------------------------------------------------------------
+----------------|-----------|---------------------------------
 id	            | integer	  | not null, primary key
 category        | string    |
 name	          | string	  | not null
@@ -22,15 +25,16 @@ quantity	      | float  	  | not null
 unit	          | string	  |
 user_id         | integer   | not null, foreign key
 
-belongs_to :user
-Grocery will associate with Pantry through User
-Grocery will associate with Recipe through User
-Grocery will associate with Ingredients through Recipe
+#### Associations
+- belongs_to :user
+- Grocery will associate with Pantry through User
+- Grocery will associate with Recipe through User
+- Grocery will associate with Ingredients through Recipe
 
 
-Pantry
+## Pantry
 column name	    | data type	| details
-------------------------------------------------------------
+----------------|-----------|---------------------------------
 id	            | integer	  | not null, primary key
 category        | string    |
 name	          | string	  | not null
@@ -38,15 +42,16 @@ quantity	      | decimal   | not null
 unit	          | string	  |
 user_id         | integer   | not null, foreign key
 
-belongs_to :user
-Pantry will associate with Grocery through User
-Pantry will associate with Recipe through User
-Pantry will associate with Ingredients through Recipe
+#### Associations
+- belongs_to :user
+- Pantry will associate with Grocery through User
+- Pantry will associate with Recipe through User
+- Pantry will associate with Ingredients through Recipe
 
 
-Recipe
+## Recipe
 column name	    | data type	| details
-------------------------------------------------------------
+----------------|-----------|---------------------------------
 id	            | integer	  | not null, primary key
 name	          | string	  | not null
 image           | string    |
@@ -59,13 +64,14 @@ notes           | text      |
 link            | string    |
 user_id         | integer   | not null, foreign key
 
-belongs_to :user
-has_many :recipe_ingredients
+#### Associations
+- belongs_to :user
+- has_many :recipe_ingredients
 
 
-RecipeIngredient
+## RecipeIngredient
 column name	    | data type	| details
-------------------------------------------------------------
+----------------|-----------|---------------------------------
 id	            | integer	  | not null, primary key
 category        | string    |
 name	          | string	  | not null
@@ -73,4 +79,5 @@ quantity	      | integer	  | not null
 unit	          | string	  | not null
 recipe_id       | integer   | not null, foreign key
 
-belongs_to: recipe
+#### Associations
+- belongs_to: recipe

@@ -16,7 +16,6 @@
   font-weight: 900;
   margin: auto;
   width: 100%;
-  padding-top: 20px;
 }
 
 .session-question-div {
@@ -164,4 +163,9 @@ input {
   color: black;
   border: 1px solid #333399;
   transition: 0.5s;
+}
+
+.modal-icon {
+  display: flex;
+  justify-content: flex-end;
 }

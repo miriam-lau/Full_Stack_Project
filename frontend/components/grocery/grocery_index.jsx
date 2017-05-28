@@ -42,12 +42,10 @@ class GroceryIndex extends React.Component {
           <div className="grocery-one">
             <Route path="/groceries" component={ GroceryItemFormContainer } />
           </div>
-          <br />
 
           <div className="grocery-two">
             <section>
               <h2>Current Grocery List</h2>
-              <p className="edit-instructions">Click on item to edit</p>
             </section>
           </div>
 
@@ -73,7 +71,6 @@ class GroceryIndex extends React.Component {
           <div className="grocery-four">
             <section>
               <h2>Purchased</h2>
-              <p className="edit-instructions">Click on item to edit</p>
             </section>
             <section>
               <button className="add-to-pantry-button"
@@ -97,28 +94,6 @@ class GroceryIndex extends React.Component {
           </div>
 
           <div className="grocery-six">
-            <div className="tutorial-wrapper">
-              <div className="tutorial">
-                <h3>Tutorial</h3>
-                <br />
-                <p>Navigation: C lick between pages on the left.</p>
-                <br />
-                <p>Search:  Click the "search" icon and type in an item name.</p>
-                <br />
-                <p>Add:  Type in a number, unit(optional), and name. Press "Enter" or click "Add".</p>
-                <br />
-                <p>Update:  Click on the item fields. Click off the field to save.</p>
-                <br />
-                <p>Delete:  Click on the "garbage can" icon.</p>
-                <br />
-                <p>Moving items:  Check/uncheck the box to move an item
-                  to "Purchased" list and vice versa.</p>
-                <br />
-                <p>Items in "Purchased" can also be updated and deleted.</p>
-                <br />
-                <p>Auto-add items in "Purchased" to pantry: Click on "Add to Pantry" button.</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

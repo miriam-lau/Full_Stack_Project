@@ -4,8 +4,12 @@ import Checkbox from 'material-ui/Checkbox';
 
 import { Link } from 'react-router-dom';
 
-const textboxUnderlineStyle = {
+const textboxUnderlineFocusStyle = {
   'borderColor': '#333399'
+}
+
+const textboxUnderlineStyle = {
+  'borderColor': '#C0C0C0'
 }
 
 const addItemTextBoxStyle1 = {
@@ -15,7 +19,8 @@ const addItemTextBoxStyle1 = {
   "width": "150px",
   "display": "inline",
   "textAlign": "left",
-  "marginRight": "20px"
+  "marginRight": "20px",
+  "height": "35px",
 }
 
 const addItemTextBoxStyle2 = {
@@ -23,12 +28,13 @@ const addItemTextBoxStyle2 = {
   "fontSize": "14px",
   "fontWeight": "bold",
   "width": "220px",
-  "display": "inline"
+  "display": "inline",
+  "height": "35px"
 }
 
 const styles = {
   "width": "50px",
-  "alignItems": "center"
+  "alignItems": "top"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
@@ -217,20 +223,23 @@ class GroceryIndexItem extends React.Component {
           <form className="update-grocery-form">
             <TextField id="text-field-default"
               defaultValue={ quantity }
-              underlineFocusStyle ={textboxUnderlineStyle}
+              underlineFocusStyle ={textboxUnderlineFocusStyle}
+              underlineStyle={textboxUnderlineStyle}
               style={addItemTextBoxStyle1}
               onChange={this.update('temp')}
               onBlur={this.checkError}
             />
             <TextField id="text-field-default"
               defaultValue={ grocery_item.name }
-              underlineFocusStyle ={textboxUnderlineStyle}
+              underlineFocusStyle ={textboxUnderlineFocusStyle}
+              underlineStyle={textboxUnderlineStyle}
               style={addItemTextBoxStyle2}
               onChange={this.update('name')}
             />
           </form>
 
           <i className="material-icons"
+            style={styles}
             onClick={() => deleteGroceryItem(grocery_item.id)}>
             delete_forever</i>
         </div>

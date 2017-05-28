@@ -31,7 +31,6 @@
 }
 
 .header-name {
-  padding: 10px;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: bold;
@@ -41,12 +40,11 @@
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   font-weight: bold;
-  width: 100px;
   background-color: #E6E6FA;
   color: black;
   border-radius: 5px;
   border: 1px solid #E6E6FA;
-  align-self: center;
+  // align-self: center;
   text-align: center;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -57,6 +55,30 @@
 }
 
 .header-button:hover {
+  background-color: #333399;
+  color: white;
+  border: 1px solid #E6E6FA;
+  transition: 0.5s;
+}
+
+.header-link {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #E6E6FA;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid #E6E6FA;
+  text-align: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.header-link:hover {
   background-color: #333399;
   color: white;
   border: 1px solid #E6E6FA;
@@ -101,7 +123,7 @@
 .greeting-wrapper {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-auto-rows: minmax(80px, auto);
+  grid-auto-rows: minmax(50px, auto);
   grid-template-areas:
     "greeting-one greeting-one greeting-one greeting-one
       greeting-one greeting-one greeting-one greeting-one greeting-one"
@@ -138,9 +160,8 @@
 
 .greeting-three {
   grid-column: 2 / 9;
-  grid-row: 2 / 4;
+  grid-row: 2;
   padding-top: 20px;
-  padding-bottom: 50px;
   padding-left: 50px;
   padding-right: 50px;
   min-height: 900px;

@@ -3,8 +3,12 @@ import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
 import FontIcon from 'material-ui/FontIcon';
 
-const textboxUnderlineStyle = {
+const textboxUnderlineFocusStyle = {
   'borderColor': '#333399'
+}
+
+const textboxUnderlineStyle = {
+  'borderColor': '#C0C0C0'
 }
 
 const addItemTextBoxStyle1 = {
@@ -15,6 +19,7 @@ const addItemTextBoxStyle1 = {
   "display": "inline",
   "textAlign": "left",
   "marginRight": "20px",
+  "height": "35px",
 }
 
 const addItemTextBoxStyle2 = {
@@ -22,7 +27,8 @@ const addItemTextBoxStyle2 = {
   "fontSize": "14px",
   "fontWeight": "bold",
   "width": "220px",
-  "display": "inline"
+  "display": "inline",
+  "height": "35px"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
@@ -176,17 +182,20 @@ class PantryIndexItem extends React.Component {
     return (
       <div>
         <div className="update-pantry-form-div">
+
           <form className="update-pantry-form">
             <TextField id="text-field-default"
               value={ pantry_item.unparsed_quantity }
-              underlineFocusStyle ={textboxUnderlineStyle}
+              underlineFocusStyle ={textboxUnderlineFocusStyle}
+              underlineStyle={textboxUnderlineStyle}
               style={addItemTextBoxStyle1}
               onChange={this.update('unparsed_quantity')}
               onBlur={this.checkError}
             />
             <TextField id="text-field-default"
               value={ pantry_item.name }
-              underlineFocusStyle ={textboxUnderlineStyle}
+              underlineFocusStyle ={textboxUnderlineFocusStyle}
+              underlineStyle={textboxUnderlineStyle}
               style={addItemTextBoxStyle2}
               onChange={this.update('name')}
             />

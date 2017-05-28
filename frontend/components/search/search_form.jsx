@@ -8,16 +8,19 @@ import AutoComplete from 'material-ui/AutoComplete';
 
 
 const searchBoxStyle = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "10px",
-  "fontWeight": "bold",
-  "display": "inline",
   "borderColor": "#333399",
   "backgroundColor": "white",
   "paddingLeft": "10px",
   "paddingBottom": "0",
   "paddingTop": "0",
   "height": "45px"
+}
+
+const searchBoxFontStyle = {
+  "fontFamily": "'Nunito', sans-serif",
+  "fontSize": "14px",
+  "fontWeight": "bold",
+  "display": "inline",
 }
 
 const textboxUnderlineStyle = {
@@ -76,11 +79,12 @@ class SearchForm extends React.Component {
             <form onSubmit={this.handleSubmit} >
               <div className="search-field">
                 <AutoComplete
+                  underlineFocusStyle ={textboxUnderlineStyle}
+                  style={searchBoxStyle}
+                  hintStyle={searchBoxFontStyle}
                   hintText="Search for a pantry or grocery item"
                   dataSource={this.state.dataSource}
                   onUpdateInput={this.handleUpdateInput}
-                  underlineFocusStyle ={textboxUnderlineStyle}
-                  style={searchBoxStyle}
                   fullWidth={true}
                 />
               </div>

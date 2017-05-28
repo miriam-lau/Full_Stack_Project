@@ -62,3 +62,37 @@
   width: 600px;
   color: #333399;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.tutorial {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333399;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+  width: 75%;
+  margin: auto;;
+}
+
+.drawer-icon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tutorial-topic {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  color: #333399;
+  text-align: center;
+}

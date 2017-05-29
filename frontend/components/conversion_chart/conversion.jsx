@@ -74,9 +74,6 @@ class Conversion extends React.Component {
       value2: "fluid ounce"};
 
     this.handleToggle = this.handleToggle.bind(this);
-    // this.handleChange1 = this.handleChange1.bind(this);
-    // this.handleChange2 = this.handleChange2.bind(this);
-    // this.handleQuantity = this.handleQuantity.bind(this);
     this.calculateResult = this.calculateResult.bind(this);
   }
 
@@ -94,21 +91,6 @@ class Conversion extends React.Component {
       }
     }
   }
-
-  // handleChange1(event) {
-  //   event.preventDefault();
-  //   this.setState({value1: unitArray[parseInt(event.target.value)]});
-  // }
-  //
-  // handleChange1(event) {
-  //   event.preventDefault();
-  //   this.setState({value1: unitArray[parseInt(event.target.value)]});
-  // }
-  //
-  // handleChange2(event) {
-  //   event.preventDefault();
-  //   this.setState({value2: unitArray[parseInt(event.target.value)]});
-  // }
 
   calculateResult() {
     let result = 0;
@@ -149,7 +131,8 @@ class Conversion extends React.Component {
     console.log(this.state);
     return (
       <div>
-        <button onClick={this.handleToggle} className="header-button">Measurements</button>
+        <button onClick={this.handleToggle}
+          className="header-button">Conversion Calculator</button>
 
         {this.state.toggle ? <Drawer width={400}
           containerStyle={{height: 'calc(100% - 80px)', top: 80}}
@@ -301,7 +284,3 @@ class Conversion extends React.Component {
 }
 
 export default Conversion;
-
-// <input className="conversion-field" value={this.state.quantity}
-//   onChange={this.update("quantity")}
-//   placeholder="Quantity"></input>

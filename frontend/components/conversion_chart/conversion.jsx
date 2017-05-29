@@ -94,7 +94,6 @@ class Conversion extends React.Component {
 
   calculateResult() {
     let result = 0;
-    console.log("in calculate result");
     if (this.state.quantity === "") {
       return "";
     }
@@ -127,8 +126,6 @@ class Conversion extends React.Component {
   }
 
   render() {
-    console.log("in conversion");
-    console.log(this.state);
     return (
       <div>
         <button onClick={this.handleToggle}

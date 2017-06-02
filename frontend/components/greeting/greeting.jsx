@@ -5,6 +5,7 @@ import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import PersonalGreetingContainer from './personal_greeting_container';
+import RecipeIndexContainer from '../recipe/recipe_index_container';
 import SearchResultsContainer from '../search/search_results_container';
 
 
@@ -64,6 +65,10 @@ class Greeting extends React.Component {
               <div>
                 <Link className="nav-titles" to="/pantry_items">Pantry</Link>
               </div>
+
+              <div>
+                <Link className="nav-titles" to="/recipes">Recipe</Link>
+              </div>
             </ul>
           </div>
 
@@ -72,8 +77,9 @@ class Greeting extends React.Component {
 
         <div className="greeting-three">
           <Switch>
-            <Route path="/pantry_items" component={PantryIndexContainer} />
-            <Route path="/groceries" component={GroceryIndexContainer} />
+            <Route path="/groceries" component={ GroceryIndexContainer } />
+            <Route path="/pantry_items" component={ PantryIndexContainer } />
+            <Route path="/recipes" component={ RecipeIndexContainer } />
             <Route path='/search' component={ SearchResultsContainer } />
           </Switch>
         </div>

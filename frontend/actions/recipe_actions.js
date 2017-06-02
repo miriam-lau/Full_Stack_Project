@@ -32,7 +32,7 @@ export const deleteRecipe = (recipe) => ({
   recipe
 });
 
-export receiveRecipeErrors = (errors) => ({
+export const receiveRecipeErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });

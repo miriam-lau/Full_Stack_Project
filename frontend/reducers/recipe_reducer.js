@@ -7,26 +7,27 @@ const noErrors = Object.freeze({
 });
 
 const RecipeReducer = (state = noErrors, action) => {
+  let newState;
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_RECIPES:
-      let newState = merge({}, action.recipes);
+      newState = merge({}, action.recipes);
       return newState;
     case RECEIVE_RECIPE:
-      let newState = merge({}, action.recipe);
+      newState = merge({}, action.recipe);
       return newState;
     case CREATE_RECIPE:
-      let newState = merge({}, state, {[action.recipe.id]: action.recipe});
+      newState = merge({}, state, {[action.recipe.id]: action.recipe});
       return newState;
     case UPDATE_RECIPE:
-      let newState = merge({}, state, {[action.recipe.id] = action.recipe});
+      newState = merge({}, state, {[action.recipe.id]: action.recipe});
       return newState;
     case DELETE_RECIPE:
-      let newState = merge({}, state);
+      newState = merge({}, state);
       delete newState[Object.keys(action.recipe)[0]];
       return newState;
     case RECEIVE_ERRORS:
-      let newState = merge({}, state, action.errors);
+      newState = merge({}, state, action.errors);
       return newState;
     default:
       return state;

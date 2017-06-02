@@ -7,7 +7,7 @@ import updatePantry from '../pantry_items/update_pantry';
 
 class GroceryIndex extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {success: false};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.grocery_items = this.props.grocery_items;

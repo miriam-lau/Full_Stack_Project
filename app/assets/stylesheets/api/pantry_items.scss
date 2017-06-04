@@ -1,63 +1,26 @@
 .pantry-wrapper {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: minmax(50px, auto);
-  grid-template-areas:
-    "pantry-one pantry-one pantry-one pantry-one pantry-four pantry-four"
-    "pantry-two pantry-two pantry-two pantry-two pantry-four pantry-four"
-    "pantry-three pantry-three pantry-three pantry-three pantry-four pantry-four";
   width: 100%;
   height: 100%;
+  background-color: #d7e7f5;
 }
 
 .pantry-one {
-  grid-column: 1 / 4;
-  grid-row: 1;
-  margin-left: 20px;
   width: 100%;
   padding-bottom: 30px;
-}
-
-.pantry-two {
-  grid-column: 1 / 4;
-  grid-row: 2 / 6;
-  background-color: #d7e7f5;
-  color: white;
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  text-align: left;
-  border-radius: 5px;
-  width: 100%;
-  padding-top: 12px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.pantry-two h2 {
-  align-items: center;
-  margin-left: 20px;
+  background-color: white;
 }
 
 .pantry-three {
-  grid-column: 1 / 4;
-  grid-row: 3 / 6;
-  background-color: #d7e7f5;
-  margin: 0 10px 10px 10px;
-  border-radius: 5px;
+  // border-radius: 5px;
+  background-color: white;
 }
 
 .pantry-four {
-  grid-column: 4 / 6;
-  grid-row: 1 / 8;
-  background-color: #d7e7f5;
-  margin: 0 0 0 40px;
   border-radius: 5px;
   width: 100%;
   height: auto;
   min-height: 1000px;
-  background-image: url("https://images.unsplash.com/photo-1452251889946-8ff5ea7b27ab?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1745&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg=");
-  background-size: cover;
+  background-color: #d7e7f5;
 }
 
 .pantry-form {

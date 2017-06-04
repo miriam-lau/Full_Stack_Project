@@ -83,12 +83,6 @@ class Greeting extends React.Component {
             <Route path='/search' component={ SearchResultsContainer } />
           </Switch>
         </div>
-
-        <div className="greeting-four">
-          <footer className="footer">
-            <div>Copyright 2017 myPantry. All rights reserved.</div>
-          </footer>
-        </div>
       </div>
       )
     } else {

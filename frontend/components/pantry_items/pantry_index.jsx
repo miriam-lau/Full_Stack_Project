@@ -23,12 +23,6 @@ class PantryIndex extends React.Component {
             <Route path="/pantry_items" component={ PantryItemFormContainer } />
           </div>
 
-          <div className="pantry-two">
-            <section className="pantry-titles">
-              <h2>Current Pantry Items</h2>
-            </section>
-          </div>
-
           <div className="pantry-three">
             <ul className="pantry-items">
               {this.props.pantry_items.map(item => {

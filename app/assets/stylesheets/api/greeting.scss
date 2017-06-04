@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -40,10 +40,10 @@
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   font-weight: bold;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
   border-radius: 5px;
-  border: 1px solid #E6E6FA;
+  border: 1px solid #d7e7f5;
   // align-self: center;
   text-align: center;
   padding-top: 3px;
@@ -55,9 +55,9 @@
 }
 
 .header-button:hover {
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
-  border: 1px solid #E6E6FA;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 
@@ -65,10 +65,10 @@
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   font-weight: bold;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
   border-radius: 5px;
-  border: 1px solid #E6E6FA;
+  border: 1px solid #d7e7f5;
   text-align: center;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -79,9 +79,9 @@
 }
 
 .header-link:hover {
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
-  border: 1px solid #E6E6FA;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 
@@ -155,7 +155,7 @@
   position:relative;
   grid-column: 1;
   grid-row: 2 / 4;
-  // border-right: 2px #333399 solid;
+  // border-right: 2px #d7e7f5 solid;
 }
 
 .greeting-three {
@@ -180,15 +180,15 @@
   padding-bottom: 10px;
   font-weight: bold;
   text-align: center;
-  border-top: 1px #E6E6FA solid;
-  border-bottom: 1px #E6E6FA solid;
+  border-top: 1px #d7e7f5 solid;
+  border-bottom: 1px #d7e7f5 solid;
   transition: 0.5s;
   display: block;
 }
 
 .nav-titles:hover {
   font-family: 'Nunito', sans-serif;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   font-size: 18px;
   padding-top: 10px;
@@ -196,8 +196,8 @@
   font-weight: bold;
   text-align: center;
   width: 100%;
-  border-top: 1px #E6E6FA solid;
-  border-bottom: 1px #E6E6FA solid;
+  border-top: 1px #d7e7f5 solid;
+  border-bottom: 1px #d7e7f5 solid;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -209,7 +209,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 10px;
   font-weight: bold;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   padding-top: 40px;
   padding-bottom: 40px;

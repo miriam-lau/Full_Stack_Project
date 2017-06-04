@@ -21,7 +21,7 @@
 .grocery-two {
   grid-column: 1 / 4;
   grid-row: 2 / 6;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
@@ -42,7 +42,7 @@
 .grocery-three {
   grid-column: 1 / 4;
   grid-row: 3 / 6;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   margin: 0 10px 10px 10px;
   border-radius: 5px;
 }
@@ -50,7 +50,7 @@
 .grocery-four {
   grid-column: 1 / 4;
   grid-row: 7 / 11;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
@@ -71,7 +71,7 @@
 .grocery-five {
   grid-column: 1 / 4;
   grid-row: 8 / 11;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   margin: 0 10px 10px 10px;
   border-radius: 5px;
 }
@@ -79,7 +79,7 @@
 .grocery-six {
   grid-column: 4 / 6;
   grid-row: 1 / 11;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   margin: 0 0 0 40px;
   border-radius: 5px;
   width: 100%;
@@ -133,10 +133,10 @@
   font-size: 14px;
   font-weight: bold;
   width: 60px;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   border-radius: 7px;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
@@ -146,9 +146,9 @@
 }
 
 .grocery-button:hover {
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 
@@ -157,10 +157,10 @@
   font-size: 14px;
   font-weight: bold;
   width: 60px;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   border-radius: 7px;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   text-align: center;
   transition: 0.5s;
   margin-left: 30px;
@@ -168,10 +168,10 @@
 }
 
 .grocery-button-add:hover {
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
   cursor: pointer;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 
@@ -190,9 +190,9 @@
   font-weight: bold;
   color: black;
   width: 100px;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   border-radius: 7px;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   text-align: center;
   transition: 0.5s;
   margin-left: 30px;
@@ -202,10 +202,10 @@
 }
 
 .add-to-pantry-button:hover {
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   cursor: pointer;
-  border: 1px solid #E6E6FA;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 

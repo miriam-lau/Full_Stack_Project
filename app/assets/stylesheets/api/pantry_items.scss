@@ -21,7 +21,7 @@
 .pantry-two {
   grid-column: 1 / 4;
   grid-row: 2 / 6;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
@@ -42,7 +42,7 @@
 .pantry-three {
   grid-column: 1 / 4;
   grid-row: 3 / 6;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   margin: 0 10px 10px 10px;
   border-radius: 5px;
 }
@@ -50,7 +50,7 @@
 .pantry-four {
   grid-column: 4 / 6;
   grid-row: 1 / 8;
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   margin: 0 0 0 40px;
   border-radius: 5px;
   width: 100%;
@@ -98,10 +98,10 @@
   font-size: 14px;
   font-weight: bold;
   width: 60px;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   border-radius: 7px;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
@@ -111,9 +111,9 @@
 }
 
 .pantry-button:hover {
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 
@@ -122,10 +122,10 @@
   font-size: 14px;
   font-weight: bold;
   width: 60px;
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   border-radius: 7px;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
@@ -134,9 +134,9 @@
 }
 
 .pantry-button-add:hover {
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 

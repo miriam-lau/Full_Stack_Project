@@ -14,7 +14,7 @@
   top: 80%;
   left: 50%;
   transform: translate(-50%,-80%);
-  background-color: #333399;
+  background-color: #d7e7f5;
   color: white;
   padding: 15px;
   font-family: 'Roboto', sans-serif;
@@ -23,7 +23,7 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   border-radius: 10px;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   width: 30%;
   text-align: center;
   cursor: pointer;
@@ -32,9 +32,9 @@
 }
 
 .guest-sign-in:hover {
-  background-color: #E6E6FA;
+  background-color: #d7e7f5;
   color: black;
-  border: 1px solid #333399;
+  border: 1px solid #d7e7f5;
   transition: 0.5s;
 }
 
@@ -59,7 +59,7 @@
   font-weight: bold;
   padding-top: 40px;
   padding-bottom: 40px;
-  border-top: 5px solid #333399;
-  background-color: #E6E6FA;
+  border-top: 5px solid #d7e7f5;
+  background-color: #d7e7f5;
   width: 100%;
 }

@@ -12,7 +12,6 @@ class RecipeIndex extends React.Component {
     this.props.requestAllRecipes();
   }
 
-// addnewrecipe modal
   render() {
     const recipes = this.props.recipes;
     return (

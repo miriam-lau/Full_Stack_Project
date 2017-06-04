@@ -16,32 +16,15 @@
   grid-row: 1;
   padding-left: 20px;
   width: 100%;
-}
-
-.grocery-two {
-  grid-column: 1 / 4;
-  grid-row: 2 / 6;
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  text-align: left;
-  border-radius: 5px;
-  width: 100%;
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.grocery-two h2 {
-  align-items: center;
-  margin-left: 20px;
+  background-color: white;
 }
 
 .grocery-three {
   grid-column: 1 / 4;
   grid-row: 3 / 6;
   margin: 0 10px 10px 10px;
-  border-radius: 5px;
+  background-color: white;
+  // border-radius: 5px;
 }
 
 .grocery-four {

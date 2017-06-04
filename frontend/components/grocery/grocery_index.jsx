@@ -43,10 +43,6 @@ class GroceryIndex extends React.Component {
             <Route path="/groceries" component={ GroceryItemFormContainer } />
           </div>
 
-          <div className="grocery-two">
-
-          </div>
-
           <div className="grocery-three">
             <ul className="grocery-items">
               {this.props.grocery_items.map(item => {

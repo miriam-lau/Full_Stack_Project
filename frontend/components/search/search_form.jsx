@@ -20,7 +20,8 @@ const searchBoxFontStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "display": "inline",
+  "color": "white",
+  "display": "inline"
 }
 
 const textboxUnderlineStyle = {

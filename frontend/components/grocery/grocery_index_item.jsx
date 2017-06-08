@@ -5,7 +5,7 @@ import Checkbox from 'material-ui/Checkbox';
 import { Link } from 'react-router-dom';
 
 const textboxUnderlineFocusStyle = {
-  'borderColor': '#d7e7f5'
+  'borderColor': '#E6E6FA'
 }
 
 const textboxUnderlineStyle = {

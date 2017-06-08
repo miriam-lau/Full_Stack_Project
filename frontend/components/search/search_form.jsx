@@ -8,7 +8,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 
 
 const searchBoxStyle = {
-  "borderColor": "#d7e7f5",
+  "borderColor": "#E6E6FA",
   "backgroundColor": "white",
   "paddingLeft": "10px",
   "paddingBottom": "0",
@@ -24,7 +24,7 @@ const searchBoxFontStyle = {
 }
 
 const textboxUnderlineStyle = {
-  'borderColor': '#d7e7f5'
+  'borderColor': '#E6E6FA'
 }
 
 const searchIcon = {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import FontIcon from 'material-ui/FontIcon';
 
 const textboxUnderlineFocusStyle = {
-  'borderColor': '#d7e7f5'
+  'borderColor': '#E6E6FA'
 }
 
 const textboxUnderlineStyle = {

@@ -34,18 +34,11 @@ const searchIcon = {
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {dataSource: [], name: "", toggle: false};
+    this.state = {dataSource: [], name: ""};
 
     this.searchResults = [];
     this.handleUpdateInput = this.handleUpdateInput.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.onNewRequest = this.onNewRequest.bind(this);
-  }
-
-  handleToggle(event) {
-    event.preventDefault();
-    this.setState({toggle: !this.state.toggle});
   }
 
   handleUpdateInput(inputValue) {
@@ -71,25 +64,21 @@ class SearchForm extends React.Component {
     return (
       <div className="search-form-container">
         <div className="search-form-div">
-          <i id="search-icon"
-            className="material-icons"
-            style={searchIcon}
-            onClick={this.handleToggle}>search</i>
-          {this.state.toggle ?
-            <form onSubmit={this.handleSubmit} >
-              <div className="search-field">
-                <AutoComplete
-                  underlineFocusStyle ={textboxUnderlineStyle}
-                  style={searchBoxStyle}
-                  hintStyle={searchBoxFontStyle}
-                  hintText="Search for a pantry or grocery item"
-                  dataSource={this.state.dataSource}
-                  onUpdateInput={this.handleUpdateInput}
-                  fullWidth={true}
-                />
-              </div>
-            </form>  : ""
-          }
+          <i id="search-icon" className="material-icons"
+            style={searchIcon}>search</i>
+          <form onSubmit={this.handleSubmit} >
+            <div className="search-field">
+              <AutoComplete
+                underlineFocusStyle ={textboxUnderlineStyle}
+                style={searchBoxStyle}
+                hintStyle={searchBoxFontStyle}
+                hintText="Search for a pantry or grocery item"
+                dataSource={this.state.dataSource}
+                onUpdateInput={this.handleUpdateInput}
+                fullWidth={true}
+              />
+            </div>
+          </form>
         </div>
       </div>
     );

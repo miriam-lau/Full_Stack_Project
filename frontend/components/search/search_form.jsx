@@ -11,9 +11,11 @@ const searchBoxStyle = {
   "borderColor": "#E6E6FA",
   "backgroundColor": "#6A5ACD",
   "paddingLeft": "10px",
+  "paddingRight": "10px",
   "paddingBottom": "0",
   "paddingTop": "0",
-  "height": "45px"
+  "height": "45px",
+  "width": "300px"
 }
 
 const searchBoxFontStyle = {

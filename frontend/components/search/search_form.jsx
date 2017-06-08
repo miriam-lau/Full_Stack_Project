@@ -9,7 +9,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 
 const searchBoxStyle = {
   "borderColor": "#E6E6FA",
-  "backgroundColor": "white",
+  "backgroundColor": "#6A5ACD",
   "paddingLeft": "10px",
   "paddingBottom": "0",
   "paddingTop": "0",

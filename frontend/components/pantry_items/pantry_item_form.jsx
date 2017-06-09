@@ -5,7 +5,6 @@ import FontIcon from 'material-ui/FontIcon';
 
 const textboxUnderlineStyle = {
   "borderColor": "#333399",
-  "width": "500px"
 }
 
 const addItemTextBoxStyle ={
@@ -14,8 +13,8 @@ const addItemTextBoxStyle ={
   "fontWeight": "bold",
   "width": "500px",
   "display": "inline",
-  "paddingLeft": "20px",
-  "paddingRight": "40px"
+  "marginLeft": "20px",
+  "marginRight": "40px"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];

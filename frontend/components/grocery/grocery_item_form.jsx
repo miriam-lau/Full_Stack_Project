@@ -11,8 +11,10 @@ const addItemTextBoxStyle ={
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "100%",
-  "display": "inline"
+  "width": "500px",
+  "display": "inline",
+  "marginLeft": "20px",
+  "marginRight": "40px"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];

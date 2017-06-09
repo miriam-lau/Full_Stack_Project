@@ -20,10 +20,9 @@ class PantryIndex extends React.Component {
       <div>
         <div className="pantry-wrapper">
           <div className="pantry-one">
-            <Route path="/pantry_items" component={ PantryItemFormContainer } />
-          </div>
-
-          <div className="pantry-three">
+            <div className="add-pantry-item">
+              <Route path="/pantry_items" component={ PantryItemFormContainer } />
+            </div>
             <ul className="pantry-items">
               {this.props.pantry_items.map(item => {
                 return (<PantryIndexItem

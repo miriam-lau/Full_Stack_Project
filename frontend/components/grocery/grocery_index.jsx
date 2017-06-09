@@ -40,10 +40,9 @@ class GroceryIndex extends React.Component {
       <div>
         <div className="grocery-wrapper">
           <div className="grocery-one">
-            <Route path="/groceries" component={ GroceryItemFormContainer } />
-          </div>
-
-          <div className="grocery-three">
+            <div className="add-grocery-item">
+              <Route path="/groceries" component={ GroceryItemFormContainer } />
+            </div>
             <ul className="grocery-items">
               {this.props.grocery_items.map(item => {
                 if (item.purchased === false) {

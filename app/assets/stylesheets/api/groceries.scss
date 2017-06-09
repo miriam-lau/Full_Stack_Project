@@ -1,35 +1,19 @@
 .grocery-wrapper {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: minmax(50px, auto);
-  grid-template-areas:
-    "grocery-one grocery-one grocery-one grocery-one grocery-six grocery-six"
-    "grocery-two grocery-two grocery-two grocery-two grocery-six"
-    "grocery-three grocery-three grocery-three grocery-three grocery-three"
-    "grocery-four grocery-four grocery-four grocery-four grocery-four"
-    "grocery-five grocery-five grocery-five grocery-five grocery-five";
   width: 100%;
 }
 
 .grocery-one {
-  grid-column: 1 / 4;
-  grid-row: 1;
-  padding-left: 20px;
-  width: 100%;
+  padding-left: 2px;
+  width: 600px;
   background-color: white;
+  margin: 0 10px 10px 10px;
+  border-radius: 5px;
 }
 
-.grocery-three {
-  grid-column: 1 / 4;
-  grid-row: 3 / 6;
-  margin: 0 10px 10px 10px;
-  background-color: white;
-  // border-radius: 5px;
+.add-grocery-item {
 }
 
 .grocery-four {
-  grid-column: 1 / 4;
-  grid-row: 7 / 11;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 900;
@@ -47,15 +31,14 @@
 }
 
 .grocery-five {
-  grid-column: 1 / 4;
-  grid-row: 8 / 11;
+  padding-left: 2px;
+  width: 600px;
+  background-color: white;
   margin: 0 10px 10px 10px;
   border-radius: 5px;
 }
 
 .grocery-six {
-  grid-column: 4 / 6;
-  grid-row: 1 / 11;
   background-color: #E6E6FA;
   margin: 0 0 0 40px;
   border-radius: 5px;

@@ -27,9 +27,10 @@ const addItemTextBoxStyle2 = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "220px",
+  "width": "300px",
   "display": "inline",
-  "height": "35px"
+  "height": "35px",
+  "marginRight": "20px"
 }
 
 const styles = {

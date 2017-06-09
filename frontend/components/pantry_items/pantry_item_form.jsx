@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import FontIcon from 'material-ui/FontIcon';
 
 const textboxUnderlineStyle = {
-  'borderColor': '#E6E6FA'
+  'borderColor': '#333399'
 }
 
 const addItemTextBoxStyle ={

@@ -6,7 +6,7 @@ const iconStyle = {
 }
 
 const textboxUnderlineFocusStyle = {
-  'borderColor': '#E6E6FA'
+  'borderColor': '#333399'
 }
 
 const textboxUnderlineStyle = {

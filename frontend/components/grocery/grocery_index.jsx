@@ -44,11 +44,12 @@ class GroceryIndex extends React.Component {
               <Route path="/groceries" component={ GroceryItemFormContainer } />
             </div>
             <ul className="grocery-items">
-              {this.props.grocery_items.map(item => {
+              {this.props.grocery_items.map((item, idx) => {
                 if (item.purchased === false) {
                   return (<GroceryIndexItem
-                    key={item.id}
+                    key={idx}
                     grocery_item={item}
+                    grocery_item_id={item.id}
                     requestGroceryItem={this.props.requestGroceryItem}
                     deleteGroceryItem={this.props.deleteGroceryItem}
                     editGroceryItem={this.props.editGroceryItem} />)

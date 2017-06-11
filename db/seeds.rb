@@ -8,6 +8,7 @@
 User.destroy_all
 PantryItem.destroy_all
 Grocery.destroy_all
+Recipe.destroy_all
 
 
 guest = User.create(username: "guest", password: "password",
@@ -46,6 +47,9 @@ grocery9 = Grocery.create(category: "", name: "Watermelon",
 
 recipe1 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   nutrition: "", rating: 4.8, description: "", directions: "", notes: "",
+  link: "", user_id: guest.id)
+recipe2 = Recipe.create(name: "Chicken Pot Pie", serving: 6,
+  nutrition: "", rating: 5.0, description: "", directions: "", notes: "",
   link: "", user_id: guest.id)
 
 

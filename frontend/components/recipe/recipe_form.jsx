@@ -1,6 +1,10 @@
 import React from 'react';
 
-class RecipeForm extends React.component {
+class RecipeForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     return (
       <div>

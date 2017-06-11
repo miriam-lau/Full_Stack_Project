@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import RecipeIndexItem from './recipe_index_item';
+import RecipeFormContainer from './recipe_form_container';
 
 class RecipeIndex extends React.Component {
   constructor(props) {

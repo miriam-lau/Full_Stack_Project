@@ -9,6 +9,7 @@ class Api::RecipesController < ApplicationController
         @recipes.push(recipe)
       end
     end
+    puts @recipes
     render :index
   end
 

@@ -18,6 +18,7 @@ class RecipeIndex extends React.Component {
       <div>
         <div className="recipe-wrapper">
           <div className="recipe-one-add">
+            <Route path="/recipes" component={ RecipeFormContainer } />
           </div>
 
           <div className="recipe-two-list-title">

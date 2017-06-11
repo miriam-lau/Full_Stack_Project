@@ -11,7 +11,9 @@ class RecipeForm extends React.component {
       <div>serving</div>
       <div>nutrition</div>
       <div>rating</div>
-      <div>description</div>
+      <div className="new-recipe">
+        <h3>Description</h3>
+      </div>
       <div>directions</div>
       <div>notes</div>
       <div>link</div>

@@ -49,11 +49,11 @@
 
 .recipe-form-input > div {
   display: flex;
-  align-items: center;
   margin: 10px 0 10px 0;
 }
 
 .recipe-form-input > div > span {
+  padding-top: 6px;
   min-width: 20%;
 }
 
@@ -64,6 +64,7 @@
   color: #333399;
   border-radius: 3px;
   margin-right: 15px;
+  font-style: italic;
 }
 
 .recipe-form-input > div > textarea {
@@ -74,6 +75,7 @@
   border-radius: 3px;
   margin-right: 15px;
   padding: 5px 0 0 5px;
+  font-style: italic;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -95,7 +97,7 @@
 }
 
 .upload-img {
-  width: 300px;
+  width: 400px;
   height: 200px;
   border: 1px solid #333399;
   background-color: white;
@@ -105,12 +107,20 @@
 }
 
 .upload-img > input {
-  width: 96%;
+  width: 97%;
   height: 94%;
   border: 1px dashed #333399;
   background-color: white;
   color: #333399;
   border-radius: 3px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.upload-img > input:hover {
+  border: 1px dashed #333399;
+  background-color: #333399;
+  color: white;
 }
 
 .recipe-button-div {

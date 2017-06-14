@@ -120,54 +120,39 @@
 }
 
 .greeting-wrapper {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-auto-rows: minmax(50px, auto);
-  grid-template-areas:
-    "greeting-one greeting-one greeting-one greeting-one
-      greeting-one greeting-one greeting-one greeting-one greeting-one"
-    "greeting-two greeting-three greeting-three greeting-three
-      greeting-three greeting-three greeting-three greeting-three greeting-three"
-    "greeting-four greeting-four greeting-four greeting-four
-      greeting-four greeting-four greeting-four greeting-four greeting-four";
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin-bottom: -142px;
+  margin: auto;
 }
 
-.greeting-one {
-  grid-column: 1 / 9;
-  grid-row: 1;
+.header-bar {
+  height: 78px;
 }
 
-.greeting-nav-background {
-  content : "";
-  display: block;
-  background-color: #E6E6FA;
-  width: 100%;
-  height: 100%;
-  min-height: 1000px;
-}
+// .greeting-nav-background {
+//   content : "";
+//   display: block;
+//   background-color: #E6E6FA;
+//   width: 100%;
+//   height: 100%;
+//   min-height: 1000px;
+// }
 
-.greeting-two {
-  position:relative;
-  grid-column: 1;
-  grid-row: 2 / 4;
-  // border-right: 2px #E6E6FA solid;
-}
-
-.greeting-three {
-  grid-column: 2 / 9;
-  grid-row: 2;
-  padding-top: 10px;
-  padding-right: 10px;
+.side-nav-bar {
+  position: absolute;
+  top: 78px;
+  min-width: 180px;
+  max-width: 180px;
   height: 100%;
   background-color: #E6E6FA;
 }
 
-.greeting-four {
-  grid-column: 1 / 9;
-  // grid-row: 5 / 5;
-  z-index: 1;
+.item-list {
+  margin-left: 180px;
+  width: auto;
+  height: 100%;
+  background-color: #E6E6FA;
 }
 
 .nav-titles {

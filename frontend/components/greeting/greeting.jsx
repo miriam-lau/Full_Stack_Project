@@ -50,39 +50,40 @@ class Greeting extends React.Component {
 
     if (currentUser) {
       return (
-        <div className="greeting-wrapper">
-        <div className="greeting-one">
-          <PersonalGreetingContainer currentUser={currentUser} signout={signout} />
-        </div>
-
-        <div className="greeting-two">
-          <div>
-            <ul>
-              <div >
-                <Link className="nav-titles" to="/groceries">Grocery</Link>
-              </div>
-
-              <div>
-                <Link className="nav-titles" to="/pantry_items">Pantry</Link>
-              </div>
-
-              <div>
-                <Link className="nav-titles" to="/recipes">Recipe</Link>
-              </div>
-            </ul>
+        <div>
+          <div className="header-bar">
+            <PersonalGreetingContainer currentUser={currentUser} signout={signout} />
           </div>
+          <div className="greeting-wrapper">
+            <div className="side-nav-bar">
+              <div>
+                <ul>
+                  <div >
+                    <Link className="nav-titles" to="/groceries">Grocery</Link>
+                  </div>
+
+                  <div>
+                    <Link className="nav-titles" to="/pantry_items">Pantry</Link>
+                  </div>
+
+                  <div>
+                    <Link className="nav-titles" to="/recipes">Recipe</Link>
+                  </div>
+                </ul>
+              </div>
+            </div>
 
             <div className="greeting-nav-background"></div>
-        </div>
 
-        <div className="greeting-three">
-          <Switch>
-            <Route path="/groceries" component={ GroceryIndexContainer } />
-            <Route path="/pantry_items" component={ PantryIndexContainer } />
-            <Route path="/recipes" component={ RecipeIndexContainer } />
-            <Route path='/search' component={ SearchResultsContainer } />
-          </Switch>
-        </div>
+            <div className="item-list">
+              <Switch>
+                <Route path="/groceries" component={ GroceryIndexContainer } />
+                <Route path="/pantry_items" component={ PantryIndexContainer } />
+                <Route path="/recipes" component={ RecipeIndexContainer } />
+                <Route path='/search' component={ SearchResultsContainer } />
+              </Switch>
+            </div>
+          </div>
       </div>
       )
     } else {

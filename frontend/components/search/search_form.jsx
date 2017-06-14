@@ -60,7 +60,7 @@ class SearchForm extends React.Component {
 
 
   handleSubmit() {
-        this.props.history.push("/search");
+    this.props.history.push("/search");
   }
 
   render() {

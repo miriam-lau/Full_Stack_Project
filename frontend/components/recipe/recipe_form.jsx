@@ -1,15 +1,22 @@
 import React from 'react';
-import { Divider, Paper, TextField } from 'material-ui';
 
 class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: '', image_url: '', link: '', serving: 0,
-      rating: 0, description: '', directions: '', notes: ''}
+      rating: 0, description: '', directions: '', notes: ''};
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
     return event => this.setState({ [property]: event.target.value });
+  }
+
+  handeSubmit(event) {
+    event.preventDefault();
+    const recipe = this.state;
+    this.props.createRecipe({recipe})
+      .then(data => this.props.history.push(`/recipes/${recipe.id}`));
   }
 
   render() {
@@ -25,7 +32,7 @@ class RecipeForm extends React.Component {
           <div>
             <span>Recipe Image</span>
             <div className="upload-img">
-              <input type="file" accept="image/*" placeholder="Upload an Image" styles="display: none;" />
+              <input type="file" accept="image/*" placeholder="Upload an Image" />
             </div>
           </div>
           <div>

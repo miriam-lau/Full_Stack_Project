@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class RecipeIndexItem extends React.Component{
   constructor(props) {
@@ -9,13 +10,10 @@ class RecipeIndexItem extends React.Component{
     const recipe = this.props.recipe;
     return (
       <div className="recipe-info">
-        <div>{recipe.name}</div>
-        <div>Servings: {recipe.serving}</div>
-        <div>Rating: {recipe.rating}</div>
-        <div>Description: {recipe.description}</div>
-        <div>Directions: {recipe.directions}</div>
-        <div>Notes: {recipe.notes}</div>
-        <div>Link: {recipe.link}</div>
+        <Link to={`/recipes/${recipe.id}`}>
+          <div>{recipe.name}</div>
+          <img src={recipe.image_url} alt={recipe.name} />
+        </Link>
       </div>
     );
   }

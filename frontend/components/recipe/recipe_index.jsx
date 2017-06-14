@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import RecipeIndexItem from './recipe_index_item';
+import RecipeDetailContainer from './recipe_detail_container';
 import RecipeFormContainer from './recipe_form_container';
 
 class RecipeIndex extends React.Component {
@@ -41,6 +42,7 @@ class RecipeIndex extends React.Component {
 
           <div className="new-recipe">
             <Route path="/recipes" component={ RecipeFormContainer } />
+            <Route path="/recipe/:id" component={RecipeDetailContainer} />
           </div>
         </div>
       </div>

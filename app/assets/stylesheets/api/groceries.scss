@@ -1,4 +1,5 @@
 .grocery-wrapper {
+  display: flex;
   width: 100%;
   height: 100vh;
   padding-top: 10px;
@@ -6,7 +7,7 @@
 
 .grocery-one {
   width: 600px;
-  height: 100%;
+  height: auto;
   background-color: white;
   margin: 0 10px 10px 10px;
   border-radius: 5px;
@@ -15,42 +16,17 @@
 .add-grocery-item {
 }
 
-.grocery-four {
+.grocery-two {
+  width: 100%;
+  height: auto;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 900;
-  text-align: left;
-  border-radius: 5px;
-  width: 100%;
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.grocery-four h2 {
-  align-items: center;
-  margin-left: 20px;
-}
-
-.grocery-five {
-  padding-left: 2px;
-  width: 600px;
   background-color: white;
   margin: 0 10px 10px 10px;
   border-radius: 5px;
+  background-color: #BCBCF2;
 }
-
-.grocery-six {
-  background-color: #E6E6FA;
-  margin: 0 0 0 40px;
-  border-radius: 5px;
-  width: 100%;
-  height: 100%;
-  min-height: 1000px;
-  background-color: #E6E6FA;
-  background-size: cover;
-}
-
 
 .grocery-form {
   width: 100%;

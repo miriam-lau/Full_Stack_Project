@@ -9,7 +9,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 
 const searchBoxStyle = {
   "borderColor": "#E6E6FA",
-  "backgroundColor": "#6A5ACD",
+  "backgroundColor": "#BCBCF2",
   "paddingLeft": "10px",
   "paddingRight": "10px",
   "paddingBottom": "0",
@@ -22,7 +22,7 @@ const searchBoxFontStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "color": "white",
+  "color": "black",
   "display": "inline"
 }
 

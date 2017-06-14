@@ -57,21 +57,21 @@ class GroceryIndex extends React.Component {
             </ul>
           </div>
 
-          <div className="add-success">
-            {(this.state.success === true) ? "Add Successful!" : "" }
-          </div>
 
-          <div className="grocery-four">
+          <div className="grocery-two">
             <section>
               <h2>Purchased</h2>
             </section>
+
+            <div className="add-success">
+            {(this.state.success === true) ? "Add Successful!" : "" }
+            </div>
+            
             <section>
               <button className="add-to-pantry-button"
                 onClick={this.handleSubmit}>Add to Pantry</button>
             </section>
-          </div>
 
-          <div className="grocery-five">
             <ul className="purchased-grocery-items">
               {this.props.grocery_items.map(item => {
                 if (item.purchased === true) {
@@ -84,9 +84,6 @@ class GroceryIndex extends React.Component {
                 }
               })}
             </ul>
-          </div>
-
-          <div className="grocery-six">
           </div>
         </div>
       </div>

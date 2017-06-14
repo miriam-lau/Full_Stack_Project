@@ -35,9 +35,6 @@ class PantryIndex extends React.Component {
               })}
             </ul>
           </div>
-
-          <div className="pantry-four">
-          </div>
         </div>
       </div>
     );

@@ -112,3 +112,29 @@
   color: #333399;
   border-radius: 3px;
 }
+
+.recipe-button-div {
+  align-self: center;
+}
+
+.recipe-form-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #E6E6FA;
+  align-self: center;
+  margin-top: 10px;
+  padding: 8px 100px 8px 100px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.recipe-form-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
+}

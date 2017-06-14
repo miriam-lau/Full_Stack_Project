@@ -52,7 +52,7 @@ class RecipeForm extends React.Component {
           <div>
             <span>Directions</span>
             <textarea name="directions" value={this.state.directions}
-              placeholder="Directions" rows="5"
+              placeholder="Directions" rows="10"
               onChange={this.update('directions')} />
           </div>
           <div>
@@ -62,10 +62,7 @@ class RecipeForm extends React.Component {
               onChange={this.update('notes')} />
           </div>
 
-          <div>
-            <span>Save Recipe</span>
-            <button>Save Recipe</button>
-          </div>
+          <button className="recipe-form-button">Save Recipe</button>
         </section>
 
       </form>

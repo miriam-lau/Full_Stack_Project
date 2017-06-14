@@ -8,7 +8,7 @@ import { selectAllRecipes } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
   recipes: selectAllRecipes(state),
-  errors: state.recipe.errors
+  errors: state.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

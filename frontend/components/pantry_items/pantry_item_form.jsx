@@ -160,8 +160,6 @@ class PantryItemForm extends React.Component {
   render() {
     return (
       <form className="pantry-form" onSubmit={this.handleSubmit}>
-        <label className="pantry-form-label">Add an Item</label>
-        <br />
         <div className="pantry-form-fields">
           <TextField id="text-field-default"
             value={this.state.temp}

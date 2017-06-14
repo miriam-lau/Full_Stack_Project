@@ -23,7 +23,6 @@
   font-size: 18px;
   font-weight: 900;
   background-color: white;
-  margin: 0 0 0 0;
   border-radius: 5px;
   background-color: #BCBCF2;
 }
@@ -32,11 +31,11 @@
   width: 100%;
 }
 
-.grocery-form-label {
+.grocery-title {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 900;
-  margin-left: 20px;
+  margin: 10px 0 0 15px;
 }
 
 .grocery-form-fields {

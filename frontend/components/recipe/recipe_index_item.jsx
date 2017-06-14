@@ -8,10 +8,9 @@ class RecipeIndexItem extends React.Component{
   render() {
     const recipe = this.props.recipe;
     return (
-      <div>
+      <div className="recipe-info">
         <div>{recipe.name}</div>
         <div>Servings: {recipe.serving}</div>
-        <div>Nutrition: {recipe.nutrition}</div>
         <div>Rating: {recipe.rating}</div>
         <div>Description: {recipe.description}</div>
         <div>Directions: {recipe.directions}</div>

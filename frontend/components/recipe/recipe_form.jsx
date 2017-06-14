@@ -15,7 +15,7 @@ class RecipeForm extends React.Component {
   render() {
     return (
       <form className="recipe-form" onSubmit={this.handleSubmit}>
-        <h2 className="recipe-form-label">Add New Recipe</h2>
+        <h2 className="recipe-title">Add New Recipe</h2>
         <section className="recipe-form-input">
           <div>
             <span>Recipe Name</span>
@@ -24,8 +24,9 @@ class RecipeForm extends React.Component {
           </div>
           <div>
             <span>Recipe Image</span>
-            <input type="file" accept="image/*" placeholder="Upload an image"
-              styles="display: none;" />
+            <div className="upload-img">
+              <input type="file" accept="image/*" placeholder="Upload an Image" styles="display: none;" />
+            </div>
           </div>
           <div>
             <span>Website URL</span>
@@ -44,17 +45,20 @@ class RecipeForm extends React.Component {
           </div>
           <div>
             <span>Short Description</span>
-            <input type="text" value={this.state.description} placeholder="Description"
+            <textarea name="description" value={this.state.description}
+              placeholder="Description" rows="5"
               onChange={this.update('description')} />
           </div>
           <div>
             <span>Directions</span>
-            <input type="text" value={this.state.directions} placeholder="Directions"
+            <textarea name="directions" value={this.state.directions}
+              placeholder="Directions" rows="5"
               onChange={this.update('directions')} />
           </div>
           <div>
             <span>Cooking Notes</span>
-            <input type="text" value={this.state.notes} placeholder="Notes"
+            <textarea name="notes" value={this.state.notes}
+              placeholder="Notes" rows="5"
               onChange={this.update('notes')} />
           </div>
 

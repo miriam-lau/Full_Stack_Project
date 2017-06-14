@@ -1,4 +1,5 @@
 .pantry-wrapper {
+  display: flex;
   width: 100%;
   height: 100vh;
   padding-top: 10px;
@@ -6,9 +7,9 @@
 
 .pantry-one {
   width: 600px;
-  height: 100%;
+  height: auto;
   background-color: white;
-  margin: 0 10px 10px 10px;
+  margin: 0 0 0 10px;
   border-radius: 5px;
 }
 
@@ -16,11 +17,11 @@
   width: 100%;
 }
 
-.pantry-form-label {
+.pantry-title {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 900;
-  margin-left: 20px;
+  margin: 10px 0 0 15px;
 }
 
 .pantry-form-fields {

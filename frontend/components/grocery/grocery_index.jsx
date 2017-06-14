@@ -40,6 +40,9 @@ class GroceryIndex extends React.Component {
       <div>
         <div className="grocery-wrapper">
           <div className="grocery-one">
+            <section>
+              <h2 className="grocery-title">Add an Item</h2>
+            </section>
             <div className="add-grocery-item">
               <Route path="/groceries" component={ GroceryItemFormContainer } />
             </div>
@@ -60,13 +63,13 @@ class GroceryIndex extends React.Component {
 
           <div className="grocery-two">
             <section>
-              <h2>Purchased</h2>
+              <h2 className="grocery-title">Purchased</h2>
             </section>
 
             <div className="add-success">
             {(this.state.success === true) ? "Add Successful!" : "" }
             </div>
-            
+
             <section>
               <button className="add-to-pantry-button"
                 onClick={this.handleSubmit}>Add to Pantry</button>

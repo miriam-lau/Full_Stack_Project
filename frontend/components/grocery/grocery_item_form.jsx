@@ -128,8 +128,6 @@ class GroceryItemForm extends React.Component {
   render() {
     return (
       <form className="grocery-form" onSubmit={this.handleSubmit}>
-        <label className="grocery-form-label">Add an Item</label>
-        <br />
         <div className="grocery-form-fields">
           <TextField id="text-field-default"
             value={this.state.temp}

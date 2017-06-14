@@ -20,7 +20,7 @@ class RecipeIndex extends React.Component {
         <div className="recipe-wrapper">
           <div className="recipe-list">
             <section>
-              <h2>Recipes</h2>
+              <h2 className="recipe-title">Recipes</h2>
             </section>
 
             <div className="recipe-three-list">

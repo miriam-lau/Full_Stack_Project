@@ -18,31 +18,30 @@ class RecipeIndex extends React.Component {
     return (
       <div>
         <div className="recipe-wrapper">
-          <div className="recipe-one-add">
-            <Route path="/recipes" component={ RecipeFormContainer } />
-          </div>
-
-          <div className="recipe-two-list-title">
+          <div className="recipe-list">
             <section>
               <h2>Recipes</h2>
             </section>
+
+            <div className="recipe-three-list">
+              <ul className="recipe-items">
+                {this.props.recipes.map((item, idx) => {
+                  return (<RecipeIndexItem
+                    key={idx}
+                    recipe_id={item.id}
+                    recipe={item}
+                    requestRecipe={this.props.requestRecipe}
+                    removeRecipe={this.props.removeRecipe}
+                    editRecipe={this.props.editRecipe}
+                  />)
+                })}
+              </ul>
+            </div>
           </div>
 
-          <div className="recipe-three-list">
-            <ul className="recipe-items">
-              {this.props.recipes.map((item, idx) => {
-                return (<RecipeIndexItem
-                  key={idx}
-                  recipe_id={item.id}
-                  recipe={item}
-                  requestRecipe={this.props.requestRecipe}
-                  removeRecipe={this.props.removeRecipe}
-                  editRecipe={this.props.editRecipe}
-                />)
-              })}
-            </ul>
+          <div className="new-recipe">
+            <Route path="/recipes" component={ RecipeFormContainer } />
           </div>
-
         </div>
       </div>
     );

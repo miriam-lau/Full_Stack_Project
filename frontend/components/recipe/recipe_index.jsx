@@ -30,9 +30,10 @@ class RecipeIndex extends React.Component {
 
           <div className="recipe-three-list">
             <ul className="recipe-items">
-              {this.props.recipes.map(item => {
+              {this.props.recipes.map((item, idx) => {
                 return (<RecipeIndexItem
-                  key={item.id}
+                  key={idx}
+                  recipe_id={item.id}
                   recipe={item}
                   requestRecipe={this.props.requestRecipe}
                   removeRecipe={this.props.removeRecipe}

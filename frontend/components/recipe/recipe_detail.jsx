@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import RecipeIndexContainer from './recipe_index_container';
 
 class RecipeDetail extends React.Component {
@@ -22,8 +22,8 @@ class RecipeDetail extends React.Component {
   }
 
   render() {
-    const recipe = this.props.recipes
-    if (!recipe) return null;
+    const recipes = this.props.recipes
+    if (!recipes) return null;
     console.log("in recipe detail render");
 
     return (
@@ -32,16 +32,16 @@ class RecipeDetail extends React.Component {
         <Route exact path="/recipes" component={ RecipeIndexContainer } />
 
         <figure>
-          <img src={recipe.image_url} alt={recipe.name} />
+          <img src={recipes.image_url} alt={recipes.name} />
         </figure>
         <ul>
-          <li><h2>{recipe.name}</h2></li>
-          <li>Servings: {recipe.serving}</li>
-          <li>Rating: {recipe.rating}</li>
-          <li>Description: {recipe.description}</li>
-          <li>Directions: {recipe.directions}</li>
-          <li>Notes: {recipe.notes}</li>
-          <li>Link: {recipe.link}</li>
+          <li><h2>{recipes.name}</h2></li>
+          <li>Servings: {recipes.serving}</li>
+          <li>Rating: {recipes.rating}</li>
+          <li>Description: {recipes.description}</li>
+          <li>Directions: {recipes.directions}</li>
+          <li>Notes: {recipes.notes}</li>
+          <li>Link: {recipes.link}</li>
         </ul>
       </section>
     );

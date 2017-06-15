@@ -6,7 +6,7 @@ import { requestRecipe } from '../../actions/recipe_actions';
 
 const mapStateToProps = (state) => ({
   junk: console.log("in recipe detail container"),
-  recipe: state.recipes
+  recipes: state.recipe
 });
 
 const mapDispatchToProps = dispatch => ({

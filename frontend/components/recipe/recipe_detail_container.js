@@ -5,7 +5,7 @@ import RecipeDetail from './recipe_detail';
 import { requestRecipe } from '../../actions/recipe_actions';
 
 const mapStateToProps = (state) => ({
-  recipe: state.recipe.id
+  recipe: state.recipes
   // ingredients: ingredients
 });
 

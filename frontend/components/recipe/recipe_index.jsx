@@ -42,7 +42,7 @@ class RecipeIndex extends React.Component {
 
           <div className="new-recipe">
             <Route path="/recipes" component={ RecipeFormContainer } />
-            <Route path="/recipe/:id" component={RecipeDetailContainer} />
+            <Route path="/recipes/:id" component={ RecipeDetailContainer } />
           </div>
         </div>
       </div>

@@ -8,11 +8,13 @@ class RecipeIndexItem extends React.Component{
 
   render() {
     const recipe = this.props.recipe;
+    console.log("in recipe index item");
+    console.log(recipe.id);
     return (
       <div className="recipe-info">
         <Link to={`/recipes/${recipe.id}`}>
           <div>{recipe.name}</div>
-          <img src={recipe.image_url} alt={recipe.name} />
+          <img src={recipe.image_url} />
         </Link>
       </div>
     );

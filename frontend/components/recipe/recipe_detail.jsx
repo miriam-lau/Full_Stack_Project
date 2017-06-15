@@ -2,6 +2,11 @@ import React from 'react';
 // import { Route } from 'react-router-dom';
 
 class RecipeDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log("in recipe detail constructor");
+  }
+
   componentDidMount() {
     this.props.requestRecipe(this.props.match.params.id);
   }
@@ -13,11 +18,13 @@ class RecipeDetail extends React.Component {
   }
 
   render() {
-    const recipe = this.props.recipe
+    const recipe = this.props.recipes
     if (!recipe) return null;
-
+    console.log("in recipe detail render");
     return (
       <section className="recipe-detail">
+        <Link exact to="/recipes">Back to Recipes</Link>
+
         <figure>
           <img src={recipe.image_url} alt={recipe.name} />
         </figure>
@@ -30,6 +37,8 @@ class RecipeDetail extends React.Component {
           <li>Notes: {recipe.notes}</li>
           <li>Link: {recipe.link}</li>
         </ul>
+
+        <Route path="/recipes" component={ RecipeIndexContainer } />
       </section>
     );
   }

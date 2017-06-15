@@ -1,11 +1,11 @@
-.recipe-wrapper {
+.recipe-wrapper, .recipe-detail-wrapper {
   display: flex;
   width: 100%;
   height: 100vh;
   padding-top: 10px;
 }
 
-.recipe-list {
+.recipe-list, .recipe-detail {
   min-width: 600px;
   height: auto;
   font-family: 'Nunito', sans-serif;
@@ -145,4 +145,24 @@
   color: black;
   border: 1px solid #333399;
   transition: 0.5s;
+}
+
+.recipe-link {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  align-self: center;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.recipe-link:hover {
+  color: #333399;
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+.recipe-detail-info > ul > li {
+  margin-top: 5px;
 }

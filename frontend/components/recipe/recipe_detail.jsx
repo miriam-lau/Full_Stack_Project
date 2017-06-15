@@ -37,23 +37,27 @@ class RecipeDetail extends React.Component {
     console.log(recipes);
 
     return (
-      <section className="recipe-detail">
-        <Link to="/recipes">Back to Recipes</Link>
-        <Route exact path="/recipes" component={ RecipeIndexContainer } />
+      <div className="recipe-detail-wrapper">
+        <div className="recipe-detail">
+          <Link className="recipe-link" to="/recipes">Back to Recipes</Link>
+          <Route exact path="/recipes" component={ RecipeIndexContainer } />
 
-        <figure>
-          <img src={recipes.image_url} alt={recipes.name} />
-        </figure>
-        <ul>
-          <li><h2>{recipes.name}</h2></li>
-          <li>Servings: {recipes.serving}</li>
-          <li>Rating: {recipes.rating}</li>
-          <li>Description: {recipes.description}</li>
-          <li>Directions: {recipes.directions}</li>
-          <li>Notes: {recipes.notes}</li>
-          <li>Link: {recipes.link}</li>
-        </ul>
-      </section>
+          <section className="recipe-detail-info">
+            <figure>
+              <img src={recipes.image_url} alt={recipes.name} />
+            </figure>
+            <ul>
+              <li><h2>{recipes.name}</h2></li>
+              <li>Servings: {recipes.serving}</li>
+              <li>Rating: {recipes.rating}</li>
+              <li>Description: {recipes.description}</li>
+              <li>Directions: {recipes.directions}</li>
+              <li>Notes: {recipes.notes}</li>
+              <li>Link: {recipes.link}</li>
+            </ul>
+          </section>
+        </div>
+      </div>
     );
   }
 }

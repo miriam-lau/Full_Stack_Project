@@ -1,5 +1,6 @@
 import React from 'react';
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import RecipeIndexContainer from './recipe_index_container';
 
 class RecipeDetail extends React.Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class RecipeDetail extends React.Component {
     console.log("in recipe detail render");
     return (
       <section className="recipe-detail">
-        <Link exact to="/recipes">Back to Recipes</Link>
+        <Link to="/recipes">Back to Recipes</Link>
+        <Route exact path="/recipes" component={ RecipeIndexContainer } />
 
         <figure>
           <img src={recipe.image_url} alt={recipe.name} />
@@ -37,20 +39,9 @@ class RecipeDetail extends React.Component {
           <li>Notes: {recipe.notes}</li>
           <li>Link: {recipe.link}</li>
         </ul>
-
-        <Route exact path="/recipes" component={ RecipeIndexContainer } />
       </section>
     );
   }
 }
 
 export default RecipeDetail;
-
-// <section className="toys">
-// <h3>Items</h3>
-// <ul className="toy-list">
-// {items.map(item => <Item key={item.name} item={item} />)}
-// </ul>
-// </section>
-//
-// <Route path="/recipe/:id/item/:itemId" component={ItemDetailContainer} />

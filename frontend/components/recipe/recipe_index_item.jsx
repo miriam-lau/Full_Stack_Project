@@ -18,6 +18,7 @@ class RecipeIndexItem extends React.Component{
           <div>{recipe.name}</div>
           <img src={recipe.image_url} />
         </Link>
+        <Route exact path="/recipes/:id" component={ RecipeDetailContainer } />
       </div>
     );
   }

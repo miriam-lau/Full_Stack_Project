@@ -40,7 +40,7 @@ class RecipeIndex extends React.Component {
               </ul>
             </div>
           </div>
-          
+
           <Route exact path="/recipes/:id" component={ RecipeDetailContainer } />
 
           <div className="new-recipe">

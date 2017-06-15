@@ -14,6 +14,7 @@ const RecipeReducer = (state = noErrors, action) => {
       newState = merge({}, action.recipes);
       return newState;
     case RECEIVE_RECIPE:
+      console.log("in recipe reducer");
       newState = merge({}, action.recipe);
       return newState;
     case CREATE_RECIPE:

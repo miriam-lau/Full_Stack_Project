@@ -38,7 +38,7 @@ class RecipeDetail extends React.Component {
           <li>Link: {recipe.link}</li>
         </ul>
 
-        <Route path="/recipes" component={ RecipeIndexContainer } />
+        <Route exact path="/recipes" component={ RecipeIndexContainer } />
       </section>
     );
   }

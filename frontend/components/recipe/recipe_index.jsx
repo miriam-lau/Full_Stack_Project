@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 
 import RecipeIndexItem from './recipe_index_item';
 import RecipeDetailContainer from './recipe_detail_container';
@@ -15,6 +15,7 @@ class RecipeIndex extends React.Component {
   }
 
   render() {
+    console.log("in recipe index render");
     const recipes = this.props.recipes;
     return (
       <div>
@@ -39,10 +40,11 @@ class RecipeIndex extends React.Component {
               </ul>
             </div>
           </div>
+          
+          <Route exact path="/recipes/:id" component={ RecipeDetailContainer } />
 
           <div className="new-recipe">
             <Route path="/recipes" component={ RecipeFormContainer } />
-            <Route path="/recipes/:id" component={ RecipeDetailContainer } />
           </div>
         </div>
       </div>

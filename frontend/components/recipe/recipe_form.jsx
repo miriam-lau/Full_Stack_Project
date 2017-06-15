@@ -32,7 +32,7 @@ class RecipeForm extends React.Component {
           <div>
             <span>Recipe Image</span>
             <div className="upload-img">
-              <input type="file" accept="image/*" name="Upload an Image" styles="display:none;"/>
+              <input type="file" accept="image/*" name="Upload an Image" />
             </div>
           </div>
           <div>

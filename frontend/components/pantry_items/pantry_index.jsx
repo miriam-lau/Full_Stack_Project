@@ -28,9 +28,10 @@ class PantryIndex extends React.Component {
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
             </div>
             <ul className="pantry-items">
-              {this.props.pantry_items.map(item => {
+              {this.props.pantry_items.map((item, idx) => {
                 return (<PantryIndexItem
-                  key={item.id}
+                  key={idx}
+                  pantry_item_id={item.id}
                   pantry_item={item}
                   requestPantryItem={this.props.requestPantryItem}
                   deletePantryItem={this.props.deletePantryItem}

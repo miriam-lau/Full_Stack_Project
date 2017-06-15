@@ -79,7 +79,7 @@ class Greeting extends React.Component {
               <Switch>
                 <Route path="/groceries" component={ GroceryIndexContainer } />
                 <Route path="/pantry_items" component={ PantryIndexContainer } />
-                <Route path="/recipes" component={ RecipeIndexContainer } />
+                <Route exact path="/recipes" component={ RecipeIndexContainer } />
                 <Route path='/search' component={ SearchResultsContainer } />
               </Switch>
             </div>

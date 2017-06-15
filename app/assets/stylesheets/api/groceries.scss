@@ -124,26 +124,25 @@
 
 .add-to-pantry-button {
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
-  color: black;
-  width: 100px;
-  background-color: #E6E6FA;
-  border-radius: 7px;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
   border: 1px solid #E6E6FA;
+  align-self: center;
   text-align: center;
-  transition: 0.5s;
-  margin-left: 30px;
-  margin-right: 20px;
-  height: 30px;
+  margin: 0 30px 0 20px;
+  padding: 5px 10px 5px 10px;
   align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .add-to-pantry-button:hover {
   background-color: #E6E6FA;
-  color: white;
-  cursor: pointer;
-  border: 1px solid #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
   transition: 0.5s;
 }
 

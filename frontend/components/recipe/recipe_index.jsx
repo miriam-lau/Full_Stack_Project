@@ -15,7 +15,6 @@ class RecipeIndex extends React.Component {
   }
 
   render() {
-    console.log("in recipe index render");
     const recipes = this.props.recipes;
     return (
       <div>
@@ -40,8 +39,6 @@ class RecipeIndex extends React.Component {
               </ul>
             </div>
           </div>
-
-          <Route exact path="/recipes/:id" component={ RecipeDetailContainer } />
 
           <div className="new-recipe">
             <Route path="/recipes" component={ RecipeFormContainer } />

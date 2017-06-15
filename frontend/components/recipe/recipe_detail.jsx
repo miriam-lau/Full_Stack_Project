@@ -6,9 +6,12 @@ class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
     console.log("in recipe detail constructor");
+    console.log(this.props.recipes);
   }
 
   componentDidMount() {
+    console.log("in recipe detail component did mount");
+
     this.props.requestRecipe(this.props.match.params.id);
   }
 
@@ -22,6 +25,7 @@ class RecipeDetail extends React.Component {
     const recipe = this.props.recipes
     if (!recipe) return null;
     console.log("in recipe detail render");
+
     return (
       <section className="recipe-detail">
         <Link to="/recipes">Back to Recipes</Link>

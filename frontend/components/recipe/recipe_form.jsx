@@ -5,14 +5,14 @@ class RecipeForm extends React.Component {
     super(props);
     this.state = { name: '', image_url: '', link: '', serving: 0,
       rating: 0, description: '', directions: '', notes: ''};
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
     return event => this.setState({ [property]: event.target.value });
   }
 
-  handeSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
     const recipe = this.state;
     this.props.createRecipe({recipe})

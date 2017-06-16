@@ -4,7 +4,7 @@ class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: '', image_url: '', link: '', serving: 0,
-      rating: 0, description: '', directions: '', notes: ''};
+      rating: 0, ingredients: '', description: '', directions: '', notes: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -49,6 +49,12 @@ class RecipeForm extends React.Component {
             <span>Rating</span>
             <input type="number" value={this.state.rating} placeholder="Stars"
               onChange={this.update('rating')} />
+          </div>
+          <div>
+            <span>Ingredients</span>
+            <textarea name="description" value={this.state.ingredients}
+              placeholder="Ingredients" rows="5"
+              onChange={this.update('ingredients')} />
           </div>
           <div>
             <span>Short Description</span>

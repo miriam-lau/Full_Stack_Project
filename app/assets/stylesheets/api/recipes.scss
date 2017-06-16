@@ -163,6 +163,17 @@
   transition: 0.5s;
 }
 
+.recipe-detail-info {
+  margin: 10px 0 0 15px;
+}
+
+.recipe-detail-info > h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333399;
+}
+
 .recipe-detail-info > ul > li {
   margin-top: 5px;
 }

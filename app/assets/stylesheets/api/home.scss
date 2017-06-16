@@ -76,8 +76,11 @@
   font-size: 15px;
 }
 
-.app-panel {
-
+.app-info > section > h3 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 
@@ -87,8 +90,8 @@
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
   font-weight: bold;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   border-top: 5px solid #E6E6FA;
   background-color: #E6E6FA;
   width: 100%;

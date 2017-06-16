@@ -38,15 +38,9 @@ class Home extends React.Component {
           </div>
 
           <div>
-            <h2 className="home-titles">Auto-Update Your Pantry</h2>
+            <h2 className="home-titles">Make Grocery Lists</h2>
             <img src="https://images.unsplash.com/photo-1482012792084-a0c3725f289f?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
              alt="splash-img"/>
-          </div>
-
-          <div>
-            <h2 className="home-titles">Make Grocery Lists</h2>
-            <img src="https://images.unsplash.com/photo-1491994778642-b286df793bf6?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg="
-              alt="splash-img"/>
           </div>
 
           <div>
@@ -56,22 +50,20 @@ class Home extends React.Component {
           </div>
         </Carousel>
 
-        <div className="app-info">
-          <section className="app-panel">
-            <h3>Keep Track of Your Pantry</h3>
-            <p>hello</p>
-          </section>
-          <section className="app-panel">
-            <h3>Auto-Update Your Pantry</h3>
-            <p>hello</p>
-          </section>
-          <section className="app-panel">
-            <h3>Make Grocery Lists</h3>
-            <p>hello</p>
-          </section>
-          <section className="app-panel">
-            <h3>Save Recipes</h3>
-            <p>hello</p>
+        <div>
+          <section className="app-info">
+            <section>
+              <h3>Keep Track of Your Pantry</h3>
+              <p id="app-info-one">Auto-Update Your Pantry</p>
+            </section>
+            <section>
+              <h3>Make Grocery Lists</h3>
+              <p id="app-info-two">hello</p>
+            </section>
+            <section>
+              <h3>Save Recipes</h3>
+              <p id="app-info-one">hello</p>
+              </section>
           </section>
         </div>
 

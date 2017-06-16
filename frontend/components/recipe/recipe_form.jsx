@@ -69,7 +69,10 @@ class RecipeForm extends React.Component {
               onChange={this.update('notes')} />
           </div>
 
-          <button className="recipe-form-button">Save Recipe</button>
+          <div>
+            <span></span>
+            <button className="recipe-form-button">Save Recipe</button>
+          </div>
         </section>
 
       </form>

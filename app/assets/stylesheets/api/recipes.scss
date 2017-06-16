@@ -54,7 +54,7 @@
 
 .recipe-form-input > div > span {
   padding-top: 6px;
-  min-width: 20%;
+  min-width: 150px;
 }
 
 .recipe-form-input > div > input {
@@ -133,9 +133,11 @@
   color: white;
   border-radius: 5px;
   border: 1px solid #E6E6FA;
-  align-self: center;
+  text-align: center;
   margin-top: 10px;
-  padding: 8px 100px 8px 100px;
+  margin-right: 15px;
+  width: 100%;
+  padding: 8px 0 8px 0;
   cursor: pointer;
   transition: 0.5s;
 }

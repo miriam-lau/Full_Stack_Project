@@ -54,7 +54,7 @@ class RecipeForm extends React.Component {
           </div>
           <div>
             <span>Ingredients</span>
-            <textarea name="description" value={this.state.ingredients}
+            <textarea name="ingredients" value={this.state.ingredients}
               placeholder="Ingredients" rows="5"
               onChange={this.update('ingredients')} />
           </div>

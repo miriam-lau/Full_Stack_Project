@@ -5,21 +5,9 @@ import RecipeIndexContainer from './recipe_index_container';
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
-    console.log("in recipe detail constructor");
-    const obj_id = this.props.match.params.id;
-    let is_id = typeof obj_id === "number";
-    console.log(is_id);
-    console.log(this.props.recipes);
-    console.log(obj_id);
-    console.log(this.props.recipes.obj_id);
-    const { one, two } = this.props.recipes;
-    console.log("try one");
-    console.log(one);
   }
 
   componentDidMount() {
-    console.log("in recipe detail component did mount");
-    console.log(this.props.match.params.id);
     this.props.requestRecipe(this.props.match.params.id);
   }
 
@@ -32,12 +20,9 @@ class RecipeDetail extends React.Component {
   render() {
     const recipe_id = parseInt(this.props.match.params.id);
     const recipes = this.props.recipes;
+    // if type recipes.recipe_id it will become a string literal, need index
     const recipe = recipes[recipe_id];
     if (!recipes) return null;
-    console.log("in recipe detail render");
-    console.log(recipes);
-    console.log(recipe_id);
-    console.log(recipe.name);
 
     return (
       <div className="recipe-detail-wrapper">
@@ -46,11 +31,11 @@ class RecipeDetail extends React.Component {
           <Route exact path="/recipes" component={ RecipeIndexContainer } />
 
           <section className="recipe-detail-info">
+            <h2>{recipe.name}</h2>
             <figure>
               <img src={recipe.image_url} alt={recipe.name} />
             </figure>
             <ul>
-              <li><h2>{recipe.name}</h2></li>
               <li>Servings: {recipe.serving}</li>
               <li>Rating: {recipe.rating}</li>
               <li>Description: {recipe.description}</li>

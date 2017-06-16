@@ -67,10 +67,19 @@
 .app-info > section {
   width: 25%;
   height: 200px;
-  border: 1px solid black;
+  border: 3px solid #333399;
   text-align: center;
   padding-top: 10px;
+  background-color: #BCBCF2;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
 }
+
+.app-panel {
+
+}
+
 
 .home-footer {
   display: flex;

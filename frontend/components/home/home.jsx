@@ -57,19 +57,19 @@ class Home extends React.Component {
         </Carousel>
 
         <div className="app-info">
-          <section>
+          <section className="app-panel">
             <h3>Keep Track of Your Pantry</h3>
             <p>hello</p>
           </section>
-          <section>
+          <section className="app-panel">
             <h3>Auto-Update Your Pantry</h3>
             <p>hello</p>
           </section>
-          <section>
+          <section className="app-panel">
             <h3>Make Grocery Lists</h3>
             <p>hello</p>
           </section>
-          <section>
+          <section className="app-panel">
             <h3>Save Recipes</h3>
             <p>hello</p>
           </section>

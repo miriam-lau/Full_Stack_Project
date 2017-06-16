@@ -46,13 +46,13 @@ grocery9 = Grocery.create(category: "", name: "Watermelon",
 
 
 recipe1 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
-  nutrition: "", rating: 4.8, description: "", directions: "", notes: "",
-  link: "", user_id: guest.id)
+  ingredients: "1 lb. pasta\n1 jar alfredo sauce\nSalt and pepper",
+  rating: 4.8, description: "", directions: "1. Boil pasta.\n
+  2. Heat up alfredo sauce.\n3. Mix together.\n.4. Season with salt and pepper.",
+  notes: "", link: "", user_id: guest.id)
 recipe2 = Recipe.create(name: "Chicken Pot Pie", serving: 6,
-  nutrition: "", rating: 5.0, description: "", directions: "", notes: "",
+  ingredients: "", rating: 5.0, description: "", directions: "", notes: "",
   link: "", user_id: guest.id)
-
-
 
 
 mir = User.create(username: "mir", password: "password",

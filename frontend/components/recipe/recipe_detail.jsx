@@ -30,11 +30,14 @@ class RecipeDetail extends React.Component {
   }
 
   render() {
-    const recipe_id = this.props.match.params.id;
+    const recipe_id = parseInt(this.props.match.params.id);
     const recipes = this.props.recipes;
+    const recipe = recipes[recipe_id];
     if (!recipes) return null;
     console.log("in recipe detail render");
     console.log(recipes);
+    console.log(recipe_id);
+    console.log(recipe.name);
 
     return (
       <div className="recipe-detail-wrapper">
@@ -44,16 +47,16 @@ class RecipeDetail extends React.Component {
 
           <section className="recipe-detail-info">
             <figure>
-              <img src={recipes.image_url} alt={recipes.name} />
+              <img src={recipe.image_url} alt={recipe.name} />
             </figure>
             <ul>
-              <li><h2>{recipes.name}</h2></li>
-              <li>Servings: {recipes.serving}</li>
-              <li>Rating: {recipes.rating}</li>
-              <li>Description: {recipes.description}</li>
-              <li>Directions: {recipes.directions}</li>
-              <li>Notes: {recipes.notes}</li>
-              <li>Link: {recipes.link}</li>
+              <li><h2>{recipe.name}</h2></li>
+              <li>Servings: {recipe.serving}</li>
+              <li>Rating: {recipe.rating}</li>
+              <li>Description: {recipe.description}</li>
+              <li>Directions: {recipe.directions}</li>
+              <li>Notes: {recipe.notes}</li>
+              <li>Link: {recipe.link}</li>
             </ul>
           </section>
         </div>

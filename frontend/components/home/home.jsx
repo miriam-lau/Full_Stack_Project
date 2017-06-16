@@ -22,7 +22,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className="main-content">
-        <Carousel className="image" wrapAround={true}>
+        <Carousel className="image" wrapAround={true} autoplay={true}
+          autoInterval={5000}>
 
           <div className="home-panels">
             <h2 className="home-titles1">myPantry</h2>

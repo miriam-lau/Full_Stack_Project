@@ -38,6 +38,7 @@ class RecipeDetail extends React.Component {
             <ul>
               <li>Servings: {recipe.serving}</li>
               <li>Rating: {recipe.rating}</li>
+              <li>Ingredients: {recipe.ingredients}</li>
               <li>Description: {recipe.description}</li>
               <li>Directions: {recipe.directions}</li>
               <li>Notes: {recipe.notes}</li>

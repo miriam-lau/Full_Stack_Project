@@ -54,15 +54,15 @@ class Home extends React.Component {
           <section className="app-info">
             <section>
               <h3>Keep Track of Your Pantry</h3>
-              <p id="app-info-one">Auto-Update Your Pantry</p>
+              <p>Auto-Update Your Pantry</p>
             </section>
             <section>
               <h3>Make Grocery Lists</h3>
-              <p id="app-info-two">hello</p>
+              <p>hello</p>
             </section>
             <section>
               <h3>Save Recipes</h3>
-              <p id="app-info-one">hello</p>
+              <p>hello</p>
               </section>
           </section>
         </div>

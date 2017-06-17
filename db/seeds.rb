@@ -45,7 +45,7 @@ grocery9 = Grocery.create(category: "", name: "Watermelon",
   quantity: 1, unit: "cups", user_id: guest.id, purchased: false)
 
 
-recipe1 = Recipe.create(name: "Fig, Melon and Spanish Ham Salad", serving: 6,
+recipe1 = Recipe.create(name: "Fig, Melon and Ham Salad", serving: 6,
   ingredients: "1 small Charentais melon or cantaloupe, peeled, seeded,
   and cut into 1-inch cubes\n12 black mission figs, split in half
   lengthwise\n2 ounces thinly shaved Jamón Serrano or prosciutto\n2

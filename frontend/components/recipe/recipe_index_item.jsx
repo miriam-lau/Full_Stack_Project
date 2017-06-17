@@ -10,9 +10,10 @@ import RecipeDetailContainer from './recipe_detail_container';
 const styles = {
   gridTile: {
     width: 270,
-    height: 210,
+    height: 230,
     overflowY: 'auto',
     objectfit: 'cover',
+    borderRadius: '5px',
   },
 }
 

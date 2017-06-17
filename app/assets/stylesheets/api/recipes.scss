@@ -49,8 +49,9 @@
 
 .recipe-detail-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  overflow: hidden;
 }
 
 .recipe-form-input > div {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
 import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
+
 import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+
 
 import RecipeIndexItem from './recipe_index_item';
 import RecipeDetailContainer from './recipe_detail_container';

@@ -47,6 +47,13 @@
   margin: 10px 0 0 0;
 }
 
+.recipe-detail-img {
+  min-width: 100px;
+  max-width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
 .recipe-form-input > div {
   display: flex;
   margin: 10px 0 10px 0;

@@ -1,9 +1,27 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+
 import RecipeIndexItem from './recipe_index_item';
 import RecipeDetailContainer from './recipe_detail_container';
 import RecipeFormContainer from './recipe_form_container';
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 500,
+    height: 450,
+    overflowY: 'auto',
+  },
+};
 
 class RecipeIndex extends React.Component {
   constructor(props) {
@@ -25,18 +43,22 @@ class RecipeIndex extends React.Component {
             </section>
 
             <div className="recipe-three-list">
-              <ul className="recipe-items">
-                {this.props.recipes.map((item, idx) => {
-                  return (<RecipeIndexItem
-                    key={idx}
-                    recipe_id={item.id}
-                    recipe={item}
-                    requestRecipe={this.props.requestRecipe}
-                    removeRecipe={this.props.removeRecipe}
-                    editRecipe={this.props.editRecipe}
-                  />)
-                })}
-              </ul>
+              <div style={styles.root}>
+                <GridList cellHeight={180} style={styles.gridList}>
+                  {this.props.recipes.map((item, idx) => {
+                    return (
+                      <RecipeIndexItem
+                        key={idx}
+                        recipe_id={item.id}
+                        recipe={item}
+                        requestRecipe={this.props.requestRecipe}
+                        removeRecipe={this.props.removeRecipe}
+                        editRecipe={this.props.editRecipe}
+                      />
+                    )}
+                  )}
+                </GridList>
+              </div>
             </div>
           </div>
 
@@ -50,3 +72,16 @@ class RecipeIndex extends React.Component {
 }
 
 export default RecipeIndex;
+
+// <ul className="recipe-items">
+//   {this.props.recipes.map((item, idx) => {
+//     return (<RecipeIndexItem
+//       key={idx}
+//       recipe_id={item.id}
+//       recipe={item}
+//       requestRecipe={this.props.requestRecipe}
+//       removeRecipe={this.props.removeRecipe}
+//       editRecipe={this.props.editRecipe}
+//     />)
+//   })}
+// </ul>

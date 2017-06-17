@@ -7,9 +7,6 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
 import RecipeDetailContainer from './recipe_detail_container';
 
-
-
-
 class RecipeIndexItem extends React.Component{
   constructor(props) {
     super(props);
@@ -21,9 +18,10 @@ class RecipeIndexItem extends React.Component{
       <div className="recipe-info">
         <Link to={`/recipes/${recipe.id}`}>
           <GridTile
+            key={recipe.image_url}
+            title={recipe.name}
             actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
           >
-            <div>{recipe.name}</div>
             <img src={recipe.image_url} className="recipe-detail-img"/>
           </GridTile>
         </Link>

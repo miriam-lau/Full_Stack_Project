@@ -62,7 +62,7 @@ recipe1 = Recipe.create(name: "Fig, Melon and Spanish Ham Salad", serving: 6,
   image_url: "http://www.seriouseats.com/recipes/assets_c/2015/06/20150628-fig-melon-jamon-serrano-salad-1-thumb-1500xauto-424482.jpg",
   user_id: guest.id)
 
-recipe2 = Recipe.create(name: "", serving: 1,
+recipe2 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
   ingredients: "1 tablespoon vegetable or olive oil, 1 turn of the pan
   in a slow stream\n2 tablespoons butter\n3 tablespoons flour\n1 1/2
   cups whole or 2 percent milk\n3 cups shredded white Cheddar cheese\n
@@ -253,9 +253,10 @@ recipe7 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
   user_id: guest.id)
 
 recipe8 = Recipe.create(name: "Caramel Apples", serving: 8,
-  ingredients: "8 mall apples, refrigerated until cold\n4 ounces water
+  ingredients: "8 small apples, refrigerated until cold\n4 ounces water
   (1/2 cup)\n9 ounces sugar (1 1/3 cups)\n1 teaspoon Diamond Crystal
-  kosher salt\n9 ounces heavy cream (chilled)", rating: 4.0,
+  kosher salt\n9 ounces heavy cream (chilled)",
+  rating: 4.0,
   description: "A recipe by Stella Parks aka BraveTart",
   directions: "1. Skewer apples with popsicle sticks, then return to fridge.
   In a 3-quart stainless steel saucier, combine water, sugar, and salt over
@@ -268,9 +269,10 @@ recipe8 = Recipe.create(name: "Caramel Apples", serving: 8,
   heat-resistant bowl and cool to about 212°F (100°C).\n2. Dip cold apples
   in caramel, letting excess drip off before transferring to a
   parchment-lined cutting board. Let stand at room temperature until
-  fully set, about 10 minutes, and serve.", note: "If you have fond
-  memories of apples dipped in the sort of super-thick and chewy caramel
-  that can really work your jaw, reduce the cream to 6 ounces (3/4 cup)",
+  fully set, about 10 minutes, and serve.",
+  notes: "If you have fond memories of apples dipped in the sort of
+  super-thick and chewy caramel that can really work your jaw, reduce
+  the cream to 6 ounces (3/4 cup)",
   link: "http://www.seriouseats.com/recipes/2016/10/homemade-caramel-apple-recipe.html",
   image_url: "http://www.seriouseats.com/recipes/assets_c/2016/10/20160822-caramel-apples-vicky-wasik-2-thumb-1500xauto-434819.jpg",
   user_id: guest.id)

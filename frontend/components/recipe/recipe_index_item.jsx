@@ -9,7 +9,7 @@ import RecipeDetailContainer from './recipe_detail_container';
 
 const styles = {
   gridTile: {
-    width: 280,
+    width: 270,
     height: 210,
     overflowY: 'auto',
   },
@@ -29,7 +29,6 @@ class RecipeIndexItem extends React.Component{
           <GridTile style={styles.gridTile}
             key={recipe.image_url}
             title={recipe.name}
-            subtitle={<span>by me</span>}
             actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
           >
             <img src={recipe.image_url} id="recipe-detail-img"/>

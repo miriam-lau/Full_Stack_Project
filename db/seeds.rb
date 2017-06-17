@@ -49,7 +49,7 @@ recipe1 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   ingredients: "1 lb. pasta\n1 jar alfredo sauce\nSalt and pepper",
   rating: 4.8, description: "", directions: "1. Boil pasta.\n
   2. Heat up alfredo sauce.\n3. Mix together.\n.4. Season with salt and pepper.",
-  notes: "", link: "http://www.thefruitdoctor.com/wp-content/uploads/2014/07/fettuccine-alfredo_456X342_0.jpg",
+  notes: "", link: "", image_url: "http://www.thefruitdoctor.com/wp-content/uploads/2014/07/fettuccine-alfredo_456X342_0.jpg",
   user_id: guest.id)
 recipe2 = Recipe.create(name: "Chicken Pot Pie", serving: 6,
   ingredients: "", rating: 5.0, description: "", directions: "", notes: "",

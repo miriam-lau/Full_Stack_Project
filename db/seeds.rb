@@ -84,7 +84,7 @@ recipe2 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
   hot broiler and brown the Cheddar cheese on top.",
   notes: "",
   link: "http://www.foodnetwork.com/recipes/rachael-ray/macaroni-and-cheddar-cheese-recipe-2131153",
-  image_url: "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/10/16/2/tm1b41_macaroni_cheese1.jpg.rend.hgtvcom.196.147.jpeg",
+  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckt-G1214GMAXWfBrmnBHygeMzVXSQ1PQBFXGRV7BA3XWYgO3",
   user_id: guest.id)
 
 recipe3 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,

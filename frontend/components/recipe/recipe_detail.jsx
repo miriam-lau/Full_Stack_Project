@@ -32,19 +32,21 @@ class RecipeDetail extends React.Component {
 
           <section className="recipe-detail-info">
             <h2>{recipe.name}</h2>
-            <figure>
-              <img src={recipe.image_url} alt={recipe.name}
-                className="recipe-detail-img"/>
-            </figure>
-            <ul>
-              <li>Servings: {recipe.serving}</li>
-              <li>Rating: {recipe.rating}</li>
-              <li>Ingredients: {recipe.ingredients}</li>
-              <li>Description: {recipe.description}</li>
-              <li>Directions: {recipe.directions}</li>
-              <li>Notes: {recipe.notes}</li>
-              <li>Link: {recipe.link}</li>
-            </ul>
+            <div className="recipe-detail-content">
+              <figure>
+                <img src={recipe.image_url} alt={recipe.name}
+                  className="recipe-detail-img"/>
+              </figure>
+              <ul>
+                <li>Servings: {recipe.serving}</li>
+                <li>Rating: {recipe.rating}</li>
+                <li>Ingredients: {recipe.ingredients}</li>
+                <li>Description: {recipe.description}</li>
+                <li>Directions: {recipe.directions}</li>
+                <li>Notes: {recipe.notes}</li>
+                <li>Link: {recipe.link}</li>
+              </ul>
+            </div>
           </section>
         </div>
       </div>

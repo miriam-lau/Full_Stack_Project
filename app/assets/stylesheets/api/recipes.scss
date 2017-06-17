@@ -48,10 +48,16 @@
 }
 
 #recipe-detail-img {
-  width: 100%;
+  max-width: 300px;
   height: 400px;
   object-fit: cover;
   overflow: hidden;
+}
+
+.recipe-detail-img {
+  max-width: 400px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .recipe-form-input > div {

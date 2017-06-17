@@ -33,7 +33,8 @@ class RecipeDetail extends React.Component {
           <section className="recipe-detail-info">
             <h2>{recipe.name}</h2>
             <figure>
-              <img src={recipe.image_url} alt={recipe.name} />
+              <img src={recipe.image_url} alt={recipe.name}
+                className="recipe-detail-img"/>
             </figure>
             <ul>
               <li>Servings: {recipe.serving}</li>

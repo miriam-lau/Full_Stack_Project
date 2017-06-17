@@ -17,7 +17,7 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
+    width: 570,
     height: 450,
     overflowY: 'auto',
   },

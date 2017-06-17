@@ -12,6 +12,7 @@ const styles = {
     width: 270,
     height: 210,
     overflowY: 'auto',
+    objectfit: 'cover',
   },
 }
 

@@ -84,7 +84,7 @@ recipe2 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
   hot broiler and brown the Cheddar cheese on top.",
   notes: "",
   link: "http://www.foodnetwork.com/recipes/rachael-ray/macaroni-and-cheddar-cheese-recipe-2131153",
-  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckt-G1214GMAXWfBrmnBHygeMzVXSQ1PQBFXGRV7BA3XWYgO3",
+  image_url: "http://www.seriouseats.com/images/2016/11/20161028-baked-macaroni-cheese-sodium-citrate-vicky-wasik-20.jpg",
   user_id: guest.id)
 
 recipe3 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
@@ -118,7 +118,7 @@ recipe3 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   herbs, black pepper, and cheese, and drizzled with additional olive oil.\n",
   notes: "None.",
   link: "http://www.seriouseats.com/recipes/2014/09/lighter-fettuccine-alfredo-recipe.html",
-  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2-YSCe3j7QpDsKZRS5w4Mm8veUUVmkn0cPS4wlcoRC5nOCnlrvQ",
+  image_url: "http://www.seriouseats.com/images/2014/09/20140919-fettucini-alfredo-recipe-01.jpg",
   user_id: guest.id)
 
 recipe4 = Recipe.create(name: "Chicken Pot Pie", serving: 4,

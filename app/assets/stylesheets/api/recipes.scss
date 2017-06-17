@@ -182,13 +182,19 @@
 
 .recipe-detail-content {
   display: flex;
+  justify-content: space-between;
 }
 
 .recipe-detail-img {
   width: 100%;
-  max-height: 300px;
+  max-height: 250px;
+  min-height: 250px;
   align-self: flex-start;
   object-fit: cover;
   border-radius: 5px;
   margin: 10px 10px 10px 0;
+}
+
+.recipe-detail-content > ul{
+  min-width: 500px;
 }

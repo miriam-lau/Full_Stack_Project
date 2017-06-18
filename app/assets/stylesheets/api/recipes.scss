@@ -223,8 +223,20 @@
   margin: 0 0 20px 10px;
 }
 
+.recipe-detail-content2 {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .recipe-detail-content2 > section {
   font-size: 15px;
   margin-bottom: 20px;
   margin-right: 15px;
+}
+
+.ingredients {
+  max-width: 330px;
+  min-width: 330px;
+  padding-right: 20px;
+  margin-right: 20px;
 }

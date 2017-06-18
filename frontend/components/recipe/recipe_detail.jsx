@@ -79,10 +79,11 @@ class RecipeDetail extends React.Component {
                 </ul>
               </section>
 
-              <section>
-                <h3 className="recipe-detail-title">Notes:</h3> <p>{recipe.notes}</p>
-              </section>
             </div>
+
+            <section>
+              <h3 className="recipe-detail-title">Notes:</h3> <p>{recipe.notes}</p>
+            </section>
           </section>
         </div>
       </div>

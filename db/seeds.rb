@@ -113,20 +113,19 @@ recipe7 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
   ingredients: "1 quart strawberries, quartered or sliced\n1/2 cup sugar, divided\n5 ounces (about 1 cup) self-rising flour\n1 pint heavy cream\n1/2 teaspoon vanilla extract",
   rating: 5.0,
   description: "Easy recipe with just five ingredients from J. Kenji-Lopez-Alt.",
-  directions: "1. Adjust oven rack to center position and preheat oven to 450°F. Toss strawberries with 6 tablespoons sugar in a medium bowl and set aside.\nPlace flour in a large bowl. Whisk in 1 tabespoon sugar. Stirring with a wooden spoon, drizzle in 3/4 cup cream. Stir until a lumpy dough is formed. Do not over mix.\nUsing a 1-ounce cookie scoop, scoop balls of dough onto a parchment-lined baking sheet, spacing them 2 inches apart. Brush tops with cream and bake until golden brown, about 12 minutes. Remove biscuits and set aside.\nUsing a wire whisk or an electric mixer, whip remaining cream with remaining tablespoon sugar and vanilla extract until stiff peaks form. Split biscuits, top with strawberries and cream, close shortcakes, top with more whipped cream, and serve immediately.",
-  notes: "",
+  directions: "1. Adjust oven rack to center position and preheat oven to 450°F. Toss strawberries with 6 tablespoons sugar in a medium bowl and set aside.\n2. Place flour in a large bowl. Whisk in 1 tabespoon sugar. Stirring with a wooden spoon, drizzle in 3/4 cup cream. Stir until a lumpy dough is formed. Do not over mix.\n3. Using a 1-ounce cookie scoop, scoop balls of dough onto a parchment-lined baking sheet, spacing them 2 inches apart. Brush tops with cream and bake until golden brown, about 12 minutes. Remove biscuits and set aside.\n4. Using a wire whisk or an electric mixer, whip remaining cream with remaining tablespoon sugar and vanilla extract until stiff peaks form. Split biscuits, top with strawberries and cream, close shortcakes, top with more whipped cream, and serve immediately.",
+  notes: "None.",
   link: "http://www.seriouseats.com/recipes/2015/10/five-ingredient-strawberry-shortcake-scratch-recipe.html",
   image_url: "http://www.seriouseats.com/recipes/assets_c/2015/10/20150911-two-ingredient-biscuit-strawberry-shortcake-recipe-kenji-54-thumb-1500xauto-426932.jpg",
   user_id: guest.id)
 
 recipe8 = Recipe.create(name: "Caramel Apples", serving: 8,
-  ingredients: "8 small apples, refrigerated until cold\n4 ounces water
-  (1/2 cup)\n9 ounces sugar (1 1/3 cups)\n1 teaspoon Diamond Crystal
+  ingredients: "8 small apples, refrigerated until cold\n4 ounces water (1/2 cup)\n9 ounces sugar (1 1/3 cups)\n1 teaspoon Diamond Crystal
   kosher salt\n9 ounces heavy cream (chilled)",
   rating: 4.0,
   description: "A recipe by Stella Parks aka BraveTart",
   directions: "1. Skewer apples with popsicle sticks, then return to fridge. In a 3-quart stainless steel saucier, combine water, sugar, and salt over medium heat. Stir with a fork until sugar is fully dissolved and syrup comes to a rolling boil, about 4 minutes. Simmer, without stirring, until syrup is honey-gold, roughly 9 minutes. Immediately add cream (the mixture will sputter) and reduce heat to medium-low, stirring constantly with a heat-resistant spatula, until caramel registers 250°F (121°C) on a digital thermometer, about 7 minutes. Transfer to a small heat-resistant bowl and cool to about 212°F (100°C).\n2. Dip cold apples in caramel, letting excess drip off before transferring to a parchment-lined cutting board. Let stand at room temperature until fully set, about 10 minutes, and serve.",
-  notes: "If you have fond memories of apples dipped in the sort of super-thick and chewy caramel that can really work your jaw, reduce the cream to 6 ounces (3/4 cup)",
+  notes: "If you have fond memories of apples dipped in the sort of super-thick and chewy caramel that can really work your jaw, reduce the cream to 6 ounces (3/4 cup).",
   link: "http://www.seriouseats.com/recipes/2016/10/homemade-caramel-apple-recipe.html",
   image_url: "http://www.seriouseats.com/recipes/assets_c/2016/10/20160822-caramel-apples-vicky-wasik-2-thumb-1500xauto-434819.jpg",
   user_id: guest.id)

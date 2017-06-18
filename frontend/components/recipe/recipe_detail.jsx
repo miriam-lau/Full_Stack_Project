@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+
 import RecipeIndexContainer from './recipe_index_container';
 
 class RecipeDetail extends React.Component {

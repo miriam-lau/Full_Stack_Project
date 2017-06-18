@@ -18,22 +18,7 @@ class RecipeDetail extends React.Component {
     }
   }
 
-  // newLineToBR(str) {
-  //   let new_str = "";
-  //   for (let i = 0; i < str.length; i++) {
-  //     if (str[i] === '\\' && str[i + 1] === 'n') {
-  //       new_str += '<br />';
-  //       i += 1;
-  //     } else {
-  //       new_str += str[i];
-  //     }
-  //   }
-  //   console.log("in newLineToBR");
-  //   console.log(new_str);
-  //   return new_str;
-  // }
-
-  newLineToBR(str) {
+  strSplit(str) {
     let strArray = str.split('\n');
     console.log(strArray);
     return strArray;
@@ -69,8 +54,12 @@ class RecipeDetail extends React.Component {
             <div className="recipe detail content2">
               <section>
                 <h3>Ingredients:</h3>
-                <section>{this.newLineToBR(recipe.ingredients)}</section>
+                <ul>{ this.strSplit(recipe.ingredients).map(line => {
+                  return (<li>{ line }</li>)
+                })}
+                </ul>
               </section>
+              
               <ul>
                 <li>Directions: {recipe.directions}</li>
               </ul>

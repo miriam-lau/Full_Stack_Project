@@ -46,21 +46,18 @@ class RecipeDetail extends React.Component {
               </figure>
               <section className="recipe-detail-content1">
                 <p>
-                  <h3 className="recipe-detail-title">Servings:</h3>
-                  {recipe.serving}
+                  <span className="recipe-detail-title">Servings:</span> {recipe.serving}
                 </p>
 
                 <p>
-                  <h3 className="recipe-detail-title">Rating:</h3>
-                  {recipe.rating}
+                  <span className="recipe-detail-title">Rating:</span> {recipe.rating}
                 </p>
 
                 <h3 className="recipe-detail-title">Description:</h3>
                 <p>{recipe.description}</p>
 
                 <p>
-                  <h3 className="recipe-detail-title">Link:</h3>
-                  {recipe.link}
+                  <span className="recipe-detail-title">Link:</span> {recipe.link}
                 </p>
               </section>
             </div>

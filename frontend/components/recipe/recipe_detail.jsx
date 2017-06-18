@@ -46,25 +46,25 @@ class RecipeDetail extends React.Component {
               </figure>
               <section className="recipe-detail-content1">
                 <p>
-                  <span className="recipe-detail-title">Servings:</span> {recipe.serving}
+                  <span className="recipe-detail-title">SERVINGS: </span> {recipe.serving}
                 </p>
 
                 <p>
-                  <span className="recipe-detail-title">Rating:</span> {recipe.rating}
+                  <span className="recipe-detail-title">RATING: </span> {recipe.rating}
                 </p>
 
-                <h3 className="recipe-detail-title">Description:</h3>
+                <h3 className="recipe-detail-title">DESCRIPTION</h3>
                 <p>{recipe.description}</p>
 
                 <p>
-                  <span className="recipe-detail-title">Link:</span> {recipe.link}
+                  <span className="recipe-detail-title">LINK: </span> {recipe.link}
                 </p>
               </section>
             </div>
 
             <div className="recipe-detail-content2">
               <section className="ingredients">
-                <h3 className="recipe-detail-title">Ingredients:</h3>
+                <h3 className="recipe-detail-title">INGREDIENTS</h3>
                 <ul>{ this.strSplit(recipe.ingredients).map(line => {
                   return (<li>{ line }</li>)
                 })}
@@ -72,7 +72,7 @@ class RecipeDetail extends React.Component {
               </section>
 
               <section className="directions">
-                <h3 className="recipe-detail-title">Directions:</h3>
+                <h3 className="recipe-detail-title">DIRECTIONS</h3>
                 <ul>{ this.strSplit(recipe.directions).map(line => {
                   return (<li>{ line }</li>)
                 })}
@@ -82,7 +82,7 @@ class RecipeDetail extends React.Component {
             </div>
 
             <section>
-              <h3 className="recipe-detail-title">Notes:</h3> <p>{recipe.notes}</p>
+              <h3 className="recipe-detail-title">NOTES</h3> <p>{recipe.notes}</p>
             </section>
           </section>
         </div>

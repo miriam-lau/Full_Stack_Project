@@ -63,7 +63,7 @@ class RecipeDetail extends React.Component {
             </div>
 
             <div className="recipe-detail-content2">
-              <section>
+              <section className="ingredients">
                 <h3 className="recipe-detail-title">Ingredients:</h3>
                 <ul>{ this.strSplit(recipe.ingredients).map(line => {
                   return (<li>{ line }</li>)
@@ -71,7 +71,7 @@ class RecipeDetail extends React.Component {
                 </ul>
               </section>
 
-              <section>
+              <section className="directions">
                 <h3 className="recipe-detail-title">Directions:</h3>
                 <ul>{ this.strSplit(recipe.directions).map(line => {
                   return (<li>{ line }</li>)

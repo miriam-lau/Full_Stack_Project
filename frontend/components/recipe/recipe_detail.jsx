@@ -5,6 +5,7 @@ import RecipeIndexContainer from './recipe_index_container';
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.newLineToBR = this.newLineToBR.bind(this);
   }
 
   componentDidMount() {
@@ -15,6 +16,27 @@ class RecipeDetail extends React.Component {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.requestRecipe(nextProps.match.params.id);
     }
+  }
+
+  // newLineToBR(str) {
+  //   let new_str = "";
+  //   for (let i = 0; i < str.length; i++) {
+  //     if (str[i] === '\\' && str[i + 1] === 'n') {
+  //       new_str += '<br />';
+  //       i += 1;
+  //     } else {
+  //       new_str += str[i];
+  //     }
+  //   }
+  //   console.log("in newLineToBR");
+  //   console.log(new_str);
+  //   return new_str;
+  // }
+
+  newLineToBR(str) {
+    let strArray = str.split('\n');
+    console.log(strArray);
+    return strArray;
   }
 
   render() {
@@ -45,9 +67,10 @@ class RecipeDetail extends React.Component {
             </div>
 
             <div className="recipe detail content2">
-              <ul>
-                <li>Ingredients: {recipe.ingredients}</li>
-              </ul>
+              <section>
+                <h3>Ingredients:</h3>
+                <section>{this.newLineToBR(recipe.ingredients)}</section>
+              </section>
               <ul>
                 <li>Directions: {recipe.directions}</li>
               </ul>

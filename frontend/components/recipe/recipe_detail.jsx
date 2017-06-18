@@ -41,9 +41,8 @@ class RecipeDetail extends React.Component {
           <section className="recipe-detail-info">
             <h2>{recipe.name}</h2>
             <div className="recipe-detail-content">
-              <figure>
-                <img src={recipe.image_url} alt={recipe.name}
-                  className="recipe-detail-img"/>
+              <figure className="recipe-detail-img">
+                <img src={recipe.image_url} alt={recipe.name} />
               </figure>
               <section className="recipe-detail-content1">
                 <p>
@@ -63,7 +62,7 @@ class RecipeDetail extends React.Component {
               </section>
             </div>
 
-            <div className="recipe-detail-content1">
+            <div className="recipe-detail-content2">
               <section>
                 <h3 className="recipe-detail-title">Ingredients:</h3>
                 <ul>{ this.strSplit(recipe.ingredients).map(line => {

@@ -21,7 +21,6 @@ class RecipeDetail extends React.Component {
 
   strSplit(str) {
     let strArray = str.split('\n');
-    console.log(strArray);
     return strArray;
   }
 
@@ -35,6 +34,7 @@ class RecipeDetail extends React.Component {
     return (
       <div className="recipe-detail-wrapper">
         <div className="recipe-detail">
+          <br />
           <Link className="recipe-link" to="/recipes">Back to Recipes</Link>
           <Route exact path="/recipes" component={ RecipeIndexContainer } />
 
@@ -57,7 +57,7 @@ class RecipeDetail extends React.Component {
                 <p>{recipe.description}</p>
 
                 <p>
-                  <span className="recipe-detail-title">LINK: </span> {recipe.link}
+                  <span className="recipe-detail-title">LINK: </span> <a href={recipe.link} className="recipe-detail-link">{recipe.link}</a>
                 </p>
               </section>
             </div>

@@ -156,6 +156,7 @@
   font-weight: bold;
   align-self: center;
   margin-top: 10px;
+  margin-left: 15px;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -167,14 +168,14 @@
 }
 
 .recipe-detail-info {
-  margin: 10px 0 0 15px;
+  margin: 30px 10px 0 15px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
 }
 
 .recipe-detail-info > h2 {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   color: #333399;
 }
@@ -211,6 +212,7 @@
 
 .recipe-detail-title {
   font-size: 17px;
+  font-weight: 900;
   color: #333399;
   margin-bottom: 5px;
 }
@@ -237,6 +239,10 @@
 
 .recipe-detail-content2 > section > ul > li {
   margin-bottom: 15px;
+}
+
+.recipe-detail-link:hover {
+  text-decoration: underline;
 }
 
 .ingredients {

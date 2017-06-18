@@ -46,42 +46,20 @@ grocery9 = Grocery.create(category: "", name: "Watermelon",
 
 
 recipe1 = Recipe.create(name: "Fig, Melon and Ham Salad", serving: 6,
-  ingredients: "1 small Charentais melon or cantaloupe, peeled, seeded,
-  and cut into 1-inch cubes\n12 black mission figs, split in half
-  lengthwise\n2 ounces thinly shaved Jamón Serrano or prosciutto\n2
-  tablespoons extra-virgin olive oil\nCoarse sea salt\nSmall handful
-  fresh basil leaves",
+  ingredients: "1 small Charentais melon or cantaloupe, peeled, seeded, and cut into 1-inch cubes\n12 black mission figs, split in half lengthwise\n2 ounces thinly shaved Jamón Serrano or prosciutto\n2 tablespoons extra-virgin olive oil\nCoarse sea salt\nSmall handful fresh basil leaves",
   rating: 5.0,
-  description: "Fast, easy, refreshing, and oh-so-good salad for the
-  summer from J Kenji-Lopez-Alt.",
-  directions: "1. Arrange melon, figs, and ham on a serving platter.
-  Drizzle with olive oil and sprinkle with salt. Scatter with basil
-  leaves and serve.",
+  description: "Fast, easy, refreshing, and oh-so-good salad for the summer from J Kenji-Lopez-Alt.",
+  directions: "1. Arrange melon, figs, and ham on a serving platter. Drizzle with olive oil and sprinkle with salt. Scatter with basil leaves and serve.",
   notes: "Important to get fig and canteloupe in season",
   link: "http://www.seriouseats.com/recipes/2015/07/fig-melon-spanish-ham-basil-salad-summer.html",
   image_url: "http://www.seriouseats.com/recipes/assets_c/2015/06/20150628-fig-melon-jamon-serrano-salad-1-thumb-1500xauto-424482.jpg",
   user_id: guest.id)
 
 recipe2 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
-  ingredients: "1 tablespoon vegetable or olive oil, 1 turn of the pan
-  in a slow stream\n2 tablespoons butter\n3 tablespoons flour\n1 1/2
-  cups whole or 2 percent milk\n3 cups shredded white Cheddar cheese\n
-  1/2 teaspoon nutmeg, ground or freshly grated\n1/4 teaspoon ground
-  cayenne pepper, a couple pinches\nSalt\n1 pound elbow macaroni, cooked
-  8 minutes or to al dente, with a little bite to it",
+  ingredients: "1 tablespoon vegetable or olive oil, 1 turn of the pan in a slow stream\n2 tablespoons butter\n3 tablespoons flour\n1 1/2 cups whole or 2 percent milk\n3 cups shredded white Cheddar cheese\n1/2 teaspoon nutmeg, ground or freshly grated\n1/4 teaspoon ground cayenne pepper, a couple pinches\nSalt\n1 pound elbow macaroni, cooked 8 minutes or to al dente, with a little bite to it",
   rating: 5.0,
   description: "Easy and delicious recipe in just 30-minutes by Rachael Ray",
-  directions: "1. Heat a medium, deep skillet over medium heat. Add oil
-  and butter. When butter melts into the oil, add flour and combine.
-  Gently cook, whisking flour and butter together, until smooth and flour
-  has had a chance to cook, about 3 minutes.\nSlowly add milk while continuing
-  to whisk. Gently bring milk to a bubble while stirring frequently. Allow
-  the milk to thicken a bit, then stir in 2 cups of shredded Cheddar cheese
-  a handful at a time.\nSeason sauce with nutmeg and cayenne. Taste and
-  add a little salt, if you like.\nAdd cooked pasta to sauce and coat
-  completely by turning over and over in the cheese sauce.\nTransfer to
-  a baking dish and top with remaining cheese.\nPlace baking dish under a
-  hot broiler and brown the Cheddar cheese on top.",
+  directions: "1. Heat a medium, deep skillet over medium heat. Add oil and butter. When butter melts into the oil, add flour and combine. Gently cook, whisking flour and butter together, until smooth and flour has had a chance to cook, about 3 minutes.\nSlowly add milk while continuing to whisk. Gently bring milk to a bubble while stirring frequently. Allow the milk to thicken a bit, then stir in 2 cups of shredded Cheddar cheese a handful at a time.\nSeason sauce with nutmeg and cayenne. Taste and add a little salt, if you like.\nAdd cooked pasta to sauce and coat completely by turning over and over in the cheese sauce.\nTransfer to a baking dish and top with remaining cheese.\nPlace baking dish under a hot broiler and brown the Cheddar cheese on top.",
   notes: "",
   link: "http://www.foodnetwork.com/recipes/rachael-ray/macaroni-and-cheddar-cheese-recipe-2131153",
   image_url: "http://www.seriouseats.com/images/2016/11/20161028-baked-macaroni-cheese-sodium-citrate-vicky-wasik-20.jpg",

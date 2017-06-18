@@ -44,16 +44,30 @@ class RecipeDetail extends React.Component {
                 <img src={recipe.image_url} alt={recipe.name}
                   className="recipe-detail-img"/>
               </figure>
-              <ul>
-                <li>Servings: {recipe.serving}</li>
-                <li>Rating: {recipe.rating}</li>
-                <li>Description: {recipe.description}</li>
-              </ul>
+              <section className="recipe-detail-content1">
+                <p>
+                  <h3 className="recipe-detail-title">Servings:</h3>
+                  {recipe.serving}
+                </p>
+
+                <p>
+                  <h3 className="recipe-detail-title">Rating:</h3>
+                  {recipe.rating}
+                </p>
+
+                <h3 className="recipe-detail-title">Description:</h3>
+                <p>{recipe.description}</p>
+
+                <p>
+                  <h3 className="recipe-detail-title">Link:</h3>
+                  {recipe.link}
+                </p>
+              </section>
             </div>
 
-            <div className="recipe detail content2">
+            <div className="recipe-detail-content1">
               <section>
-                <h3>Ingredients:</h3>
+                <h3 className="recipe-detail-title">Ingredients:</h3>
                 <ul>{ this.strSplit(recipe.ingredients).map(line => {
                   return (<li>{ line }</li>)
                 })}
@@ -61,15 +75,16 @@ class RecipeDetail extends React.Component {
               </section>
 
               <section>
-                <h3>Directions:</h3>
+                <h3 className="recipe-detail-title">Directions:</h3>
                 <ul>{ this.strSplit(recipe.directions).map(line => {
                   return (<li>{ line }</li>)
                 })}
                 </ul>
               </section>
 
-              <section>Notes: {recipe.notes}</section>
-              <section>Link: {recipe.link}</section>
+              <section>
+                <h3 className="recipe-detail-title">Notes:</h3> <p>{recipe.notes}</p>
+              </section>
             </div>
           </section>
         </div>

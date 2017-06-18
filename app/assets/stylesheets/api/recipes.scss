@@ -167,11 +167,13 @@
 
 .recipe-detail-info {
   margin: 10px 0 0 15px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
 }
 
 .recipe-detail-info > h2 {
   font-family: 'Nunito', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #333399;
 }
@@ -195,6 +197,20 @@
   margin: 10px 10px 10px 0;
 }
 
-.recipe-detail-content > ul{
-  min-width: 500px;
+.recipe-detail-content1 {
+  margin: 10px 10px 10px 0;
+}
+
+.recipe-detail-title {
+  font-size: 16px;
+}
+
+.recipe-detail-content1 > p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.recipe-detail-content1 > section {
+  font-size: 14px;
+  margin-bottom: 10px;
 }

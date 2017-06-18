@@ -5,7 +5,7 @@ import RecipeIndexContainer from './recipe_index_container';
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.newLineToBR = this.newLineToBR.bind(this);
+    this.strSplit = this.strSplit.bind(this);
   }
 
   componentDidMount() {
@@ -59,10 +59,15 @@ class RecipeDetail extends React.Component {
                 })}
                 </ul>
               </section>
-              
-              <ul>
-                <li>Directions: {recipe.directions}</li>
-              </ul>
+
+              <section>
+                <h3>Directions:</h3>
+                <ul>{ this.strSplit(recipe.directions).map(line => {
+                  return (<li>{ line }</li>)
+                })}
+                </ul>
+              </section>
+
               <section>Notes: {recipe.notes}</section>
               <section>Link: {recipe.link}</section>
             </div>

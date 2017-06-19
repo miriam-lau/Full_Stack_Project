@@ -67,7 +67,7 @@
 
 .recipe-form-part2 {
   display: flex;
-  margin: 3px 0 25px 0;
+  margin: 0 0 20px 0;
 }
 
 .recipe-form-part2:last-child {
@@ -99,6 +99,7 @@
 }
 
 .recipe-form-part4 > span {
+  padding-top: 6px;
   min-width: 100px;
 }
 
@@ -161,23 +162,29 @@
   background-color: white;
   color: #333399;
   border-radius: 3px;
-  padding: 10px 10px 10px 10px;
+  padding-top: 5px;
 }
 
 .upload-img > input {
-  width: 98%;
-  height: 94%;
-  border: 1px dashed #333399;
+  align-items: center;
+  width: 100%;
+  height: 85%;
   background-color: white;
   color: #333399;
   border-radius: 3px;
   cursor: pointer;
+  padding: 0 0 0 0;
+  opacity: 0;
 }
 
-.upload-img > input:hover {
+.upload-img:hover {
   border: 1px dashed #333399;
   background-color: #333399;
   color: white;
+}
+
+.upload-file {
+  padding: 0 0 0 5px;
 }
 
 .recipe-button-div {

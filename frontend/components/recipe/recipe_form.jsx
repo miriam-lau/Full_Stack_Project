@@ -38,7 +38,8 @@ class RecipeForm extends React.Component {
             <div className="recipe-form-part4">
               <span>Image</span>
               <div className="upload-img">
-                <input type="file" accept="image/*" name="Upload an Image" />
+                <label className="upload-file">Upload an Image</label>
+                <input id="file" type="file" accept="image/*" />
               </div>
             </div>
             <div className="recipe-form-part3">

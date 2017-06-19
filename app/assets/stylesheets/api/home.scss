@@ -92,6 +92,7 @@
 }
 
 .home-footer {
+  position: relative;
   display: flex;
   justify-content: space-around;
   font-family: 'Nunito', sans-serif;
@@ -102,4 +103,5 @@
   border-top: 5px solid #E6E6FA;
   background-color: #E6E6FA;
   width: 100%;
+  height: 100vh;
 }

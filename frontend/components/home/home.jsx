@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import HomeContainer from './home_container';
 import Carousel from 'nuka-carousel';
-// import Decorator from './decorator';
+import Decorator from './decorator';
 
 class Home extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Home extends React.Component {
     return (
       <div className="main-content">
         <Carousel className="image" wrapAround={true} autoplay={true}
-          autoInterval={5000}>
+          autoInterval={5000} decorators={Decorator}>
 
           <div className="home-panels">
             <h2 className="home-titles1">myPantry</h2>

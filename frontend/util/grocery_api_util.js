@@ -1,6 +1,3 @@
-// import { receiveAllGroceryItems, receiveGroceryItem, receiveNewGroceryItem,
-//   receiveErrors} from '../actions/grocery_actions';
-
 export const fetchAllGroceryItems = () => {
   return $.ajax({
     method: "GET",

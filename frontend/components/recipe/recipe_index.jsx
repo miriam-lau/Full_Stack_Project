@@ -38,6 +38,9 @@ class RecipeIndex extends React.Component {
       <div>
         <div className="recipe-wrapper">
           <div className="recipe-list">
+            <br />
+            <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>
+
             <section>
               <h2 className="recipe-title">Recipes</h2>
             </section>
@@ -63,7 +66,7 @@ class RecipeIndex extends React.Component {
           </div>
 
           <div className="new-recipe">
-            <Route path="/recipes" component={ RecipeFormContainer } />
+            <Route path="/recipes/new" component={ RecipeFormContainer } />
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import ModalFormContainer from '../modal/modal_container';
 import PantryIndexContainer from '../pantry_items/pantry_index_container';
 import PersonalGreetingContainer from './personal_greeting_container';
 import RecipeDetailContainer from '../recipe/recipe_detail_container';
+import RecipeFormContainer from '../recipe/recipe_form_container';
 import RecipeIndexContainer from '../recipe/recipe_index_container';
 import SearchResultsContainer from '../search/search_results_container';
 
@@ -78,11 +79,18 @@ class Greeting extends React.Component {
 
             <div className="item-list">
               <Switch>
-                <Route path="/groceries" component={ GroceryIndexContainer } />
-                <Route path="/pantry_items" component={ PantryIndexContainer } />
-                <Route exact path="/recipes" component={ RecipeIndexContainer } />
-                <Route path="/recipes/:id" component={ RecipeDetailContainer } />
-                <Route path='/search' component={ SearchResultsContainer } />
+                <Route path="/groceries"
+                  component={ GroceryIndexContainer } />
+                <Route path="/pantry_items"
+                  component={ PantryIndexContainer } />
+                <Route exact path="/recipes"
+                  component={ RecipeIndexContainer } />
+                <Route exact path="/recipes/new"
+                  component={ RecipeFormContainer } />
+                <Route exact path="/recipes/:id"
+                  component={ RecipeDetailContainer } />
+                <Route path='/search'
+                  component={ SearchResultsContainer } />
               </Switch>
             </div>
           </div>

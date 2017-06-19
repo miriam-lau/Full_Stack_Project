@@ -48,14 +48,55 @@ grocery9 = Grocery.create(category: "", name: "Watermelon",
 recipe1 = Recipe.create(name: "Fig, Melon and Ham Salad", serving: 6,
   ingredients: "1 small Charentais melon or cantaloupe, peeled, seeded, and cut into 1-inch cubes\n12 black mission figs, split in half lengthwise\n2 ounces thinly shaved Jamón Serrano or prosciutto\n2 tablespoons extra-virgin olive oil\nCoarse sea salt\nSmall handful fresh basil leaves",
   rating: 10.0,
-  description: "Fast, easy, refreshing, and oh-so-good salad for the summer from J Kenji-Lopez-Alt.",
+  description: "Fast, easy, refreshing, and oh-so-good salad for the summer from J. Kenji-Lopez-Alt.",
   directions: "1. Arrange melon, figs, and ham on a serving platter.\n2. Drizzle with olive oil and sprinkle with salt.\n3. Scatter with basil leaves and serve.",
-  notes: "Important to get fig and canteloupe in season",
+  notes: "Important to get fig and canteloupe in season.",
   link: "http://www.seriouseats.com/recipes/2015/07/fig-melon-spanish-ham-basil-salad-summer.html",
   image_url: "http://www.seriouseats.com/recipes/assets_c/2015/06/20150628-fig-melon-jamon-serrano-salad-1-thumb-1500xauto-424482.jpg",
   user_id: guest.id)
 
-recipe2 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
+recipe2 = Recipe.create(name: "Spinach and Artichoke Dip", serving: 4,
+  ingredients: "1 cup thawed, chopped frozen spinach\n1 1/2 cups thawed, chopped frozen artichoke hearts\n6 ounces cream cheese\n1/4 cup sour cream\n1/4 cup mayonnaise\n1/3 cup grated Parmesan\n1/2 teaspoon red pepper flakes\n1/4 teaspoon salt\n1/4 teaspoon garlic powder",
+  rating: 8.0,
+  description: "An easy appetizer by Alton Brown.",
+  directions: "1. Boil spinach and artichokes in 1 cup of water until tender and drain. Discard liquid.\n2. Heat cream cheese in microwave for 1 minute or until hot and soft.\n3. Stir in rest of ingredients and serve hot.",
+  notes: "Pairs well with Chardonnay.",
+  link: "http://www.foodnetwork.com/recipes/alton-brown/hot-spinach-and-artichoke-dip-recipe-1912620",
+  image_url: "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/8/10/1/Thanksgiving-2011_EA1F08-spinach-artichoke-dip_s4x3.jpg.rend.hgtvcom.616.462.jpeg",
+  user_id: guest.id)
+
+recipe3 = Recipe.create(name: "Guacamole", serving: 4,
+  ingredients: "3 Haas avocados, halved, seeded and peeled\n1 lime, juiced\n1/2 teaspoon kosher salt\n1/2 teaspoon ground cumin\n1/2 teaspoon cayenne\n1/2 medium onion, diced\n1/2 jalapeno pepper, seeded and minced\n2 Roma tomatoes, seeded and diced\n1 tablespoon chopped cilantro\n1 clove garlic, minced",
+  rating: 8.5,
+  description: "Quick and easy appetizer by Alton Brown.",
+  directions: "1. In a large bowl place the scooped avocado pulp and lime juice, toss to coat. Drain, and reserve the lime juice, after all of the avocados have been coated. Using a potato masher add the salt, cumin, and cayenne and mash.\n2. Then, fold in the onions, tomatoes, cilantro, and garlic.\n3. Add 1 tablespoon of the reserved lime juice.\n4. Let sit at room temperature for 1 hour and then serve. ",
+  notes: "Pairs well with lager.",
+  link: "http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe-1940609",
+  image_url: "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/7/0/EA1F08_guacamole_s4x3.jpg.rend.hgtvcom.616.462.jpeg",
+  user_id: guest.id)
+
+recipe4 = Recipe.create(name: "Oven-Fried Buffalo Wings", serving: 6,
+  ingredients: "1 to 4 pounds (450g to 1.7kg) chicken wings, cut into drumettes and flats\n1 teaspoon (5g) baking powder per pound of chicken wings\n1 teaspoon (5g) kosher salt per pound of chicken wings\n2 tablespoons (1 ounce; 25g) unsalted butter per pound of chicken wings\n2 tablespoons (1 ounce; 30ml) Frank's RedHot Sauce per pound of chicken wings\nBlue cheese dressing, for serving\nCelery sticks, for serving",
+  rating: 10.0,
+  description: "Really good buffalo wings without the frying by J. Kenji-Lopez-Alt.",
+  directions: "1. Line a rimmed baking sheet with aluminum foil and set a wire rack inside. Carefully dry chicken wings with paper towels. In a large bowl, combine wings with baking powder and salt and toss until thoroughly and evenly coated. Place on rack, leaving a slight space between each wing. Repeat with remaining 2 batches of wings.\n2. Place baking sheet with wings in refrigerator and allow to rest, uncovered, at least 8 hours and up to 24 hours.\n3. Adjust oven rack to upper-middle position and preheat oven to 450°F (230°C). Add chicken wings and cook for 20 minutes. Flip wings and continue to cook until crisp and golden brown, 15 to 30 minutes longer, flipping a few more times towards the end.\n4. Meanwhile, combine butter and hot sauce in a small saucepan and cook over medium heat, whisking until combined. Transfer wings to a large bowl, add sauce, and toss to thoroughly coat. Serve wings immediately with blue cheese dressing and celery sticks, conspicuously shunning anyone who says that real Buffalo wings must be fried.",
+  notes: "Air-drying the wings overnight helps them crisp up faster when you bake them, which corresponds to juicier meat in the end.\nBaking powder adds surface area to the chicken wings, intensifying their crunch.",
+  link: "http://www.seriouseats.com/recipes/2010/02/the-best-buffalo-wings-oven-fried-wings-recipe.html",
+  image_url: "http://www.seriouseats.com/recipes/assets_c/2017/01/20150127-buffalo-wings-oven-fried-7-thumb-1500xauto-436081.jpg",
+  user_id: guest.id)
+
+recipe5 = Recipe.create(name: "Chinese Tea Eggs", serving: 6,
+  ingredients: "6 eggs\n3 to 4 tablespoons soy sauce\n1 teaspoon salt\n1 tablespoon black tea leaves\n3 to 4 pieces star anise\n1 small stick cinnamon\n2 to 3 strips dried orange\n1 teaspoon cracked peppercorns\n1 teaspoon sugar (optional)",
+  rating: 10.0,
+  description: "Street-style tea eggs are a popular snack in China and
+  Taiwan. Recipe from Food52.",
+  directions: "1. Place eggs in a pot and cover with about an inch of cold water. Bring to a boil, then simmer for 1 to 2 minutes.\n2. Rinse the eggs with cold water. One by one, take each egg and tap it gently with the blunt end of a knife or the back of a spoon until the entire surface is lightly cracked.\n3. If small pieces flake off, don't worry, but do try to keep the shell intact over the egg.\n4. Return the eggs to the pot and refill with water. Add just enough water to barely cover the eggs, but for the sake of precision, it should be about 1 1/2 to 2 cups. Add the rest of the ingredients: soy sauce, salt, tea, star anise, cinnamon, orange peel, pepper, and sugar (optional), and give it a good stir.\n5. Bring the mixture back to a boil, then reduce the heat to low\n6. Simmer for 3 hours in a pot uncovered as it yields firmer eggs with better flavor. The water will evaporate fairly quickly, so add more as it simmers.\n7. These eggs never have the soft, bright yellow yolks you get from hard-boiling for just a few minutes. They often have that greenish tinge because they cook for much longer.\n8. For a stronger flavor, steep overnight after you finish simmering.",
+  notes: "If you like softer eggs, cover the pot as it simmers.",
+  link: "https://food52.com/blog/9956-how-to-make-street-style-chinese-tea-eggs-at-home",
+  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKQ8xIb1Nsgm_s3qNvNddjg7hHSo942xaHaQk2dblmsUExDOSb",
+  user_id: guest.id)
+
+recipe6 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
   ingredients: "1 tablespoon vegetable or olive oil, 1 turn of the pan in a slow stream\n2 tablespoons butter\n3 tablespoons flour\n1 1/2 cups whole or 2 percent milk\n3 cups shredded white Cheddar cheese\n1/2 teaspoon nutmeg, ground or freshly grated\n1/4 teaspoon ground cayenne pepper, a couple pinches\nSalt\n1 pound elbow macaroni, cooked 8 minutes or to al dente, with a little bite to it",
   rating: 10.0,
   description: "Easy and delicious recipe in just 30-minutes by Rachael Ray",
@@ -65,7 +106,7 @@ recipe2 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
   image_url: "http://www.seriouseats.com/images/2016/11/20161028-baked-macaroni-cheese-sodium-citrate-vicky-wasik-20.jpg",
   user_id: guest.id)
 
-recipe3 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
+recipe7 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   ingredients: "5 ounces Parmigiano Reggiano cheese\n2 tablespoons heavy cream\n1 large egg\n1 teaspoon cornstarch\n2 tablespoons extra-virgin olive oil\n1/2 teaspoon grated lemon zest (optional)\nKosher salt and fresh ground pepper\n1 pound fettuccine\n1 teaspoon minced garlic\n2 tablespoons unsalted butter\n
   Minced fresh parsley or chives",
   rating: 9.8,
@@ -77,7 +118,7 @@ recipe3 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   image_url: "http://www.seriouseats.com/images/2014/09/20140919-fettucini-alfredo-recipe-01.jpg",
   user_id: guest.id)
 
-recipe4 = Recipe.create(name: "Chicken Pot Pie", serving: 4,
+recipe8 = Recipe.create(name: "Chicken Pot Pie", serving: 4,
   ingredients: "3 whole chicken breasts bone-in, skin-on\n3 tablespoons olive oil\nKosher salt and fresh black pepper\n5 cups chicken stock\n2 chicken bouillon cubes\n12 tablespoons unsalted butter\n2 cups yellow chopped onions\n3/4 cup all-purpose flour\n1/4 cup heavy cream\n2 cups medium-diced carrots, blanched for 2 minutes\n2 cups frozen peas\n1 1/2 cups frozen small whole onions\n1/2 cup minced fresh parsley leaves\n3 cups all-purpose flour\n1 1/2 teaspoons kosher salt\n1 teaspoon baking powder\n1/2 cup vegetable shortening\n1/4 pound diced and cold unsalted butter\n1/2 to 2/3 cup ice water\nEgg wash: 1 egg beaten with 1 tablespoon water\nFlaked sea salt and cracked black pepper",
   rating: 8.0,
   description: "A must comfort-food from Ina Garten",
@@ -88,7 +129,7 @@ recipe4 = Recipe.create(name: "Chicken Pot Pie", serving: 4,
   image_url: "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2009/6/12/0/IG0604H_33099_s4x3.jpg.rend.hgtvcom.616.462.jpeg",
   user_id: guest.id)
 
-recipe5 = Recipe.create(name: "Ultra-Smashed Cheeseburger", serving: 1,
+recipe9 = Recipe.create(name: "Ultra-Smashed Cheeseburger", serving: 1,
   ingredients: "1 soft hamburger roll, buttered and toasted\n4 ounces (110g) freshly ground beef chuck, divided into two 2-ounce (55g) balls\n1 slice good melting cheese, such as American\nKosher salt and fresh ground pepper\nCondiments and toppings as desired, such as mayonnaise, mustard, shredded lettuce, onions, tomatoes, and pickles",
   rating: 10.0,
   description: "Classic smashed burgers are all about maximizing that deep, brown crust. A must-try recipe from J. Kenji Lopez-Alt.",
@@ -98,18 +139,7 @@ recipe5 = Recipe.create(name: "Ultra-Smashed Cheeseburger", serving: 1,
   image_url: "http://www.seriouseats.com/recipes/assets_c/2017/04/20170423-ultra-smashed-burger-video-primary2-thumb-1500xauto-437438.jpg",
   user_id: guest.id)
 
-recipe6 = Recipe.create(name: "Chinese Tea Eggs", serving: 6,
-  ingredients: "6 eggs\n3 to 4 tablespoons soy sauce\n1 teaspoon salt\n1 tablespoon black tea leaves\n3 to 4 pieces star anise\n1 small stick cinnamon\n2 to 3 strips dried orange\n1 teaspoon cracked peppercorns\n1 teaspoon sugar (optional)",
-  rating: 10.0,
-  description: "Street-style tea eggs are a popular snack in China and
-  Taiwan. Recipe from Food52.",
-  directions: "1. Place eggs in a pot and cover with about an inch of cold water. Bring to a boil, then simmer for 1 to 2 minutes.\n2. Rinse the eggs with cold water. One by one, take each egg and tap it gently with the blunt end of a knife or the back of a spoon until the entire surface is lightly cracked.\n3. If small pieces flake off, don't worry, but do try to keep the shell intact over the egg.\n4. Return the eggs to the pot and refill with water. Add just enough water to barely cover the eggs, but for the sake of precision, it should be about 1 1/2 to 2 cups. Add the rest of the ingredients: soy sauce, salt, tea, star anise, cinnamon, orange peel, pepper, and sugar (optional), and give it a good stir.\n5. Bring the mixture back to a boil, then reduce the heat to low\n6. Simmer for 3 hours in a pot uncovered as it yields firmer eggs with better flavor. The water will evaporate fairly quickly, so add more as it simmers.\n7. These eggs never have the soft, bright yellow yolks you get from hard-boiling for just a few minutes. They often have that greenish tinge because they cook for much longer.\n8. For a stronger flavor, steep overnight after you finish simmering.",
-  notes: "If you like softer eggs, cover the pot as it simmers.",
-  link: "https://food52.com/blog/9956-how-to-make-street-style-chinese-tea-eggs-at-home",
-  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKQ8xIb1Nsgm_s3qNvNddjg7hHSo942xaHaQk2dblmsUExDOSb",
-  user_id: guest.id)
-
-recipe7 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
+recipe10 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
   ingredients: "1 quart strawberries, quartered or sliced\n1/2 cup sugar, divided\n5 ounces (about 1 cup) self-rising flour\n1 pint heavy cream\n1/2 teaspoon vanilla extract",
   rating: 7.5,
   description: "Easy recipe with just five ingredients from J. Kenji-Lopez-Alt.",
@@ -119,7 +149,7 @@ recipe7 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
   image_url: "http://www.seriouseats.com/recipes/assets_c/2015/10/20150911-two-ingredient-biscuit-strawberry-shortcake-recipe-kenji-54-thumb-1500xauto-426932.jpg",
   user_id: guest.id)
 
-recipe8 = Recipe.create(name: "Caramel Apples", serving: 8,
+recipe11 = Recipe.create(name: "Caramel Apples", serving: 8,
   ingredients: "8 small apples, refrigerated until cold\n4 ounces water (1/2 cup)\n9 ounces sugar (1 1/3 cups)\n1 teaspoon Diamond Crystal
   kosher salt\n9 ounces heavy cream (chilled)",
   rating: 8.0,
@@ -128,6 +158,16 @@ recipe8 = Recipe.create(name: "Caramel Apples", serving: 8,
   notes: "If you have fond memories of apples dipped in the sort of super-thick and chewy caramel that can really work your jaw, reduce the cream to 6 ounces (3/4 cup).",
   link: "http://www.seriouseats.com/recipes/2016/10/homemade-caramel-apple-recipe.html",
   image_url: "http://www.seriouseats.com/recipes/assets_c/2016/10/20160822-caramel-apples-vicky-wasik-2-thumb-1500xauto-434819.jpg",
+  user_id: guest.id)
+
+recipe12 = Recipe.create(name: "Mexican Wedding Cookies", serving: 10,
+  ingredients: "2 ounces raw pecan halves (1/2 cup; 55g)\n1 1/2 ounces powdered sugar (1/3 cup; 40g)\n4 ounces all-purpose flour (3/4 cup plus 1 tablespoon; 110g)\n4 ounces cold unsalted butter (1 stick; 110g), cut into 1/2-inch cubes\n1 teaspoon (5g) vanilla extract\n1/4 teaspoon (1g) Diamond Crystal kosher salt; for table salt, use half as much by volume or use the same weight\n1/8 teaspoon ground cinnamon\nTo Finish: 2 ounces powdered sugar (1/2 cup; 55g), divided",
+  rating: 8.0,
+  description: "'These simple pecan shortbreads are best with a mug of hot cocoa, but they're great with milk or tea as well,' Stella Parks aka BraveTart.",
+  directions: "1. For the Dough: Adjust oven rack to lower-middle position and preheat oven to 350°F (177°C). Combine pecans and powdered sugar in a 10-inch stainless steel skillet and toast in oven until fragrant but not deeply browned, 12 to 15 minutes. When pecans and sugar have cooled to room temperature, combine with flour, cold butter, vanilla, salt, and cinnamon in the bowl of a food processor. (Save the skillet for step 2.) Pulse until pecan pieces disappear, then continue pulsing to form a stiff dough.\n2. To Finish: Sprinkle about half of powdered sugar into skillet, then divide dough into 20 half-ounce portions (I use a #60 scoop). Tumble each piece in powdered sugar until fully coated and roll into a ball. When all pieces have been rounded up, shake skillet so the cookie dough rolls around, collecting more sugar. Arrange on a parchment-lined half sheet pan and bake until puffed and firm, about 18 minutes. Cool to room temperature directly on baking sheet and sift remaining powdered sugar on top.",
+  notes: "Toasting gives the pecans and the powdered sugar more depth of flavor.\nA food processor does the work of chopping the pecans and mixing the dough all at once.\nSmaller portions of dough have a better ratio of cookie to powdered sugar, so portion these out with a scoop or scale.",
+  link: "http://www.seriouseats.com/recipes/2016/12/easy-mexican-wedding-cookie-russian-tea-cake-snowball-recipe.html",
+  image_url: "http://www.seriouseats.com/recipes/assets_c/2016/12/20161207-mexican-wedding-cookies-vicky-wasik-12-thumb-1500xauto-435592.jpg",
   user_id: guest.id)
 
 mir = User.create(username: "mir", password: "password",

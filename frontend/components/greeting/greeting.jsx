@@ -61,7 +61,8 @@ class Greeting extends React.Component {
               <div>
                 <ul>
                   <div >
-                    <Link className="nav-titles" to="/groceries">Grocery</Link>
+                    <Link className="nav-titles" to="/groceries">
+                      Grocery</Link>
                   </div>
 
                   <div>

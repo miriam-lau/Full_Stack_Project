@@ -17,8 +17,9 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 570,
-    height: "100vh",
+
+    width: 5000,
+    height: 450,
     overflowY: 'auto',
   },
 };
@@ -46,22 +47,18 @@ class RecipeIndex extends React.Component {
             </section>
 
             <div className="recipe-three-list">
-              <div style={styles.root}>
-                <GridList cellHeight={180} style={styles.gridList}>
-                  {this.props.recipes.map((item, idx) => {
-                    return (
-                      <RecipeIndexItem
-                        key={idx}
-                        recipe_id={item.id}
-                        recipe={item}
-                        requestRecipe={this.props.requestRecipe}
-                        removeRecipe={this.props.removeRecipe}
-                        editRecipe={this.props.editRecipe}
-                      />
-                    )}
-                  )}
-                </GridList>
-              </div>
+              {this.props.recipes.map((item, idx) => {
+                return (
+                  <RecipeIndexItem
+                    key={idx}
+                    recipe_id={item.id}
+                    recipe={item}
+                    requestRecipe={this.props.requestRecipe}
+                    removeRecipe={this.props.removeRecipe}
+                    editRecipe={this.props.editRecipe}
+                  />
+                )}
+              )}
             </div>
           </div>
 
@@ -75,16 +72,3 @@ class RecipeIndex extends React.Component {
 }
 
 export default RecipeIndex;
-
-// <ul className="recipe-items">
-//   {this.props.recipes.map((item, idx) => {
-//     return (<RecipeIndexItem
-//       key={idx}
-//       recipe_id={item.id}
-//       recipe={item}
-//       requestRecipe={this.props.requestRecipe}
-//       removeRecipe={this.props.removeRecipe}
-//       editRecipe={this.props.editRecipe}
-//     />)
-//   })}
-// </ul>

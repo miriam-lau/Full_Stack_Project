@@ -17,8 +17,12 @@
   background-color: white;
 }
 
+.recipe-three-list {
+  display: flex;
+}
+
 .recipe-form {
-  width: 600px;
+  width: 800px;
   height: 100%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;

@@ -54,15 +54,15 @@ class Home extends React.Component {
           <section className="app-info">
             <section>
               <h3>Keep Track of Your Pantry</h3>
-              <p>Auto-Update Your Pantry</p>
+              <p>Always know what you have in your pantry.  Check out the auto-update feature: after purchasing groceries, click a button and myPantry will combine duplicate items and add new items to your pantry from your Grocery page.</p>
             </section>
             <section>
               <h3>Make Grocery Lists</h3>
-              <p>hello</p>
+              <p>Add items to your grocery list. Check off items to transfer them to the "Purchased" list. Click a button to add purchased items to your pantry.</p>
             </section>
             <section>
               <h3>Save Recipes</h3>
-              <p>hello</p>
+              <p>Create and view your recipes in the Recipe page. Add personal notes and ratings.</p>
               </section>
           </section>
         </div>

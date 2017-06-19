@@ -24,7 +24,7 @@
 }
 
 .recipe-form {
-  width: 800px;
+  width: 900px;
   height: 100%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
@@ -65,14 +65,51 @@
   margin: 10px 0 0 0;
 }
 
+.recipe-form-part2 {
+  display: flex;
+  margin: 3px 0 25px 0;
+}
+
+.recipe-form-part2:last-child {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.recipe-form-part2 > span {
+  padding-top: 6px;
+  min-width: 100px;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid #333399;
+  background-color: white;
+  color: #333399;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+
+.recipe-form-part3 {
+  margin-left: 70px;
+  width: 100%;
+}
+
+.recipe-form-part4 {
+  display: flex;
+}
+
+.recipe-form-part4 > span {
+  min-width: 100px;
+}
+
 .recipe-form-input > div {
   display: flex;
-  margin: 10px 0 10px 0;
+  margin: 10px 0 20px 0;
 }
 
 .recipe-form-input > div > span {
   padding-top: 6px;
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .recipe-form-input > div > input {
@@ -112,9 +149,13 @@
    color: #333399;
 }
 
+.recipe-form-part1 {
+  margin: 0 0 0 0;
+}
+
 .upload-img {
-  width: 100%;
-  height: 200px;
+  width: 250px;
+  height: 130px;
   margin-right: 15px;
   border: 1px solid #333399;
   background-color: white;
@@ -247,12 +288,6 @@
   display: flex;
   justify-content: flex-start;
 }
-
-// .recipe-detail-content2 > section {
-//   font-size: 15px;
-//   margin-bottom: 20px;
-//   margin-right: 15px;
-// }
 
 .ingredients {
   max-width: 325px;

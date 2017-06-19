@@ -58,11 +58,11 @@ class Home extends React.Component {
             </section>
             <section>
               <h3>Make Grocery Lists</h3>
-              <p>Add items to your grocery list. Check off items to transfer them to the "Purchased" list. Click a button to add purchased items to your pantry.</p>
+              <p>Grocery Shopping has never been easier! Add items to your grocery list. Check off items to transfer them to the "Purchased" list. Click a button to add purchased items to your pantry.</p>
             </section>
             <section>
               <h3>Save Recipes</h3>
-              <p>Create and view your recipes in the Recipe page. Add personal notes and ratings.</p>
+              <p>Save your favorite recipes in myPantry.  Create and view your recipes in the Recipe page. Add personal notes, upload food photos, and rate your recipes.</p>
               </section>
           </section>
         </div>

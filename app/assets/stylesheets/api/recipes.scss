@@ -199,7 +199,7 @@
 }
 
 .recipe-detail-img > img {
-  width: 100%;
+  width: 350px;
   max-height: 250px;
   min-height: 250px;
   object-fit: cover;
@@ -238,16 +238,19 @@
 // }
 
 .ingredients {
-  max-width: 310px;
-  min-width: 310px;
-  padding-right: 20px;
-  margin-right: 20px;
+  max-width: 325px;
+  min-width: 325px;
+  margin-right: 45px;
   font-size: 15px;
   margin-bottom: 20px;
 }
 
 .recipe-detail-content2 > section > ul > li {
   margin-bottom: 15px;
+}
+
+.recipe-detail-link {
+  color: blue;
 }
 
 .recipe-detail-link:hover {

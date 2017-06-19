@@ -13,9 +13,9 @@ class Api::PantryItemsController < ApplicationController
     render :index
   end
 
-  # def new
-  #   @pantry_item = PantryItem.new
-  # end
+  def new
+    @pantry_item = PantryItem.new
+  end
 
   def create
     @pantry_item = PantryItem.new(pantry_item_params)

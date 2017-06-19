@@ -3,7 +3,6 @@ import { Link, Route } from 'react-router-dom';
 
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
-// import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
 import RecipeDetailContainer from './recipe_detail_container';
 
@@ -43,5 +42,3 @@ class RecipeIndexItem extends React.Component{
 }
 
 export default RecipeIndexItem;
-
-// actionIcon={<IconButton><StarBorder color="white" /></IconButton>}

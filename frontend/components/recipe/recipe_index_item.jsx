@@ -14,9 +14,11 @@ const styles = {
     overflowY: 'hidden',
     objectfit: 'cover',
     borderRadius: '5px',
+    marginRight: '15px',
+    marginTop: '15px',
+    marginLeft: '15px',
   },
 }
-
 
 class RecipeIndexItem extends React.Component{
   constructor(props) {

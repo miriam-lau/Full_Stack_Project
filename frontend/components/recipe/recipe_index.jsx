@@ -61,10 +61,6 @@ class RecipeIndex extends React.Component {
               )}
             </div>
           </div>
-
-          <div className="new-recipe">
-            <Route path="/recipes/new" component={ RecipeFormContainer } />
-          </div>
         </div>
       </div>
     );

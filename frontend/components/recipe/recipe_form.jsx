@@ -24,7 +24,9 @@ class RecipeForm extends React.Component {
   render() {
     return (
       <form className="recipe-form" onSubmit={this.handleSubmit}>
-        <h2 className="recipe-title">Add New Recipe</h2>
+        <div className="new-recipe-title">
+          <h2>New Recipe</h2>
+        </div>
         <section className="recipe-form-input">
           <div>
             <span>Recipe Name</span>

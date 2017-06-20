@@ -10,7 +10,6 @@ class ModalForm extends React.Component {
     super(props);
 
     this.state = {modalIsOpen: false};
-
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -67,7 +66,8 @@ class ModalForm extends React.Component {
     const open = Boolean(this.props.modalOpen)
     const {openModal, modalOpen} = this.props;
     const form = modalOpen === 'signin' ? (<SignInFormContainer openModal={openModal}/>) :
-      (<SignUpFormContainer openModal={openModal}/>);
+      (<SignUpFormContainer
+        openModal={openModal}/>);
     return (
       <div>
         <Modal

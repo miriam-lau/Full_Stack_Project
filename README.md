@@ -21,6 +21,8 @@ update their pantry with purchased grocery items.
 
 ![grocery page](./docs/grocery.png)
 
+![recipe page](./docs/recipe.png)
+
 ## Project Design
 myPantry was designed and built in about 2 weeks.
 

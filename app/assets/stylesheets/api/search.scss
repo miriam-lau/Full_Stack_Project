@@ -1,0 +1,54 @@
+.search-form-container {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #E6E6FA;
+  width: 600px;
+}
+
+.search-form-div {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  padding-right: 10px;
+  width: 400px;
+  color: #E6E6FA;
+}
+
+.search-field {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 400px;
+}
+
+.search-result {
+  min-width: 600px;
+  min-height: 1200px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: #BCBCF2;
+}
+
+.search-error {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 10px 0 0 15px;
+}
+
+.search-item-info span {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 0 0 15px;
+}

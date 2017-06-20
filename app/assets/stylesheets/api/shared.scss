@@ -1,11 +1,11 @@
-.edit-instructions {
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  margin-left: 20px;
-  font-style: italic;
-  color: #E6E6FA;
-}
+// .edit-instructions {
+//   font-family: 'Nunito', sans-serif;
+//   font-size: 12px;
+//   font-weight: bold;
+//   margin-left: 20px;
+//   font-style: italic;
+//   color: #E6E6FA;
+// }
 
 .material-icons {
   align-self: center;
@@ -17,183 +17,8 @@
   cursor: pointer;
 }
 
-.search-form-container {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  margin-left: 10px;
-  color: #E6E6FA;
-  width: 600px;
-}
-
-.search-form-div {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  padding-right: 10px;
-  width: 400px;
-  color: #E6E6FA;
-}
-
-.search-field {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 400px;
-}
-
-.search-result {
-  min-width: 600px;
-  min-height: 1200px;
-  border-radius: 5px;
-  margin-top: 10px;
-  background-color: #BCBCF2;
-}
-
-.search-error {
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: italic;
-  padding: 10px 0 0 15px;
-}
-
-.search-item-info span {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 10px 0 0 15px;
-}
-
 .header {
   display: flex;
   align-items: center;
   padding-right: 30px;
-}
-
-.tutorial {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333399;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
-  border-radius: 10px;
-  width: 75%;
-  margin: auto;;
-}
-
-.drawer-icon {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.tutorial-topic {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  font-style: italic;
-  color: #333399;
-  text-align: center;
-}
-
-.conversion-div {
-  display: flex;
-}
-
-// .dropdown select {
-//   border: 0 !important;.  /*Removes border*/
-//   -webkit-appearance: none;  /*Removes default chrome and safari style*/
-//   -moz-appearance: none;  /*Removes default style Firefox*/
-// }
-
-.conversion {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333399;
-  padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  border-radius: 10px;
-  width: 75%;
-  margin: auto;;
-}
-
-.conversion1 {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333399;
-  padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 30px;
-  border-radius: 10px;
-  width: 75%;
-  margin: auto;;
-}
-
-.conversion-topic {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  font-style: italic;
-  color: #333399;
-  text-align: center;
-}
-
-.conversion-text {
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  font-weight: 900;
-  color: #333399;
-  padding-left: 50px;
-  padding-bottom: 10px;
-}
-
-.conversion-text1 {
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  font-weight: 900;
-  color: #333399;
-  padding-left: 50px;
-  padding-bottom: 10px;
-  vertical-align: bottom;
-}
-
-.conversion-field {
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  color: #333399;
-  width: 20%;
-  margin-left: 50px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-bottom: 1px solid lightgray;
-}
-
-.conversion-select {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  color: #333399;
-  padding: 5px;
-  border: 1px solid lightgray;
-  border-radius: none;
-  margin-bottom: 10px;
-  margin-left: 10px;
 }

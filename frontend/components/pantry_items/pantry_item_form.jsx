@@ -102,7 +102,7 @@ class PantryItemForm extends React.Component {
     }
 
     if (convertedUnit === null) {
-      convertedUnit = '';n
+      convertedUnit = '';
     }
     let item = words.join(' ');
 

@@ -143,9 +143,8 @@ class GroceryIndexItem extends React.Component {
 
     this.setState({quantity: parseInt(quantity), unit: convertedUnit,
       temp: '', quantityError: ''}, () => {
-      const grocery_item = this.state
-      this.props.editGroceryItem({grocery_item});
-          // .then(data => this.props.history.push(`/grocery_items/${data.id}`))
+        const grocery_item = this.state
+        this.props.editGroceryItem({grocery_item});
       });
 
     return null;
@@ -187,7 +186,6 @@ class GroceryIndexItem extends React.Component {
         if (this.state.temp === '') {
           const grocery_item = this.state;
           this.props.editGroceryItem({grocery_item});
-            // .then(data => this.props.history.push(`/grocery_items/${data.id}`));
         } else {
           this.parseUpdateQuantity(this.state.temp);
         }

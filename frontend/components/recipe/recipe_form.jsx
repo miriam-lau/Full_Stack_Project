@@ -15,8 +15,6 @@ class RecipeForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const recipe = this.state;
-    console.log("in recipe form");
-    console.log(this.state);
     this.props.createRecipe({recipe})
       .then(data => this.props.history.push(`/recipes/${recipe.id}`));
   }

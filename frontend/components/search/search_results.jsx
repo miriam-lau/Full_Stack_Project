@@ -7,9 +7,11 @@ class SearchResults extends React.Component {
   }
 
   render() {
+    console.log("in search results");
+    console.log(this.props.searchItems);
     return(
       <div>
-        {this.props.searchItems.map(item => {
+        {this.props.searchItems.map((item) => {
           return(
             <div className="search-item-info">
               <span>Item Name: {item.name}</span>

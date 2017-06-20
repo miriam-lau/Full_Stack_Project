@@ -90,7 +90,7 @@ class Greeting extends React.Component {
                   component={ RecipeFormContainer } />
                 <Route exact path="/recipes/:id"
                   component={ RecipeDetailContainer } />
-                <Route path='/search'
+                <Route exact path='/search'
                   component={ SearchResultsContainer } />
               </Switch>
             </div>

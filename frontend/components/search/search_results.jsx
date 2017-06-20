@@ -10,7 +10,7 @@ class SearchResults extends React.Component {
   ErrorMessage() {
     if (this.props.searchItems.length === 0) {
       return (
-        <div>No items found. Try again.</div>
+        <div className="search-error">No items found. Try again.</div>
       );
     } else {
       return null;
@@ -19,7 +19,7 @@ class SearchResults extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="search-result">
         {this.ErrorMessage()}
         {this.props.searchItems.map((item, idx) => {
           return (

@@ -80,6 +80,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-
-// <button className="guest-sign-in" onClick={ this.handleSubmit }>Guest Sign In</button>

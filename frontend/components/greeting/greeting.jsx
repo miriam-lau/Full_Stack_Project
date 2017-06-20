@@ -86,7 +86,10 @@ class Greeting extends React.Component {
                   component={ PantryIndexContainer } />
                 <Route exact path="/recipes"
                   component={ RecipeIndexContainer } />
-
+                <Route exact path="/recipes/new"
+                  component={ RecipeFormContainer } />
+                <Route exact path="/recipes/:id"
+                  component={ RecipeDetailContainer } />
                 <Route exact path='/search'
                   component={ SearchResultsContainer } />
               </Switch>
@@ -106,8 +109,3 @@ class Greeting extends React.Component {
 }
 
 export default Greeting;
-
-// <Route exact path="/recipes/new"
-//   component={ RecipeFormContainer } />
-// <Route exact path="/recipes/:id"
-//   component={ RecipeDetailContainer } />

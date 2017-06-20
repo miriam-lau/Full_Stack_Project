@@ -18,13 +18,11 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    console.log("in search results");
-    console.log(this.props.searchItems);
     return(
       <div>
         {this.ErrorMessage()}
-        {this.props.searchItems.map((item) => {
-          return(
+        {this.props.searchItems.map((item, idx) => {
+          return (
             <div className="search-item-info">
               <span>Item Name: {item.name}</span>
               <span>Quantity: {item.quantity}</span>

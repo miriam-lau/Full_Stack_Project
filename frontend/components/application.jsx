@@ -25,13 +25,9 @@ const App = () => {
         <AuthRoute path='/signin' component={ ModalContainer } />
         <AuthRoute path='/signup' component={ ModalContainer } />
       </Switch>
-      <Route exact path='/search' component={ SearchResultsContainer } />
+
     </div>
   </div>);
 }
 
 export default App;
-
-// protected route pushes you to login in not logged in
-// <AuthRoute path='/signin' component={ SignInFormContainer } />
-// <AuthRoute path='/signup' component={ SignUpFormContainer } />

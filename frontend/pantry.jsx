@@ -4,7 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 function displayStateChange() {
-
+  console.log("State changed");
+  console.log(JSON.stringify(window.store.getState()));
 }
 
 document.addEventListener('DOMContentLoaded', () => {

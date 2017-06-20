@@ -45,7 +45,7 @@ class Home extends React.Component {
 
           <div>
             <h2 className="home-titles">Save Recipes</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914916/splash4_e7n1pw.jpg
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914916/splash4_e7n1pw.jpg"
               alt="splash-img"/>
           </div>
         </Carousel>

@@ -5,23 +5,27 @@ RemembertheMilk, myPantry allows users to add items to their pantry,
 update and delete current pantry items, make grocery lists and
 update their pantry with purchased grocery items.
 
-![homepage](./docs/homepage1.png)
+![homepage](./docs/homepage.png)
 
 
 ## Features
-- Users can create accounts with secure authentication
+- Users can create accounts with secure authentication.
 - Add pantry and grocery items.
 - Update and delete pantry and grocery items.
+
+![pantry page](./docs/pantry.png)
+
 - Generate grocery lists and add items to "Purchased". Move items from
   "Purchased" list back to grocery list.
+
+![grocery page](./docs/grocery.png)
+
 - Auto-update your pantry with "Purchased" grocery items.
 - Searching for items in your grocery list and pantry.
+- Add personal recipes.
 
-![pantry page](./docs/pantry1.png)
+![recipe page](./docs/recipe.png)
 
-![grocery page](./docs/grocery1.png)
-
-![recipe page](./docs/recipe1.png)
 
 ## Project Design
 myPantry was designed and built in about 2 weeks.

@@ -33,19 +33,19 @@ class Home extends React.Component {
 
           <div>
             <h2 className="home-titles">Keep Track of Your Pantry</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg"
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091372/splash6_ltuu4o.jpg"
               alt="splash-img"/>
           </div>
 
           <div>
             <h2 className="home-titles">Make Grocery Lists</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914850/spalsh3_fhyzeq.jpg"
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg"
              alt="splash-img"/>
           </div>
 
           <div>
             <h2 className="home-titles">Save Recipes</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914916/splash4_e7n1pw.jpg"
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg"
               alt="splash-img"/>
           </div>
         </Carousel>
@@ -80,3 +80,9 @@ class Home extends React.Component {
 }
 
 export default Home;
+
+// <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914850/spalsh3_fhyzeq.jpg"
+//  alt="splash-img"/>
+
+// <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914916/splash4_e7n1pw.jpg"
+//   alt="splash-img"/>

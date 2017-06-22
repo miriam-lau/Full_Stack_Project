@@ -128,8 +128,7 @@ class Conversion extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleToggle}
-          className="header-button">Conversion Calculator</button>
+        <i className="fa fa-calculator fa-lg" aria-hidden="true" onClick={this.handleToggle}></i>
 
         {this.state.toggle ? <Drawer width={400}
           containerStyle={{height: 'calc(100% - 80px)', top: 80}}

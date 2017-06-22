@@ -20,7 +20,8 @@ class Tutorial extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleToggle} className="header-button">Guide</button>
+
+        <i className="fa fa-info-circle fa-lg" aria-hidden="true" onClick={this.handleToggle}></i>
 
         {this.state.toggle ?
           <Drawer

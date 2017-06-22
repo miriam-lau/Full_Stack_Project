@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
+import FontIcon from 'material-ui/FontIcon';
 
 import GroceryIndexContainer from '../grocery/grocery_index_container';
 import ModalFormContainer from '../modal/modal_container';
@@ -62,15 +63,17 @@ class Greeting extends React.Component {
                 <ul>
                   <div >
                     <Link className="nav-titles" to="/groceries">
-                      Grocery</Link>
+                      <i className="fa fa-shopping-basket fa-lg" aria-hidden="true"></i>Grocery</Link>
                   </div>
 
                   <div>
-                    <Link className="nav-titles" to="/pantry_items">Pantry</Link>
+                    <Link className="nav-titles" to="/pantry_items">
+                    <i className="material-icons fridge">kitchen</i>
+                    Pantry</Link>
                   </div>
 
                   <div>
-                    <Link className="nav-titles" to="/recipes">Recipe</Link>
+                    <Link className="nav-titles" to="/recipes"><i className="fa fa-book fa-lg" aria-hidden="true"></i>Recipes</Link>
                   </div>
                 </ul>
               </div>

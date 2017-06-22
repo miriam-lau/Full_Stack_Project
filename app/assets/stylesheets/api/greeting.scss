@@ -143,6 +143,14 @@
   background-color: #E6E6FA;
 }
 
+.fa-shopping-basket, .fa-book, .fridge {
+  margin-right: 10px;
+}
+
+.fridge {
+  vertical-align: middle;
+}
+
 .item-list {
   margin-left: 180px;
   width: auto;
@@ -152,7 +160,7 @@
 
 .nav-titles {
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: bold;

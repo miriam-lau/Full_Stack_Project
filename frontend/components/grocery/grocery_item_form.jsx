@@ -137,7 +137,7 @@ class GroceryItemForm extends React.Component {
             onChange={this.update('temp')}
           />
 
-          <i className="material-icons"
+          <i className="material-icons add-circle"
             onClick={this.handleSubmit}>add_circle</i>
         </div>
         <ErrorBanner shouldShow={this.state.errors}

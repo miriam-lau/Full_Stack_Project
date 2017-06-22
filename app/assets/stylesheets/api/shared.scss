@@ -11,9 +11,15 @@
   align-self: center;
 }
 
-.material-icons:hover {
+.trash-can:hover {
   align-self: center;
   color: red;
+  cursor: pointer;
+}
+
+.add-circle:hover {
+  align-self: center;
+  transform: scale(1.5);
   cursor: pointer;
 }
 

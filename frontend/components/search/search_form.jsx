@@ -15,7 +15,8 @@ const searchBoxStyle = {
   "paddingBottom": "0",
   "paddingTop": "0",
   "height": "45px",
-  "width": "300px"
+  "width": "300px",
+  "borderRadius": "3px"
 }
 
 const searchBoxFontStyle = {

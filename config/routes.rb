@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :pantry_items, except: [:new]
     resources :groceries
     resources :recipes
+    resources :lists
     get "/search", to: "pantry_items#search"
   end
 

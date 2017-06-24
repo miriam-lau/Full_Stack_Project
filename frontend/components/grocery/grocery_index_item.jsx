@@ -216,7 +216,7 @@ class GroceryIndexItem extends React.Component {
     }
 
     return (
-      <div className="update-grocery-list">
+      <div>
         <div className="update-grocery-form-div">
 
           <Checkbox className="update-grocery-checkbox"

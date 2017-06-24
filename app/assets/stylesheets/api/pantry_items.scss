@@ -29,7 +29,7 @@
 .add-pantry-item {
   border: 1px solid #C0C0C0;
   border-radius: 5px;
-  margin: 10px 15px 10px 15px;
+  margin: 10px 15px 20px 15px;
 }
 
 .pantry-form {
@@ -57,7 +57,7 @@
 
 .update-pantry-form-div {
   display: flex;
-  padding-left: 52px;
+  margin-left: 52px;
   margin-right: 70px;
 }
 
@@ -119,4 +119,5 @@
   font-style: italic;
   color: red;
   margin-left: 20px;
+  margin-bottom: 5px;
 }

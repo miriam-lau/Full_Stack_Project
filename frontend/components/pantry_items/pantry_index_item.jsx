@@ -8,7 +8,8 @@ const textboxUnderlineFocusStyle = {
 }
 
 const textboxUnderlineStyle = {
-  'borderColor': '#C0C0C0'
+  'borderColor': '#C0C0C0',
+  "bottom": "5px"
 }
 
 const addItemTextBoxStyle1 = {
@@ -19,7 +20,7 @@ const addItemTextBoxStyle1 = {
   "display": "inline",
   "textAlign": "left",
   "marginRight": "20px",
-  "height": "35px",
+  "height": "30px",
 }
 
 const addItemTextBoxStyle2 = {
@@ -28,8 +29,13 @@ const addItemTextBoxStyle2 = {
   "fontWeight": "bold",
   "width": "300px",
   "display": "inline",
-  "height": "35px",
+  "height": "30px",
   "marginRight": "20px"
+}
+
+const styles = {
+  "width": "30px",
+  "alignItems": "top"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
@@ -203,6 +209,7 @@ class PantryIndexItem extends React.Component {
           </form>
 
           <i className="material-icons trash-can"
+            style={styles}
             onClick={() => deletePantryItem(pantry_item.id)}>
             delete_forever</i>
         </div>

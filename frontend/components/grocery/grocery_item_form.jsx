@@ -5,7 +5,7 @@ const addItemTextBoxStyle ={
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "505px",
+  "width": "490px",
   "display": "inline",
   "marginLeft": "20px",
   "marginRight": "20px",

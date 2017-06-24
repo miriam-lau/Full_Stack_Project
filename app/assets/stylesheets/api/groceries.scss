@@ -14,9 +14,9 @@
 }
 
 .add-grocery-item {
-  border: 1px solid black;
+  border: 1px solid #C0C0C0;
   border-radius: 5px;
-  margin: 10px 10px 10px 15px;
+  margin: 10px 15px 10px 15px;
 }
 
 .grocery-two {
@@ -43,6 +43,7 @@
 
 .grocery-form-fields {
   display: flex;
+  margin-right: 10px;
 }
 
 .grocery-items ul {

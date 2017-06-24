@@ -13,6 +13,11 @@ const textboxUnderlineStyle = {
   'borderColor': '#C0C0C0'
 }
 
+const hintTextStyle = {
+  "bottom": "6px",
+  "color": "#333399"
+}
+
 const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
@@ -143,6 +148,7 @@ class Conversion extends React.Component {
             <TextField id="text-field-default"
               defaultValue={ this.state.quantity }
               hintText="Quantity"
+              hintStyle={hintTextStyle}
               underlineFocusStyle ={textboxUnderlineFocusStyle}
               underlineStyle={textboxUnderlineStyle}
               style={addItemTextBoxStyle}

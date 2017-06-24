@@ -13,7 +13,7 @@ const textboxUnderlineStyle = {
 
 const addItemTextBoxStyle1 = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "width": "150px",
   "display": "inline",
@@ -24,7 +24,7 @@ const addItemTextBoxStyle1 = {
 
 const addItemTextBoxStyle2 = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "width": "300px",
   "display": "inline",

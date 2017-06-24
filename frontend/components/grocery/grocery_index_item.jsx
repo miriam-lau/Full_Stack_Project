@@ -14,7 +14,7 @@ const textboxUnderlineStyle = {
 
 const addItemTextBoxStyle1 = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "width": "150px",
   "display": "inline",
@@ -25,7 +25,7 @@ const addItemTextBoxStyle1 = {
 
 const addItemTextBoxStyle2 = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "width": "300px",
   "display": "inline",
@@ -33,8 +33,14 @@ const addItemTextBoxStyle2 = {
   "marginRight": "20px"
 }
 
+const icon = {
+  "fill": "black",
+  "width": "16px",
+  "height": "16px"
+}
+
 const styles = {
-  "width": "50px",
+  "width": "30px",
   "alignItems": "top"
 }
 
@@ -214,7 +220,7 @@ class GroceryIndexItem extends React.Component {
 
           <Checkbox className="update-grocery-checkbox"
             style={styles}
-            iconStyle={{fill: "#33339"}}
+            iconStyle={icon}
             checked={this.state.purchased ? true : false}
             onCheck={this.handleCheck}
             />

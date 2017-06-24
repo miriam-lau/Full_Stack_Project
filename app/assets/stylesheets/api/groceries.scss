@@ -14,6 +14,9 @@
 }
 
 .add-grocery-item {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 10px 10px 15px;
 }
 
 .grocery-two {
@@ -35,7 +38,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 900;
-  margin: 10px 0 0 15px;
+  margin: 10px 0 20px 15px;
 }
 
 .grocery-form-fields {

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import TextField from 'material-ui/TextField';
 
 const textboxUnderlineStyle = {
@@ -8,7 +7,7 @@ const textboxUnderlineStyle = {
 
 const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "width": "470px",
   "display": "inline",
@@ -18,7 +17,8 @@ const addItemTextBoxStyle = {
 }
 
 const hintTextStyle = {
-  "bottom": "5px"
+  "bottom": "5px",
+  "color": "#333399"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];

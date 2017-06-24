@@ -1,6 +1,7 @@
 .grocery-wrapper {
   display: flex;
   width: 100%;
+  left: 180px;
   min-height: 1200px;
   padding-top: 10px;
 }
@@ -20,7 +21,7 @@
 }
 
 .grocery-two {
-  width: 100%;
+  // width: 100%;
   height: auto;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
@@ -43,7 +44,7 @@
 
 .grocery-form-fields {
   display: flex;
-  margin-right: 10px;
+  // margin-right: 10px;
 }
 
 .grocery-items ul {
@@ -57,6 +58,7 @@
 .update-grocery-form-div {
   display: flex;
   margin-left: 20px;
+  margin-right: 70px;
 }
 
 .update-grocery-checkbox {

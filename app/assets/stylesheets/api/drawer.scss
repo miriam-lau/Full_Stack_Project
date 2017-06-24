@@ -44,15 +44,36 @@
   cursor: pointer;
 }
 
-.conversion-div {
+.converter {
   display: flex;
+  flex-direction: row;
 }
 
-// .dropdown select {
-//   border: 0 !important;.  /*Removes border*/
-//   -webkit-appearance: none;  /*Removes default chrome and safari style*/
-//   -moz-appearance: none;  /*Removes default style Firefox*/
-// }
+.conversion-text {
+  margin: 0 0 20px 21px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #333399;
+}
+
+.conversion-div1 {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #C0C0C0;
+  border-radius: 5px;
+  width: 140px;
+  margin: 10px 0 10px 22px;
+}
+
+.conversion-div2 {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #C0C0C0;
+  border-radius: 3px;
+  width: 150px;
+  margin: 10px 20px 10px 0;
+}
 
 .conversion {
   display: flex;
@@ -74,10 +95,7 @@
   font-size: 14px;
   font-weight: 500;
   color: #333399;
-  padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 30px;
+  padding: 25px 20px 10px 20px;
   border-radius: 10px;
   width: 75%;
   margin: auto;;
@@ -92,23 +110,28 @@
   text-align: center;
 }
 
-.conversion-text {
+.conversion-text-result {
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
   color: #333399;
-  padding-left: 50px;
-  padding-bottom: 10px;
+  text-align: center;
+  width: 140px;
+  height: 35px;
 }
 
-.conversion-text1 {
+.conversion-result {
+  padding-top: 8px;
+}
+
+.conversion-text-to {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-weight: 900;
   color: #333399;
-  padding-left: 50px;
-  padding-bottom: 10px;
-  vertical-align: bottom;
+  padding: 30px 20px 0 20px;
+  vertical-align: middle;
+  width: 20px;
 }
 
 .conversion-field {
@@ -121,17 +144,16 @@
   margin-right: 10px;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #C0C0C0;
 }
 
-.conversion-select {
+#conversion-select {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
-  color: #333399;
+  color: black;
+  background-color: #E6E6FA;
   padding: 5px;
-  border: 1px solid lightgray;
-  border-radius: none;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  border-radius: 0;
+  border-top: 1px solid #C0C0C0;
 }

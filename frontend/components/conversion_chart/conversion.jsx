@@ -5,27 +5,19 @@ const iconStyle = {
   "padding": "10px"
 }
 
-const textboxUnderlineFocusStyle = {
-  'borderColor': '#333399'
-}
-
-const textboxUnderlineStyle = {
-  'borderColor': '#C0C0C0'
-}
-
 const hintTextStyle = {
-  "bottom": "6px",
-  "color": "#333399"
+  "bottom": "3px",
+  "color": "#333399",
+  "margin-left": "18px"
 }
 
 const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "80px",
+  "width": "140px",
   "display": "inline",
-  "textAlign": "left",
-  "marginLeft": "50px",
+  "text-align": "center",
   "height": "35px"
 }
 
@@ -108,7 +100,9 @@ class Conversion extends React.Component {
           liquidConversion.get(this.state.value1)) /
           liquidConversion.get(this.state.value2)).toFixed(2);
       } else {
-        return "Invalid conversion"
+        return (
+          <div className="conversion-result">Invalid conversion</div>
+        )
       }
     } else if (dry.includes(this.state.value1)) {
       if (dry.includes(this.state.value2)) {
@@ -116,7 +110,9 @@ class Conversion extends React.Component {
           dryConversion.get(this.state.value1)) /
           dryConversion.get(this.state.value2)).toFixed(2);
       } else {
-        return "Invalid conversion"
+        return (
+          <div className="conversion-result">Invalid conversion</div>
+        )
       }
     } else if (length.includes(this.state.value1)) {
       if (length.includes(this.state.value2)) {
@@ -124,10 +120,14 @@ class Conversion extends React.Component {
           lengthConversion.get(this.state.value1)) /
           lengthConversion.get(this.state.value2)).toFixed(2);
       } else {
-        return "Invalid conversion"
+        return (
+          <div className="conversion-result">Invalid conversion</div>
+        )
       }
     }
-    return result;
+    return (
+      <div className="conversion-result">{result}</div>
+    );
   }
 
   render() {
@@ -143,76 +143,79 @@ class Conversion extends React.Component {
             <i className="material-icons" style={iconStyle}
               onClick={this.handleToggle}>close</i>
           </div>
-            <p className="conversion-text">Convert</p>
-          <div className="conversion-div">
-            <TextField id="text-field-default"
-              defaultValue={ this.state.quantity }
-              hintText="Quantity"
-              hintStyle={hintTextStyle}
-              underlineFocusStyle ={textboxUnderlineFocusStyle}
-              underlineStyle={textboxUnderlineStyle}
-              style={addItemTextBoxStyle}
-              autoComplete="off"
-              onChange={this.update('quantity')}
-            />
 
-            <select className="conversion-select" onChange={this.update("value1")}>
-              <option value="0">fluid ounce</option>
-              <option value="1">gill</option>
-              <option value="2">teaspoon</option>
-              <option value="3">teaspoon (dry)</option>
-              <option value="4">tablespoon</option>
-              <option value="5">tablespoon (dry)</option>
-              <option value="6">cup</option>
-              <option value="7">pint</option>
-              <option value="8">quart</option>
-              <option value="9">gallon</option>
-              <option value="10">ounce</option>
-              <option value="11">pound</option>
-              <option value="12">inch</option>
-              <option value="13">foot</option>
-              <option value="14">milliliter</option>
-              <option value="15">deciliter</option>
-              <option value="16">liter</option>
-              <option value="17">milligram</option>
-              <option value="18">gram</option>
-              <option value="19">kilogram</option>
-              <option value="20">millimeter</option>
-              <option value="21">centimeter</option>
-              <option value="22">meter</option>
-            </select>
-          </div>
-          <div className="conversion-div">
-            <p className="conversion-text1">to</p>
-            <select className="conversion-select" onChange={this.update("value2")}>
-              <option value="0">fluid ounce</option>
-              <option value="1">gill</option>
-              <option value="2">teaspoon</option>
-              <option value="3">teaspoon (dry)</option>
-              <option value="4">tablespoon</option>
-              <option value="5">tablespoon (dry)</option>
-              <option value="6">cup</option>
-              <option value="7">pint</option>
-              <option value="8">quart</option>
-              <option value="9">gallon</option>
-              <option value="10">ounce</option>
-              <option value="11">pound</option>
-              <option value="12">inch</option>
-              <option value="13">foot</option>
-              <option value="14">milliliter</option>
-              <option value="15">deciliter</option>
-              <option value="16">liter</option>
-              <option value="17">milligram</option>
-              <option value="18">gram</option>
-              <option value="19">kilogram</option>
-              <option value="20">millimeter</option>
-              <option value="21">centimeter</option>
-              <option value="22">meter</option>
-            </select>
-          </div>
+          <div className="conversion-text">Conversion Calculator</div>
 
-          <div className="conversion-div">
-            <p className="conversion-text" >Result: &nbsp; {this.calculateResult()} </p>
+          <div className="converter">
+            <div className="conversion-div1">
+              <TextField className="enter-quantity" id="text-field-default"
+                defaultValue={ this.state.quantity }
+                hintText="Enter a Quantity"
+                hintStyle={hintTextStyle}
+                underlineShow ={false}
+                style={addItemTextBoxStyle}
+                autoComplete="off"
+                onChange={this.update('quantity')}
+              />
+
+              <select id="conversion-select" onChange={this.update("value1")}>
+                <option value="0">fluid ounce</option>
+                <option value="1">gill</option>
+                <option value="2">teaspoon</option>
+                <option value="3">teaspoon (dry)</option>
+                <option value="4">tablespoon</option>
+                <option value="5">tablespoon (dry)</option>
+                <option value="6">cup</option>
+                <option value="7">pint</option>
+                <option value="8">quart</option>
+                <option value="9">gallon</option>
+                <option value="10">ounce</option>
+                <option value="11">pound</option>
+                <option value="12">inch</option>
+                <option value="13">foot</option>
+                <option value="14">milliliter</option>
+                <option value="15">deciliter</option>
+                <option value="16">liter</option>
+                <option value="17">milligram</option>
+                <option value="18">gram</option>
+                <option value="19">kilogram</option>
+                <option value="20">millimeter</option>
+                <option value="21">centimeter</option>
+                <option value="22">meter</option>
+              </select>
+            </div>
+
+            <span className="conversion-text-to">TO</span>
+
+            <div className="conversion-div2">
+              <section className="conversion-text-result"> {this.calculateResult()} </section>
+
+              <select id="conversion-select" onChange={this.update("value2")}>
+                <option value="0">fluid ounce</option>
+                <option value="1">gill</option>
+                <option value="2">teaspoon</option>
+                <option value="3">teaspoon (dry)</option>
+                <option value="4">tablespoon</option>
+                <option value="5">tablespoon (dry)</option>
+                <option value="6">cup</option>
+                <option value="7">pint</option>
+                <option value="8">quart</option>
+                <option value="9">gallon</option>
+                <option value="10">ounce</option>
+                <option value="11">pound</option>
+                <option value="12">inch</option>
+                <option value="13">foot</option>
+                <option value="14">milliliter</option>
+                <option value="15">deciliter</option>
+                <option value="16">liter</option>
+                <option value="17">milligram</option>
+                <option value="18">gram</option>
+                <option value="19">kilogram</option>
+                <option value="20">millimeter</option>
+                <option value="21">centimeter</option>
+                <option value="22">meter</option>
+              </select>
+            </div>
           </div>
 
           <section className="conversion1">

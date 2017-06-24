@@ -41,7 +41,7 @@ class GroceryIndex extends React.Component {
         <div className="grocery-wrapper">
           <div className="grocery-one">
             <section>
-              <h2 className="grocery-title">Add an Item</h2>
+              <h2 className="grocery-title">Grocery</h2>
             </section>
             <div className="add-grocery-item">
               <Route path="/groceries" component={ GroceryItemFormContainer } />

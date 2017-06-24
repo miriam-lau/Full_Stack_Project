@@ -165,7 +165,7 @@ class PantryItemForm extends React.Component {
             value={this.state.temp}
             underlineFocusStyle ={textboxUnderlineStyle}
             style={addItemTextBoxStyle}
-            hintText="e.g. '2 Oranges' or '3 cups Milk'"
+            hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             onChange={this.update('temp')}
           />
 

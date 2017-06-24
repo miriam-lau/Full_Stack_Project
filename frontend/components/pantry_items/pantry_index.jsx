@@ -22,7 +22,7 @@ class PantryIndex extends React.Component {
 
           <div className="pantry-one">
             <section>
-              <h2 className="pantry-title">Add an Item</h2>
+              <h2 className="pantry-title">Pantry</h2>
             </section>
             <div className="add-pantry-item">
               <Route path="/pantry_items" component={ PantryItemFormContainer } />

@@ -14,14 +14,14 @@ const searchBoxStyle = {
   "paddingRight": "10px",
   "paddingBottom": "0",
   "paddingTop": "0",
-  "height": "37px",
+  "height": "35px",
   "width": "300px",
   "borderRadius": "3px",
   "lineheight": "35px"
 }
 
 const textStyle = {
-  "height": "37px",
+  "height": "35px",
 }
 
 const searchBoxFontStyle = {
@@ -30,7 +30,7 @@ const searchBoxFontStyle = {
   "fontWeight": "bold",
   "color": "black",
   "display": "inline",
-  "bottom": "6px"
+  "bottom": "4px"
 }
 
 const textboxUnderlineStyle = {

@@ -14,17 +14,23 @@ const searchBoxStyle = {
   "paddingRight": "10px",
   "paddingBottom": "0",
   "paddingTop": "0",
-  "height": "45px",
+  "height": "37px",
   "width": "300px",
-  "borderRadius": "3px"
+  "borderRadius": "3px",
+  "lineheight": "35px"
+}
+
+const textStyle = {
+  "height": "37px",
 }
 
 const searchBoxFontStyle = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "color": "black",
-  "display": "inline"
+  "display": "inline",
+  "bottom": "6px"
 }
 
 const textboxUnderlineStyle = {
@@ -73,8 +79,9 @@ class SearchForm extends React.Component {
           <form onSubmit={this.handleSubmit} >
             <div className="search-field">
               <AutoComplete
-                underlineFocusStyle ={textboxUnderlineStyle}
+                underlineShow={false}
                 style={searchBoxStyle}
+                textFieldStyle={textStyle}
                 hintStyle={searchBoxFontStyle}
                 hintText="Search for a pantry or grocery item"
                 dataSource={this.state.dataSource}

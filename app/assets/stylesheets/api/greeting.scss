@@ -143,24 +143,10 @@
   background-color: #E6E6FA;
 }
 
-.fa-shopping-basket, .fa-book, .fridge {
-  margin-right: 10px;
-}
-
-.fridge {
-  vertical-align: middle;
-}
-
-.item-list {
-  margin-left: 180px;
-  width: auto;
-  min-height: 1200px;
-  background-color: #E6E6FA;
-}
-
 .nav-titles {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
+  height: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: bold;
@@ -180,6 +166,38 @@
   width: 100%;
   transition: 0.5s;
 }
+
+.fa-shopping-basket, .fa-book, .fridge {
+  margin-right: 10px;
+}
+
+.fridge {
+  vertical-align: middle;
+}
+
+.item-list {
+  margin-left: 180px;
+  width: auto;
+  min-height: 1200px;
+  background-color: #E6E6FA;
+}
+
+.nav-titles-img {
+  position: absolute;
+  left: 40px;
+}
+
+.nav-titles-img-recipes {
+  position: absolute;
+  left: 43px;
+}
+
+.nav-titles-options {
+  position: absolute;
+  left: 80px;
+}
+
+
 
 .footer {
   display: flex;

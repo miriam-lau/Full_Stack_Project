@@ -59,23 +59,26 @@ class Greeting extends React.Component {
           </div>
           <div className="greeting-wrapper">
             <div className="side-nav-bar">
+
+              <div className="side-nav-bar-options">
+                <Link className="nav-titles" to="/groceries">
+                  <span className="nav-titles-img"><i className="fa fa-shopping-basket fa-lg" aria-hidden="true"></i></span>
+                  <span className="nav-titles-options">Grocery</span>
+                </Link>
+              </div>
+
               <div>
-                <ul>
-                  <div >
-                    <Link className="nav-titles" to="/groceries">
-                      <i className="fa fa-shopping-basket fa-lg" aria-hidden="true"></i>Grocery</Link>
-                  </div>
+                <Link className="nav-titles" to="/pantry_items">
+                  <span className="nav-titles-img"><i className="material-icons fridge">kitchen</i></span>
+                  <span className="nav-titles-options">Pantry</span>
+                </Link>
+              </div>
 
-                  <div>
-                    <Link className="nav-titles" to="/pantry_items">
-                    <i className="material-icons fridge">kitchen</i>
-                    Pantry</Link>
-                  </div>
-
-                  <div>
-                    <Link className="nav-titles" to="/recipes"><i className="fa fa-book fa-lg" aria-hidden="true"></i>Recipes</Link>
-                  </div>
-                </ul>
+              <div>
+                <Link className="nav-titles" to="/recipes">
+                  <span className="nav-titles-img-recipes"><i className="fa fa-book fa-lg" aria-hidden="true"></i></span>
+                  <span className="nav-titles-options">Recipes</span>
+                </Link>
               </div>
             </div>
 

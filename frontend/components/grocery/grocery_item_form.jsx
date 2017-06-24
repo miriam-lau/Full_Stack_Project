@@ -9,11 +9,11 @@ const addItemTextBoxStyle ={
   "display": "inline",
   "marginLeft": "20px",
   "marginRight": "20px",
-  "height": "35px"
+  "height": "30px"
 }
 
 const hintTextStyle = {
-  "bottom": "5px",
+  "bottom": "2px",
   "color": "#333399"
 }
 

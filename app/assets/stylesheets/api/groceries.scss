@@ -17,7 +17,7 @@
 .add-grocery-item {
   border: 1px solid #C0C0C0;
   border-radius: 5px;
-  margin: 10px 15px 10px 15px;
+  margin: 10px 15px 20px 15px;
 }
 
 .grocery-two {
@@ -44,7 +44,6 @@
 
 .grocery-form-fields {
   display: flex;
-  // margin-right: 10px;
 }
 
 .grocery-items ul {
@@ -126,6 +125,11 @@
   font-style: italic;
   color: red;
   margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.add-to-pantry-div {
+  display: flex;
 }
 
 .add-to-pantry-button {
@@ -137,7 +141,7 @@
   border-radius: 5px;
   border: 1px solid #E6E6FA;
   text-align: center;
-  margin: 0 30px 0 20px;
+  margin: 0 30px 0 15px;
   padding: 5px 10px 5px 10px;
   align-items: center;
   cursor: pointer;
@@ -152,7 +156,7 @@
 }
 
 .add-success {
-  width: 100%;;
+  // width: 100%;
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-style: italic;

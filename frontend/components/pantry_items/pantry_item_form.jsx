@@ -1,20 +1,24 @@
 import React from 'react';
 
 import TextField from 'material-ui/TextField';
-import FontIcon from 'material-ui/FontIcon';
 
 const textboxUnderlineStyle = {
-  "borderColor": "#333399",
+  "borderColor": "white",
 }
 
-const addItemTextBoxStyle ={
+const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "14px",
   "fontWeight": "bold",
-  "width": "520px",
+  "width": "470px",
   "display": "inline",
   "marginLeft": "20px",
-  "marginRight": "20px"
+  "marginRight": "20px",
+  "height": "35px"
+}
+
+const hintTextStyle = {
+  "bottom": "5px"
 }
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
@@ -166,11 +170,12 @@ class PantryItemForm extends React.Component {
             underlineFocusStyle ={textboxUnderlineStyle}
             style={addItemTextBoxStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
+            hintStyle={hintTextStyle}
             onChange={this.update('temp')}
           />
 
-          <i className="material-icons add-circle"
-          onClick={this.handleSubmit}>add_circle</i>
+          <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
+          onClick={this.handleSubmit}></i>
         </div>
         <ErrorBanner shouldShow={this.state.errors}
         message="Invalid entry. Entry must have 'quantity' and 'item name'" />

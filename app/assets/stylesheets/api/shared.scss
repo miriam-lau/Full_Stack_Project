@@ -17,7 +17,11 @@
   cursor: pointer;
 }
 
-.add-circle:hover {
+.fa-plus-circle {
+  align-self: center;
+}
+
+.fa-plus-circle:hover {
   align-self: center;
   transform: scale(1.5);
   cursor: pointer;

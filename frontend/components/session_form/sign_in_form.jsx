@@ -85,7 +85,7 @@ class SignInForm extends React.Component {
           <section className="session-question-div">
             <span className="session-question">New to</span>
             <span className="session-question-logo"> myPantry</span>
-            <span className="session-question">?</span>
+            <span className="session-question">&nbsp;?</span>
           </section>
           <br />
           <br />

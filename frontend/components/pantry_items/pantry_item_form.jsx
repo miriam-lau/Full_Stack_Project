@@ -1,10 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
-const textboxUnderlineStyle = {
-  "borderColor": "white",
-}
-
 const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
@@ -167,7 +163,7 @@ class PantryItemForm extends React.Component {
         <div className="pantry-form-fields">
           <TextField id="text-field-default"
             value={this.state.temp}
-            underlineFocusStyle ={textboxUnderlineStyle}
+            underlineShow={false}
             style={addItemTextBoxStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}

@@ -1,10 +1,6 @@
 import React from 'react';
 import { Drawer } from 'material-ui';
 
-const iconStyle = {
-  "padding": "10px"
-}
-
 class Tutorial extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +16,6 @@ class Tutorial extends React.Component {
   render() {
     return (
       <div>
-
         <i className="fa fa-info-circle fa-lg" aria-hidden="true" onClick={this.handleToggle}></i>
 
         {this.state.toggle ?
@@ -30,10 +25,11 @@ class Tutorial extends React.Component {
             openSecondary={true}>
 
             <div className="drawer-icon">
-              <i className="material-icons"
-                style={iconStyle}
+              <i className="material-icons closeX"
                 onClick={this.handleToggle}>close</i>
             </div>
+
+            <div className="drawer-text-guide">Guide</div>
 
             <section className="tutorial">
               <p><span className="tutorial-topic">Navigation: &nbsp;</span> Click between tabs on the left.</p>

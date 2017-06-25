@@ -1,10 +1,6 @@
 import React from 'react';
 import { Drawer, TextField } from 'material-ui';
 
-const iconStyle = {
-  "padding": "10px"
-}
-
 const hintTextStyle = {
   "bottom": "3px",
   "color": "#333399",
@@ -140,11 +136,11 @@ class Conversion extends React.Component {
           openSecondary={true}>
 
           <div className="drawer-icon">
-            <i className="material-icons" style={iconStyle}
+            <i className="material-icons closeX"
               onClick={this.handleToggle}>close</i>
           </div>
 
-          <div className="conversion-text">Conversion Calculator</div>
+          <div className="drawer-text">Conversion Calculator</div>
 
           <div className="converter">
             <div className="conversion-div1">
@@ -218,35 +214,35 @@ class Conversion extends React.Component {
             </div>
           </div>
 
-          <section className="conversion1">
-            <p><span className="conversion-topic">teaspoon: &nbsp;</span> teaspoon, teaspoons, t, tsp</p>
+          <section className="conversion conversion1">
+            <p><span className="conversion-topic">teaspoon: &nbsp;</span> teaspoon(s), t, tsp</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">tablespoon: &nbsp;</span>tablespoon, tablespoons, T, tbl, tbs, tbsp</p>
+            <p><span className="conversion-topic">tablespoon: &nbsp;</span>tablespoon(s), T, tbl, tbs, tbsp</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">fluidounce: &nbsp;</span>fluid ounce, fluid ounces, fl oz</p>
+            <p><span className="conversion-topic">fluidounce: &nbsp;</span>fluid ounce(s), fl oz</p>
           </section>
           <section className="conversion">
-          <p><span className="conversion-topic">gill: &nbsp;</span>gill, gills</p>
+          <p><span className="conversion-topic">gill: &nbsp;</span>gill(s)</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">cup: &nbsp;</span>cup, cups, c</p>
+            <p><span className="conversion-topic">cup: &nbsp;</span>cup(s), c</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">pint: &nbsp;</span>pint, pints, p, pt, fl pt</p>
+            <p><span className="conversion-topic">pint: &nbsp;</span>pint(s), p, pt, fl pt</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">quart: &nbsp;</span>quart, quarts, q, qt, fl qt</p>
+            <p><span className="conversion-topic">quart: &nbsp;</span>quart(s), q, qt, fl qt</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">gallon: &nbsp;</span>gallon, gallons, gal</p>
+            <p><span className="conversion-topic">gallon: &nbsp;</span>gallon(s), gal</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">ounce: &nbsp;</span>ounce, ounces, oz</p>
+            <p><span className="conversion-topic">ounce: &nbsp;</span>ounce(s), oz</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">pound: &nbsp;</span>pound, pounds, lb, lbs</p>
+            <p><span className="conversion-topic">pound: &nbsp;</span>pound(s), lb(s)</p>
           </section>
           <section className="conversion">
             <p><span className="conversion-topic">inch: &nbsp;</span>inch, inches, in, "</p>
@@ -255,31 +251,31 @@ class Conversion extends React.Component {
             <p><span className="conversion-topic">foot: &nbsp;</span>foot, feet, ft, '</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">milliliter: &nbsp;</span>milliliter, milliliters, millilitre, millilitres, ml, cc, mL</p>
+            <p><span className="conversion-topic">milliliter: &nbsp;</span>milliliter(s), millilitre(s), ml, mL, cc</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">deciliter: &nbsp;</span>deciliter, deciliters, decilitre, decilitres, dL</p>
+            <p><span className="conversion-topic">deciliter: &nbsp;</span>deciliter(s), decilitre(s), dL</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">liter: &nbsp;</span>liter, liters, litre, litres, L</p>
+            <p><span className="conversion-topic">liter: &nbsp;</span>liter(s), litre(s), L</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">milligram: &nbsp;</span>milligram, milligrams, milligramme, milligrammes, mg</p>
+            <p><span className="conversion-topic">milligram: &nbsp;</span>milligram(s), milligramme(s), mg</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">gram: &nbsp;</span>gram, grams, gramme, grammes, g</p>
+            <p><span className="conversion-topic">gram: &nbsp;</span>gram(s), gramme(s), g</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">kilogram: &nbsp;</span>kilogram, kilograms, kilogramme, kilogrammes, kg, kgs</p>
+            <p><span className="conversion-topic">kilogram: &nbsp;</span>kilogram(s), kilogramme(s), kg(s)</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">millimeter: &nbsp;</span>millimeter, millimeters, millimetre, millimetres, mm</p>
+            <p><span className="conversion-topic">millimeter: &nbsp;</span>millimeter(s), millimetre(s), mm</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">centimeter: &nbsp;</span>centimeter, centimeters, centimetre, centimetres, cm</p>
+            <p><span className="conversion-topic">centimeter: &nbsp;</span>centimeter(s), centimetre(s), cm</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">meter: &nbsp;</span>meter, meters, metre, metres, m</p>
+            <p><span className="conversion-topic">meter: &nbsp;</span>meter(s), metre(s), m</p>
           </section>
 
           </Drawer> : "" }

@@ -1,24 +1,10 @@
-.fa-info-circle {
+.fa-info-circle, .fa-calculator {
   cursor: pointer;
 }
 
-.fa-info-circle:hover {
+.fa-info-circle:hover, .fa-calculator:hover {
   transform: scale(1.5);
   cursor: pointer;
-}
-
-.tutorial {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333399;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
-  border-radius: 10px;
-  width: 75%;
-  margin: auto;;
 }
 
 .drawer-icon {
@@ -26,21 +12,13 @@
   justify-content: flex-end;
 }
 
-.tutorial-topic {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  font-style: italic;
-  color: #333399;
-  text-align: center;
-}
-
-.fa-calculator {
+.closeX {
+  padding: 10px 10px 0 0;
   cursor: pointer;
 }
 
-.fa-calculator:hover {
-  transform: scale(1.5);
+.closeX:hover {
+  color: red;
   cursor: pointer;
 }
 
@@ -49,8 +27,16 @@
   flex-direction: row;
 }
 
-.conversion-text {
+.drawer-text {
   margin: 0 0 20px 21px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #333399;
+}
+
+.drawer-text-guide {
+  margin: 0 0 26px 21px;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 900;
@@ -71,37 +57,25 @@
   flex-direction: column;
   border: 1px solid #C0C0C0;
   border-radius: 3px;
-  width: 150px;
+  width: 140px;
   margin: 10px 20px 10px 0;
 }
 
-.conversion {
+.conversion, .tutorial {
   display: flex;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #333399;
-  padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  border-radius: 10px;
-  width: 75%;
-  margin: auto;;
+  padding: 0 0 15px 25px;
+  width: 350px;
 }
 
 .conversion1 {
-  display: flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333399;
-  padding: 25px 20px 10px 20px;
-  border-radius: 10px;
-  width: 75%;
-  margin: auto;;
+  padding-top: 25px;
 }
 
-.conversion-topic {
+.conversion-topic, .tutorial-topic {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
@@ -134,26 +108,15 @@
   width: 20px;
 }
 
-.conversion-field {
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  color: #333399;
-  width: 20%;
-  margin-left: 50px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-bottom: 1px solid #C0C0C0;
+select {
+  border-radius: 0;
+  border: 0;
 }
 
 #conversion-select {
+  border-top: 1px solid #C0C0C0;
+  background-color: #E6E6FA;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
-  color: black;
-  background-color: #E6E6FA;
-  padding: 5px;
-  border-radius: 0;
-  border-top: 1px solid #C0C0C0;
 }

@@ -20,6 +20,18 @@
   object-fit: cover;
 }
 
+.recipe-form-nav-bar {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 1210px;
+  max-height: 1210px;
+  height: 100%;
+  background-color: #E6E6FA;
+}
+
 .recipe-list, .recipe-detail {
   min-width: 600px;
   max-width: 1200px;
@@ -27,7 +39,6 @@
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
-  margin: 10px, 15px, 0, 15px;
   border-radius: 5px;
   background-color: white;
 }
@@ -45,6 +56,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
+  margin: 0 10px 0 10px;
   border-radius: 5px;
   background-color: #BCBCF2;
 }

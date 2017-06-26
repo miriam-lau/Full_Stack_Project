@@ -7,6 +7,19 @@
   margin: 0 0 0 10px;
 }
 
+.recipe-img {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 1210px;
+  max-height: 1210px;
+  height: 100%;
+  opacity: 0.5;
+  object-fit: cover;
+}
+
 .recipe-list, .recipe-detail {
   min-width: 600px;
   max-width: 1200px;

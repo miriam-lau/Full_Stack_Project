@@ -18,6 +18,10 @@ class RecipeIndex extends React.Component {
     return (
       <div>
         <div className="recipe-wrapper">
+          <div className="recipe-side-nav-bar">
+            <img src="" alt="side-bar-img-recipe" className="recipe-img"/>
+          </div>
+
           <div className="recipe-list">
             <br />
             <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>

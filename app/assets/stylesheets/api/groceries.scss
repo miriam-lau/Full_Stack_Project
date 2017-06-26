@@ -6,6 +6,19 @@
   padding-top: 10px;
 }
 
+.grocery-img {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 1210px;
+  max-height: 1210px;
+  height: 100%;
+  opacity: 0.5;
+  object-fit: cover;
+}
+
 .grocery-index {
   width: 600px;
   height: auto;

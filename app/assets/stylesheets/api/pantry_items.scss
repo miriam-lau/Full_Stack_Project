@@ -18,7 +18,7 @@
   padding-top: 10px;
 }
 
-.pantry-one {
+.pantry-index {
   width: 600px;
   height: auto;
   background-color: white;
@@ -120,4 +120,22 @@
   color: red;
   margin-left: 20px;
   margin-bottom: 3px;
+}
+
+.reminders {
+  width: 100%;
+  height: auto;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  background-color: white;
+  border-radius: 5px;
+  background-color: #BCBCF2;
+}
+
+.reminder-titles {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  margin: 10px 0 20px 15px;
 }

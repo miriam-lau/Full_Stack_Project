@@ -20,13 +20,14 @@ class PantryIndex extends React.Component {
       <div>
         <div className="pantry-wrapper">
 
-          <div className="pantry-one">
-            <section>
-              <h2 className="pantry-title">Pantry</h2>
+          <div className="pantry-index">
+            <section><h2 className="pantry-title">Pantry</h2>
             </section>
+
             <div className="add-pantry-item">
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
             </div>
+
             <ul className="pantry-items">
               {this.props.pantry_items.map((item, idx) => {
                 return (<PantryIndexItem
@@ -40,6 +41,20 @@ class PantryIndex extends React.Component {
               })}
             </ul>
           </div>
+
+          <div className="reminders">
+            <section><h2 className="pantry-title">Reminders</h2>
+            </section>
+
+            <div>
+              <h3 className="reminder-titles">Grocery Lists</h3>
+            </div>
+
+            <div>
+              <h3 className="reminder-titles">Recipes To Make</h3>
+            </div>
+          </div>
+
         </div>
       </div>
     );

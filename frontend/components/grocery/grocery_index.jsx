@@ -39,13 +39,14 @@ class GroceryIndex extends React.Component {
     return (
       <div>
         <div className="grocery-wrapper">
-          <div className="grocery-one">
-            <section>
-              <h2 className="grocery-title">Grocery</h2>
+          <div className="grocery-index">
+            <section><h2 className="grocery-title">Grocery</h2>
             </section>
+
             <div className="add-grocery-item">
               <Route path="/groceries" component={ GroceryItemFormContainer } />
             </div>
+
             <ul className="grocery-items">
               {this.props.grocery_items.map(item => {
                 if (item.purchased === false) {
@@ -60,10 +61,8 @@ class GroceryIndex extends React.Component {
             </ul>
           </div>
 
-
-          <div className="grocery-two">
-            <section>
-              <h2 className="grocery-title">Purchased</h2>
+          <div className="grocery-purchases">
+            <section><h2 className="grocery-title">Purchased</h2>
             </section>
 
             <div className="add-to-pantry-div">

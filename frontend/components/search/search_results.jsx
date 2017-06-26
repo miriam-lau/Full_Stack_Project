@@ -19,18 +19,21 @@ class SearchResults extends React.Component {
 
   render() {
     return(
-      <div className="search-result">
-        {this.ErrorMessage()}
-        {this.props.searchItems.map((item, idx) => {
-          return (
-            <div className="search-item-info">
-              <span>Item Name: {item.name}</span>
-              <span>Quantity: {item.quantity}</span>
-              <span>Unit: {item.unit}</span>
-              <br/>
-            </div>
-          )
-        })}
+      <div>
+        <div className="search-results-nav-bar"></div>
+        <div className="search-result">
+          {this.ErrorMessage()}
+          {this.props.searchItems.map((item, idx) => {
+            return (
+              <div className="search-item-info">
+                <span>Item Name: {item.name}</span>
+                <span>Quantity: {item.quantity}</span>
+                <span>Unit: {item.unit}</span>
+                <br/>
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }

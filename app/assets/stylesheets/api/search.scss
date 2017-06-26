@@ -29,11 +29,23 @@
   width: 400px;
 }
 
+.search-results-nav-bar {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 1210px;
+  max-height: 1210px;
+  height: 100%;
+  background-color: #E6E6FA;
+}
+
 .search-result {
   min-width: 600px;
   min-height: 1200px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin: 10px 10px 0 10px;
   background-color: #BCBCF2;
 }
 

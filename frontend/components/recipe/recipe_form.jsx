@@ -23,7 +23,6 @@ class RecipeForm extends React.Component {
     return (
       <div>
         <div className="recipe-form-nav-bar"></div>
-
         <form className="recipe-form" onSubmit={this.handleSubmit}>
           <div className="new-recipe-title">
             <h2>New Recipe</h2>

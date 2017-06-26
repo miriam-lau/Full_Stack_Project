@@ -40,7 +40,7 @@ class GroceryIndex extends React.Component {
       <div>
         <div className="grocery-wrapper">
           <div className="grocery-side-nav-bar">
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498446166/sidenavimg5_copy_2_qfzjaj.png" alt="side-bar-img-grocery" className="grocery-img"/>
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447613/side_nav_grocery_fi2cgm.png" alt="side-bar-img-grocery" className="grocery-img"/>
           </div>
 
           <div className="grocery-index">

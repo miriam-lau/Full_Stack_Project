@@ -19,7 +19,7 @@ class RecipeIndex extends React.Component {
       <div>
         <div className="recipe-wrapper">
           <div className="recipe-side-nav-bar">
-            <img src="" alt="side-bar-img-recipe" className="recipe-img"/>
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="recipe-img"/>
           </div>
 
           <div className="recipe-list">

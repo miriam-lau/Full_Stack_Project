@@ -20,7 +20,7 @@ class PantryIndex extends React.Component {
       <div>
         <div className="pantry-wrapper">
           <div className="pantry-side-nav-bar">
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498439480/sidenavimg3_copy_2_vmevor.png" alt="side-bar-img-pantry" className="pantry-img"/>
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png" alt="side-bar-img-pantry" className="pantry-img"/>
           </div>
 
           <div className="pantry-index">

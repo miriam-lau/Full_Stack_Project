@@ -67,10 +67,9 @@ class Home extends React.Component {
           </section>
         </div>
 
-       <div id="footer">
+       <div>
          <footer className="home-footer">
-           <div>Copyright 2017 myPantry. All rights reserved.
-           </div>
+           <div><i className="fa fa-copyright" aria-hidden="true"></i> 2017 myPantry. &nbsp; All rights reserved.</div>
          </footer>
        </div>
 
@@ -80,9 +79,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-// <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914850/spalsh3_fhyzeq.jpg"
-//  alt="splash-img"/>
-
-// <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914916/splash4_e7n1pw.jpg"
-//   alt="splash-img"/>

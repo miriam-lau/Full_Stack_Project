@@ -57,20 +57,20 @@ class Greeting extends React.Component {
           <div className="header-bar">
             <PersonalGreetingContainer currentUser={currentUser} signout={signout} />
           </div>
+
           <div className="greeting-wrapper">
             <div className="side-nav-bar">
+              <div>
+                <Link className="nav-titles" to="/pantry_items">
+                  <span className="nav-titles-img"><i className="material-icons fridge">kitchen</i></span>
+                  <span className="nav-titles-options">Pantry</span>
+                </Link>
+              </div>
 
               <div className="side-nav-bar-options">
                 <Link className="nav-titles" to="/groceries">
                   <span className="nav-titles-img"><i className="fa fa-shopping-basket fa-lg" aria-hidden="true"></i></span>
                   <span className="nav-titles-options">Grocery</span>
-                </Link>
-              </div>
-
-              <div>
-                <Link className="nav-titles" to="/pantry_items">
-                  <span className="nav-titles-img"><i className="material-icons fridge">kitchen</i></span>
-                  <span className="nav-titles-options">Pantry</span>
                 </Link>
               </div>
 
@@ -81,8 +81,6 @@ class Greeting extends React.Component {
                 </Link>
               </div>
             </div>
-
-            <div className="greeting-nav-background"></div>
 
             <div className="item-list">
               <Switch>

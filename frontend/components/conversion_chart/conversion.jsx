@@ -245,10 +245,10 @@ class Conversion extends React.Component {
             <p><span className="conversion-topic">pound: &nbsp;</span>pound(s), lb(s)</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">inch: &nbsp;</span>inch, inches, in, "</p>
+            <p><span className="conversion-topic">inch: &nbsp;</span>inch, inches, in</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">foot: &nbsp;</span>foot, feet, ft, '</p>
+            <p><span className="conversion-topic">foot: &nbsp;</span>foot, feet, ft</p>
           </section>
           <section className="conversion">
             <p><span className="conversion-topic">milliliter: &nbsp;</span>milliliter(s), millilitre(s), ml, mL, cc</p>

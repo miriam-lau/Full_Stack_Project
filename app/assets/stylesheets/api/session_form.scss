@@ -5,8 +5,7 @@
   text-align: center;
   background-color: #E6E6FA;
   color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 0 5px 0;
 }
 
 .session-title {
@@ -91,22 +90,7 @@
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.create-session-button:hover {
-  background-color: #E6E6FA;
-  color: black;
-  border: 1px solid #333399;;
-  transition: 0.5s;
-}
-
-.session-button:hover {
-  background-color: #E6E6FA;
-  color: black;
-  border: 1px solid #333399;
-  transition: 0.5s;
+  padding: 5px 0 5px 0;
 }
 
 .guest-session-button {
@@ -122,21 +106,7 @@
   align-self: center;
   cursor: pointer;
   transition: 0.5s;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.guest-session-button:hover {
-  background-color: #E6E6FA;
-  color: black;
-  border: 1px solid #333399;
-  transition: 0.5s;
-}
-
-input {
-  padding: 5px;
-  width: 94%;
-  border: 1px solid #D3D3D3;
+  padding: 5px 0 5px 0;
 }
 
 .button-link {
@@ -148,18 +118,23 @@ input {
   border-radius: 5px;
   border: 1px solid #333399;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 0 5px 0;
   width: 100%;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.button-link:hover {
+.create-session-button:hover, .session-button:hover, .guest-session-button:hover, .button-link:hover {
   background-color: #E6E6FA;
   color: black;
-  border: 1px solid #333399;
+  border: 1px solid #333399;;
   transition: 0.5s;
+}
+
+input {
+  padding: 5px;
+  width: 94%;
+  border: 1px solid #D3D3D3;
 }
 
 .modal-icon {

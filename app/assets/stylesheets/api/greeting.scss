@@ -4,8 +4,7 @@
   align-items: center;
   background-color: #333399;
   color: #E6E6FA;
-  padding-bottom: 15px;
-  padding-top: 15px;
+  padding: 15px 0 15px 0;
 }
 
 .header-group2 {
@@ -14,8 +13,7 @@
   align-items: center;
   background-color: #333399;
   color: white;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 0 15px 0;
 }
 
 .header {
@@ -36,7 +34,7 @@
   font-weight: bold;
 }
 
-.header-button {
+.header-button, .header-link {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -45,39 +43,12 @@
   border-radius: 5px;
   border: 1px solid #E6E6FA;
   text-align: center;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 3px 8px 3px 8px;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.header-button:hover {
-  background-color: #333399;
-  color: white;
-  border: 1px solid #E6E6FA;
-  transition: 0.5s;
-}
-
-.header-link {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #E6E6FA;
-  color: black;
-  border-radius: 5px;
-  border: 1px solid #E6E6FA;
-  text-align: center;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.header-link:hover {
+.header-button:hover, .header-link:hover {
   background-color: #333399;
   color: white;
   border: 1px solid #E6E6FA;
@@ -90,8 +61,7 @@
   width: 180px;
   text-align: center;
   flex: 1;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 2px 0 2px 0;
 }
 
 .nav-link {
@@ -102,17 +72,20 @@
   width: auto;
   text-align: center;
   margin-left: 50px;
+  cursor: pointer;
 }
 
 .nav-link:first-child {
   margin: 0;
+  cursor: pointer;
 }
 
 .nav-link:last-child {
   margin-right: 50px;
+  cursor: pointer;
 }
 
-.nav-link:hover {
+.nav-link > button:hover {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
@@ -141,18 +114,15 @@
   max-width: 180px;
   min-height: 1210px;
   z-index: 1;
-  // background-color: #E6E6FA;
 }
 
 .nav-titles {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
   height: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0 10px 0;
   font-weight: bold;
   color: black;
-  // background-color: #E6E6FA;
   text-align: center;
   border-top: 1px #E6E6FA solid;
   border-bottom: 1px #E6E6FA solid;
@@ -198,17 +168,14 @@
   left: 80px;
 }
 
-
-
 .footer {
   display: flex;
   justify-content: space-around;
   font-family: 'Nunito', sans-serif;
   font-size: 10px;
-  font-weight: bold;
+  font-weight: 900;
   background-color: #E6E6FA;
   color: white;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 0 40px 0;
   width: 100%;
 }

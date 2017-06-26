@@ -19,6 +19,9 @@ class PantryIndex extends React.Component {
     return (
       <div>
         <div className="pantry-wrapper">
+          <div className="pantry-side-nav-bar">
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498439480/sidenavimg3_copy_2_vmevor.png" alt="side-bar-img" className="pantry-img"/>
+          </div>
 
           <div className="pantry-index">
             <section><h2 className="pantry-title">Pantry</h2>

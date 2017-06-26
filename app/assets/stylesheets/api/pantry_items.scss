@@ -1,21 +1,23 @@
-.pantry-side-nav-bar {
-  position: absolute;
-  top: 78px;
-  min-width: 180px;
-  max-width: 180px;
-  height: 100%;
-  // background-img: "./assets/images/side-nav-bar-img2.jpg";
-  opacity: 0.5;
-  object-fit: cover;
-  z-index: -1;
-}
-
 .pantry-wrapper {
   display: flex;
   width: 100%;
   left: 180px;
   min-height: 1200px;
   padding-top: 10px;
+}
+
+.pantry-img {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 1210px;
+  max-height: 1210px;
+  height: 100%;
+  opacity: 0.5;
+  object-fit: cover;
+  // z-index: -1;
 }
 
 .pantry-index {

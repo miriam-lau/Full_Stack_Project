@@ -140,7 +140,8 @@
   min-width: 180px;
   max-width: 180px;
   min-height: 1210px;
-  background-color: #E6E6FA;
+  z-index: 1;
+  // background-color: #E6E6FA;
 }
 
 .nav-titles {
@@ -151,7 +152,7 @@
   padding-bottom: 10px;
   font-weight: bold;
   color: black;
-  background-color: #E6E6FA;
+  // background-color: #E6E6FA;
   text-align: center;
   border-top: 1px #E6E6FA solid;
   border-bottom: 1px #E6E6FA solid;

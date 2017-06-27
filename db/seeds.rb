@@ -37,21 +37,21 @@ pantry10 = PantryItem.create(category: "Fruits and Vegetables", name: "Carrot",
 
 grocery1 = Grocery.create(category: "Fruits and Vegetables", name: "Banana",
   quantity: 2, unit: "", user_id: guest.id, purchased: false)
-grocery2 = Grocery.create(category: "Fruit", name: "Mango",
+grocery2 = Grocery.create(category: "Fruits and Vegetables", name: "Mango",
   quantity: 3, unit: "", user_id: guest.id, purchased: false)
-grocery3 = Grocery.create(category: "Fruit", name: "Pineapple",
+grocery3 = Grocery.create(category: "Fruits and Vegetables", name: "Pineapple",
   quantity: 8, unit: "cups", user_id: guest.id, purchased: false)
-grocery4 = Grocery.create(category: "Fruit", name: "Blueberry",
+grocery4 = Grocery.create(category: "Fruits and Vegetables", name: "Blueberry",
   quantity: 6, unit: "ounces", user_id: guest.id, purchased: false)
-grocery5 = Grocery.create(category: "Fruit", name: "Pear",
+grocery5 = Grocery.create(category: "Fruits and Vegetables", name: "Pear",
   quantity: 5, unit: "", user_id: guest.id, purchased: false)
-grocery6 = Grocery.create(category: "Fruit", name: "Raspberry",
+grocery6 = Grocery.create(category: "Fruits and Vegetables", name: "Raspberry",
   quantity: 10, unit: "tablespoons", user_id: guest.id, purchased: false)
-grocery7 = Grocery.create(category: "Fruit", name: "Peach",
+grocery7 = Grocery.create(category: "Fruits and Vegetables", name: "Peach",
   quantity: 3, unit: "", user_id: guest.id, purchased: false)
-grocery8 = Grocery.create(category: "Fruit", name: "Canteloupe",
+grocery8 = Grocery.create(category: "Fruits and Vegetables", name: "Canteloupe",
   quantity: 2, unit: "cups", user_id: guest.id, purchased: false)
-grocery9 = Grocery.create(category: "Fruit", name: "Watermelon",
+grocery9 = Grocery.create(category: "Fruits and Vegetables", name: "Watermelon",
   quantity: 1, unit: "cups", user_id: guest.id, purchased: false)
 
 

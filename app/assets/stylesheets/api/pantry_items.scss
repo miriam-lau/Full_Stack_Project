@@ -48,11 +48,23 @@
   display: flex;
 }
 
+#text-field-default {
+  width: 330px;
+}
+
 .pantry-category {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
   font-weight: 900;
   margin: 10px 0 10px 15px;
+}
+
+.pantry-categories {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #333399;
+  margin-right: 20px;
 }
 
 .pantry-items ul {

@@ -5,19 +5,20 @@ const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "490px",
+  "width": "330px",
   "display": "inline",
-  "marginLeft": "20px",
-  "marginRight": "20px",
+  "marginLeft": "10px",
+  "marginRight": "5px",
   "height": "30px"
 }
 
 const hintTextStyle = {
-  "bottom": "2px",
-  "color": "#333399"
+  "bottom": "3px",
+  "color": "#333399",
+  "width": "330px"
 }
 
-const selectCategory = ["Baking and Dry Goods", "Beverage", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
@@ -144,7 +145,6 @@ class PantryItemForm extends React.Component {
             }
           }
         }
-
         this.props.createPantryItem({'pantry_item': current_pantry_item});
       });
     return true;
@@ -156,12 +156,9 @@ class PantryItemForm extends React.Component {
   }
 
   update (property) {
-    console.log ("in pantry item form");
     return e => {
       if (property === "category") {
-        console.log("in pantry item form update category");
         this.setState({ [property]: selectCategory[parseInt(e.target.value)] });
-        console.log(this.state.category);
       } else {
         this.setState({ [property]: e.target.value });
       }
@@ -169,8 +166,6 @@ class PantryItemForm extends React.Component {
   }
 
   render() {
-    console.log("in the render");
-    console.log(this.state.category);
     return (
       <form className="pantry-form" onSubmit={this.handleSubmit}>
         <div className="pantry-form-fields">
@@ -183,7 +178,7 @@ class PantryItemForm extends React.Component {
             onChange={this.update("temp")}
           />
 
-          <select className="pantry-category"
+          <select className="pantry-categories"
             onChange={this.update("category")}>
             <option value="0">Baking and Dry Goods</option>
             <option value="1">Beverages</option>

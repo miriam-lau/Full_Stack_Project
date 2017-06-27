@@ -27,6 +27,13 @@
   border-radius: 5px;
 }
 
+.pantry-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  margin: 10px 0 20px 15px;
+}
+
 .add-pantry-item {
   border: 1px solid #C0C0C0;
   border-radius: 5px;
@@ -37,19 +44,17 @@
   width: 100%;
 }
 
-.pantry-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  margin: 10px 0 20px 15px;
-}
-
 .pantry-form-fields {
   display: flex;
 }
 
 #text-field-default {
   width: 330px;
+}
+
+.pantry-category-section {
+  border-top: 1px solid #e5e5e5;
+  margin-bottom: 5px;
 }
 
 .pantry-category {

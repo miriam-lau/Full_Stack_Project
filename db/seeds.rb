@@ -14,28 +14,28 @@ Recipe.destroy_all
 guest = User.create(username: "guest", password: "password",
   email: "guest@pantry.com")
 
-pantry1 = PantryItem.create(category: "Fruit", name: "Apple",
+pantry1 = PantryItem.create(category: "Fruits and Vegetables", name: "Apple",
   quantity: 2, unit: "", user_id: guest.id)
-pantry2 = PantryItem.create(category: "Fruit", name: "Orange",
+pantry2 = PantryItem.create(category: "Fruits and Vegetables", name: "Orange",
   quantity: 1, unit: "", user_id: guest.id)
-pantry3 = PantryItem.create(category: "Fruit", name: "Watermelon",
+pantry3 = PantryItem.create(category: "Fruits and Vegetables", name: "Watermelon",
   quantity: 12, unit: "cups", user_id: guest.id)
-pantry4 = PantryItem.create(category: "Fruit", name: "Blueberry",
+pantry4 = PantryItem.create(category: "Fruits and Vegetables", name: "Blueberry",
   quantity: 5.5, unit: "ounce", user_id: guest.id)
-pantry5 = PantryItem.create(category: "Fruit", name: "Strawberry",
+pantry5 = PantryItem.create(category: "Fruits and Vegetables", name: "Strawberry",
   quantity: 4, unit: "ounce", user_id: guest.id)
-pantry6 = PantryItem.create(category: "Fruit", name: "Avocado",
+pantry6 = PantryItem.create(category: "Fruits and Vegetables", name: "Avocado",
   quantity: 2, unit: "", user_id: guest.id)
-pantry7 = PantryItem.create(category: "Vegetable", name: "Brussel Sprout",
+pantry7 = PantryItem.create(category: "Fruits and Vegetables", name: "Brussel Sprout",
   quantity: 1, unit: "pound", user_id: guest.id)
-pantry8 = PantryItem.create(category: "Vegetable", name: "Romaine Lettuce",
+pantry8 = PantryItem.create(category: "Fruits and Vegetables", name: "Romaine Lettuce",
   quantity: 2, unit: "", user_id: guest.id)
-pantry9 = PantryItem.create(category: "Vegetable", name: "Cucumber",
+pantry9 = PantryItem.create(category: "Fruits and Vegetables", name: "Cucumber",
   quantity: 1, unit: "", user_id: guest.id)
-pantry10 = PantryItem.create(category: "Vegetable", name: "Carrot",
+pantry10 = PantryItem.create(category: "Fruits and Vegetables", name: "Carrot",
   quantity: 1, unit: "pound", user_id: guest.id)
 
-grocery1 = Grocery.create(category: "Fruit", name: "Banana",
+grocery1 = Grocery.create(category: "Fruits and Vegetables", name: "Banana",
   quantity: 2, unit: "", user_id: guest.id, purchased: false)
 grocery2 = Grocery.create(category: "Fruit", name: "Mango",
   quantity: 3, unit: "", user_id: guest.id, purchased: false)

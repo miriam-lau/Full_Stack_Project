@@ -31,16 +31,37 @@ class PantryIndex extends React.Component {
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
             </div>
 
+            <h3>Fruits and Vegetables</h3>
             <ul className="pantry-items">
               {this.props.pantry_items.map((item, idx) => {
-                return (<PantryIndexItem
-                  key={idx}
-                  pantry_item_id={item.id}
-                  pantry_item={item}
-                  requestPantryItem={this.props.requestPantryItem}
-                  deletePantryItem={this.props.deletePantryItem}
-                  editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                  editPantryItem={this.props.editPantryItem} />)
+                if (item.category === "Fruits and Vegetables") {
+                  return ( <PantryIndexItem
+                    key={idx}
+                    pantry_item_id={item.id}
+                    pantry_item={item}
+                    requestPantryItem={this.props.requestPantryItem}
+                    deletePantryItem={this.props.deletePantryItem}
+                    editPantryItemDbOnly={this.props.editPantryItemDbOnly}
+                    editPantryItem={this.props.editPantryItem} />
+                  )
+                }
+              })}
+            </ul>
+
+            <h3>Meat and Seafood</h3>
+            <ul className="pantry-items">
+              {this.props.pantry_items.map((item, idx) => {
+                if (item.category === "Meat and Seafood") {
+                  return ( <PantryIndexItem
+                    key={idx}
+                    pantry_item_id={item.id}
+                    pantry_item={item}
+                    requestPantryItem={this.props.requestPantryItem}
+                    deletePantryItem={this.props.deletePantryItem}
+                    editPantryItemDbOnly={this.props.editPantryItemDbOnly}
+                    editPantryItem={this.props.editPantryItem} />
+                  )
+                }
               })}
             </ul>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem, SelectField, TextField } from 'material-ui';
+import { TextField } from 'material-ui';
 
 const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
@@ -16,6 +16,8 @@ const hintTextStyle = {
   "bottom": "2px",
   "color": "#333399"
 }
+
+const selectCategory = ["Baking and Dry Goods", "Beverage", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
@@ -58,7 +60,7 @@ function ErrorBanner(props) {
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: '', name: '', quantity: 0, unit: '',
+    this.state = { category: "Baking and Dry Goods", name: '', quantity: 0, unit: '',
       temp: '', errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
@@ -154,22 +156,21 @@ class PantryItemForm extends React.Component {
   }
 
   update (property) {
-    return e => this.setState({[property]: e.target.value});
-  }
-
-  menuItems(values) {
-    return names.map((name) => (
-      <MenuItem
-        key={name}
-        insetChildren={true}
-        checked={values && values.indexOf(name) > -1}
-        value={name}
-        primaryText={name}
-      />
-    ));
+    console.log ("in pantry item form");
+    return e => {
+      if (property === "category") {
+        console.log("in pantry item form update category");
+        this.setState({ [property]: selectCategory[parseInt(e.target.value)] });
+        console.log(this.state.category);
+      } else {
+        this.setState({ [property]: e.target.value });
+      }
+    }
   }
 
   render() {
+    console.log("in the render");
+    console.log(this.state.category);
     return (
       <form className="pantry-form" onSubmit={this.handleSubmit}>
         <div className="pantry-form-fields">
@@ -179,27 +180,23 @@ class PantryItemForm extends React.Component {
             style={addItemTextBoxStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}
-            onChange={this.update('temp')}
+            onChange={this.update("temp")}
           />
 
-          <SelectField
-            multiple={true}
-            hintText="Select a Category"
-            value={this.state.value}
-            onChange={this.update('category')}
-            >
-            <MenuItem value="Baking and Dry Goods" primaryText="Baking and Dry Goods" />
-            <MenuItem value="Beverages" primaryText="Beverages" />
-            <MenuItem value="Bread and Bakery" primaryText="Bread and Bakery" />
-            <MenuItem value="Canned and Jarred Goods" primaryText="Canned and Jarred Goods" />
-            <MenuItem value="Dairy" primaryText="Dairy" />
-            <MenuItem value="Dried Herbs and Spices" primaryText="Dried Herbs and Spices" />
-            <MenuItem value="Frozen Foods" primaryText="Frozen Foods" />
-            <MenuItem value="Fruits and Vegetables" primaryText="Fruits and Vegetables" />
-            <MenuItem value="Meat and Seafood" primaryText="Meat and Seafood" />
-            <MenuItem value="Oils and Sauces" primaryText="Oils and Sauces" />
-            <MenuItem value="Snacks" primaryText="Snacks" />
-          </SelectField>
+          <select className="pantry-category"
+            onChange={this.update("category")}>
+            <option value="0">Baking and Dry Goods</option>
+            <option value="1">Beverages</option>
+            <option value="2">Bread and Bakery</option>
+            <option value="3">Canned and Jarred Goods</option>
+            <option value="4">Dairy</option>
+            <option value="5">Dried Herbs and Spices</option>
+            <option value="6">Frozen Foods</option>
+            <option value="7">Fruits and Vegetables</option>
+            <option value="8">Meat and Seafood</option>
+            <option value="9">Oils and Sauces</option>
+            <option value="10">Snacks</option>
+          </select>
 
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
           onClick={this.handleSubmit}></i>

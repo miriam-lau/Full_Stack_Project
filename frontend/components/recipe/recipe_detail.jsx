@@ -33,6 +33,7 @@ class RecipeDetail extends React.Component {
 
     return (
       <div className="recipe-detail-wrapper">
+        <div className="recipe-detail-nav-bar"></div>
         <div className="recipe-detail">
           <br />
           <Link className="recipe-link" to="/recipes">Back to Recipes</Link>

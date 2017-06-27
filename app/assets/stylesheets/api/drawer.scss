@@ -47,7 +47,7 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #C0C0C0;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 140px;
   margin: 10px 0 10px 22px;
 }
@@ -88,10 +88,10 @@
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
-  color: #333399;
   text-align: center;
   width: 140px;
   height: 35px;
+  border-bottom: 1px solid #C0C0C0;
 }
 
 .conversion-result {
@@ -113,10 +113,15 @@ select {
   border: 0;
 }
 
-#conversion-select {
-  border-top: 1px solid #C0C0C0;
-  background-color: #E6E6FA;
+.conversion-unit-selector {
+  padding: 5px 0 3px 8px;
+  background-color: #f2f2f2;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.conversion-select {
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 900;
 }

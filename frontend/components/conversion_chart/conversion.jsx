@@ -14,7 +14,9 @@ const addItemTextBoxStyle = {
   "width": "140px",
   "display": "inline",
   "text-align": "center",
-  "height": "35px"
+  "height": "35px",
+  "border-bottom": "1px solid #C0C0C0",
+  "color": "#333399"
 }
 
 const unitArray = ["fluid ounce", "gill", "teaspoon", "teaspoon (dry)",
@@ -154,31 +156,33 @@ class Conversion extends React.Component {
                 onChange={this.update('quantity')}
               />
 
-              <select id="conversion-select" onChange={this.update("value1")}>
-                <option value="0">fluid ounce</option>
-                <option value="1">gill</option>
-                <option value="2">teaspoon</option>
-                <option value="3">teaspoon (dry)</option>
-                <option value="4">tablespoon</option>
-                <option value="5">tablespoon (dry)</option>
-                <option value="6">cup</option>
-                <option value="7">pint</option>
-                <option value="8">quart</option>
-                <option value="9">gallon</option>
-                <option value="10">ounce</option>
-                <option value="11">pound</option>
-                <option value="12">inch</option>
-                <option value="13">foot</option>
-                <option value="14">milliliter</option>
-                <option value="15">deciliter</option>
-                <option value="16">liter</option>
-                <option value="17">milligram</option>
-                <option value="18">gram</option>
-                <option value="19">kilogram</option>
-                <option value="20">millimeter</option>
-                <option value="21">centimeter</option>
-                <option value="22">meter</option>
-              </select>
+              <div className="conversion-unit-selector">
+                <select className="conversion-select" onChange={this.update("value1")}>
+                  <option value="0">fluid ounce</option>
+                  <option value="1">gill</option>
+                  <option value="2">teaspoon</option>
+                  <option value="3">teaspoon (dry)</option>
+                  <option value="4">tablespoon</option>
+                  <option value="5">tablespoon (dry)</option>
+                  <option value="6">cup</option>
+                  <option value="7">pint</option>
+                  <option value="8">quart</option>
+                  <option value="9">gallon</option>
+                  <option value="10">ounce</option>
+                  <option value="11">pound</option>
+                  <option value="12">inch</option>
+                  <option value="13">foot</option>
+                  <option value="14">milliliter</option>
+                  <option value="15">deciliter</option>
+                  <option value="16">liter</option>
+                  <option value="17">milligram</option>
+                  <option value="18">gram</option>
+                  <option value="19">kilogram</option>
+                  <option value="20">millimeter</option>
+                  <option value="21">centimeter</option>
+                  <option value="22">meter</option>
+                </select>
+              </div>
             </div>
 
             <span className="conversion-text-to">TO</span>
@@ -186,31 +190,33 @@ class Conversion extends React.Component {
             <div className="conversion-div2">
               <section className="conversion-text-result"> {this.calculateResult()} </section>
 
-              <select id="conversion-select" onChange={this.update("value2")}>
-                <option value="0">fluid ounce</option>
-                <option value="1">gill</option>
-                <option value="2">teaspoon</option>
-                <option value="3">teaspoon (dry)</option>
-                <option value="4">tablespoon</option>
-                <option value="5">tablespoon (dry)</option>
-                <option value="6">cup</option>
-                <option value="7">pint</option>
-                <option value="8">quart</option>
-                <option value="9">gallon</option>
-                <option value="10">ounce</option>
-                <option value="11">pound</option>
-                <option value="12">inch</option>
-                <option value="13">foot</option>
-                <option value="14">milliliter</option>
-                <option value="15">deciliter</option>
-                <option value="16">liter</option>
-                <option value="17">milligram</option>
-                <option value="18">gram</option>
-                <option value="19">kilogram</option>
-                <option value="20">millimeter</option>
-                <option value="21">centimeter</option>
-                <option value="22">meter</option>
-              </select>
+              <div className="conversion-unit-selector">
+                <select className="conversion-select" onChange={this.update("value2")}>
+                  <option value="0">fluid ounce</option>
+                  <option value="1">gill</option>
+                  <option value="2">teaspoon</option>
+                  <option value="3">teaspoon (dry)</option>
+                  <option value="4">tablespoon</option>
+                  <option value="5">tablespoon (dry)</option>
+                  <option value="6">cup</option>
+                  <option value="7">pint</option>
+                  <option value="8">quart</option>
+                  <option value="9">gallon</option>
+                  <option value="10">ounce</option>
+                  <option value="11">pound</option>
+                  <option value="12">inch</option>
+                  <option value="13">foot</option>
+                  <option value="14">milliliter</option>
+                  <option value="15">deciliter</option>
+                  <option value="16">liter</option>
+                  <option value="17">milligram</option>
+                  <option value="18">gram</option>
+                  <option value="19">kilogram</option>
+                  <option value="20">millimeter</option>
+                  <option value="21">centimeter</option>
+                  <option value="22">meter</option>
+                </select>
+              </div>
             </div>
           </div>
 

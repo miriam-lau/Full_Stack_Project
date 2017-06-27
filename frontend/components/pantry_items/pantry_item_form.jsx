@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+import { MenuItem, SelectField, TextField } from 'material-ui';
 
 const addItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
@@ -157,6 +157,18 @@ class PantryItemForm extends React.Component {
     return e => this.setState({[property]: e.target.value});
   }
 
+  menuItems(values) {
+    return names.map((name) => (
+      <MenuItem
+        key={name}
+        insetChildren={true}
+        checked={values && values.indexOf(name) > -1}
+        value={name}
+        primaryText={name}
+      />
+    ));
+  }
+
   render() {
     return (
       <form className="pantry-form" onSubmit={this.handleSubmit}>
@@ -169,6 +181,25 @@ class PantryItemForm extends React.Component {
             hintStyle={hintTextStyle}
             onChange={this.update('temp')}
           />
+
+          <SelectField
+            multiple={true}
+            hintText="Select a Category"
+            value={this.state.value}
+            onChange={this.update('category')}
+            >
+            <MenuItem value="Baking and Dry Goods" primaryText="Baking and Dry Goods" />
+            <MenuItem value="Beverages" primaryText="Beverages" />
+            <MenuItem value="Bread and Bakery" primaryText="Bread and Bakery" />
+            <MenuItem value="Canned and Jarred Goods" primaryText="Canned and Jarred Goods" />
+            <MenuItem value="Dairy" primaryText="Dairy" />
+            <MenuItem value="Dried Herbs and Spices" primaryText="Dried Herbs and Spices" />
+            <MenuItem value="Frozen Foods" primaryText="Frozen Foods" />
+            <MenuItem value="Fruits and Vegetables" primaryText="Fruits and Vegetables" />
+            <MenuItem value="Meat and Seafood" primaryText="Meat and Seafood" />
+            <MenuItem value="Oils and Sauces" primaryText="Oils and Sauces" />
+            <MenuItem value="Snacks" primaryText="Snacks" />
+          </SelectField>
 
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
           onClick={this.handleSubmit}></i>

@@ -5,7 +5,7 @@ import rootReducer from '../reducers/root_reducer';
 
 // const logger = createLogger();
 
-const configureStore = (preloadedState = {}) => (
+let configureStore = (preloadedState = {}) => (
   createStore(rootReducer, preloadedState, applyMiddleware(thunk))
   // createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger))
 );

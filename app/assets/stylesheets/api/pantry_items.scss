@@ -54,14 +54,17 @@
 
 .pantry-category-section {
   border-top: 1px solid #e5e5e5;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 .pantry-category {
   font-family: 'Nunito', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
-  margin: 10px 0 10px 15px;
+  margin: 8px 15px 2px 15px;
+  padding: 3px 10px 3px 10px;
+  background-color: #E6E6FA;
+  border-radius: 3px;
 }
 
 .pantry-categories {

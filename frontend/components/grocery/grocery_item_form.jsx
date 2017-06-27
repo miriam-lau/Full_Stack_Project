@@ -1,21 +1,24 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+import { TextField } from 'material-ui';
 
 const addItemTextBoxStyle ={
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "490px",
+  "width": "330px",
   "display": "inline",
-  "marginLeft": "20px",
-  "marginRight": "20px",
+  "marginLeft": "10px",
+  "marginRight": "5px",
   "height": "30px"
 }
 
 const hintTextStyle = {
-  "bottom": "2px",
-  "color": "#333399"
+  "bottom": "3px",
+  "color": "#333399",
+  "width": "330px"
 }
+
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
@@ -58,7 +61,7 @@ function ErrorBanner(props) {
 class GroceryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: '', name: '', quantity: 0, unit: '',
+    this.state = { category: "Baking and Dry Goods", name: '', quantity: 0, unit: '',
       temp: '', errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
@@ -122,7 +125,13 @@ class GroceryItemForm extends React.Component {
   }
 
   update (property) {
-    return e => this.setState({[property]: e.target.value});
+    return e => {
+      if (property === "category") {
+        this.setState({ [property]: selectCategory[parseInt(e.target.value)] });
+      } else {
+        this.setState({ [property]: e.target.value });
+      }
+    }
   }
 
   render() {
@@ -137,6 +146,21 @@ class GroceryItemForm extends React.Component {
             hintStyle={hintTextStyle}
             onChange={this.update('temp')}
           />
+
+          <select className="grocery-categories"
+            onChange={this.update("category")}>
+            <option value="0">Baking and Dry Goods</option>
+            <option value="1">Beverages</option>
+            <option value="2">Bread and Bakery</option>
+            <option value="3">Canned and Jarred Goods</option>
+            <option value="4">Dairy</option>
+            <option value="5">Dried Herbs and Spices</option>
+            <option value="6">Frozen Foods</option>
+            <option value="7">Fruits and Vegetables</option>
+            <option value="8">Meat and Seafood</option>
+            <option value="9">Oils and Sauces</option>
+            <option value="10">Snacks</option>
+          </select>
 
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
           onClick={this.handleSubmit}></i>

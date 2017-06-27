@@ -59,6 +59,18 @@
   display: flex;
 }
 
+#text-field-default {
+  width: 330px;
+}
+
+.grocery-categories {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #333399;
+  margin-right: 20px;
+}
+
 .grocery-items ul {
   display: flex;
   align-items: center;

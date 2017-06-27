@@ -24,6 +24,16 @@ pantry4 = PantryItem.create(category: "", name: "Blueberry",
   quantity: 5.5, unit: "ounce", user_id: guest.id)
 pantry5 = PantryItem.create(category: "", name: "Strawberry",
   quantity: 4, unit: "ounce", user_id: guest.id)
+pantry6 = PantryItem.create(category: "", name: "Avocado",
+  quantity: 2, unit: "", user_id: guest.id)
+pantry7 = PantryItem.create(category: "", name: "Brussel Sprout",
+  quantity: 1, unit: "pound", user_id: guest.id)
+pantry8 = PantryItem.create(category: "", name: "Romaine Lettuce",
+  quantity: 2, unit: "", user_id: guest.id)
+pantry9 = PantryItem.create(category: "", name: "Cucumber",
+  quantity: 1, unit: "", user_id: guest.id)
+pantry10 = PantryItem.create(category: "", name: "Carrot",
+  quantity: 1, unit: "pound", user_id: guest.id)
 
 grocery1 = Grocery.create(category: "", name: "Banana",
   quantity: 2, unit: "", user_id: guest.id, purchased: false)

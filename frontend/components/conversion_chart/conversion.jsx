@@ -224,7 +224,7 @@ class Conversion extends React.Component {
             <p><span className="conversion-topic">fluidounce: &nbsp;</span>fluid ounce(s), fl oz</p>
           </section>
           <section className="conversion">
-          <p><span className="conversion-topic">gill: &nbsp;</span>gill(s)</p>
+            <p><span className="conversion-topic">gill: &nbsp;</span>gill(s)</p>
           </section>
           <section className="conversion">
             <p><span className="conversion-topic">cup: &nbsp;</span>cup(s), c</p>

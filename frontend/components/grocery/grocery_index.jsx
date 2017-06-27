@@ -52,7 +52,7 @@ class GroceryIndex extends React.Component {
             </div>
 
             <ul className="grocery-items">
-              {this.props.grocery_items.map(item => {
+              {this.props.grocery_items.map((item, idx) => {
                 if (item.purchased === false) {
                   return (<GroceryIndexItem
                     key={item.id}

@@ -35,7 +35,6 @@ pantry9 = PantryItem.create(category: "Fruits and Vegetables", name: "Cucumber",
 pantry10 = PantryItem.create(category: "Fruits and Vegetables", name: "Carrot",
   quantity: 1, unit: "pound", user_id: guest.id)
 
-  
 
 grocery1 = Grocery.create(category: "Fruits and Vegetables", name: "Banana",
   quantity: 2, unit: "", user_id: guest.id, purchased: false)

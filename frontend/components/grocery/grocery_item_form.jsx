@@ -18,7 +18,7 @@ const hintTextStyle = {
   "width": "330px"
 }
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
@@ -161,6 +161,7 @@ class GroceryItemForm extends React.Component {
             <option value="8">Meat and Seafood</option>
             <option value="9">Oils and Sauces</option>
             <option value="10">Snacks</option>
+            <option value="11">Miscellaneous</option>
           </select>
 
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"

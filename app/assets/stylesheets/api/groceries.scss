@@ -63,12 +63,17 @@
   width: 330px;
 }
 
-.pantry-category-section {
+.grocery-category-section {
   border-top: 1px solid #e5e5e5;
   margin-bottom: 1px;
 }
 
-.grocery-category {
+.purchased-grocery-category-section {
+  border-top: 1px solid #333399;
+  margin-bottom: 1px;
+}
+
+.grocery-category, .purchased-grocery-category {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;

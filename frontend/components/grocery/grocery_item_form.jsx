@@ -61,7 +61,7 @@ function ErrorBanner(props) {
 class GroceryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: "Baking and Dry Goods", name: '', quantity: 0, unit: '',
+    this.state = { category: '', name: '', quantity: 0, unit: '',
       temp: '', errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
@@ -149,6 +149,7 @@ class GroceryItemForm extends React.Component {
 
           <select className="grocery-categories"
             onChange={this.update("category")}>
+            <option selected="true" disabled="disabled">Select a Category</option>
             <option value="0">Baking and Dry Goods</option>
             <option value="1">Beverages</option>
             <option value="2">Bread and Bakery</option>

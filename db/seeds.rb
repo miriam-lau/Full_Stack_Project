@@ -56,20 +56,17 @@ grocery2 = Grocery.create(category: "Fruits and Vegetables", name: "Mango",
   quantity: 3, unit: "", user_id: guest.id, purchased: false)
 grocery3 = Grocery.create(category: "Fruits and Vegetables", name: "Pineapple",
   quantity: 8, unit: "cups", user_id: guest.id, purchased: false)
-grocery4 = Grocery.create(category: "Fruits and Vegetables", name: "Blueberry",
-  quantity: 6, unit: "ounces", user_id: guest.id, purchased: false)
-grocery5 = Grocery.create(category: "Fruits and Vegetables", name: "Pear",
-  quantity: 5, unit: "", user_id: guest.id, purchased: false)
-grocery6 = Grocery.create(category: "Fruits and Vegetables", name: "Raspberry",
-  quantity: 10, unit: "tablespoons", user_id: guest.id, purchased: false)
+grocery4 = Grocery.create(category: "Fruits and Vegetables", name: "Blueberry", quantity: 6, unit: "ounces", user_id: guest.id, purchased: false)
+
+grocery5 = Grocery.create(category: "Bread and Bakery", name: "French Loaf", quantity: 1, unit: "", user_id: guest.id, purchased: false)
+grocery6 = Grocery.create(category: "Bread and Bakery", name: "Pumpernickel Bagel", quantity: 10, unit: "", user_id: guest.id, purchased: false)
 
 grocery7 = Grocery.create(category: "Dairy", name: "Milk",
   quantity: 1, unit: "quart", user_id: guest.id, purchased: false)
 grocery8 = Grocery.create(category: "Dairy", name: "Gruyere Cheese",
   quantity: 8, unit: "ounces", user_id: guest.id, purchased: false)
-
-grocery9 = Grocery.create(category: "", name: "Plastic Cup",
-  quantity: 12, unit: "", user_id: guest.id, purchased: false)
+grocery9 = Grocery.create(category: "Dairy", name: "Cheddar Cheese",
+  quantity: 8, unit: "ounces", user_id: guest.id, purchased: false)
 
 grocery10 = Grocery.create(category: "Frozen Foods", name: "Pizza",
   quantity: 2, unit: "", user_id: guest.id, purchased: false)
@@ -78,6 +75,10 @@ grocery11 = Grocery.create(category: "Frozen Foods", name: "Three Twins Ice Crea
 grocery12 = Grocery.create(category: "Canned and Jarred Goods", name: "Clam Chowder", quantity: 2, unit: "", user_id: guest.id, purchased: false)
 
 grocery13 = Grocery.create(category: "Beverages", name: "Cabernet Sauvignon", quantity: 2, unit: "", user_id: guest.id, purchased: false)
+
+grocery14 = Grocery.create(category: "", name: "Plastic Cup", quantity: 12, unit: "", user_id: guest.id, purchased: false)
+grocery15 = Grocery.create(category: "", name: "Plastic Ware", quantity: 1, unit: "", user_id: guest.id, purchased: false)
+grocery16 = Grocery.create(category: "", name: "Napkin", quantity: 1, unit: "", user_id: guest.id, purchased: false)
 
 recipe1 = Recipe.create(name: "Fig, Melon and Ham Salad", serving: 6,
   ingredients: "1 small Charentais melon or cantaloupe, peeled, seeded, and cut into 1-inch cubes\n12 black mission figs, split in half lengthwise\n2 ounces thinly shaved Jamón Serrano or prosciutto\n2 tablespoons extra-virgin olive oil\nCoarse sea salt\nSmall handful fresh basil leaves",

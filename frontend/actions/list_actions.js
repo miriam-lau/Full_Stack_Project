@@ -32,7 +32,7 @@ export const removeList = (list) => ({
   list
 })
 
-export const receiveGroceryErrors = (errors) => ({
+export const receiveListErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });

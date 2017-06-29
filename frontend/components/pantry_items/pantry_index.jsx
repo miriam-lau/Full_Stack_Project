@@ -4,7 +4,7 @@ import {Route, Link} from 'react-router-dom';
 import PantryIndexItem from './pantry_index_item';
 import PantryItemFormContainer from './pantry_item_form_container';
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -31,6 +31,25 @@ class PantryIndex extends React.Component {
 
             <div className="add-pantry-item">
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
+            </div>
+
+            <div className="pantry-category-section">
+              <h3 className="pantry-category">Uncategorized</h3>
+              <ul className="pantry-items">
+                {this.props.pantry_items.map((item, idx) => {
+                  if (item.category === '') {
+                    return ( <PantryIndexItem
+                      key={idx}
+                      pantry_item_id={item.id}
+                      pantry_item={item}
+                      requestPantryItem={this.props.requestPantryItem}
+                      deletePantryItem={this.props.deletePantryItem}
+                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
+                      editPantryItem={this.props.editPantryItem} />
+                    )
+                  }
+                })}
+              </ul>
             </div>
 
             {selectCategory.map((category, idx) => {

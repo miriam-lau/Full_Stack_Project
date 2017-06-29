@@ -5,7 +5,7 @@ import GroceryIndexItem from './grocery_index_item';
 import GroceryItemFormContainer from './grocery_item_form_container';
 import updatePantry from '../pantry_items/update_pantry';
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 class GroceryIndex extends React.Component {
   constructor(props) {
@@ -53,6 +53,22 @@ class GroceryIndex extends React.Component {
               <Route path="/groceries" component={ GroceryItemFormContainer } />
             </div>
 
+            <div className="grocery-category-section">
+              <h3 className="grocery-category">Uncategorized</h3>
+              <ul className="grocery-items">
+                {this.props.grocery_items.map((item, idx) => {
+                  if ((item.purchased === false) && (item.category === '')) {
+                    return (<GroceryIndexItem
+                      key={item.id}
+                      grocery_item={item}
+                      requestGroceryItem={this.props.requestGroceryItem}
+                      deleteGroceryItem={this.props.deleteGroceryItem}
+                      editGroceryItem={this.props.editGroceryItem} />)
+                    }
+                })}
+              </ul>
+            </div>
+
             {selectCategory.map((category, idx) => {
               return (
                 <div className="grocery-category-section">
@@ -87,6 +103,22 @@ class GroceryIndex extends React.Component {
               <div className="add-success">
               {(this.state.success === true) ? "Add Successful!" : "" }
               </div>
+            </div>
+
+            <div className="grocery-category-section">
+              <h3 className="grocery-category">Uncategorized</h3>
+              <ul className="grocery-items">
+                {this.props.grocery_items.map((item, idx) => {
+                  if ((item.purchased === true) && (item.category === '')) {
+                    return (<GroceryIndexItem
+                      key={item.id}
+                      grocery_item={item}
+                      requestGroceryItem={this.props.requestGroceryItem}
+                      deleteGroceryItem={this.props.deleteGroceryItem}
+                      editGroceryItem={this.props.editGroceryItem} />)
+                    }
+                })}
+              </ul>
             </div>
 
             {selectCategory.map((category, idx) => {

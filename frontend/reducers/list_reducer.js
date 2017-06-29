@@ -6,7 +6,7 @@ const noErrors = Object.freeze({
   errors: []
 });
 
-const RecipeReducer = (state = noErrors, action) => {
+const ListReducer = (state = noErrors, action) => {
   let newState;
   Object.freeze(state);
   switch (action.type) {

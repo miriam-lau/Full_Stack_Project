@@ -27,7 +27,7 @@ export const updateList = (list) => ({
   list
 })
 
-export const removeList = (list) => ({
+export const deleteList = (list) => ({
   type: DELETE_LIST,
   list
 })

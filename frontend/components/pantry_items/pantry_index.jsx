@@ -4,6 +4,8 @@ import {Route, Link} from 'react-router-dom';
 import PantryIndexItem from './pantry_index_item';
 import PantryItemFormContainer from './pantry_item_form_container';
 
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
+
 class PantryIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -31,214 +33,28 @@ class PantryIndex extends React.Component {
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
             </div>
 
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Baking and Dry Goods</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Baking and Dry Goods") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Beverages</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Beverages") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Bread and Bakery</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Bread and Bakery") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Canned and Jarred Goods</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Canned and Jarred Goods") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Dairy</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Dairy") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Dried Herbs and Spices</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Dried Herbs and Spices") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Frozen Foods</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Frozen Foods") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Fruits and Vegetables</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Fruits and Vegetables") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Meat and Seafood</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Meat and Seafood") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Oils and Sauces</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Oils and Sauces") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Snacks</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === "Snacks") {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
+            {selectCategory.map((category, idx) => {
+              return (
+                <div className="pantry-category-section">
+                  <h3 className="pantry-category">{category}</h3>
+                  <ul className="pantry-items">
+                    {this.props.pantry_items.map((item, idx) => {
+                      if (item.category === category) {
+                        return ( <PantryIndexItem
+                          key={idx}
+                          pantry_item_id={item.id}
+                          pantry_item={item}
+                          requestPantryItem={this.props.requestPantryItem}
+                          deletePantryItem={this.props.deletePantryItem}
+                          editPantryItemDbOnly={this.props.editPantryItemDbOnly}
+                          editPantryItem={this.props.editPantryItem} />
+                        )
+                      }
+                    })}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
 
           <div className="reminders">

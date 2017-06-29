@@ -27,6 +27,13 @@
   border-radius: 5px;
 }
 
+.grocery-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  margin: 10px 0 20px 15px;
+}
+
 .add-grocery-item {
   border: 1px solid #C0C0C0;
   border-radius: 5px;
@@ -48,13 +55,6 @@
   width: 100%;
 }
 
-.grocery-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  margin: 10px 0 20px 15px;
-}
-
 .grocery-form-fields {
   display: flex;
 }
@@ -63,11 +63,19 @@
   width: 330px;
 }
 
+.pantry-category-section {
+  border-top: 1px solid #e5e5e5;
+  margin-bottom: 1px;
+}
+
 .grocery-category {
   font-family: 'Nunito', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
-  margin: 10px 0 10px 15px;
+  margin: 8px 15px 2px 15px;
+  padding: 3px 10px 3px 10px;
+  background-color: #E6E6FA;
+  border-radius: 3px;
 }
 
 .grocery-categories {

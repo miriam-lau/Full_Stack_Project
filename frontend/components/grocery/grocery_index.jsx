@@ -5,6 +5,8 @@ import GroceryIndexItem from './grocery_index_item';
 import GroceryItemFormContainer from './grocery_item_form_container';
 import updatePantry from '../pantry_items/update_pantry';
 
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks"]
+
 class GroceryIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -51,18 +53,25 @@ class GroceryIndex extends React.Component {
               <Route path="/groceries" component={ GroceryItemFormContainer } />
             </div>
 
-            <ul className="grocery-items">
-              {this.props.grocery_items.map((item, idx) => {
-                if (item.purchased === false) {
-                  return (<GroceryIndexItem
-                    key={item.id}
-                    grocery_item={item}
-                    requestGroceryItem={this.props.requestGroceryItem}
-                    deleteGroceryItem={this.props.deleteGroceryItem}
-                    editGroceryItem={this.props.editGroceryItem} />)
-                  }
-              })}
-            </ul>
+            {selectCategory.map((category, idx) => {
+              return (
+                <div className="grocery-category-section">
+                  <h3 className="grocery-category">{category}</h3>
+                  <ul className="grocery-items">
+                    {this.props.grocery_items.map((item, idx) => {
+                      if ((item.purchased === false) && (item.category === category)) {
+                        return (<GroceryIndexItem
+                          key={item.id}
+                          grocery_item={item}
+                          requestGroceryItem={this.props.requestGroceryItem}
+                          deleteGroceryItem={this.props.deleteGroceryItem}
+                          editGroceryItem={this.props.editGroceryItem} />)
+                        }
+                    })}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
 
           <div className="grocery-purchases">

@@ -1,9 +1,10 @@
 import * as APIUtil from '../util/pantry_items_api_util';
+
 export const RECEIVE_ALL_PANTRY_ITEMS = 'RECEIVE_ALL_PANTRY_ITEMS';
 export const RECEIVE_PANTRY_ITEM = 'RECEIVE_PANTRY_ITEM';
-export const RECEIVE_NEW_PANTRY_ITEM = 'RECEIVE_NEW_PANTRY_ITEM';
+export const CREATE_PANTRY_ITEM = 'CREATE_PANTRY_ITEM';
 export const UPDATE_PANTRY_ITEM = 'UPDATE_PANTRY_ITEM';
-export const REMOVE_PANTRY_ITEM  = 'REMOVE_PANTRY_ITEM';
+export const DELETE_PANTRY_ITEM  = 'DELETE_PANTRY_ITEM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveAllPantryItems = (pantry_items) => ({
@@ -16,8 +17,8 @@ export const receivePantryItem = (pantry_item) => ({
   pantry_item
 });
 
-export const receiveNewPantryItem = (pantry_item) => ({
-  type: RECEIVE_NEW_PANTRY_ITEM,
+export const createPantryItem = (pantry_item) => ({
+  type: CREATE_PANTRY_ITEM,
   pantry_item
 });
 
@@ -26,8 +27,8 @@ export const updatePantryItem = (pantry_item) => ({
   pantry_item
 })
 
-export const removePantryItem = (pantry_item) => ({
-  type: REMOVE_PANTRY_ITEM,
+export const deletePantryItem = (pantry_item) => ({
+  type: DELETE_PANTRY_ITEM,
   pantry_item
 })
 
@@ -53,12 +54,13 @@ export const requestPantryItem = (id) => dispatch => (
 
 export const createPantryItem = (pantry_item) => dispatch => {
   return APIUtil.createPantryItem(pantry_item)
-    .then(pantry_item => {
-      let key = Object.keys(pantry_item)[0];
-      dispatch(receiveNewPantryItem(pantry_item[key]));
-    },
-    err => (dispatch(receivePantryErrors(err.responseJSON)))
-  )
+    .then(pantry_item => (dispatch(createPantryItem(pantry_item))),
+      err => (dispatch(receivePantryErrors(err.responseJSON)))
+    )
+      // let key = Object.keys(pantry_item)[0];
+      // dispatch(receiveNewPantryItem(pantry_item[key]));
+    // err => (dispatch(receivePantryErrors(err.responseJSON)))
+  // )
 };
 
 export const editPantryItem = (pantry_item) => dispatch => (
@@ -74,8 +76,8 @@ export const editPantryItemDbOnly = (pantry_item) => dispatch => {
   return APIUtil.updatePantryItem(pantry_item);
 };
 
-export const deletePantryItem = (id) => dispatch => {
+export const removePantryItem = (id) => dispatch => {
   return APIUtil.deletePantryItem(id)
-    .then(pantry_item => (dispatch(removePantryItem(pantry_item)))
+    .then(pantry_item => (dispatch(deletePantryItem(pantry_item)))
   )
 };

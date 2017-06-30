@@ -2,9 +2,9 @@ import * as APIUtil from '../util/grocery_api_util';
 
 export const RECEIVE_ALL_GROCERY_ITEMS = 'RECEIVE_ALL_GROCERY_ITEMS';
 export const RECEIVE_GROCERY_ITEM = 'RECEIVE_GROCERY_ITEM';
-export const RECEIVE_NEW_GROCERY_ITEM = 'RECEIVE_NEW_GROCERY_ITEM';
+export const CREATE_GROCERY_ITEM = 'CREATE_GROCERY_ITEM';
 export const UPDATE_GROCERY_ITEM = 'UPDATE_GROCERY_ITEM';
-export const REMOVE_GROCERY_ITEM  = 'REMOVE_GROCERY_ITEM';
+export const DELETE_GROCERY_ITEM  = 'DELETE_GROCERY_ITEM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveAllGroceryItems = (grocery_items) => ({
@@ -17,8 +17,8 @@ export const receiveGroceryItem = (grocery_item) => ({
   grocery_item
 });
 
-export const receiveNewGroceryItem = (grocery_item) => ({
-  type: RECEIVE_NEW_GROCERY_ITEM,
+export const createGroceryItem = (grocery_item) => ({
+  type: CREATE_GROCERY_ITEM,
   grocery_item
 });
 
@@ -27,8 +27,8 @@ export const updateGroceryItem = (grocery_item) => ({
   grocery_item
 })
 
-export const removeGroceryItem = (grocery_item) => ({
-  type: REMOVE_GROCERY_ITEM,
+export const deleteGroceryItem = (grocery_item) => ({
+  type: DELETE_GROCERY_ITEM,
   grocery_item
 })
 
@@ -52,7 +52,7 @@ export const requestGroceryItem = (id) => dispatch => (
 
 export const createGroceryItem = (grocery_item) => dispatch => (
   APIUtil.createGroceryItem(grocery_item)
-    .then(grocery_item => (dispatch(receiveNewGroceryItem(grocery_item))),
+    .then(grocery_item => (dispatch(createGroceryItem(grocery_item))),
     err => (dispatch(receiveGroceryErrors(err.responseJSON)))
   )
 );
@@ -64,8 +64,8 @@ export const editGroceryItem = (grocery_item) => dispatch => (
   )
 );
 
-export const deleteGroceryItem = (id) => dispatch => {
+export const removeGroceryItem = (id) => dispatch => {
   return APIUtil.deleteGroceryItem(id)
-    .then(grocery_item => (dispatch(removeGroceryItem(grocery_item)))
+    .then(grocery_item => (dispatch(deleteGroceryItem(grocery_item)))
   )
 };

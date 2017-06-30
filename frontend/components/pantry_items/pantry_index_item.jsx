@@ -284,7 +284,7 @@ class PantryIndexItem extends React.Component {
 
           <form className="update-pantry-form">
             <TextField id="text-field-default"
-              value={ pantry_item.unparsed_quantity }
+              value={ quantity }
               underlineFocusStyle ={textboxUnderlineFocusStyle}
               underlineStyle={textboxUnderlineStyle}
               style={addItemStyle1}

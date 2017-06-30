@@ -1,6 +1,3 @@
-// import { receiveAllRecipes, receiveRecipe, receiveNewRecipe,
-//   receiveErrors} from '../actions/recipe_actions';
-
 export const fetchAllRecipes = () => {
   return $.ajax({
     method: "GET",

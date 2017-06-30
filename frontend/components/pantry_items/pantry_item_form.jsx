@@ -49,9 +49,7 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
 function ErrorBanner(props) {
   if (props.shouldShow) {
     return (
-      <div className="pantry-item-error">
-        { props.message }
-      </div>
+      <div className="pantry-item-error">{ props.message }</div>
     );
   } else {
     return null;
@@ -119,46 +117,7 @@ class PantryItemForm extends React.Component {
       return true;
     }
 
-  //
-  //
-  //
-  //       let current_pantry_item = this.state;
-  //       let pantry_itemUnit = current_pantry_item.unit.toLowerCase();
-  //       if (pantry_itemUnit.charAt(pantry_itemUnit.length - 1) === 's') {
-  //         pantry_itemUnit = pantry_itemUnit.substring(0, (pantry_itemUnit.length - 1))
-  //       }
-  //
-  //       let items = this.props.pantry_items;
-  //       for (var i = 0; i < items.length; i++) {
-  //         let itemName = items[i].name.toLowerCase();
-  //         let itemUnit = items[i].unit.toLowerCase();
-  //         if (itemUnit.charAt(itemUnit.length - 1) === 's') {
-  //           itemUnit = itemUnit.substring(0, (itemUnit.length - 1))
-  //         }
-  //         let newUnit;
-  //         if (current_pantry_item.name.toLowerCase() === itemName) {
-  //           itemName = itemName[0].toUpperCase() + itemName.substring(1);
-  //           if (pantry_itemUnit === itemUnit) {
-  //             if (pantry_itemUnit === "") {
-  //               newUnit = "";
-  //             } else {
-  //               newUnit = itemUnit;
-  //             }
-  //             let newQuantity = parseFloat(items[i].quantity) + parseFloat(current_pantry_item.quantity);
-  //             if (newQuantity > 1 && newUnit !== "") {
-  //               newUnit += 's';
-  //             }
-  //             let unparsed_quantity = newQuantity + (newUnit != '' ? (' ' + newUnit) : '');
-  //             let pantry_item = {id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit, 'unparsed_quantity': unparsed_quantity};
-  //             this.props.editPantryItemDbOnly({pantry_item});
-  //             return true;
-  //           }
-  //         }
-  //       }
-  //       this.props.createPantryItem({'pantry_item': current_pantry_item});
-  //     });
-  //   return true;
-  // }
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -185,7 +144,7 @@ class PantryItemForm extends React.Component {
             style={addItemTextBoxStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}
-            onChange={this.update("temp")}
+            onChange={this.update('temp')}
           />
 
           <select className="pantry-categories"

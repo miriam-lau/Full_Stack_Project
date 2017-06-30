@@ -98,9 +98,7 @@ function ErrorBanner1(props) {
 function ErrorBanner2(props) {
   if (props.message != null) {
     return (
-      <div className="grocery-item-error">
-        { props.message }
-      </div>
+      <div className="grocery-item-error">{ props.message }</div>
     );
   } else {
     return null;
@@ -290,7 +288,7 @@ class GroceryIndexItem extends React.Component {
 
           <i className="material-icons trash-can"
             style={styles}
-            onClick={() => deleteGroceryItem(grocery_item.id)}>
+            onClick={() => removeGroceryItem(grocery_item.id)}>
             delete_forever</i>
         </div>
 

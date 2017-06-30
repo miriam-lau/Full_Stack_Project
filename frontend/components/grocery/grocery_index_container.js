@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import GroceryIndex from './grocery_index';
-import { requestAllGroceryItems, requestGroceryItem, deleteGroceryItem,
+import { requestAllGroceryItems, requestGroceryItem, removeGroceryItem,
   editGroceryItem } from '../../actions/grocery_actions';
-import { requestAllPantryItems, createPantryItem, editPantryItem, editPantryItemDbOnly }
+import { requestAllPantryItems, createNewPantryItem, editPantryItem, editPantryItemDbOnly }
   from '../../actions/pantry_item_actions';
 import { selectAllGroceryItems, selectAllPantryItems } from '../../reducers/selectors';
 
@@ -17,10 +17,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   requestAllGroceryItems: () => dispatch(requestAllGroceryItems()),
   requestGroceryItem: (id) => dispatch(requestGroceryItem(id)),
-  deleteGroceryItem: (id) => dispatch(deleteGroceryItem(id)),
+  removeGroceryItem: (id) => dispatch(removeGroceryItem(id)),
   editGroceryItem: (grocery_item) => dispatch(editGroceryItem(grocery_item)),
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
-  createPantryItem: (pantry_item) => dispatch(createPantryItem(pantry_item)),
+  createNewPantryItem: (pantry_item) => dispatch(createNewPantryItem(pantry_item)),
   editPantryItem: (pantry_item) => dispatch(editPantryItem(pantry_item)),
   editPantryItemDbOnly: (pantry_item) => dispatch(editPantryItemDbOnly(pantry_item))
 });

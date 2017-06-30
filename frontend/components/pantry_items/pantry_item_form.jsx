@@ -112,7 +112,7 @@ class PantryItemForm extends React.Component {
     this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {
         const pantry_item = this.state
-        this.props.createPantryItem({pantry_item})
+        this.props.createNewPantryItem({pantry_item})
             .then(data => this.props.history.push(`/pantry_items/${data.id}`))
         });
 

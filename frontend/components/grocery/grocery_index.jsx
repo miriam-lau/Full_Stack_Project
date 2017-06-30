@@ -28,8 +28,8 @@ class GroceryIndex extends React.Component {
       if (grocery_item.purchased === true) {
         let key = grocery_item.id;
         successful = updatePantry(key, grocery_item, this.props.pantry_items,
-          this.props.createPantryItem, this.props.editPantryItemDbOnly,
-          this.props.deleteGroceryItem);
+          this.props.createNewPantryItem, this.props.editPantryItemDbOnly,
+          this.props.removeGroceryItem);
       }
     })
     this.setState({success: successful});
@@ -62,7 +62,7 @@ class GroceryIndex extends React.Component {
                       key={item.id}
                       grocery_item={item}
                       requestGroceryItem={this.props.requestGroceryItem}
-                      deleteGroceryItem={this.props.deleteGroceryItem}
+                      removeGroceryItem={this.props.removeGroceryItem}
                       editGroceryItem={this.props.editGroceryItem} />)
                     }
                 })}
@@ -80,7 +80,7 @@ class GroceryIndex extends React.Component {
                           key={item.id}
                           grocery_item={item}
                           requestGroceryItem={this.props.requestGroceryItem}
-                          deleteGroceryItem={this.props.deleteGroceryItem}
+                          removeGroceryItem={this.props.removeGroceryItem}
                           editGroceryItem={this.props.editGroceryItem} />)
                         }
                     })}
@@ -114,7 +114,7 @@ class GroceryIndex extends React.Component {
                       key={item.id}
                       grocery_item={item}
                       requestGroceryItem={this.props.requestGroceryItem}
-                      deleteGroceryItem={this.props.deleteGroceryItem}
+                      removeGroceryItem={this.props.removeGroceryItem}
                       editGroceryItem={this.props.editGroceryItem} />)
                     }
                 })}
@@ -132,7 +132,7 @@ class GroceryIndex extends React.Component {
                           key={item.id}
                           grocery_item={item}
                           requestGroceryItem={this.props.requestGroceryItem}
-                          deleteGroceryItem={this.props.deleteGroceryItem}
+                          removeGroceryItem={this.props.removeGroceryItem}
                           editGroceryItem={this.props.editGroceryItem} />)
                         }
                     })}

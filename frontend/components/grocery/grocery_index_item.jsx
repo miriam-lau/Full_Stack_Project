@@ -223,7 +223,7 @@ class GroceryIndexItem extends React.Component {
 
   render() {
     const grocery_item = this.props.grocery_item;
-    const deleteGroceryItem = this.props.deleteGroceryItem;
+    const removeGroceryItem = this.props.removeGroceryItem;
     let quantity = grocery_item.quantity;
     if (grocery_item.unit !== null) {
       quantity = quantity + " " + grocery_item.unit;

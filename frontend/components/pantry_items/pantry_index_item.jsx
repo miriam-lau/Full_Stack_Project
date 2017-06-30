@@ -122,7 +122,7 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
+      return "Quantity must begin with a number";
     }
 
     words = splitFirstWord.concat(words);
@@ -148,61 +148,142 @@ class PantryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
+      return "Quantity must have a valid unit";
     }
 
-    return {
-      convertedQuantity: {quantity: parseInt(quantity),
-        unit: convertedUnit,
-        quantityError: ''},
-      errorMessage: ''
-    };
+    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
+      temp: '', quantityError: ''}, () => {
+        const grocery_item = this.state
+        this.props.editGroceryItem({grocery_item});
+      });
+
+    return null;
   }
+
+  // parseUpdateQuantity(str) {
+  //   let words = str.split(' ');
+  //   let firstNum = /(^\d+(?:\.\d+)?)/;
+  //   let splitFirstWord = words.shift().split(firstNum);
+  //   if (splitFirstWord.length === 1) {
+  //     return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
+  //   }
+  //
+  //   words = splitFirstWord.concat(words);
+  //   words = words.filter(function(el) {
+  //     return (el.trim() !== '');
+  //   });
+  //
+  //   let quantity = words.shift();
+  //   let unit = words[0];
+  //   let convertedUnit = null;
+  //
+  //   if (unit != null) {
+  //     if (unit[unit.length - 1] == '.') {
+  //       unit = unit.substring(0, unit.length - 1);
+  //     }
+  //
+  //     for (let i = 0; i < allMeasurements.length; i++) {
+  //       if (allMeasurements[i].includes(unit)) {
+  //         convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+  //         break;
+  //       }
+  //     }
+  //   }
+  //
+  //   if (convertedUnit === null && unit != null) {
+  //     return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
+  //   }
+  //
+  //   return {
+  //     convertedQuantity: {quantity: parseInt(quantity),
+  //       unit: convertedUnit,
+  //       quantityError: ''},
+  //     errorMessage: ''
+  //   };
+  // }
 
 
   update(property) {
     return e => {
+      if (property === 'temp') {
+        this.currentQuantity = e.target.value;
+      }
+      if (property === 'name' && e.target.value === '') {
+        return this.setState({nameError: "Name cannot be blank"});
+      }
+
+      if (property === 'name' && e.target.value !== '') {
+        this.setState({nameError: ''});
+      }
+
+      if (property === 'purchased') {
+        this.setState({purchased: true});
+      }
+
       if (property === "category") {
         this.setState({ [property]: e.target.value });
       }
 
-      if (property === 'unparsed_quantity') {
-        let pantry_item = this.props.pantry_item;
-        let unparsedQuantity = e.target.value;
-        pantry_item.unparsed_quantity = unparsedQuantity;
-        let parsedUpdateQuantity = this.parseUpdateQuantity(unparsedQuantity);
-        if (parsedUpdateQuantity.convertedQuantity != null) {
-          pantry_item.quantity = parsedUpdateQuantity.convertedQuantity.quantity;
-          pantry_item.unit = parsedUpdateQuantity.convertedQuantity.unit;
+      this.setState({[property]: e.target.value}, () => {
+        if (this.state.temp === '') {
+          const grocery_item = this.state;
+          this.props.editGroceryItem({grocery_item});
+        } else {
+          this.parseUpdateQuantity(this.state.temp);
         }
-        this.props.editPantryItemDbOnly({pantry_item});
-      } else if (property === 'name') {
-        if (e.target.value === '') {
-          return this.setState({nameError: "Name cannot be blank"});
-        }
-
-        if (e.target.value !== '') {
-          this.setState({nameError: ''});
-        }
-
-        let pantry_item = this.props.pantry_item;
-        pantry_item.name = e.target.value;
-        this.props.editPantryItemDbOnly({pantry_item});
-      }
+      });
     }
+
+    // return e => {
+    //   if (property === "category") {
+    //     this.setState({ [property]: e.target.value });
+    //   }
+    //
+    //   if (property === 'unparsed_quantity') {
+    //     let pantry_item = this.props.pantry_item;
+    //     let unparsedQuantity = e.target.value;
+    //     pantry_item.unparsed_quantity = unparsedQuantity;
+    //     let parsedUpdateQuantity = this.parseUpdateQuantity(unparsedQuantity);
+    //     if (parsedUpdateQuantity.convertedQuantity != null) {
+    //       pantry_item.quantity = parsedUpdateQuantity.convertedQuantity.quantity;
+    //       pantry_item.unit = parsedUpdateQuantity.convertedQuantity.unit;
+    //     }
+    //     this.props.editPantryItemDbOnly({pantry_item});
+    //   } else if (property === 'name') {
+    //     if (e.target.value === '') {
+    //       return this.setState({nameError: "Name cannot be blank"});
+    //     }
+    //
+    //     if (e.target.value !== '') {
+    //       this.setState({nameError: ''});
+    //     }
+    //
+    //     let pantry_item = this.props.pantry_item;
+    //     pantry_item.name = e.target.value;
+    //     this.props.editPantryItemDbOnly({pantry_item});
+    //   }
+    // }
   }
 
   checkError() {
     let parsedQuantity = this.parseUpdateQuantity(this.currentQuantity);
-    if (parsedQuantity.convertedQuantity != null) {
-      this.setState({quantityError: parsedQuantity.errorMessage});
+    if (errorMessage != null) {
+      this.setState({quantityError: errorMessage});
     }
+    // if (parsedQuantity.convertedQuantity != null) {
+    //   this.setState({quantityError: parsedQuantity.errorMessage});
+    // }
   }
 
 // put onBlur for name update
   render() {
     const pantry_item = this.props.pantry_item;
-    const deletePantryItem = this.props.deletePantryItem;
+    const removePantryItem = this.props.removePantryItem;
+
+    let quantity = pantry_item.quantity;
+    if (pantry_item.unit !== null) {
+      quantity = quantity + " " + pantry_item.unit;
+    }
 
     return (
       <div>

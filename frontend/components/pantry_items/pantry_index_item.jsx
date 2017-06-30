@@ -219,8 +219,8 @@ class PantryIndexItem extends React.Component {
 
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === '') {
-          const grocery_item = this.state;
-          this.props.editGroceryItem({grocery_item});
+          const pantry_item = this.state;
+          this.props.editPantryItem({pantry_item});
         } else {
           this.parseUpdateQuantity(this.state.temp);
         }

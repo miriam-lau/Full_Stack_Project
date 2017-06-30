@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Pantry_production
+  database: Pantry_production1
   username: Pantry
   password: <%= ENV['PANTRY_DATABASE_PASSWORD'] %>

@@ -55,7 +55,7 @@ const styles = {
   "alignItems": "top"
 }
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
+// const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
@@ -112,7 +112,7 @@ class GroceryIndexItem extends React.Component {
     super(props);
     let grocery_item = this.props.grocery_item;
     this.state = { id: grocery_item.id, user_id: grocery_item.user_id,
-      purchased: grocery_item.purchased, temp: '', quantityError: '',
+      purchased: grocery_item.purchased, category: grocery_item.category, temp: '', quantityError: '',
       nameError: '' };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
@@ -202,7 +202,7 @@ class GroceryIndexItem extends React.Component {
       }
 
       if (property === "category") {
-        this.setState({ [property]: selectCategory[parseInt(e.target.value)] });
+        this.setState({ [property]: e.target.value });
       }
 
       this.setState({[property]: e.target.value}, () => {
@@ -273,18 +273,18 @@ class GroceryIndexItem extends React.Component {
               <select className="grocery-uncategorized"
                 onChange={this.update("category")}>
                 <option selected="true" disabled="disabled">Select a Category</option>
-                <option value="0">Baking and Dry Goods</option>
-                <option value="1">Beverages</option>
-                <option value="2">Bread and Bakery</option>
-                <option value="3">Canned and Jarred Goods</option>
-                <option value="4">Dairy</option>
-                <option value="5">Dried Herbs and Spices</option>
-                <option value="6">Frozen Foods</option>
-                <option value="7">Fruits and Vegetables</option>
-                <option value="8">Meat and Seafood</option>
-                <option value="9">Oils and Sauces</option>
-                <option value="10">Snacks</option>
-                <option value="11">Miscellaneous</option>
+                <option value="Baking and Dry Goods">Baking and Dry Goods</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Bread and Bakery">Bread and Bakery</option>
+                <option value="Canned and Jarred Goods">Canned and Jarred Goods</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Dried Herbs and Spices">Dried Herbs and Spices</option>
+                <option value="Frozen Foods">Frozen Foods</option>
+                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+                <option value="Meat and Seafood">Meat and Seafood</option>
+                <option value="Oils and Sauces">Oils and Sauces</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Miscellaneous">Miscellaneous</option>
               </select> : ''}
           </form>
 

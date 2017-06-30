@@ -110,7 +110,6 @@ class PantryIndexItem extends React.Component {
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     // this.unparsedQuantityString = '';
     this.checkError = this.checkError.bind(this);
-
     this.currentQuantity = this.props.pantry_item.quantity;
 
     if (pantry_item.unit != null && pantry_item.unit.length !== 0) {

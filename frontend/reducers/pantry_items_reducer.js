@@ -23,11 +23,14 @@ const PantryItemsReducer = (state = noErrors, action) => {
       pantry_item.unparsed_quantity = pantry_item.quantity + (pantry_item.unit != '' ? (' ' + pantry_item.unit) : '');
       return pantry_item;
     case CREATE_PANTRY_ITEM:
-      let new_pantry_item = action.pantry_item;
-      new_pantry_item.unparsed_quantity = new_pantry_item.quantity + (new_pantry_item.unit != '' ? (' ' + new_pantry_item.unit) : '');
-      let newPantryState = merge({}, state);
-      newPantryState[action.pantry_item.id] = new_pantry_item;
-      return newPantryState;
+      let newState = merge({}, state, {[action.pantry_item.id: action.pantry_item]});
+      return newState;
+
+      // let new_pantry_item = action.pantry_item;
+      // new_pantry_item.unparsed_quantity = new_pantry_item.quantity + (new_pantry_item.unit != '' ? (' ' + new_pantry_item.unit) : '');
+      // let newPantryState = merge({}, state);
+      // newPantryState[action.pantry_item.id] = new_pantry_item;
+      // return newPantryState;
     case UPDATE_PANTRY_ITEM:
       let newUpdateState =  merge({}, state);
       newUpdateState[action.pantry_item.pantry_item.id] = action.pantry_item.pantry_item;

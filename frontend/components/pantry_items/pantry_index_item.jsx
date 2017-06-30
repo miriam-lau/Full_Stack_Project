@@ -106,10 +106,13 @@ class PantryIndexItem extends React.Component {
     let pantry_item = this.props.pantry_item;
     this.state = { id: pantry_item.id, user_id: pantry_item.user_id,
       category: pantry_item.category, quantityError: '', nameError: '' };
+
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
-    this.unparsedQuantityString = '';
+    // this.unparsedQuantityString = '';
     this.checkError = this.checkError.bind(this);
+
     this.currentQuantity = this.props.pantry_item.quantity;
+
     if (pantry_item.unit != null && pantry_item.unit.length !== 0) {
       this.currentQuantity = this.currentQuantity + " " + pantry_item.unit;
     }

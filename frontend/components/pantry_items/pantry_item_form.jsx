@@ -111,43 +111,54 @@ class PantryItemForm extends React.Component {
 
     this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {
-        let current_pantry_item = this.state;
-        let pantry_itemUnit = current_pantry_item.unit.toLowerCase();
-        if (pantry_itemUnit.charAt(pantry_itemUnit.length - 1) === 's') {
-          pantry_itemUnit = pantry_itemUnit.substring(0, (pantry_itemUnit.length - 1))
-        }
+        const pantry_item = this.state
+        this.props.createPantryItem({pantry_item})
+            .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+        });
 
-        let items = this.props.pantry_items;
-        for (var i = 0; i < items.length; i++) {
-          let itemName = items[i].name.toLowerCase();
-          let itemUnit = items[i].unit.toLowerCase();
-          if (itemUnit.charAt(itemUnit.length - 1) === 's') {
-            itemUnit = itemUnit.substring(0, (itemUnit.length - 1))
-          }
-          let newUnit;
-          if (current_pantry_item.name.toLowerCase() === itemName) {
-            itemName = itemName[0].toUpperCase() + itemName.substring(1);
-            if (pantry_itemUnit === itemUnit) {
-              if (pantry_itemUnit === "") {
-                newUnit = "";
-              } else {
-                newUnit = itemUnit;
-              }
-              let newQuantity = parseFloat(items[i].quantity) + parseFloat(current_pantry_item.quantity);
-              if (newQuantity > 1 && newUnit !== "") {
-                newUnit += 's';
-              }
-              let unparsed_quantity = newQuantity + (newUnit != '' ? (' ' + newUnit) : '');
-              let pantry_item = {id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit, 'unparsed_quantity': unparsed_quantity};
-              this.props.editPantryItemDbOnly({pantry_item});
-              return true;
-            }
-          }
-        }
-        this.props.createPantryItem({'pantry_item': current_pantry_item});
-      });
-    return true;
-  }
+      return true;
+    }
+
+  //
+  //
+  //
+  //       let current_pantry_item = this.state;
+  //       let pantry_itemUnit = current_pantry_item.unit.toLowerCase();
+  //       if (pantry_itemUnit.charAt(pantry_itemUnit.length - 1) === 's') {
+  //         pantry_itemUnit = pantry_itemUnit.substring(0, (pantry_itemUnit.length - 1))
+  //       }
+  //
+  //       let items = this.props.pantry_items;
+  //       for (var i = 0; i < items.length; i++) {
+  //         let itemName = items[i].name.toLowerCase();
+  //         let itemUnit = items[i].unit.toLowerCase();
+  //         if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+  //           itemUnit = itemUnit.substring(0, (itemUnit.length - 1))
+  //         }
+  //         let newUnit;
+  //         if (current_pantry_item.name.toLowerCase() === itemName) {
+  //           itemName = itemName[0].toUpperCase() + itemName.substring(1);
+  //           if (pantry_itemUnit === itemUnit) {
+  //             if (pantry_itemUnit === "") {
+  //               newUnit = "";
+  //             } else {
+  //               newUnit = itemUnit;
+  //             }
+  //             let newQuantity = parseFloat(items[i].quantity) + parseFloat(current_pantry_item.quantity);
+  //             if (newQuantity > 1 && newUnit !== "") {
+  //               newUnit += 's';
+  //             }
+  //             let unparsed_quantity = newQuantity + (newUnit != '' ? (' ' + newUnit) : '');
+  //             let pantry_item = {id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit, 'unparsed_quantity': unparsed_quantity};
+  //             this.props.editPantryItemDbOnly({pantry_item});
+  //             return true;
+  //           }
+  //         }
+  //       }
+  //       this.props.createPantryItem({'pantry_item': current_pantry_item});
+  //     });
+  //   return true;
+  // }
 
   handleSubmit(event) {
     event.preventDefault();

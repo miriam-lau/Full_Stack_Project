@@ -109,7 +109,7 @@ class GroceryItemForm extends React.Component {
     }
     let item = words.join(' ');
 
-    this.setState({name: item, quantity: parseInt(quantity),
+    this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {
         const grocery_item = this.state
         this.props.createGroceryItem({grocery_item})

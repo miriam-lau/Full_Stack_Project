@@ -119,8 +119,8 @@ class GroceryIndexItem extends React.Component {
     this.checkError = this.checkError.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.update = this.update.bind(this);
-
     this.currentQuantity = this.props.grocery_item.quantity;
+
     if (grocery_item.unit != null && grocery_item.unit.length !== 0) {
       this.currentQuantity = this.currentQuantity + " " + grocery_item.unit;
     }

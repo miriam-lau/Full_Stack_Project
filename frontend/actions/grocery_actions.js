@@ -50,7 +50,7 @@ export const requestGroceryItem = (id) => dispatch => (
   )
 );
 
-export const createGroceryItem = (grocery_item) => dispatch => (
+export const createNewGroceryItem = (grocery_item) => dispatch => (
   APIUtil.createGroceryItem(grocery_item)
     .then(grocery_item => (dispatch(createGroceryItem(grocery_item))),
     err => (dispatch(receiveGroceryErrors(err.responseJSON)))

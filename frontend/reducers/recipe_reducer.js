@@ -1,6 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, CREATE_RECIPE, UPDATE_RECIPE,
-  DELETE_RECIPE, RECEIVE_ERRORS } from '../actions/recipe_actions';
+import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, CREATE_RECIPE, UPDATE_RECIPE, DELETE_RECIPE, RECEIVE_ERRORS } from '../actions/recipe_actions';
 
 const noErrors = Object.freeze({
   errors: []

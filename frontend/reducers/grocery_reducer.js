@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_GROCERY_ITEMS, RECEIVE_GROCERY_ITEM,
-  RECEIVE_NEW_GROCERY_ITEM, UPDATE_GROCERY_ITEM, REMOVE_GROCERY_ITEM,
+  CREATE_GROCERY_ITEM, UPDATE_GROCERY_ITEM, DELETE_GROCERY_ITEM,
   RECEIVE_ERRORS } from '../actions/grocery_actions';
 
 const noErrors = Object.freeze({
@@ -14,11 +14,11 @@ const GroceryReducer = (state = noErrors, action) => {
       return action.grocery_items;
     case RECEIVE_GROCERY_ITEM:
       return action.grocery_item;
-    case RECEIVE_NEW_GROCERY_ITEM:
+    case CREATE_GROCERY_ITEM:
       return merge({}, state, action.grocery_item);
     case UPDATE_GROCERY_ITEM:
       return merge({}, state, action.grocery_item);
-    case REMOVE_GROCERY_ITEM:
+    case DELETE_GROCERY_ITEM:
       const newState = merge({}, state);
       delete newState[Object.keys(action.grocery_item)[0]];
       return newState;

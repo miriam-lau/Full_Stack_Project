@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_PANTRY_ITEMS, RECEIVE_PANTRY_ITEM,
-  RECEIVE_NEW_PANTRY_ITEM, UPDATE_PANTRY_ITEM, REMOVE_PANTRY_ITEM,
+  CREATE_PANTRY_ITEM, UPDATE_PANTRY_ITEM, DELETE_PANTRY_ITEM,
   RECEIVE_ERRORS } from '../actions/pantry_item_actions';
 
 const noErrors = Object.freeze({
@@ -22,7 +22,7 @@ const PantryItemsReducer = (state = noErrors, action) => {
       let pantry_item = action.pantry_item;
       pantry_item.unparsed_quantity = pantry_item.quantity + (pantry_item.unit != '' ? (' ' + pantry_item.unit) : '');
       return pantry_item;
-    case RECEIVE_NEW_PANTRY_ITEM:
+    case CREATE_PANTRY_ITEM:
       let new_pantry_item = action.pantry_item;
       new_pantry_item.unparsed_quantity = new_pantry_item.quantity + (new_pantry_item.unit != '' ? (' ' + new_pantry_item.unit) : '');
       let newPantryState = merge({}, state);
@@ -32,7 +32,7 @@ const PantryItemsReducer = (state = noErrors, action) => {
       let newUpdateState =  merge({}, state);
       newUpdateState[action.pantry_item.pantry_item.id] = action.pantry_item.pantry_item;
       return newUpdateState;
-    case REMOVE_PANTRY_ITEM:
+    case DELETE_PANTRY_ITEM:
       const newState = merge({}, state);
       delete newState[Object.keys(action.pantry_item)[0]];
       return newState;

@@ -86,9 +86,7 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
 function ErrorBanner1(props) {
   if (props.message != null) {
     return (
-      <div className="grocery-item-error">
-        { props.message }
-      </div>
+      <div className="grocery-item-error">{ props.message }</div>
     );
   } else {
     return null;

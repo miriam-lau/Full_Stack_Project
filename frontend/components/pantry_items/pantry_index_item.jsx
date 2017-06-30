@@ -79,9 +79,7 @@ const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
 function ErrorBanner1(props) {
   if (props.message != null) {
     return (
-      <div className="pantry-item-error">
-        { props.message }
-      </div>
+      <div className="pantry-item-error">{ props.message }</div>
     );
   } else {
     return null;
@@ -91,9 +89,7 @@ function ErrorBanner1(props) {
 function ErrorBanner2(props) {
   if (props.message != null) {
     return (
-      <div className="pantry-item-error">
-        { props.message }
-      </div>
+      <div className="pantry-item-error">{ props.message }</div>
     );
   } else {
     return null;
@@ -105,11 +101,12 @@ class PantryIndexItem extends React.Component {
     super(props);
     let pantry_item = this.props.pantry_item;
     this.state = { id: pantry_item.id, user_id: pantry_item.user_id,
-      category: pantry_item.category, quantityError: '', nameError: '' };
+      category: pantry_item.category, temp: '', quantityError: '', nameError: '' };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     // this.unparsedQuantityString = '';
     this.checkError = this.checkError.bind(this);
+    this.update = this.update.bind(this);
     this.currentQuantity = this.props.pantry_item.quantity;
 
     if (pantry_item.unit != null && pantry_item.unit.length !== 0) {
@@ -153,8 +150,8 @@ class PantryIndexItem extends React.Component {
 
     this.setState({quantity: parseInt(quantity), unit: convertedUnit,
       temp: '', quantityError: ''}, () => {
-        const grocery_item = this.state
-        this.props.editGroceryItem({grocery_item});
+        const pantry_item = this.state
+        this.props.editPantryItem({pantry_item});
       });
 
     return null;
@@ -214,10 +211,6 @@ class PantryIndexItem extends React.Component {
 
       if (property === 'name' && e.target.value !== '') {
         this.setState({nameError: ''});
-      }
-
-      if (property === 'purchased') {
-        this.setState({purchased: true});
       }
 
       if (property === "category") {
@@ -295,7 +288,7 @@ class PantryIndexItem extends React.Component {
               underlineFocusStyle ={textboxUnderlineFocusStyle}
               underlineStyle={textboxUnderlineStyle}
               style={addItemStyle1}
-              onChange={this.update('unparsed_quantity')}
+              onChange={this.update('temp')}
               onBlur={this.checkError}
             />
 

@@ -224,7 +224,7 @@ class Conversion extends React.Component {
             <p><span className="conversion-topic">teaspoon: &nbsp;</span> teaspoon(s), t, tsp</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">tablespoon: &nbsp;</span>tablespoon(s), T, tbl, tbs, tbsp</p>
+            <p><span className="conversion-topic">tablespoon: &nbsp;</span>tablespoon(s), T, tbsp</p>
           </section>
           <section className="conversion">
             <p><span className="conversion-topic">fluidounce: &nbsp;</span>fluid ounce(s), fl oz</p>
@@ -257,7 +257,7 @@ class Conversion extends React.Component {
             <p><span className="conversion-topic">foot: &nbsp;</span>foot, feet, ft</p>
           </section>
           <section className="conversion">
-            <p><span className="conversion-topic">milliliter: &nbsp;</span>milliliter(s), millilitre(s), ml, mL, cc</p>
+            <p><span className="conversion-topic">milliliter: &nbsp;</span>milliliter(s), millilitre(s), ml, mL</p>
           </section>
           <section className="conversion">
             <p><span className="conversion-topic">deciliter: &nbsp;</span>deciliter(s), decilitre(s), dL</p>

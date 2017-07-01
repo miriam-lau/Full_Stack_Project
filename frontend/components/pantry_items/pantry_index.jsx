@@ -43,7 +43,7 @@ class PantryIndex extends React.Component {
                       pantry_item_id={item.id}
                       pantry_item={item}
                       requestPantryItem={this.props.requestPantryItem}
-                      deletePantryItem={this.props.deletePantryItem}
+                      removePantryItem={this.props.removePantryItem}
                       editPantryItemDbOnly={this.props.editPantryItemDbOnly}
                       editPantryItem={this.props.editPantryItem} />
                     )

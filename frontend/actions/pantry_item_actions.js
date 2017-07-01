@@ -56,11 +56,7 @@ export const createNewPantryItem = (pantry_item) => dispatch => {
   return APIUtil.createPantryItem(pantry_item)
     .then(pantry_item => (dispatch(createPantryItem(pantry_item))),
       err => (dispatch(receivePantryErrors(err.responseJSON)))
-    )
-      // let key = Object.keys(pantry_item)[0];
-      // dispatch(receiveNewPantryItem(pantry_item[key]));
-    // err => (dispatch(receivePantryErrors(err.responseJSON)))
-  // )
+  )
 };
 
 export const editPantryItem = (pantry_item) => dispatch => (

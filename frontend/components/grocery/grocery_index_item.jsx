@@ -58,7 +58,7 @@ const styles = {
 // const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
-const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
+const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbsp'];
 const fluidounce = ['fluid ounce', 'fluid ounces', 'fl oz'];
 const gill = ['gill', 'gills'];
 const cup = ['cup', 'cups', 'c'];
@@ -76,8 +76,8 @@ const kilogram = ['kilogram', 'kilograms', 'kilogramme', 'kilogrammes', 'kg', 'k
 const millimeter = ['millimeter', 'millimeters', 'millimetre', 'millimetres', 'mm'];
 const centimeter = ['centimeter', 'centimeters', 'centimetre', 'centimetres', 'cm'];
 const meter = ['meter', 'meters', 'metre', 'metres', 'm'];
-const inch = ['inch', 'inches', 'in', '"'];
-const foot = ['foot', 'feet', '\''];
+const inch = ['inch', 'inches', 'in'];
+const foot = ['foot', 'feet'];
 
 const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
   pint, quart, gallon, milliliter, liter, deciliter, pound, ounce,
@@ -108,8 +108,7 @@ class GroceryIndexItem extends React.Component {
     super(props);
     let grocery_item = this.props.grocery_item;
     this.state = { id: grocery_item.id, user_id: grocery_item.user_id,
-      purchased: grocery_item.purchased, category: grocery_item.category, temp: '', quantityError: '',
-      nameError: '' };
+      purchased: grocery_item.purchased, category: grocery_item.category, temp: '', quantityError: '', nameError: '' };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);

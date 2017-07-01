@@ -51,7 +51,7 @@ const styles = {
 // const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
-const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
+const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbsp'];
 const fluidounce = ['fluid ounce', 'fluid ounces', 'fl oz'];
 const gill = ['gill', 'gills'];
 const cup = ['cup', 'cups', 'c'];
@@ -69,8 +69,8 @@ const kilogram = ['kilogram', 'kilograms', 'kilogramme', 'kilogrammes', 'kg', 'k
 const millimeter = ['millimeter', 'millimeters', 'millimetre', 'millimetres', 'mm'];
 const centimeter = ['centimeter', 'centimeters', 'centimetre', 'centimetres', 'cm'];
 const meter = ['meter', 'meters', 'metre', 'metres', 'm'];
-const inch = ['inch', 'inches', 'in', '"'];
-const foot = ['foot', 'feet', '\''];
+const inch = ['inch', 'inches', 'in'];
+const foot = ['foot', 'feet'];
 
 const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
   pint, quart, gallon, milliliter, liter, deciliter, pound, ounce,
@@ -104,7 +104,6 @@ class PantryIndexItem extends React.Component {
       category: pantry_item.category, temp: '', quantityError: '', nameError: '' };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
-    // this.unparsedQuantityString = '';
     this.checkError = this.checkError.bind(this);
     this.update = this.update.bind(this);
     this.currentQuantity = this.props.pantry_item.quantity;
@@ -149,10 +148,8 @@ class PantryIndexItem extends React.Component {
     }
 
     return {
-      convertedQuantity: {quantity: parseInt(quantity),
-        unit: convertedUnit,
-        quantityError: ''},
-      errorMessage: ''
+      convertedQuantity: {quantity: parseInt(quantity), unit: convertedUnit,
+        quantityError: ''}, errorMessage: ''
     };
   }
 
@@ -219,9 +216,6 @@ class PantryIndexItem extends React.Component {
     if (errorMessage != null) {
       this.setState({quantityError: errorMessage});
     }
-    // if (parsedQuantity.convertedQuantity != null) {
-    //   this.setState({quantityError: parsedQuantity.errorMessage});
-    // }
   }
 
 // put onBlur for name update

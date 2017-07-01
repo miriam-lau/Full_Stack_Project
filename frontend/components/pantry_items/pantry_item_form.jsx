@@ -79,6 +79,13 @@ class PantryItemForm extends React.Component {
     let unit = words[0];
     let convertedUnit = null;
 
+    // if (words.length === 1) {
+    //   let itemName = words[0];
+    // } else {
+    //   let unit = words[0];
+    //   let itemName = words[1];
+    // }
+
     if (unit == null || unit.length === 0) {
      return this.setState({errors: true})
     }

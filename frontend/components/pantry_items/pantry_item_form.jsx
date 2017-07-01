@@ -20,12 +20,6 @@ const hintTextStyle = {
 
 const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"];
 
-const measurements = ['teaspoon', 'teaspoons', 't', 'tsp', 'tablespoon', 'tablespoons', 'T', 'tbsp', 'fluid ounce', 'fluid ounces', 'fl oz', 'gill', 'gills', 'cup', 'cups', 'c', 'pint', 'pints', 'p',
-'pt', 'fl pt', 'quart', 'quarts', 'q', 'qt', 'fl qt', 'gallon', 'gallons', 'g', 'gal', 'milliliter', 'milliliters', 'millilitre', 'millilitres', 'ml', 'mL', 'liter', 'liters', 'litre',
-'litres', 'L', 'deciliter', 'deciliters', 'decilitre', 'decilitres', 'dL', 'pound', 'pounds', 'lb', 'lbs', 'ounce', 'ounces', 'oz', 'milligram', 'milligrams', 'milligramme', 'milligrammes', 'mg', 'gram',
-'grams', 'gramme', 'grammes', 'g', 'kilogram', 'kilograms', 'kilogramme', 'kilogrammes', 'kg', 'kgs', 'millimeter', 'millimeters', 'millimetre', 'millimetres', 'mm', 'centimeter', 'centimeters', 'centimetre', 'centimetres', 'cm',
-'meter', 'meters', 'metre', 'metres', 'm', 'inch', 'inches', 'in', 'foot', 'feet'];
-
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
 const fluidounce = ['fluid ounce', 'fluid ounces', 'fl oz'];
@@ -71,33 +65,6 @@ class PantryItemForm extends React.Component {
     this.parseAddItem = this.parseAddItem.bind(this);
   }
 
-  // parseAddItem(str) {
-  //   let words = str.split(' ');
-  //   if (words.length < 2) {
-  //     return "Invalid entry";
-  //   }
-  //
-  //   let quantity;
-  //   let unit;
-  //   let name;
-  //   if (isNaN(parseFloat(words[0])) {
-  //     return "Quantity must begin with a number";
-  //   } else {
-  //     quantity = parseFloat(words.shift());
-  //   }
-  //
-  //   if (measurements.includes(words[0])) {
-  //     unit = words.shift();
-  //     name = words.join(' ');
-  //   } else {
-  //     name = words.join(' ');
-  //   }
-  //
-  //   if (name.length < 1) {
-  //     return "Name cannot be blank";
-  //   }
-  // }
-
   parseAddItem(str) {
     let words = str.split(' ');
     let firstNum = /(^\d+(?:\.\d+)?)/;
@@ -139,6 +106,7 @@ class PantryItemForm extends React.Component {
       convertedUnit = '';
     }
     let item = words.join(' ');
+
 
     this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {

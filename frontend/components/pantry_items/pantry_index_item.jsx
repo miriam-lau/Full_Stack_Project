@@ -119,7 +119,7 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return "Quantity must begin with a number";
+      return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -145,60 +145,16 @@ class PantryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return "Quantity must have a valid unit";
+      return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
     }
 
-    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
-      temp: '', quantityError: ''}, () => {
-        const pantry_item = this.state
-        this.props.editPantryItem({pantry_item});
-      });
-
-    return null;
+    return {
+      convertedQuantity: {quantity: parseInt(quantity),
+        unit: convertedUnit,
+        quantityError: ''},
+      errorMessage: ''
+    };
   }
-
-  // parseUpdateQuantity(str) {
-  //   let words = str.split(' ');
-  //   let firstNum = /(^\d+(?:\.\d+)?)/;
-  //   let splitFirstWord = words.shift().split(firstNum);
-  //   if (splitFirstWord.length === 1) {
-  //     return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
-  //   }
-  //
-  //   words = splitFirstWord.concat(words);
-  //   words = words.filter(function(el) {
-  //     return (el.trim() !== '');
-  //   });
-  //
-  //   let quantity = words.shift();
-  //   let unit = words[0];
-  //   let convertedUnit = null;
-  //
-  //   if (unit != null) {
-  //     if (unit[unit.length - 1] == '.') {
-  //       unit = unit.substring(0, unit.length - 1);
-  //     }
-  //
-  //     for (let i = 0; i < allMeasurements.length; i++) {
-  //       if (allMeasurements[i].includes(unit)) {
-  //         convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
-  //         break;
-  //       }
-  //     }
-  //   }
-  //
-  //   if (convertedUnit === null && unit != null) {
-  //     return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
-  //   }
-  //
-  //   return {
-  //     convertedQuantity: {quantity: parseInt(quantity),
-  //       unit: convertedUnit,
-  //       quantityError: ''},
-  //     errorMessage: ''
-  //   };
-  // }
-
 
   update(property) {
     return e => {

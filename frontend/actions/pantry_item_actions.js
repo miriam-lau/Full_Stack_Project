@@ -5,7 +5,7 @@ export const RECEIVE_PANTRY_ITEM = 'RECEIVE_PANTRY_ITEM';
 export const CREATE_PANTRY_ITEM = 'CREATE_PANTRY_ITEM';
 export const UPDATE_PANTRY_ITEM = 'UPDATE_PANTRY_ITEM';
 export const DELETE_PANTRY_ITEM  = 'DELETE_PANTRY_ITEM';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_PANTRY_ERRORS = 'RECEIVE_PANTRY_ERRORS';
 
 export const receiveAllPantryItems = (pantry_items) => ({
   type: RECEIVE_ALL_PANTRY_ITEMS,
@@ -33,7 +33,7 @@ export const deletePantryItem = (pantry_item) => ({
 })
 
 export const receivePantryErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_PANTRY_ERRORS,
   errors
 });
 

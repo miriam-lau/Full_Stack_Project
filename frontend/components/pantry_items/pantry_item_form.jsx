@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField } from 'material-ui';
 
-const addItemTextBoxStyle = {
+const addItemStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
@@ -21,7 +21,7 @@ const hintTextStyle = {
 const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"];
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
-const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbl', 'tbs', 'tbsp'];
+const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbsp'];
 const fluidounce = ['fluid ounce', 'fluid ounces', 'fl oz'];
 const gill = ['gill', 'gills'];
 const cup = ['cup', 'cups', 'c'];
@@ -75,7 +75,7 @@ class PantryItemForm extends React.Component {
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(entry) { return entry.trim() != ''; });
-    let quantity = words.shift();
+    let quantity = parseFloat(words.shift());
     let unit = words[0];
     let convertedUnit = null;
 
@@ -89,7 +89,7 @@ class PantryItemForm extends React.Component {
 
     for (let i = 0; i < allMeasurements.length; i++) {
       if (allMeasurements[i].includes(unit)) {
-        convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+        convertedUnit = (quantity === 1 ? allMeasurements[i][0] : allMeasurements[i][1]);
         break;
       }
     }
@@ -105,9 +105,65 @@ class PantryItemForm extends React.Component {
     if (convertedUnit === null) {
       convertedUnit = '';
     }
+
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substring(1);
+    }
     let item = words.join(' ');
 
+    // cross-check with existing items to update if found
+    let allItems = this.props.pantry_items;
 
+    for (var i = 0; i < allItems.length; i++) {
+      if (allItems[i].category !== this.state.category) {
+        continue;
+      }
+
+      let itemName = allItems[i].name;
+      if (itemName !== item) {
+        continue;
+      }
+
+      let itemUnit = allItems[i].unit;
+      if (itemUnit === 'inch' || itemUnit === 'inches') {
+        itemUnit = 'inch';
+      } else if (itemUnit === 'foot' || itemUnit === 'feet') {
+        itemUnit = 'foot';
+      } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+        itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
+      }
+
+      if (convertedUnit === 'inch' || convertedUnit === 'inches') {
+        convertedUnit = 'inch';
+      } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
+        convertedUnit = 'foot';
+      } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+        convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
+      }
+
+      if (convertedUnit !== itemUnit) {
+        continue;
+      } else {
+        quantity += parseFloat(allItems[i].quantity);
+      }
+
+      if (quantity > 1 && convertedUnit !== '') {
+        if (convertedUnit === 'inch') {
+          convertedUnit = 'inches';
+        } else if (convertedUnit === 'foot') {
+          convertedUnit = 'feet';
+        } else {
+          convertedUnit += 's';
+        }
+      }
+
+      let pantry_item = {id: allItems[i].id, name: item, quantity: quantity, unit: convertedUnit};
+
+      this.props.editPantryItem({pantry_item});
+      return true;
+    }
+
+    // add new item
     this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: '', errors: false}, () => {
         const pantry_item = this.state
@@ -140,7 +196,7 @@ class PantryItemForm extends React.Component {
           <TextField id="text-field-default"
             value={this.state.temp}
             underlineShow={false}
-            style={addItemTextBoxStyle}
+            style={addItemStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}
             onChange={this.update('temp')}
@@ -174,41 +230,3 @@ class PantryItemForm extends React.Component {
 }
 
 export default PantryItemForm;
-
-//       let current_pantry_item = this.state;
-//       let pantry_itemUnit = current_pantry_item.unit.toLowerCase();
-//       if (pantry_itemUnit.charAt(pantry_itemUnit.length - 1) === 's') {
-//         pantry_itemUnit = pantry_itemUnit.substring(0, (pantry_itemUnit.length - 1))
-//       }
-//
-//       let items = this.props.pantry_items;
-//       for (var i = 0; i < items.length; i++) {
-//         let itemName = items[i].name.toLowerCase();
-//         let itemUnit = items[i].unit.toLowerCase();
-//         if (itemUnit.charAt(itemUnit.length - 1) === 's') {
-//           itemUnit = itemUnit.substring(0, (itemUnit.length - 1))
-//         }
-//         let newUnit;
-//         if (current_pantry_item.name.toLowerCase() === itemName) {
-//           itemName = itemName[0].toUpperCase() + itemName.substring(1);
-//           if (pantry_itemUnit === itemUnit) {
-//             if (pantry_itemUnit === "") {
-//               newUnit = "";
-//             } else {
-//               newUnit = itemUnit;
-//             }
-//             let newQuantity = parseFloat(items[i].quantity) + parseFloat(current_pantry_item.quantity);
-//             if (newQuantity > 1 && newUnit !== "") {
-//               newUnit += 's';
-//             }
-//             let unparsed_quantity = newQuantity + (newUnit != '' ? (' ' + newUnit) : '');
-//             let pantry_item = {id: items[i].id, name: itemName, quantity: newQuantity, unit: newUnit, 'unparsed_quantity': unparsed_quantity};
-//             this.props.editPantryItemDbOnly({pantry_item});
-//             return true;
-//           }
-//         }
-//       }
-//       this.props.createPantryItem({'pantry_item': current_pantry_item});
-//     });
-//   return true;
-// }

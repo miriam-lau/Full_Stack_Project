@@ -18,7 +18,7 @@ const hintTextStyle = {
   "width": "330px"
 }
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
+const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"];
 
 const teaspoon = ['teaspoon', 'teaspoons', 't', 'tsp'];
 const tablespoon = ['tablespoon', 'tablespoons', 'T', 'tbsp'];
@@ -75,7 +75,7 @@ class GroceryItemForm extends React.Component {
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(entry) { return entry.trim() != ''; });
-    let quantity = words.shift();
+    let quantity = parseFloat(words.shift());
     let unit = words[0];
     let convertedUnit = null;
 
@@ -89,7 +89,7 @@ class GroceryItemForm extends React.Component {
 
     for (let i = 0; i < allMeasurements.length; i++) {
       if (allMeasurements[i].includes(unit)) {
-        convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+        convertedUnit = (quantity === 1 ? allMeasurements[i][0] : allMeasurements[i][1]);
         break;
       }
     }
@@ -104,6 +104,10 @@ class GroceryItemForm extends React.Component {
 
     if (convertedUnit === null) {
       convertedUnit = '';
+    }
+
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substring(1);
     }
     let item = words.join(' ');
 

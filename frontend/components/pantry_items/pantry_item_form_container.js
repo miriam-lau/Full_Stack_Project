@@ -7,7 +7,7 @@ import { selectAllPantryItems } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
   pantry_items: selectAllPantryItems(state),
-  errors: state.pantry_item.errors
+  errors: state.pantry_items.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

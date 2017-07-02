@@ -157,15 +157,14 @@ class PantryItemForm extends React.Component {
         }
       }
 
-      let pantry_item = {id: allItems[i].id, name: item, quantity: quantity, unit: convertedUnit};
+      let pantry_item = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
 
       this.props.editPantryItem({pantry_item});
       return true;
     }
 
     // add new item
-    this.setState({name: item, quantity: parseFloat(quantity),
-      unit: convertedUnit, temp: '', errors: false}, () => {
+    this.setState({name: item, category: this.state.category, quantity: parseFloat(quantity), unit: convertedUnit, temp: '', errors: false}, () => {
         const pantry_item = this.state
         this.props.createNewPantryItem({pantry_item})
             .then(data => this.props.history.push(`/pantry_items/${data.id}`))

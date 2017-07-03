@@ -193,14 +193,6 @@ class GroceryIndexItem extends React.Component {
         }
       }
 
-      // if (property === 'name' && e.target.value === '') {
-      //   return this.setState({nameError: "Name cannot be blank"});
-      // }
-      //
-      // if (property === 'name' && e.target.value !== '') {
-      //   this.setState({nameError: ''});
-      // }
-
       if (property === 'purchased') {
         this.setState({purchased: true});
       }

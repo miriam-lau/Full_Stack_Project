@@ -156,11 +156,6 @@ class PantryIndexItem extends React.Component {
       });
 
     return null;
-
-    // return {
-    //   convertedQuantity: {quantity: parseInt(quantity), unit: convertedUnit,
-    //     quantityError: ''}, errorMessage: ''
-    // };
   }
 
   update(property) {

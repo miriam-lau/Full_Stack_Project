@@ -2,6 +2,9 @@ import React from 'react';
 import { unitArray, liquid, dry, length } from './units';
 import { Drawer, TextField } from 'material-ui';
 
+const VALUE1 = "value1";
+const VALUE2 = "value2";
+
 const hintTextStyle = {
   "bottom": "3px",
   "color": "#333399",
@@ -19,19 +22,6 @@ const addItemTextBoxStyle = {
   "border-bottom": "1px solid #C0C0C0",
   "color": "#333399"
 }
-
-// const unitArray = ["fluid ounce", "gill", "teaspoon", "teaspoon (dry)",
-//   "tablespoon", "tablespoon (dry)", "cup", "pint", "quart", "gallon",
-//   "ounce", "pound", "inch", "foot", "milliliter", "deciliter", "liter",
-//   "milligram", "gram", "kilogram", "millimeter", "centimeter", "meter"]
-//
-// const liquid = ["fluid ounce", "gill", "teaspoon", "tablespoon", "cup",
-//   "pint", "quart", "gallon", "milliliter", "deciliter", "liter"]
-//
-// const dry = ["teaspoon (dry)", "tablespoon (dry)", "ounce", "pound", "milligram",
-//   "gram", "kilogram"]
-//
-// const length = ["inch", "foot", "millimeter", "centimeter", "meter"]
 
 let liquidConversion = new Map();
   liquidConversion.set("teaspoon", 1);
@@ -66,8 +56,9 @@ let lengthConversion = new Map();
 class Conversion extends React.Component {
   constructor(props) {
     super(props);
-    this.state={toggle: false, quantity: "", value1: "fluid ounce",
-      value2: "fluid ounce"};
+    this.state={toggle: false, quantity: ""};
+    this.state[VALUE1] = "fluid ounce";
+    this.state[VALUE2] = "fluid ounce";
 
     this.handleToggle = this.handleToggle.bind(this);
     this.calculateResult = this.calculateResult.bind(this);
@@ -80,7 +71,8 @@ class Conversion extends React.Component {
 
   update(property) {
     return e => {
-      if (property === 'value1' || property === 'value2') {
+      console.log(property);
+      if (property === VALUE1 || property === VALUE2) {
         this.setState({ [property]: unitArray[parseInt(e.target.value)] });
       } else {
         this.setState({ [property]: e.target.value });
@@ -158,7 +150,7 @@ class Conversion extends React.Component {
               />
 
               <div className="conversion-unit-selector">
-                <select className="conversion-select" onChange={this.update("value1")}>
+                <select className="conversion-select" onChange={this.update(VALUE1)}>
                   <option value="0">fluid ounce</option>
                   <option value="1">gill</option>
                   <option value="2">teaspoon</option>
@@ -192,7 +184,7 @@ class Conversion extends React.Component {
               <section className="conversion-text-result"> {this.calculateResult()} </section>
 
               <div className="conversion-unit-selector">
-                <select className="conversion-select" onChange={this.update("value2")}>
+                <select className="conversion-select" onChange={this.update(VALUE2)}>
                   <option value="0">fluid ounce</option>
                   <option value="1">gill</option>
                   <option value="2">teaspoon</option>

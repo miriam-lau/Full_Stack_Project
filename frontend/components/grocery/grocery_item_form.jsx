@@ -1,22 +1,8 @@
 import React from 'react';
+
 import { TextField } from 'material-ui';
+import { addItemStyle, hintTextStyle } from './material_ui_styles';
 
-const addItemTextBoxStyle ={
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "330px",
-  "display": "inline",
-  "marginLeft": "10px",
-  "marginRight": "5px",
-  "height": "30px"
-}
-
-const hintTextStyle = {
-  "bottom": "3px",
-  "color": "#333399",
-  "width": "330px"
-}
 
 const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"];
 
@@ -143,7 +129,7 @@ class GroceryItemForm extends React.Component {
           <TextField id="text-field-default"
             value={this.state.temp}
             underlineShow={false}
-            style={addItemTextBoxStyle}
+            style={addItemStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}
             onChange={this.update('temp')}

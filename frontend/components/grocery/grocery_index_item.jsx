@@ -1,59 +1,10 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Checkbox from 'material-ui/Checkbox';
-
 import { Link } from 'react-router-dom';
 
-const textboxUnderlineFocusStyle = {
-  'borderColor': '#333399'
-}
 
-const textboxUnderlineStyle = {
-  'borderColor': '#C0C0C0',
-  "bottom": "5px"
-}
+import { Checkbox, TextField } from 'material-ui';
+import { underlineFocusStyle, underlineStyle, addItemStyle1, addItemStyleDefault, addItemStyleCategory, icon, styles } from './material_ui_styles';
 
-const addItemStyle1 = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "110px",
-  "display": "inline",
-  "textAlign": "left",
-  "marginRight": "20px",
-  "height": "30px",
-}
-
-const addItemStyleDefault = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "347px",
-  "display": "inline",
-  "height": "30px",
-  "marginRight": "20px"
-}
-
-const addItemStyleWithCategory = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "160px",
-  "display": "inline",
-  "height": "30px",
-  "marginRight": "20px"
-}
-
-const icon = {
-  "fill": "black",
-  "width": "16px",
-  "height": "16px"
-}
-
-const styles = {
-  "width": "30px",
-  "alignItems": "top"
-}
 
 // const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
@@ -241,8 +192,8 @@ class GroceryIndexItem extends React.Component {
           <form className="update-grocery-form">
             <TextField id="text-field-default"
               defaultValue={ quantity }
-              underlineFocusStyle ={textboxUnderlineFocusStyle}
-              underlineStyle={textboxUnderlineStyle}
+              underlineFocusStyle={underlineFocusStyle}
+              underlineStyle={underlineStyle}
               style={addItemStyle1}
               onChange={this.update('temp')}
               onBlur={this.checkError}
@@ -251,15 +202,15 @@ class GroceryIndexItem extends React.Component {
             {grocery_item.category === '' ?
               <TextField id="text-field-default"
                 defaultValue={ grocery_item.name }
-                underlineFocusStyle ={textboxUnderlineFocusStyle}
-                underlineStyle={textboxUnderlineStyle}
-                style={addItemStyleWithCategory}
+                underlineFocusStyle={underlineFocusStyle}
+                underlineStyle={underlineStyle}
+                style={addItemStyleCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
                 defaultValue={ grocery_item.name }
-                underlineFocusStyle ={textboxUnderlineFocusStyle}
-                underlineStyle={textboxUnderlineStyle}
+                underlineFocusStyle={underlineFocusStyle}
+                underlineStyle={underlineStyle}
                 style={addItemStyleDefault}
                 onChange={this.update('name')}
               />

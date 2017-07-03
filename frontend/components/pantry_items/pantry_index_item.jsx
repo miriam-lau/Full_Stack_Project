@@ -1,52 +1,9 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
+
 import FontIcon from 'material-ui/FontIcon';
-
-const textboxUnderlineFocusStyle = {
-  'borderColor': '#333399'
-}
-
-const textboxUnderlineStyle = {
-  'borderColor': '#C0C0C0',
-  "bottom": "5px"
-}
-
-const addItemStyle1 = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "110px",
-  "display": "inline",
-  "textAlign": "left",
-  "marginRight": "20px",
-  "height": "30px",
-}
-
-const addItemStyleDefault = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "347px",
-  "display": "inline",
-  "height": "30px",
-  "marginRight": "20px"
-}
-
-const addItemStyleWithCategory = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "160px",
-  "display": "inline",
-  "height": "30px",
-  "marginRight": "20px"
-}
-
-const styles = {
-  "width": "30px",
-  "alignItems": "top"
-}
+import TextField from 'material-ui/TextField';
+import { underlineStyle, underlineFocusStyle, addItemStyle1, addItemStyleDefault, addItemStyleCategory, styles } from './material_ui_styles';
 
 // const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
@@ -75,6 +32,7 @@ const foot = ['foot', 'feet'];
 const allMeasurements = [teaspoon, tablespoon, fluidounce, gill, cup,
   pint, quart, gallon, milliliter, liter, deciliter, pound, ounce,
   milligram, gram, kilogram, millimeter, centimeter, meter, inch, foot];
+
 
 function ErrorBanner1(props) {
   if (props.message != null) {
@@ -212,8 +170,8 @@ class PantryIndexItem extends React.Component {
           <form className="update-pantry-form">
             <TextField id="text-field-default"
               value={ quantity }
-              underlineFocusStyle ={textboxUnderlineFocusStyle}
-              underlineStyle={textboxUnderlineStyle}
+              underlineFocusStyle ={underlineFocusStyle}
+              underlineStyle={underlineStyle}
               style={addItemStyle1}
               onChange={this.update('temp')}
               onBlur={this.checkError}
@@ -222,15 +180,15 @@ class PantryIndexItem extends React.Component {
             {pantry_item.category === '' ?
               <TextField id="text-field-default"
                 value={ pantry_item.name }
-                underlineFocusStyle ={textboxUnderlineFocusStyle}
-                underlineStyle={textboxUnderlineStyle}
-                style={addItemStyleWithCategory}
+                underlineFocusStyle ={underlineFocusStyle}
+                underlineStyle={underlineStyle}
+                style={addItemStyleCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
                 value={ pantry_item.name }
-                underlineFocusStyle ={textboxUnderlineFocusStyle}
-                underlineStyle={textboxUnderlineStyle}
+                underlineFocusStyle ={underlineFocusStyle}
+                underlineStyle={underlineStyle}
                 style={addItemStyleDefault}
                 onChange={this.update('name')}
               />

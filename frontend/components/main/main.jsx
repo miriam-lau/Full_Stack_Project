@@ -112,4 +112,4 @@ class Greeting extends React.Component {
   }
 }
 
-export default Greeting;
+export default Main;

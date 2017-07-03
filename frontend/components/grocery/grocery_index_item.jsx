@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 import { Checkbox, TextField } from 'material-ui';
-import { underlineFocusStyle, underlineStyle, addItemStyle1, addItemStyleDefault, addItemStyleCategory, icon, styles } from './material_ui_styles';
+import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault, itemStyleCategory, icon, styles } from '../pantry_items/material_ui_styles';
 
 
 // const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
@@ -194,7 +194,7 @@ class GroceryIndexItem extends React.Component {
               defaultValue={ quantity }
               underlineFocusStyle={underlineFocusStyle}
               underlineStyle={underlineStyle}
-              style={addItemStyle1}
+              style={quantityStyle}
               onChange={this.update('temp')}
               onBlur={this.checkError}
             />
@@ -204,14 +204,14 @@ class GroceryIndexItem extends React.Component {
                 defaultValue={ grocery_item.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
-                style={addItemStyleCategory}
+                style={itemStyleCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
                 defaultValue={ grocery_item.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
-                style={addItemStyleDefault}
+                style={itemStyleDefault}
                 onChange={this.update('name')}
               />
             }

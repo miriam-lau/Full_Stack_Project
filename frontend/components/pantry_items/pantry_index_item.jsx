@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import FontIcon from 'material-ui/FontIcon';
 import TextField from 'material-ui/TextField';
-import { underlineStyle, underlineFocusStyle, addItemStyle1, addItemStyleDefault, addItemStyleCategory, styles } from './material_ui_styles';
+import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault, itemStyleCategory, styles } from './material_ui_styles';
 
 // const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
@@ -172,7 +172,7 @@ class PantryIndexItem extends React.Component {
               value={ quantity }
               underlineFocusStyle ={underlineFocusStyle}
               underlineStyle={underlineStyle}
-              style={addItemStyle1}
+              style={quantityStyle}
               onChange={this.update('temp')}
               onBlur={this.checkError}
             />
@@ -182,14 +182,14 @@ class PantryIndexItem extends React.Component {
                 value={ pantry_item.name }
                 underlineFocusStyle ={underlineFocusStyle}
                 underlineStyle={underlineStyle}
-                style={addItemStyleCategory}
+                style={itemStyleCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
                 value={ pantry_item.name }
                 underlineFocusStyle ={underlineFocusStyle}
                 underlineStyle={underlineStyle}
-                style={addItemStyleDefault}
+                style={itemStyleDefault}
                 onChange={this.update('name')}
               />
             }

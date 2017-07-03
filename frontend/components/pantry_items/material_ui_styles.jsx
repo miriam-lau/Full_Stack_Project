@@ -9,7 +9,7 @@ export const underlineStyle = {
   "bottom": "5px"
 }
 
-export const addItemStyle1 = {
+export const quantityStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
@@ -20,7 +20,7 @@ export const addItemStyle1 = {
   "height": "30px",
 }
 
-export const addItemStyleDefault = {
+export const itemStyleDefault = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
@@ -30,7 +30,7 @@ export const addItemStyleDefault = {
   "marginRight": "20px"
 }
 
-export const addItemStyleCategory = {
+export const itemStyleCategory = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
@@ -43,6 +43,12 @@ export const addItemStyleCategory = {
 export const styles = {
   "width": "30px",
   "alignItems": "top"
+}
+
+export const icon = {
+  "fill": "black",
+  "width": "16px",
+  "height": "16px"
 }
 
 export const addItemStyle = {

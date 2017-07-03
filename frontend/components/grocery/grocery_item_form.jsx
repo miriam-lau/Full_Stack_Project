@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TextField } from 'material-ui';
-import { addItemStyle, hintTextStyle } from './material_ui_styles';
+import { addItemStyle, hintTextStyle } from '../pantry_items/material_ui_styles';
 
 
 const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"];

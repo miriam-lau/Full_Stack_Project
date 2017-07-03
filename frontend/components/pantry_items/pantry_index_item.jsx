@@ -271,7 +271,7 @@ class PantryIndexItem extends React.Component {
 
           <form className="update-pantry-form">
             <TextField id="text-field-default"
-              value={ quantity }
+              defaultValue={ quantity }
               underlineFocusStyle ={textboxUnderlineFocusStyle}
               underlineStyle={textboxUnderlineStyle}
               style={addItemStyle1}
@@ -281,14 +281,14 @@ class PantryIndexItem extends React.Component {
 
             {pantry_item.category === '' ?
               <TextField id="text-field-default"
-                value={ pantry_item.name }
+                defaultValue={ pantry_item.name }
                 underlineFocusStyle ={textboxUnderlineFocusStyle}
                 underlineStyle={textboxUnderlineStyle}
                 style={addItemStyleWithCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
-                value={ pantry_item.name }
+                defaultValue={ pantry_item.name }
                 underlineFocusStyle ={textboxUnderlineFocusStyle}
                 underlineStyle={textboxUnderlineStyle}
                 style={addItemStyleDefault}

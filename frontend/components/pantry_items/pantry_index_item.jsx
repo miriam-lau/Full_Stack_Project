@@ -118,7 +118,8 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
+      return "Quantity must begin with a number";
+      // return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -144,13 +145,22 @@ class PantryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
+      return "Quantity must have a valid unit";
+      // return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
     }
 
-    return {
-      convertedQuantity: {quantity: parseInt(quantity), unit: convertedUnit,
-        quantityError: ''}, errorMessage: ''
-    };
+    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
+      temp: '', quantityError: ''}, () => {
+        const pantry_item = this.state
+        this.props.editPantryItem({pantry_item});
+      });
+
+    return null;
+
+    // return {
+    //   convertedQuantity: {quantity: parseInt(quantity), unit: convertedUnit,
+    //     quantityError: ''}, errorMessage: ''
+    // };
   }
 
   update(property) {
@@ -158,77 +168,78 @@ class PantryIndexItem extends React.Component {
       if (property === 'temp') {
         this.currentQuantity = e.target.value;
       }
-      if (property === 'name' && e.target.value === '') {
-        return this.setState({nameError: "Name cannot be blank"});
+
+      if (property === 'name') {
+        if (e.target.value === '') {
+          return this.setState({nameError: "Name cannot be blank"});
+        } else {
+          this.setState({nameError: ''});
+        }
       }
 
-      if (property === 'name' && e.target.value !== '') {
-        this.setState({nameError: ''});
+      if (property === "category") {
+        this.setState({ [property]: e.target.value });
       }
 
       // if (property === "category") {
-      //   this.setState({ [property]: e.target.value });
+      //   this.setState({[property]: e.target.value}, () => {
+      //     let allItems = this.props.pantry_items;
+      //
+      //     for (var i = 0; i < allItems.length; i++) {
+      //       if (allItems[i].category !== this.state.category) {
+      //         continue;
+      //       }
+      //
+      //       let itemName = allItems[i].name;
+      //       if (itemName !== this.props.pantry_item.name) {
+      //         continue;
+      //       }
+      //
+      //       console.log("in pantry index item");
+      //       let itemUnit = allItems[i].unit;
+      //       if (itemUnit === 'inch' || itemUnit === 'inches') {
+      //         itemUnit = 'inch';
+      //       } else if (itemUnit === 'foot' || itemUnit === 'feet') {
+      //         itemUnit = 'foot';
+      //       } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+      //         itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
+      //       }
+      //
+      //       console.log(itemUnit);
+      //       let convertedUnit = this.props.pantry_item.unit;
+      //
+      //       if (convertedUnit === 'inch' || convertedUnit === 'inches') {
+      //         convertedUnit = 'inch';
+      //       } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
+      //         convertedUnit = 'foot';
+      //       } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+      //         convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
+      //       }
+      //
+      //       let itemQuantity = parseFloat(this.props.pantry_item.quantity);
+      //       if (convertedUnit !== itemUnit) {
+      //         continue;
+      //       } else {
+      //         itemQuantity += parseFloat(allItems[i].quantity);
+      //       }
+      //
+      //       if (itemQuantity > 1 && convertedUnit !== '') {
+      //         if (convertedUnit === 'inch') {
+      //           convertedUnit = 'inches';
+      //         } else if (convertedUnit === 'foot') {
+      //           convertedUnit = 'feet';
+      //         } else {
+      //           convertedUnit += 's';
+      //         }
+      //       }
+      //
+      //       let pantry_item = {id: allItems[i].id, name: this.props.pantry_item.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
+      //
+      //       this.props.editPantryItem({pantry_item});
+      //       return true;
+      //     }
+      //   });
       // }
-
-      if (property === "category") {
-        this.setState({[property]: e.target.value}, () => {
-          let allItems = this.props.pantry_items;
-
-          for (var i = 0; i < allItems.length; i++) {
-            if (allItems[i].category !== this.state.category) {
-              continue;
-            }
-
-            let itemName = allItems[i].name;
-            if (itemName !== this.props.pantry_item.name) {
-              continue;
-            }
-
-            console.log("in pantry index item");
-            let itemUnit = allItems[i].unit;
-            if (itemUnit === 'inch' || itemUnit === 'inches') {
-              itemUnit = 'inch';
-            } else if (itemUnit === 'foot' || itemUnit === 'feet') {
-              itemUnit = 'foot';
-            } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
-              itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
-            }
-
-            console.log(itemUnit);
-            let convertedUnit = this.props.pantry_item.unit;
-
-            if (convertedUnit === 'inch' || convertedUnit === 'inches') {
-              convertedUnit = 'inch';
-            } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
-              convertedUnit = 'foot';
-            } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
-              convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
-            }
-
-            let itemQuantity = parseFloat(this.props.pantry_item.quantity);
-            if (convertedUnit !== itemUnit) {
-              continue;
-            } else {
-              itemQuantity += parseFloat(allItems[i].quantity);
-            }
-
-            if (itemQuantity > 1 && convertedUnit !== '') {
-              if (convertedUnit === 'inch') {
-                convertedUnit = 'inches';
-              } else if (convertedUnit === 'foot') {
-                convertedUnit = 'feet';
-              } else {
-                convertedUnit += 's';
-              }
-            }
-
-            let pantry_item = {id: allItems[i].id, name: this.props.pantry_item.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
-
-            this.props.editPantryItem({pantry_item});
-            return true;
-          }
-        });
-      }
 
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === '') {
@@ -242,7 +253,8 @@ class PantryIndexItem extends React.Component {
   }
 
   checkError() {
-    let parsedQuantity = this.parseUpdateQuantity(this.currentQuantity);
+    let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
+    // let parsedQuantity = this.parseUpdateQuantity(this.currentQuantity);
     if (errorMessage != null) {
       this.setState({quantityError: errorMessage});
     }

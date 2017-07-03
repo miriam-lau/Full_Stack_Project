@@ -2,8 +2,7 @@ import React from 'react';
 
 const groceryUpdatePantry = (key, grocery_item, pantryItems,
   createNewPantryItem, editPantryItem, removeGroceryItem) => {
-    console.log("in update");
-    console.log(grocery_item);
+    
     let groceryUnit = grocery_item.unit;
     let item = grocery_item.name;
     let quantity = parseFloat(grocery_item.quantity);

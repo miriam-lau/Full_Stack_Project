@@ -119,7 +119,6 @@ class PantryIndexItem extends React.Component {
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
       return "Quantity must begin with a number";
-      // return {convertedQuantity: null, errorMessage: "Quantity must begin with a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -146,7 +145,6 @@ class PantryIndexItem extends React.Component {
 
     if (convertedUnit === null && unit != null) {
       return "Quantity must have a valid unit";
-      // return {convertedQuantity: null, errorMessage: "Quantity must have a valid unit"};
     }
 
     this.setState({quantity: parseInt(quantity), unit: convertedUnit,
@@ -189,7 +187,6 @@ class PantryIndexItem extends React.Component {
 
   checkError() {
     let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
-    // let parsedQuantity = this.parseUpdateQuantity(this.currentQuantity);
     if (errorMessage != null) {
       this.setState({quantityError: errorMessage});
     }
@@ -197,6 +194,8 @@ class PantryIndexItem extends React.Component {
 
 // put onBlur for name update
   render() {
+    console.log("in pantry index item");
+    console.log(this.props.pantry_items);
     const pantry_item = this.props.pantry_item;
     const removePantryItem = this.props.removePantryItem;
 
@@ -204,6 +203,7 @@ class PantryIndexItem extends React.Component {
     if (pantry_item.unit !== null) {
       quantity = quantity + " " + pantry_item.unit;
     }
+    console.log(quantity);
 
     return (
       <div>
@@ -211,7 +211,7 @@ class PantryIndexItem extends React.Component {
 
           <form className="update-pantry-form">
             <TextField id="text-field-default"
-              defaultValue={ quantity }
+              value={ quantity }
               underlineFocusStyle ={textboxUnderlineFocusStyle}
               underlineStyle={textboxUnderlineStyle}
               style={addItemStyle1}
@@ -221,14 +221,14 @@ class PantryIndexItem extends React.Component {
 
             {pantry_item.category === '' ?
               <TextField id="text-field-default"
-                defaultValue={ pantry_item.name }
+                value={ pantry_item.name }
                 underlineFocusStyle ={textboxUnderlineFocusStyle}
                 underlineStyle={textboxUnderlineStyle}
                 style={addItemStyleWithCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
-                defaultValue={ pantry_item.name }
+                value={ pantry_item.name }
                 underlineFocusStyle ={textboxUnderlineFocusStyle}
                 underlineStyle={textboxUnderlineStyle}
                 style={addItemStyleDefault}

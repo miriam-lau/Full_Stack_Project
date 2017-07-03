@@ -1,4 +1,5 @@
 import React from 'react';
+import updatePantry from './update_pantry';
 import { TextField } from 'material-ui';
 
 const addItemStyle = {
@@ -112,54 +113,10 @@ class PantryItemForm extends React.Component {
     let item = words.join(' ');
 
     // cross-check with existing items to update if found
-    let allItems = this.props.pantry_items;
+    let successful = updatePantry(this.props.pantry_items, item,
+      this.state.category, convertedUnit, quantity, this.props.editPantryItem);
 
-    for (var i = 0; i < allItems.length; i++) {
-      if (allItems[i].category !== this.state.category) {
-        continue;
-      }
-
-      let itemName = allItems[i].name;
-      if (itemName !== item) {
-        continue;
-      }
-
-      let itemUnit = allItems[i].unit;
-      if (itemUnit === 'inch' || itemUnit === 'inches') {
-        itemUnit = 'inch';
-      } else if (itemUnit === 'foot' || itemUnit === 'feet') {
-        itemUnit = 'foot';
-      } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
-        itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
-      }
-
-      if (convertedUnit === 'inch' || convertedUnit === 'inches') {
-        convertedUnit = 'inch';
-      } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
-        convertedUnit = 'foot';
-      } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
-        convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
-      }
-
-      if (convertedUnit !== itemUnit) {
-        continue;
-      } else {
-        quantity += parseFloat(allItems[i].quantity);
-      }
-
-      if (quantity > 1 && convertedUnit !== '') {
-        if (convertedUnit === 'inch') {
-          convertedUnit = 'inches';
-        } else if (convertedUnit === 'foot') {
-          convertedUnit = 'feet';
-        } else {
-          convertedUnit += 's';
-        }
-      }
-
-      let pantry_item = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
-
-      this.props.editPantryItem({pantry_item});
+    if (successful) {
       return true;
     }
 
@@ -238,3 +195,52 @@ export default PantryItemForm;
 //     this.props.editPantryItem({pantry_item});
 //     return true;
 //   });
+
+// for (var i = 0; i < allItems.length; i++) {
+//   if (allItems[i].category !== this.state.category) {
+//     continue;
+//   }
+//
+//   let itemName = allItems[i].name;
+//   if (itemName !== item) {
+//     continue;
+//   }
+//
+//   let itemUnit = allItems[i].unit;
+//   if (itemUnit === 'inch' || itemUnit === 'inches') {
+//     itemUnit = 'inch';
+//   } else if (itemUnit === 'foot' || itemUnit === 'feet') {
+//     itemUnit = 'foot';
+//   } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+//     itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
+//   }
+//
+//   if (convertedUnit === 'inch' || convertedUnit === 'inches') {
+//     convertedUnit = 'inch';
+//   } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
+//     convertedUnit = 'foot';
+//   } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+//     convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
+//   }
+//
+//   if (convertedUnit !== itemUnit) {
+//     continue;
+//   } else {
+//     quantity += parseFloat(allItems[i].quantity);
+//   }
+//
+//   if (quantity > 1 && convertedUnit !== '') {
+//     if (convertedUnit === 'inch') {
+//       convertedUnit = 'inches';
+//     } else if (convertedUnit === 'foot') {
+//       convertedUnit = 'feet';
+//     } else {
+//       convertedUnit += 's';
+//     }
+//   }
+//
+//   let pantry_item = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
+//
+//   this.props.editPantryItem({pantry_item});
+//   return true;
+// }

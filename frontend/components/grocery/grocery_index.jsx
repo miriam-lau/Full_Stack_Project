@@ -27,9 +27,8 @@ class GroceryIndex extends React.Component {
     this.props.grocery_items.map(grocery_item => {
       if (grocery_item.purchased === true) {
         let key = grocery_item.id;
-        successful = updatePantry(key, grocery_item, this.props.pantry_items,
-          this.props.createNewPantryItem, this.props.editPantryItem,
-          this.props.removeGroceryItem);
+        successful = groceryUpdatePantry(key, grocery_item,
+          this.props.pantry_items, this.props.createNewPantryItem, this.props.editPantryItem, this.props.removeGroceryItem);
       }
     })
     this.setState({success: successful});

@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createNewPantryItem: pantry_item => dispatch(createNewPantryItem(pantry_item)),
-  editPantryItem: (pantry_item) => dispatch(editPantryItem(pantry_item))
+  editPantryItem: pantry_item => dispatch(editPantryItem(pantry_item))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PantryItemForm));

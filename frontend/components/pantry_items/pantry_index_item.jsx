@@ -57,18 +57,20 @@ function ErrorBanner2(props) {
 class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    let pantry_item = this.props.pantry_item;
-    this.state = { id: pantry_item.id, user_id: pantry_item.user_id,
-      category: pantry_item.category, temp: '', quantityError: '', nameError: '' };
+    let pantryItem = this.props.pantryItem;
+    this.state = { id: pantryItem.id, user_id: pantryItem.user_id,
+      category: pantryItem.category, temp: '', currentQuantity: '', quantityError: '', nameError: '' };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
     this.update = this.update.bind(this);
-    this.currentQuantity = this.props.pantry_item.quantity;
+    this.currentQuantity = this.props.pantryItem.quantity;
 
-    if (pantry_item.unit != null && pantry_item.unit.length !== 0) {
-      this.currentQuantity = this.currentQuantity + " " + pantry_item.unit;
+    if (pantryItem.unit != null && pantryItem.unit.length !== 0) {
+      this.currentQuantity = this.currentQuantity + " " + pantryItem.unit;
     }
+
+
   }
 
   parseUpdateQuantity(str) {
@@ -107,8 +109,8 @@ class PantryIndexItem extends React.Component {
 
     this.setState({quantity: parseInt(quantity), unit: convertedUnit,
       temp: '', quantityError: ''}, () => {
-        const pantry_item = this.state
-        this.props.editPantryItem({pantry_item});
+        const pantryItem = this.state
+        this.props.editPantryItem({pantry_item: pantryItem});
       });
 
     return null;
@@ -134,8 +136,8 @@ class PantryIndexItem extends React.Component {
 
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === '') {
-          const pantry_item = this.state;
-          this.props.editPantryItem({pantry_item});
+          const pantryItem = this.state;
+          this.props.editPantryItem({pantry_item: pantryItem});
         } else {
           this.parseUpdateQuantity(this.state.temp);
         }
@@ -153,14 +155,15 @@ class PantryIndexItem extends React.Component {
 // put onBlur for name update
   render() {
     console.log("in pantry index item");
-    console.log(this.props.pantry_items);
-    const pantry_item = this.props.pantry_item;
+    console.log(this.props.pantryItems);
+    const pantryItem = this.props.pantryItem;
     const removePantryItem = this.props.removePantryItem;
 
-    let quantity = pantry_item.quantity;
-    if (pantry_item.unit !== null) {
-      quantity = quantity + " " + pantry_item.unit;
+    let quantity = pantryItem.quantity;
+    if (pantryItem.unit !== null) {
+      quantity = quantity + " " + pantryItem.unit;
     }
+
     console.log(quantity);
 
     return (
@@ -177,16 +180,16 @@ class PantryIndexItem extends React.Component {
               onBlur={this.checkError}
             />
 
-            {pantry_item.category === '' ?
+            {pantryItem.category === '' ?
               <TextField id="text-field-default"
-                value={ pantry_item.name }
+                value={ pantryItem.name }
                 underlineFocusStyle ={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleCategory}
                 onChange={this.update('name')}
               /> :
               <TextField id="text-field-default"
-                value={ pantry_item.name }
+                value={ pantryItem.name }
                 underlineFocusStyle ={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleDefault}
@@ -194,7 +197,7 @@ class PantryIndexItem extends React.Component {
               />
             }
 
-            {pantry_item.category === '' ?
+            {pantryItem.category === '' ?
               <select className="pantry-uncategorized"
                 onChange={this.update("category")}>
                 <option selected="true" disabled="disabled">Select a Category</option>
@@ -215,7 +218,7 @@ class PantryIndexItem extends React.Component {
 
           <i className="material-icons trash-can"
             style={styles}
-            onClick={() => removePantryItem(pantry_item.id)}>
+            onClick={() => removePantryItem(pantryItem.id)}>
             delete_forever</i>
         </div>
 
@@ -231,7 +234,7 @@ export default PantryIndexItem;
 // update property: attempt to update item with category change
 // if (property === "category") {
 //   this.setState({[property]: e.target.value}, () => {
-//     let allItems = this.props.pantry_items;
+//     let allItems = this.props.pantryItems;
 //
 //     for (var i = 0; i < allItems.length; i++) {
 //       if (allItems[i].category !== this.state.category) {
@@ -239,7 +242,7 @@ export default PantryIndexItem;
 //       }
 //
 //       let itemName = allItems[i].name;
-//       if (itemName !== this.props.pantry_item.name) {
+//       if (itemName !== this.props.pantryItem.name) {
 //         continue;
 //       }
 //
@@ -254,7 +257,7 @@ export default PantryIndexItem;
 //       }
 //
 //       console.log(itemUnit);
-//       let convertedUnit = this.props.pantry_item.unit;
+//       let convertedUnit = this.props.pantryItem.unit;
 //
 //       if (convertedUnit === 'inch' || convertedUnit === 'inches') {
 //         convertedUnit = 'inch';
@@ -264,7 +267,7 @@ export default PantryIndexItem;
 //         convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
 //       }
 //
-//       let itemQuantity = parseFloat(this.props.pantry_item.quantity);
+//       let itemQuantity = parseFloat(this.props.pantryItem.quantity);
 //       if (convertedUnit !== itemUnit) {
 //         continue;
 //       } else {
@@ -283,11 +286,11 @@ export default PantryIndexItem;
 //
 //       console.log("pantry item");
 //
-//       let pantry_item = {id: allItems[i].id, name: this.props.pantry_item.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
+//       let pantryItem = {id: allItems[i].id, name: this.props.pantryItem.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
 //
-//       console.log(pantry_item);
+//       console.log(pantryItem);
 //
-//       this.props.editPantryItem({pantry_item});
+//       this.props.editPantryItem({pantryItem});
 //       return true;
 //     }
 //   });

@@ -1,5 +1,5 @@
-export const selectAllPantryItems = ({ pantry_items }) => (
-  Object.keys(pantry_items).map(id => pantry_items[id])
+export const selectAllPantryItems = ({ pantryItems }) => (
+  Object.keys(pantryItems).map(id => pantryItems[id])
 );
 
 export const selectAllGroceryItems = ({ grocery }) => (

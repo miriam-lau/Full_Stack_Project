@@ -7,20 +7,24 @@ const noErrors = Object.freeze({
   errors: []
 });
 
+const pantryItemWithDisplayQuantity = (pantryItem) => {
+
+}
+
 const PantryItemsReducer = (state = noErrors, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_PANTRY_ITEMS:
-      return action.pantry_items;
+      return action.pantryItems;
     case RECEIVE_PANTRY_ITEM:
-      return action.pantry_item;
+      return action.pantryItem;
     case CREATE_PANTRY_ITEM:
-      return merge({}, state, action.pantry_item);
+      return merge({}, state, action.pantryItem);
     case UPDATE_PANTRY_ITEM:
-      return merge({}, state, action.pantry_item);
+      return merge({}, state, action.pantryItem);
     case DELETE_PANTRY_ITEM:
       const newState = merge({}, state);
-      delete newState[Object.keys(action.pantry_item)[0]];
+      delete newState[Object.keys(action.pantryItem)[0]];
       return newState;
     case RECEIVE_PANTRY_ERRORS:
       return merge({}, state, action.errors);

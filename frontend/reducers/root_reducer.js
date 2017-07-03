@@ -9,7 +9,7 @@ import SessionReducer from './session_reducer';
 const rootReducer = combineReducers({
   grocery: GroceryReducer,
   list: ListReducer,
-  pantry_items: PantryItemsReducer,
+  pantryItems: PantryItemsReducer,
   recipe: RecipeReducer,
   search: SearchReducer,
   session: SessionReducer

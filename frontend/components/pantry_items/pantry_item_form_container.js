@@ -6,13 +6,13 @@ import { createNewPantryItem, editPantryItem } from '../../actions/pantry_item_a
 import { selectAllPantryItems } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
-  pantry_items: selectAllPantryItems(state),
-  errors: state.pantry_items.errors
+  pantryItems: selectAllPantryItems(state),
+  errors: state.pantryItems.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createNewPantryItem: pantry_item => dispatch(createNewPantryItem(pantry_item)),
-  editPantryItem: pantry_item => dispatch(editPantryItem(pantry_item))
+  createNewPantryItem: pantryItem => dispatch(createNewPantryItem(pantryItem)),
+  editPantryItem: pantryItem => dispatch(editPantryItem(pantryItem))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PantryItemForm));

@@ -99,7 +99,7 @@ class PantryItemForm extends React.Component {
     let item = words.join(' ');
 
     // cross-check with existing items to update if found
-    let successful = updatePantry(this.props.pantry_items, item,
+    let successful = updatePantry(this.props.pantryItems, item,
       this.state.category, convertedUnit, quantity, this.props.editPantryItem);
 
     if (successful) {
@@ -108,8 +108,8 @@ class PantryItemForm extends React.Component {
 
     // add new item
     this.setState({name: item, category: this.state.category, quantity: parseFloat(quantity), unit: convertedUnit, temp: '', errors: false}, () => {
-        const pantry_item = this.state
-        this.props.createNewPantryItem({pantry_item})
+        const pantryItem = this.state
+        this.props.createNewPantryItem({pantryItem: pantryItem})
             .then(data => this.props.history.push(`/pantry_items/${data.id}`))
         });
 
@@ -176,9 +176,9 @@ export default PantryItemForm;
 // how to pass in an argument in a fat arrow function (allItems[i].id) (on line //160)
 // this.setState({name: item, category: allItems[i].category, quantity:
 //   quantity, unit: convertedUnit, temp: '', errors: false}, () => {
-//     let pantry_item = {id: allItems[i].id, name: this.state.name, category: this.state.category, quantity: this.state.quantity, unit: this.state.unit};
+//     let pantryItem = {id: allItems[i].id, name: this.state.name, category: this.state.category, quantity: this.state.quantity, unit: this.state.unit};
 //
-//     this.props.editPantryItem({pantry_item});
+//     this.props.editPantryItem({pantry_item: pantryItem});
 //     return true;
 //   });
 
@@ -225,8 +225,8 @@ export default PantryItemForm;
 //     }
 //   }
 //
-//   let pantry_item = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
+//   let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
 //
-//   this.props.editPantryItem({pantry_item});
+//   this.props.editPantryItem({pantry_item: pantryItem});
 //   return true;
 // }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const groceryUpdatePantry = (key, grocery_item, pantryItems,
   createNewPantryItem, editPantryItem, removeGroceryItem) => {
-    
+
     let groceryUnit = grocery_item.unit;
     let item = grocery_item.name;
     let quantity = parseFloat(grocery_item.quantity);
@@ -52,9 +52,9 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
         }
       }
 
-      let pantry_item = {id: pantryItems[i].id, name: item, category: pantryItems[i].category, quantity: quantity, unit: groceryUnit};
+      let pantryItem = {id: pantryItems[i].id, name: item, category: pantryItems[i].category, quantity: quantity, unit: groceryUnit};
 
-      editPantryItem({pantry_item}).then(() => removeGroceryItem(key));
+      editPantryItem({pantryItem}).then(() => removeGroceryItem(key));
       return true;
     }
 

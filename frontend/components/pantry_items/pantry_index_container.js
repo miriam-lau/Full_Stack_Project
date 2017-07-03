@@ -7,15 +7,15 @@ import { requestAllPantryItems, requestPantryItem, removePantryItem,
 import { selectAllPantryItems } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
-  pantry_items: selectAllPantryItems(state),
-  errors: state.pantry_items.errors
+  pantryItems: selectAllPantryItems(state),
+  errors: state.pantryItems.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
   requestPantryItem: (id) => dispatch(requestPantryItem(id)),
   removePantryItem: (id) => dispatch(removePantryItem(id)),
-  editPantryItem: (pantry_item) => dispatch(editPantryItem(pantry_item))
+  editPantryItem: (pantryItem) => dispatch(editPantryItem(pantryItem))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PantryIndex));

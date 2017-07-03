@@ -45,9 +45,9 @@ const updatePantry = (allItems, item, category, convertedUnit, quantity,
         }
       }
 
-      let pantry_item = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
+      let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
 
-      editPantryItem({pantry_item});
+      editPantryItem({pantry_item: pantryItem});
       return true;
     }
 }

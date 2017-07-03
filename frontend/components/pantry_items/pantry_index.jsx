@@ -17,7 +17,7 @@ class PantryIndex extends React.Component {
   }
 
   render() {
-    const pantry_items = this.props.pantry_items;
+    const pantryItems = this.props.pantryItems;
     return (
       <div>
         <div className="pantry-wrapper">
@@ -41,12 +41,12 @@ class PantryIndex extends React.Component {
                     <h3 className="pantry-category">{category}</h3>
                   }
                   <ul className="pantry-items">
-                    {this.props.pantry_items.map((item) => {
+                    {this.props.pantryItems.map((item) => {
                       if (item.category === category) {
                         return ( <PantryIndexItem
                           key={item.id}
-                          pantry_item={item}
-                          pantry_items={this.props.pantry_items}
+                          pantryItem={item}
+                          pantryItems={this.props.pantryItems}
                           requestPantryItem={this.props.requestPantryItem}
                           removePantryItem={this.props.removePantryItem}
                           editPantryItem={this.props.editPantryItem} />

@@ -10,7 +10,7 @@ import { selectAllGroceryItems, selectAllPantryItems } from '../../reducers/sele
 
 const mapStateToProps = (state) => ({
   grocery_items: selectAllGroceryItems(state),
-  pantry_items: selectAllPantryItems(state),
+  pantryItems: selectAllPantryItems(state),
   errors: state.grocery.errors
 });
 
@@ -20,9 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   removeGroceryItem: (id) => dispatch(removeGroceryItem(id)),
   editGroceryItem: (grocery_item) => dispatch(editGroceryItem(grocery_item)),
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
-  createNewPantryItem: (pantry_item) =>
-    dispatch(createNewPantryItem(pantry_item)),
-  editPantryItem: (pantry_item) => dispatch(editPantryItem(pantry_item))
+  createNewPantryItem: (pantryItem) =>
+    dispatch(createNewPantryItem(pantryItem)),
+  editPantryItem: (pantryItem) => dispatch(editPantryItem(pantryItem))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GroceryIndex));

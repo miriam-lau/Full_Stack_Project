@@ -3,9 +3,9 @@ import {Route, Link} from 'react-router-dom';
 
 import GroceryIndexItem from './grocery_index_item';
 import GroceryItemFormContainer from './grocery_item_form_container';
-import updatePantry from '../pantry_items/update_pantry';
+import groceryUpdatePantry from './grocery_update_pantry';
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
+const selectCategory = ["", "Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 class GroceryIndex extends React.Component {
   constructor(props) {

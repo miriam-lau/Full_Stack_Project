@@ -4,7 +4,7 @@ import {Route, Link} from 'react-router-dom';
 import PantryIndexItem from './pantry_index_item';
 import PantryItemFormContainer from './pantry_item_form_container';
 
-const selectCategory = ["Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
+const selectCategory = ["", "Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -33,35 +33,19 @@ class PantryIndex extends React.Component {
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
             </div>
 
-            <div className="pantry-category-section">
-              <h3 className="pantry-category">Uncategorized</h3>
-              <ul className="pantry-items">
-                {this.props.pantry_items.map((item, idx) => {
-                  if (item.category === '') {
-                    return ( <PantryIndexItem
-                      key={idx}
-                      pantry_item_id={item.id}
-                      pantry_item={item}
-                      pantry_items={this.props.pantry_items}
-                      requestPantryItem={this.props.requestPantryItem}
-                      removePantryItem={this.props.removePantryItem}
-                      editPantryItem={this.props.editPantryItem} />
-                    )
-                  }
-                })}
-              </ul>
-            </div>
-
             {selectCategory.map((category, idx) => {
               return (
                 <div className="pantry-category-section">
-                  <h3 className="pantry-category">{category}</h3>
+                  <span key={idx}></span>
+                  {category === "" ?
+                    <h3 className="pantry-category">Uncategorized</h3> :
+                    <h3 className="pantry-category">{category}</h3>
+                  }
                   <ul className="pantry-items">
-                    {this.props.pantry_items.map((item, idx) => {
+                    {this.props.pantry_items.map((item) => {
                       if (item.category === category) {
                         return ( <PantryIndexItem
-                          key={idx}
-                          pantry_item_id={item.id}
+                          key={item.id}
                           pantry_item={item}
                           pantry_items={this.props.pantry_items}
                           requestPantryItem={this.props.requestPantryItem}
@@ -96,3 +80,22 @@ class PantryIndex extends React.Component {
 }
 
 export default PantryIndex;
+
+// <div className="pantry-category-section">
+//   <h3 className="pantry-category">Uncategorized</h3>
+//   <ul className="pantry-items">
+//     {this.props.pantry_items.map((item, idx) => {
+//       if (item.category === '') {
+//         return ( <PantryIndexItem
+//           key={idx}
+//           pantry_item_id={item.id}
+//           pantry_item={item}
+//           pantry_items={this.props.pantry_items}
+//           requestPantryItem={this.props.requestPantryItem}
+//           removePantryItem={this.props.removePantryItem}
+//           editPantryItem={this.props.editPantryItem} />
+//         )
+//       }
+//     })}
+//   </ul>
+// </div>

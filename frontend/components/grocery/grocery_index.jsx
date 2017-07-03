@@ -56,7 +56,7 @@ class GroceryIndex extends React.Component {
             <div className="grocery-category-section">
               <h3 className="grocery-category">Uncategorized</h3>
               <ul className="grocery-items">
-                {this.props.grocery_items.map((item, idx) => {
+                {this.props.grocery_items.map((item) => {
                   if ((item.purchased === false) && (item.category === '')) {
                     return (<GroceryIndexItem
                       key={item.id}
@@ -72,9 +72,10 @@ class GroceryIndex extends React.Component {
             {selectCategory.map((category, idx) => {
               return (
                 <div className="grocery-category-section">
+                  <span key={idx}></span>
                   <h3 className="grocery-category">{category}</h3>
                   <ul className="grocery-items">
-                    {this.props.grocery_items.map((item, idx) => {
+                    {this.props.grocery_items.map((item) => {
                       if ((item.purchased === false) && (item.category === category)) {
                         return (<GroceryIndexItem
                           key={item.id}
@@ -108,7 +109,7 @@ class GroceryIndex extends React.Component {
             <div className="grocery-category-section">
               <h3 className="grocery-category">Uncategorized</h3>
               <ul className="grocery-items">
-                {this.props.grocery_items.map((item, idx) => {
+                {this.props.grocery_items.map((item) => {
                   if ((item.purchased === true) && (item.category === '')) {
                     return (<GroceryIndexItem
                       key={item.id}
@@ -124,9 +125,10 @@ class GroceryIndex extends React.Component {
             {selectCategory.map((category, idx) => {
               return (
                 <div className="purchased-grocery-category-section">
+                  <span key={idx}></span>
                   <h3 className="purchased- grocery-category">{category}</h3>
                   <ul className="grocery-items">
-                    {this.props.grocery_items.map((item, idx) => {
+                    {this.props.grocery_items.map((item) => {
                       if ((item.purchased === true) && (item.category === category)) {
                         return (<GroceryIndexItem
                           key={item.id}

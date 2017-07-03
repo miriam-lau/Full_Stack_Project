@@ -157,15 +157,6 @@ class PantryItemForm extends React.Component {
         }
       }
 
-      // how to pass in an argument in a fat arrow function (allItems[i].id)
-      // this.setState({name: item, category: allItems[i].category, quantity:
-      //   quantity, unit: convertedUnit, temp: '', errors: false}, () => {
-      //     let pantry_item = {id: allItems[i].id, name: this.state.name, category: this.state.category, quantity: this.state.quantity, unit: this.state.unit};
-      //
-      //     this.props.editPantryItem({pantry_item});
-      //     return true;
-      //   });
-
       let pantry_item = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
 
       this.props.editPantryItem({pantry_item});
@@ -238,3 +229,12 @@ class PantryItemForm extends React.Component {
 }
 
 export default PantryItemForm;
+
+// how to pass in an argument in a fat arrow function (allItems[i].id) (on line //160)
+// this.setState({name: item, category: allItems[i].category, quantity:
+//   quantity, unit: convertedUnit, temp: '', errors: false}, () => {
+//     let pantry_item = {id: allItems[i].id, name: this.state.name, category: this.state.category, quantity: this.state.quantity, unit: this.state.unit};
+//
+//     this.props.editPantryItem({pantry_item});
+//     return true;
+//   });

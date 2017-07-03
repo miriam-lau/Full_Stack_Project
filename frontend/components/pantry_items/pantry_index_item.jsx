@@ -166,8 +166,68 @@ class PantryIndexItem extends React.Component {
         this.setState({nameError: ''});
       }
 
+      // if (property === "category") {
+      //   this.setState({ [property]: e.target.value });
+      // }
+
       if (property === "category") {
-        this.setState({ [property]: e.target.value });
+        this.setState({[property]: e.target.value}, () => {
+          let allItems = this.props.pantry_items;
+
+          for (var i = 0; i < allItems.length; i++) {
+            if (allItems[i].category !== this.state.category) {
+              continue;
+            }
+
+            let itemName = allItems[i].name;
+            if (itemName !== this.props.pantry_item.name) {
+              continue;
+            }
+
+            console.log("in pantry index item");
+            let itemUnit = allItems[i].unit;
+            if (itemUnit === 'inch' || itemUnit === 'inches') {
+              itemUnit = 'inch';
+            } else if (itemUnit === 'foot' || itemUnit === 'feet') {
+              itemUnit = 'foot';
+            } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+              itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
+            }
+
+            console.log(itemUnit);
+            let convertedUnit = this.props.pantry_item.unit;
+
+            if (convertedUnit === 'inch' || convertedUnit === 'inches') {
+              convertedUnit = 'inch';
+            } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
+              convertedUnit = 'foot';
+            } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+              convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
+            }
+
+            let itemQuantity = parseFloat(this.props.pantry_item.quantity);
+            if (convertedUnit !== itemUnit) {
+              continue;
+            } else {
+              itemQuantity += parseFloat(allItems[i].quantity);
+            }
+
+            if (itemQuantity > 1 && convertedUnit !== '') {
+              if (convertedUnit === 'inch') {
+                convertedUnit = 'inches';
+              } else if (convertedUnit === 'foot') {
+                convertedUnit = 'feet';
+              } else {
+                convertedUnit += 's';
+              }
+            }
+
+            let pantry_item = {id: allItems[i].id, name: this.props.pantry_item.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
+
+            this.props.editPantryItem({pantry_item});
+            return true;
+          }
+        });
       }
 
       this.setState({[property]: e.target.value}, () => {
@@ -179,36 +239,6 @@ class PantryIndexItem extends React.Component {
         }
       });
     }
-
-    // return e => {
-    //   if (property === "category") {
-    //     this.setState({ [property]: e.target.value });
-    //   }
-    //
-    //   if (property === 'unparsed_quantity') {
-    //     let pantry_item = this.props.pantry_item;
-    //     let unparsedQuantity = e.target.value;
-    //     pantry_item.unparsed_quantity = unparsedQuantity;
-    //     let parsedUpdateQuantity = this.parseUpdateQuantity(unparsedQuantity);
-    //     if (parsedUpdateQuantity.convertedQuantity != null) {
-    //       pantry_item.quantity = parsedUpdateQuantity.convertedQuantity.quantity;
-    //       pantry_item.unit = parsedUpdateQuantity.convertedQuantity.unit;
-    //     }
-    //     this.props.editPantryItemDbOnly({pantry_item});
-    //   } else if (property === 'name') {
-    //     if (e.target.value === '') {
-    //       return this.setState({nameError: "Name cannot be blank"});
-    //     }
-    //
-    //     if (e.target.value !== '') {
-    //       this.setState({nameError: ''});
-    //     }
-    //
-    //     let pantry_item = this.props.pantry_item;
-    //     pantry_item.name = e.target.value;
-    //     this.props.editPantryItemDbOnly({pantry_item});
-    //   }
-    // }
   }
 
   checkError() {

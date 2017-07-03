@@ -42,9 +42,9 @@ class PantryIndex extends React.Component {
                       key={idx}
                       pantry_item_id={item.id}
                       pantry_item={item}
+                      pantry_items={this.props.pantry_items}
                       requestPantryItem={this.props.requestPantryItem}
                       removePantryItem={this.props.removePantryItem}
-                      editPantryItemDbOnly={this.props.editPantryItemDbOnly}
                       editPantryItem={this.props.editPantryItem} />
                     )
                   }
@@ -63,9 +63,9 @@ class PantryIndex extends React.Component {
                           key={idx}
                           pantry_item_id={item.id}
                           pantry_item={item}
+                          pantry_items={this.props.pantry_items}
                           requestPantryItem={this.props.requestPantryItem}
                           removePantryItem={this.props.removePantryItem}
-                          editPantryItemDbOnly={this.props.editPantryItemDbOnly}
                           editPantryItem={this.props.editPantryItem} />
                         )
                       }

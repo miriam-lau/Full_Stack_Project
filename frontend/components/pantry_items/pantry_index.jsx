@@ -35,8 +35,7 @@ class PantryIndex extends React.Component {
 
             {selectCategory.map((category, idx) => {
               return (
-                <div className="pantry-category-section">
-                  <span key={idx}></span>
+                <div key={idx} className="pantry-category-section">
                   {category === "" ?
                     <h3 className="pantry-category">Uncategorized</h3> :
                     <h3 className="pantry-category">{category}</h3>
@@ -80,22 +79,3 @@ class PantryIndex extends React.Component {
 }
 
 export default PantryIndex;
-
-// <div className="pantry-category-section">
-//   <h3 className="pantry-category">Uncategorized</h3>
-//   <ul className="pantry-items">
-//     {this.props.pantry_items.map((item, idx) => {
-//       if (item.category === '') {
-//         return ( <PantryIndexItem
-//           key={idx}
-//           pantry_item_id={item.id}
-//           pantry_item={item}
-//           pantry_items={this.props.pantry_items}
-//           requestPantryItem={this.props.requestPantryItem}
-//           removePantryItem={this.props.removePantryItem}
-//           editPantryItem={this.props.editPantryItem} />
-//         )
-//       }
-//     })}
-//   </ul>
-// </div>

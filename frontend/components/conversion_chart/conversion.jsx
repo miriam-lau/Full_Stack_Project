@@ -23,6 +23,12 @@ const addItemTextBoxStyle = {
   "color": "#333399"
 }
 
+var UnitTypeEnum = {
+  LIQUID: 0,
+  DRY: 1,
+  LENGTH: 2,
+};
+
 let liquidConversion = new Map();
   liquidConversion.set("teaspoon", 1);
   liquidConversion.set("tablespoon", 3);
@@ -57,11 +63,12 @@ class Conversion extends React.Component {
   constructor(props) {
     super(props);
     this.state={toggle: false, quantity: ""};
-    this.state[VALUE1] = "fluid ounce";
-    this.state[VALUE2] = "fluid ounce";
+    this.state[VALUE1] = unitArray[0];
+    this.state[VALUE2] = unitArray[0];
 
     this.handleToggle = this.handleToggle.bind(this);
     this.calculateResult = this.calculateResult.bind(this);
+    this.unitType = this.unitType.bind(this);
   }
 
   handleToggle(event) {
@@ -71,12 +78,21 @@ class Conversion extends React.Component {
 
   update(property) {
     return e => {
-      console.log(property);
-      if (property === VALUE1 || property === VALUE2) {
-        this.setState({ [property]: unitArray[parseInt(e.target.value)] });
-      } else {
-        this.setState({ [property]: e.target.value });
-      }
+      this.setState({ [property]:
+          (property === VALUE1 || property === VALUE2) ?  unitArray[parseInt(e.target.value)] : e.target.value
+      });
+    }
+  }
+
+  unitType(unit) {
+    if (liquid.includes(unit)) {
+      return UnitTypeEnum.LIQUID;
+    }
+    if (dry.includes(unit)) {
+      return UnitTypeEnum.DRY;
+    }
+    if (length.includes(unit)) {
+      return UnitTypeEnum.LENGTH;
     }
   }
 
@@ -85,39 +101,42 @@ class Conversion extends React.Component {
     if (this.state.quantity === "") {
       return "";
     }
-    if (liquid.includes(this.state.value1)) {
-      if (liquid.includes(this.state.value2)) {
-        result = ((parseFloat(this.state.quantity) *
-          liquidConversion.get(this.state.value1)) /
-          liquidConversion.get(this.state.value2)).toFixed(2);
-      } else {
-        return (
-          <div className="conversion-result">Invalid conversion</div>
-        )
-      }
-    } else if (dry.includes(this.state.value1)) {
-      if (dry.includes(this.state.value2)) {
-        result = ((parseFloat(this.state.quantity) *
-          dryConversion.get(this.state.value1)) /
-          dryConversion.get(this.state.value2)).toFixed(2);
-      } else {
-        return (
-          <div className="conversion-result">Invalid conversion</div>
-        )
-      }
-    } else if (length.includes(this.state.value1)) {
-      if (length.includes(this.state.value2)) {
-        result = ((parseFloat(this.state.quantity) *
-          lengthConversion.get(this.state.value1)) /
-          lengthConversion.get(this.state.value2)).toFixed(2);
-      } else {
-        return (
-          <div className="conversion-result">Invalid conversion</div>
-        )
-      }
+
+    let unit1 = this.state.value1;
+    let unit2 = this.state.value2;
+    let unitType1 = this.unitType(unit1);
+    let unitType2 = this.unitType(unit2);
+    console.log(unitType1);
+    console.log(unitType2);
+
+    if (unitType1 !== unitType2) {
+      return (
+        <div className="conversion-result">Invalid conversion</div>
+      )
     }
+
+    let ratio;
+    switch(unitType1) {
+      case UnitTypeEnum.LIQUID:
+        ratio = liquidConversion.get(this.state.value1) /
+            liquidConversion.get(this.state.value2);
+        break;
+      case UnitTypeEnum.DRY:
+        ratio = dryConversion.get(this.state.value1) /
+            dryConversion.get(this.state.value2);
+        break;
+      case UnitTypeEnum.LENGTH:
+        ratio = lengthConversion.get(this.state.value1) /
+            lengthConversion.get(this.state.value2);
+        break;
+      default:
+        return "";
+    }
+    
     return (
-      <div className="conversion-result">{result}</div>
+      <div className="conversion-result">
+          {(parseFloat(this.state.quantity) * ratio).toFixed(2)}
+      </div>
     );
   }
 

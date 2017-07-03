@@ -8,33 +8,33 @@ export const DELETE_PANTRY_ITEM  = 'DELETE_PANTRY_ITEM';
 export const RECEIVE_PANTRY_ERRORS = 'RECEIVE_PANTRY_ERRORS';
 export const UPDATE_QUANTITY_DISPLAY = 'UPDATE_QUANTITY_DISPLAY';
 
-export const receiveAllPantryItems = (pantryItems) => ({
+const receiveAllPantryItems = (pantryItems) => ({
   type: RECEIVE_ALL_PANTRY_ITEMS,
   pantryItems
 });
 
-export const receivePantryItem = (pantryItem) => ({
+const receivePantryItem = (pantryItem) => ({
   type: RECEIVE_PANTRY_ITEM,
   pantryItem
 });
 
-export const createPantryItem = (pantryItem) => ({
+const receiveNewPantryItem = (pantryItem) => ({
   type: CREATE_PANTRY_ITEM,
   pantryItem
 });
 
-export const updatePantryItem = (pantryItem, currentQuantityDisplay) => ({
+const receiveUpdatePantryItem = (pantryItem, currentQuantityDisplay) => ({
   type: UPDATE_PANTRY_ITEM,
   pantryItem,
   currentQuantityDisplay
 })
 
-export const deletePantryItem = ({pantry_item_id}) => ({
+const receiveDeletePantryItem = ({pantry_item_id}) => ({
   type: DELETE_PANTRY_ITEM,
   pantryItemId: pantry_item_id
 })
 
-export const receivePantryErrors = (errors) => ({
+const receivePantryErrors = (errors) => ({
   type: RECEIVE_PANTRY_ERRORS,
   errors
 });
@@ -61,23 +61,23 @@ export const requestPantryItem = (id) => dispatch => (
   )
 );
 
-export const createNewPantryItem = (pantryItem) => dispatch => {
+export const createPantryItem = (pantryItem) => dispatch => {
   return APIUtil.createPantryItem(pantryItem)
-    .then(pantryItemRes => (dispatch(createPantryItem(pantryItemRes))),
+    .then(pantryItemRes => (dispatch(receiveNewPantryItem(pantryItemRes))),
       err => (dispatch(receivePantryErrors(err.responseJSON)))
   )
 };
 
-export const editPantryItem = (pantryItem) => dispatch => {
+export const updatePantryItem = (pantryItem) => dispatch => {
   return APIUtil.updatePantryItem(pantryItem)
     .then(pantryItemRes => {
-      (dispatch(updatePantryItem(pantryItemRes, pantryItem.pantry_item.currentQuantityDisplay)))},
+      (dispatch(receiveUpdatePantryItem(pantryItemRes, pantryItem.pantry_item.currentQuantityDisplay)))},
     err => (dispatch(receivePantryErrors(err.responseJSON)))
   )
 };
 
-export const removePantryItem = (id) => dispatch => {
+export const deletePantryItem = (id) => dispatch => {
   return APIUtil.deletePantryItem(id)
-    .then(pantryIdRes => (dispatch(deletePantryItem(pantryIdRes)))
+    .then(pantryIdRes => (dispatch(receiveDeletePantryItem(pantryIdRes)))
   )
 };

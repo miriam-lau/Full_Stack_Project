@@ -1,3 +1,8 @@
+// TODO: rename private func to receive
+// rename public to delete, update, and create
+// remove exports
+// rename grocery_item to groceryItem
+
 import * as APIUtil from '../util/grocery_api_util';
 
 export const RECEIVE_ALL_GROCERY_ITEMS = 'RECEIVE_ALL_GROCERY_ITEMS';

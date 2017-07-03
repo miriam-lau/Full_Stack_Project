@@ -1,7 +1,7 @@
 import React from 'react';
 
 const groceryUpdatePantry = (key, grocery_item, pantryItems,
-  createNewPantryItem, editPantryItem, removeGroceryItem) => {
+  createPantryItem, updatePantryItem, removeGroceryItem) => {
 
     let groceryUnit = grocery_item.unit;
     let item = grocery_item.name;
@@ -54,7 +54,7 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
 
       let pantryItem = {id: pantryItems[i].id, name: item, category: pantryItems[i].category, quantity: quantity, unit: groceryUnit};
 
-      editPantryItem({pantryItem}).then(() => removeGroceryItem(key));
+      updatePantryItem({pantryItem}).then(() => removeGroceryItem(key));
       return true;
     }
 
@@ -62,7 +62,7 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
     let newPantryItem = {name: grocery_item.name, quantity: grocery_item.quantity,
       category: grocery_item.category, unit: grocery_item.unit};
 
-    createNewPantryItem({'pantry_item': newPantryItem}).then(() => removeGroceryItem(key));
+    createPantryItem({'pantry_item': newPantryItem}).then(() => removeGroceryItem(key));
 
     return true;
 }

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import GroceryIndex from './grocery_index';
 import { requestAllGroceryItems, requestGroceryItem, removeGroceryItem,
   editGroceryItem } from '../../actions/grocery_actions';
-import { requestAllPantryItems, createNewPantryItem, editPantryItem }
+import { requestAllPantryItems, createPantryItem, updatePantryItem }
   from '../../actions/pantry_item_actions';
 import { selectAllGroceryItems, selectAllPantryItems } from '../../reducers/selectors';
 
@@ -20,9 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   removeGroceryItem: (id) => dispatch(removeGroceryItem(id)),
   editGroceryItem: (grocery_item) => dispatch(editGroceryItem(grocery_item)),
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
-  createNewPantryItem: (pantryItem) =>
-    dispatch(createNewPantryItem(pantryItem)),
-  editPantryItem: (pantryItem) => dispatch(editPantryItem(pantryItem))
+  createPantryItem: (pantryItem) =>
+    dispatch(createPantryItem(pantryItem)),
+  updatePantryItem: (pantryItem) => dispatch(updatePantryItem(pantryItem))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GroceryIndex));

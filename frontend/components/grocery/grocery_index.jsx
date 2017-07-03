@@ -1,11 +1,11 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
 
+import { indexCategory } from '../utils/item_categories';
 import GroceryIndexItem from './grocery_index_item';
 import GroceryItemFormContainer from './grocery_item_form_container';
 import groceryUpdatePantry from './grocery_update_pantry';
 
-const selectCategory = ["", "Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 class GroceryIndex extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class GroceryIndex extends React.Component {
       if (grocery_item.purchased === true) {
         let key = grocery_item.id;
         successful = groceryUpdatePantry(key, grocery_item,
-          this.props.pantryItems, this.props.createNewPantryItem, this.props.editPantryItem, this.props.removeGroceryItem);
+          this.props.pantryItems, this.props.createPantryItem, this.props.updatePantryItem, this.props.removeGroceryItem);
       }
     })
     this.setState({success: successful});
@@ -52,7 +52,7 @@ class GroceryIndex extends React.Component {
               <Route path="/groceries" component={ GroceryItemFormContainer } />
             </div>
 
-            {selectCategory.map((category, idx) => {
+            {indexCategory.map((category, idx) => {
               return (
                 <div key={idx} className="grocery-category-section">
                   {category === "" ?
@@ -91,7 +91,7 @@ class GroceryIndex extends React.Component {
               </div>
             </div>
 
-            {selectCategory.map((category, idx) => {
+            {indexCategory.map((category, idx) => {
               return (
                 <div key={idx} className="grocery-category-section">
                   {category === "" ?

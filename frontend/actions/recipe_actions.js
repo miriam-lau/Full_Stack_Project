@@ -1,3 +1,5 @@
+// TODO: rename private func to receive and public to delete, update, and create
+// remove exports
 import * as APIUtil from '../util/recipe_api_util';
 
 export const RECEIVE_ALL_RECIPES = 'RECEIVE_ALL_RECIPES';

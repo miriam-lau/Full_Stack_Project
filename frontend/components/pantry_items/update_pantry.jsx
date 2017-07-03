@@ -1,7 +1,7 @@
 import React from 'react';
 
 const updatePantry = (allItems, item, category, convertedUnit, quantity,
-  editPantryItem) => {
+  updatePantryItem) => {
     for (var i = 0; i < allItems.length; i++) {
       if (allItems[i].category !== category) {
         continue;
@@ -47,7 +47,7 @@ const updatePantry = (allItems, item, category, convertedUnit, quantity,
 
       let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
 
-      editPantryItem({pantry_item: pantryItem});
+      updatePantryItem({pantry_item: pantryItem});
       return true;
     }
 }

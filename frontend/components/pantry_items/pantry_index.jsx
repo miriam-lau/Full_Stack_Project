@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
 
+import { indexCategory } from '../utils/item_categories';
 import PantryIndexItem from './pantry_index_item';
 import PantryItemFormContainer from './pantry_item_form_container';
 
-const selectCategory = ["", "Baking and Dry Goods", "Beverages", "Bread and Bakery", "Canned and Jarred Goods", "Dairy", "Dried Herbs and Spices", "Frozen Foods", "Fruits and Vegetables", "Meat and Seafood", "Oils and Sauces", "Snacks", "Miscellaneous"]
 
 class PantryIndex extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class PantryIndex extends React.Component {
               <Route path="/pantry_items" component={ PantryItemFormContainer } />
             </div>
 
-            {selectCategory.map((category, idx) => {
+            {indexCategory.map((category, idx) => {
               return (
                 <div key={idx} className="pantry-category-section">
                   {category === "" ?
@@ -48,8 +48,8 @@ class PantryIndex extends React.Component {
                           pantryItem={item}
                           pantryItems={this.props.pantryItems}
                           requestPantryItem={this.props.requestPantryItem}
-                          removePantryItem={this.props.removePantryItem}
-                          editPantryItem={this.props.editPantryItem}
+                          deletePantryItem={this.props.deletePantryItem}
+                          updatePantryItem={this.props.updatePantryItem}
                           updateQuantityDisplay={this.props.updateQuantityDisplay} />
                         )
                       }

@@ -2,44 +2,9 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import SearchResults from './search_results.jsx';
 
-import TextField from 'material-ui/TextField';
-import FontIcon from 'material-ui/FontIcon';
-import AutoComplete from 'material-ui/AutoComplete';
+import { AutoComplete, FontIcon, TextField } from 'material-ui';
+import { searchStyle, textStyle, searchFontStyle, underlineStyle, searchIcon } from './material_ui_styles';
 
-
-const searchBoxStyle = {
-  "borderColor": "#E6E6FA",
-  "backgroundColor": "#BCBCF2",
-  "paddingLeft": "10px",
-  "paddingRight": "10px",
-  "paddingBottom": "0",
-  "paddingTop": "0",
-  "height": "35px",
-  "width": "300px",
-  "borderRadius": "3px",
-  "lineheight": "35px"
-}
-
-const textStyle = {
-  "height": "35px",
-}
-
-const searchBoxFontStyle = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "13px",
-  "fontWeight": "bold",
-  "color": "black",
-  "display": "inline",
-  "bottom": "4px"
-}
-
-const textboxUnderlineStyle = {
-  'borderColor': '#E6E6FA'
-}
-
-const searchIcon = {
-  "color": "white"
-}
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -80,9 +45,9 @@ class SearchForm extends React.Component {
             <div className="search-field">
               <AutoComplete
                 underlineShow={false}
-                style={searchBoxStyle}
+                style={searchStyle}
                 textFieldStyle={textStyle}
-                hintStyle={searchBoxFontStyle}
+                hintStyle={searchFontStyle}
                 hintText="Search for a pantry or grocery item"
                 dataSource={this.state.dataSource}
                 onUpdateInput={this.handleUpdateInput}

@@ -16,13 +16,9 @@ class SignInForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    this.props.signin({user})
-    // .then( () => {
-    //   this.props.clearErrors()
-    // })
-    .then( () => {
-        this.props.history.push('/pantry_items');
-      })
+    this.props.signin({user}).then( () => {
+      this.props.history.push('/pantry_items');
+    })
   }
 
   handleGuestSignIn(event) {
@@ -70,9 +66,7 @@ class SignInForm extends React.Component {
               className="signin-input" />
             <br />
             <br />
-            <div>
-              { this.renderErrors() }
-            </div>
+            <div>{ this.renderErrors() }</div>
             <br />
 
             <input className="session-button" type="submit" value="Sign In" />

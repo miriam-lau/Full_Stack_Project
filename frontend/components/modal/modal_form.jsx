@@ -8,7 +8,6 @@ import SignUpFormContainer from '../session_form/sign_up_form_container';
 class ModalForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {modalIsOpen: false};
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -52,34 +51,27 @@ class ModalForm extends React.Component {
         right                      : '40px',
         bottom                     : 'auto',
         border                     : '1px solid #ccc',
-        // background                 : '#fff',
         overflow                   : 'auto',
         WebkitOverflowScrolling    : 'touch',
         borderRadius               : '10px',
         outline                    : 'none',
-        // padding                    : '20px',
         width: '25%'
       }
     };
 
-
     const open = Boolean(this.props.modalOpen)
     const {openModal, modalOpen} = this.props;
-    const form = modalOpen === 'signin' ? (<SignInFormContainer openModal={openModal}/>) :
-      (<SignUpFormContainer
-        openModal={openModal}/>);
+    const form = modalOpen === 'signin' ?
+      (<SignInFormContainer openModal={openModal}/>) :
+      (<SignUpFormContainer openModal={openModal}/>);
+
     return (
       <div>
-        <Modal
-          isOpen={open}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={openModal("")}
-          style={style}
-          contentLabel="session-form"
-        >
+        <Modal isOpen={open} onAfterOpen={this.afterOpenModal}
+          onRequestClose={openModal("")} style={style} contentLabel="session-form">
+
           <div className="modal-icon">
-            <i className="material-icons closeX"
-            onClick={openModal("")}>close</i>
+            <i className="material-icons closeX" onClick={openModal("")}>close</i>
           </div>
 
           {form}

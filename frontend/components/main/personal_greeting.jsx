@@ -13,8 +13,7 @@ class PersonalGreeting extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    return this.props.signout()
-      .then(() => { this.props.history.push('/') });
+    return this.props.signout().then(() => { this.props.history.push('/') });
   }
 
   render() {
@@ -22,9 +21,7 @@ class PersonalGreeting extends React.Component {
       <nav className="header-group2">
         <div className="header">
           <h1 className="greeting">myPantry</h1>
-          <div className="search-bar">
-            <SearchFormContainer />
-          </div>
+          <div className="search-bar"><SearchFormContainer /></div>
         </div>
 
         <div className="header">
@@ -33,13 +30,8 @@ class PersonalGreeting extends React.Component {
               { this.props.currentUser.username }!</h2>
           </section>
 
-          <section className="header2">
-            <Tutorial />
-          </section>
-
-          <section className="header2">
-            <Conversion />
-          </section>
+          <section className="header2"><Tutorial /></section>
+          <section className="header2"><Conversion /></section>
 
           <section className="header2">
             <button className="header-link"

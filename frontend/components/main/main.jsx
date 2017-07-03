@@ -23,19 +23,19 @@ const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors
         <div className="nav-link">
           <button onClick={openModal("signin")}>Sign In</button>
         </div>
+
         <div className="nav-link">
           <button onClick={openModal("signup")}>Create Account</button>
         </div>
 
         <ModalFormContainer openModal={openModal} modalOpen={modalOpen} />
-
       </div>
     </nav>
   )
 };
 
 
-class Greeting extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({modalOpen: ""});
@@ -84,15 +84,14 @@ class Greeting extends React.Component {
 
             <div className="item-list">
               <Switch>
-                <Route path="/groceries"
-                  component={ GroceryIndexContainer } />
+                <Route path="/groceries" component={ GroceryIndexContainer } />
                 <Route path="/pantry_items"
                   component={ PantryIndexContainer } />
                 <Route exact path="/recipes"
                   component={ RecipeIndexContainer } />
                 <Route exact path="/recipes/new"
                   component={ RecipeFormContainer } />
-                <Route exact path="/recipes/:id"
+                <Route exact path="/recipes/:id" 
                   component={ RecipeDetailContainer } />
                 <Route exact path='/search'
                   component={ SearchResultsContainer } />

@@ -19,8 +19,7 @@ class Tutorial extends React.Component {
         <i className="fa fa-info-circle fa-lg" aria-hidden="true" onClick={this.handleToggle}></i>
 
         {this.state.toggle ?
-          <Drawer
-            width={400}
+          <Drawer width={400}
             containerStyle={{height: 'calc(100% - 80px)', top: 80}}
             openSecondary={true}>
 

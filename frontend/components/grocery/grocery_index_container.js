@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
   removeGroceryItem: (id) => dispatch(removeGroceryItem(id)),
   editGroceryItem: (grocery_item) => dispatch(editGroceryItem(grocery_item)),
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
-  createNewPantryItem: (pantry_item) => dispatch(createNewPantryItem(pantry_item)),
+  createNewPantryItem: (pantry_item) =>
+    dispatch(createNewPantryItem(pantry_item)),
   editPantryItem: (pantry_item) => dispatch(editPantryItem(pantry_item))
 });
 

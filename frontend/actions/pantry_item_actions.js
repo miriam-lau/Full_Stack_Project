@@ -27,9 +27,9 @@ export const updatePantryItem = (pantryItem) => ({
   pantryItem
 })
 
-export const deletePantryItem = (pantryItem) => ({
+export const deletePantryItem = ({pantry_item_id}) => ({
   type: DELETE_PANTRY_ITEM,
-  pantryItem
+  pantryItemId: pantry_item_id
 })
 
 export const receivePantryErrors = (errors) => ({
@@ -69,6 +69,6 @@ export const editPantryItem = (pantryItem) => dispatch => (
 
 export const removePantryItem = (id) => dispatch => {
   return APIUtil.deletePantryItem(id)
-    .then(pantryItemRes => (dispatch(deletePantryItem(pantryItemRes)))
+    .then(pantryIdRes => (dispatch(deletePantryItem(pantryIdRes)))
   )
 };

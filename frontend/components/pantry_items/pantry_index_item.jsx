@@ -154,8 +154,7 @@ class PantryIndexItem extends React.Component {
 
 // put onBlur for name update
   render() {
-    console.log("in pantry index item");
-    console.log(this.props.pantryItems);
+
     const pantryItem = this.props.pantryItem;
     const removePantryItem = this.props.removePantryItem;
 
@@ -164,7 +163,7 @@ class PantryIndexItem extends React.Component {
       quantity = quantity + " " + pantryItem.unit;
     }
 
-    console.log(quantity);
+  
 
     return (
       <div>
@@ -246,7 +245,7 @@ export default PantryIndexItem;
 //         continue;
 //       }
 //
-//       console.log("in pantry index item");
+
 //       let itemUnit = allItems[i].unit;
 //       if (itemUnit === 'inch' || itemUnit === 'inches') {
 //         itemUnit = 'inch';
@@ -256,7 +255,7 @@ export default PantryIndexItem;
 //         itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
 //       }
 //
-//       console.log(itemUnit);
+
 //       let convertedUnit = this.props.pantryItem.unit;
 //
 //       if (convertedUnit === 'inch' || convertedUnit === 'inches') {
@@ -284,11 +283,11 @@ export default PantryIndexItem;
 //         }
 //       }
 //
-//       console.log("pantry item");
+
 //
 //       let pantryItem = {id: allItems[i].id, name: this.props.pantryItem.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
 //
-//       console.log(pantryItem);
+
 //
 //       this.props.editPantryItem({pantryItem});
 //       return true;

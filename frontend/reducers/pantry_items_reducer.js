@@ -8,24 +8,35 @@ const noErrors = Object.freeze({
 });
 
 const pantryItemWithDisplayQuantity = (pantryItem) => {
-
+  let currentQuantityDisplay = pantryItem.quantity;
+  if (pantryItem.unit !== null) {
+    currentQuantityDisplay += " " + pantryItem.unit;
+  }
+  pantryItem.currentQuantityDisplay = currentQuantityDisplay;
+  return pantryItem;
 }
 
 const PantryItemsReducer = (state = noErrors, action) => {
   Object.freeze(state);
   switch(action.type) {
-    case RECEIVE_ALL_PANTRY_ITEMS:
-      return action.pantryItems;
-    case RECEIVE_PANTRY_ITEM:
-      return action.pantryItem;
-    case CREATE_PANTRY_ITEM:
-      return merge({}, state, action.pantryItem);
-    case UPDATE_PANTRY_ITEM:
-      return merge({}, state, action.pantryItem);
-    case DELETE_PANTRY_ITEM:
-      const newState = merge({}, state);
-      delete newState[Object.keys(action.pantryItem)[0]];
+    case RECEIVE_ALL_PANTRY_ITEMS: {
+      let newState = merge({}, state);
+      Object.values(action.pantryItems).forEach(function(pantryItem) {
+        newState[pantryItem.id] = pantryItemWithDisplayQuantity(pantryItem);
+      });
       return newState;
+    }
+    case RECEIVE_PANTRY_ITEM:
+      return merge({}, state, pantryItemWithDisplayQuantity(action.pantryItem));
+    case CREATE_PANTRY_ITEM:
+      return merge({}, state, pantryItemWithDisplayQuantity(action.pantryItem));
+    case UPDATE_PANTRY_ITEM:
+      return merge({}, state, pantryItemWithDisplayQuantity(action.pantryItem));
+    case DELETE_PANTRY_ITEM: {
+      const newState = merge({}, state);
+      delete newState[action.pantryItemId];
+      return newState;
+    }
     case RECEIVE_PANTRY_ERRORS:
       return merge({}, state, action.errors);
     default:

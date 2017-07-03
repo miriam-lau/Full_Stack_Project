@@ -44,9 +44,10 @@ class Api::PantryItemsController < ApplicationController
   end
 
   def destroy
-    @pantry_item = PantryItem.find(params[:id])
-    @pantry_item.destroy
-    render :show
+    pantry_item = PantryItem.find(params[:id])
+    @pantry_item_id = pantry_item.id
+    pantry_item.destroy
+    render :delete
   end
 
   def search

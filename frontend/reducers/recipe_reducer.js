@@ -10,10 +10,10 @@ const RecipeReducer = (state = noErrors, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_RECIPES:
-      newState = merge({}, action.recipes);
+      newState = merge({}, state, action.recipes);
       return newState;
     case RECEIVE_RECIPE:
-      newState = merge({}, action.recipe);
+      newState = merge({}, state, action.recipe);
       return newState;
     case CREATE_RECIPE:
       newState = merge({}, state, {[action.recipe.id]: action.recipe});

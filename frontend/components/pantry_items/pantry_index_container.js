@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import PantryIndex from './pantry_index';
 import { requestAllPantryItems, requestPantryItem, removePantryItem,
-  editPantryItem } from '../../actions/pantry_item_actions';
+  editPantryItem, updateQuantityDisplay } from '../../actions/pantry_item_actions';
 import { selectAllPantryItems } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
@@ -15,7 +15,10 @@ const mapDispatchToProps = (dispatch) => ({
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
   requestPantryItem: (id) => dispatch(requestPantryItem(id)),
   removePantryItem: (id) => dispatch(removePantryItem(id)),
-  editPantryItem: (pantryItem) => dispatch(editPantryItem(pantryItem))
+  editPantryItem: (pantryItem) =>
+      dispatch(editPantryItem(pantryItem)),
+  updateQuantityDisplay: (id, quantityDisplay) =>
+      dispatch(updateQuantityDisplay(id, quantityDisplay))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PantryIndex));

@@ -1,3 +1,4 @@
+import merge from 'lodash/merge';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -65,6 +66,7 @@ class PantryIndexItem extends React.Component {
     this.checkError = this.checkError.bind(this);
     this.update = this.update.bind(this);
     this.currentQuantity = this.props.pantryItem.quantity;
+    this.handleQuantityChange = this.handleQuantityChange.bind(this);
 
     if (pantryItem.unit != null && pantryItem.unit.length !== 0) {
       this.currentQuantity = this.currentQuantity + " " + pantryItem.unit;
@@ -78,7 +80,7 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return "Quantity must begin with a number";
+      return {error: "Quantity must begin with a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -104,16 +106,25 @@ class PantryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return "Quantity must have a valid unit";
+      return {error: "Quantity must have a valid unit"};
     }
 
-    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
-      temp: '', quantityError: ''}, () => {
-        const pantryItem = this.state
-        this.props.editPantryItem({pantry_item: pantryItem});
-      });
+    return {quantity: parseFloat(quantity), unit: convertedUnit};
+  }
 
-    return null;
+  handleQuantityChange() {
+    return e => {
+      let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
+      if (parsedUpdateQuantity.error != null) {
+        this.props.updateQuantityDisplay(this.props.pantryItem.id, e.target.value);
+      } else {
+        let updatedPantryItem = merge({}, this.props.pantryItem);
+        updatedPantryItem.currentQuantityDisplay = e.target.value;
+        updatedPantryItem.quantity = parsedUpdateQuantity.quantity;
+        updatedPantryItem.unit = parsedUpdateQuantity.unit;
+        this.props.editPantryItem({pantry_item: updatedPantryItem});
+      }
+    }
   }
 
   update(property) {
@@ -146,36 +157,27 @@ class PantryIndexItem extends React.Component {
   }
 
   checkError() {
-    let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
-    if (errorMessage != null) {
-      this.setState({quantityError: errorMessage});
-    }
+    // let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
+    // if (errorMessage != null) {
+    //   this.setState({quantityError: errorMessage});
+    // }
   }
 
 // put onBlur for name update
   render() {
-
     const pantryItem = this.props.pantryItem;
     const removePantryItem = this.props.removePantryItem;
-
-    let quantity = pantryItem.quantity;
-    if (pantryItem.unit !== null) {
-      quantity = quantity + " " + pantryItem.unit;
-    }
-
-  
-
     return (
       <div>
         <div className="update-pantry-form-div">
 
           <form className="update-pantry-form">
             <TextField id="text-field-default"
-              value={ quantity }
+              value={ pantryItem.currentQuantityDisplay }
               underlineFocusStyle ={underlineFocusStyle}
               underlineStyle={underlineStyle}
               style={quantityStyle}
-              onChange={this.update('temp')}
+              onChange={this.handleQuantityChange()}
               onBlur={this.checkError}
             />
 

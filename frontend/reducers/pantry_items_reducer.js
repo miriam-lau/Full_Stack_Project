@@ -9,7 +9,7 @@ const noErrors = Object.freeze({
 
 const pantryItemWithDisplayQuantity = (pantryItem) => {
   let currentQuantityDisplay = pantryItem.quantity;
-  if (pantryItem.unit !== null) {
+  if (pantryItem.unit != null) {
     currentQuantityDisplay += " " + pantryItem.unit;
   }
   pantryItem.currentQuantityDisplay = currentQuantityDisplay;

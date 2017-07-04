@@ -45,7 +45,12 @@ const updatePantry = (allItems, item, category, convertedUnit, quantity,
         }
       }
 
-      let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
+      let currentQuantityDisplay = quantity;
+      if (convertedUnit != null) {
+        currentQuantityDisplay += " " + convertedUnit;
+      }
+
+      let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit, currentQuantityDisplay: currentQuantityDisplay};
 
       updatePantryItem({pantry_item: pantryItem});
       return true;

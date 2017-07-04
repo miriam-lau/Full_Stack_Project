@@ -8,37 +8,16 @@ import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault, itemStyleCategory, styles } from "../utils/material_ui_styles";
 
-
-function ErrorBanner1(props) {
-  if (props.message != null) {
-    return (
-      <div className="pantry-item-error">{ props.message }</div>
-    );
-  } else {
-    return null;
-  }
-}
-
-function ErrorBanner2(props) {
-  if (props.message != null) {
-    return (
-      <div className="pantry-item-error">{ props.message }</div>
-    );
-  } else {
-    return null;
-  }
-}
-
 class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     let pantryItem = this.props.pantryItem;
     this.state = { id: pantryItem.id, user_id: pantryItem.user_id,
-      name: pantryItem.name, category: pantryItem.category, quantity: pantryItem.quantity, unit: pantryItem.unit, error: ""};
+      name: pantryItem.name, category: pantryItem.category, quantity: pantryItem.quantity, unit: pantryItem.unit, quantityError: "", nameError: ""};
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
-    this.checkError = this.checkError.bind(this);
-    this.update = this.update.bind(this);
+    this.showQuantityError = this.showQuantityError.bind(this);
+    this.showNameError = this.showNameError.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
   }
 
@@ -47,7 +26,7 @@ class PantryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return {error: "Quantity must begin with a number"};
+      return {error: "Quantity must be a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -73,7 +52,7 @@ class PantryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return {error: "Quantity must have a valid unit"};
+      return {error: "Invalid unit"};
     }
 
     return {quantity: parseFloat(quantity), unit: convertedUnit};
@@ -84,7 +63,9 @@ class PantryIndexItem extends React.Component {
       let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
       if (parsedUpdateQuantity.error != null) {
         this.props.updateQuantityDisplay(this.props.pantryItem.id, e.target.value);
+        this.setState({quantityError: parsedUpdateQuantity.error});
       } else {
+        this.setState({quantityError: ""});
         let updatedPantryItem = merge({}, this.props.pantryItem);
         updatedPantryItem.currentQuantityDisplay = e.target.value;
         updatedPantryItem.quantity = parsedUpdateQuantity.quantity;
@@ -98,13 +79,14 @@ class PantryIndexItem extends React.Component {
     return e => {
       if (property === "name") {
         if (e.target.value === "") {
-          return this.setState({error: "Name cannot be blank"});
+          return this.setState({nameError: "Name cannot be blank"});
+        } else {
+          this.setState({nameError: ""});
         }
       }
 
-      // category updates only happens for existing uncategorized items.
-      // pantryItems = array; name, category, unit = strings; quantity: float;
-      // updatePantry return true if update item is successful
+//Only for existing uncategorized items; returns true if update is successful
+//pantryItems = array; name, category, unit = strings; quantity: float;
       if (property === "category") {
         this.setState({ [property]: e.target.value }, () => {
           let successful = updatePantry(this.props.pantryItems,
@@ -115,7 +97,6 @@ class PantryIndexItem extends React.Component {
         });
       }
 
-      this.setState({error: ""});
       let currentQuantityDisplay = this.state.quantity;
       if (this.state.unit != null) {
         currentQuantityDisplay += " " + this.state.unit;
@@ -127,21 +108,36 @@ class PantryIndexItem extends React.Component {
     }
   }
 
-  checkError() {
-    // let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
-    // if (errorMessage != null) {
-    //   this.setState({quantityError: errorMessage});
-    // }
+  showQuantityError(message) {
+    if (message != "") {
+      return (
+        <div className="pantry-item-error">{ message }</div>
+      );
+    } else {
+      return null;
+    }
   }
 
-// put onBlur for name update
+  showNameError(message) {
+    if (message != "" && this.state.quantityError === "") {
+      return (
+        <div className="pantry-item-name-error-only">{ message }</div>
+      );
+    } else if (message != "") {
+      return (
+        <div className="pantry-item-name-error">{ message }</div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     const pantryItem = this.props.pantryItem;
     const deletePantryItem = this.props.deletePantryItem;
     return (
       <div>
         <div className="update-pantry-form-div">
-
           <form className="update-pantry-form">
             <TextField id="text-field-default"
               value={ pantryItem.currentQuantityDisplay }
@@ -149,7 +145,6 @@ class PantryIndexItem extends React.Component {
               underlineStyle={underlineStyle}
               style={quantityStyle}
               onChange={this.handleQuantityChange()}
-              onBlur={this.checkError}
             />
 
             {pantryItem.category === "" ?
@@ -194,8 +189,10 @@ class PantryIndexItem extends React.Component {
             delete_forever</i>
         </div>
 
-        <ErrorBanner1 message={this.state.quantityError} />
-        <ErrorBanner2 message={this.state.nameError} />
+        <div className="error-messages">
+          {this.showQuantityError(this.state.quantityError)}
+          {this.showNameError(this.state.nameError)}
+        </div>
       </div>
     );
   }

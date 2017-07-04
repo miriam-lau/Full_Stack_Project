@@ -1,5 +1,5 @@
 import React from 'react';
-import { unitArray, liquid, dry, length } from './units';
+import { unitArray, liquid, dry, length, unitInfo } from './units';
 import { Drawer, TextField } from 'material-ui';
 
 const VALUE1 = "value1";
@@ -79,7 +79,7 @@ class Conversion extends React.Component {
   update(property) {
     return e => {
       this.setState({ [property]:
-          (property === VALUE1 || property === VALUE2) ?  unitArray[parseInt(e.target.value)] : e.target.value
+          (property === VALUE1 || property === VALUE2) ?  unitArray[e.target.value] : e.target.value
       });
     }
   }
@@ -106,9 +106,6 @@ class Conversion extends React.Component {
     let unit2 = this.state.value2;
     let unitType1 = this.unitType(unit1);
     let unitType2 = this.unitType(unit2);
-    console.log(unitType1);
-    console.log(unitType2);
-
     if (unitType1 !== unitType2) {
       return (
         <div className="conversion-result">Invalid conversion</div>
@@ -132,7 +129,7 @@ class Conversion extends React.Component {
       default:
         return "";
     }
-    
+
     return (
       <div className="conversion-result">
           {(parseFloat(this.state.quantity) * ratio).toFixed(2)}
@@ -169,30 +166,13 @@ class Conversion extends React.Component {
               />
 
               <div className="conversion-unit-selector">
-                <select className="conversion-select" onChange={this.update(VALUE1)}>
-                  <option value="0">fluid ounce</option>
-                  <option value="1">gill</option>
-                  <option value="2">teaspoon</option>
-                  <option value="3">teaspoon (dry)</option>
-                  <option value="4">tablespoon</option>
-                  <option value="5">tablespoon (dry)</option>
-                  <option value="6">cup</option>
-                  <option value="7">pint</option>
-                  <option value="8">quart</option>
-                  <option value="9">gallon</option>
-                  <option value="10">ounce</option>
-                  <option value="11">pound</option>
-                  <option value="12">inch</option>
-                  <option value="13">foot</option>
-                  <option value="14">milliliter</option>
-                  <option value="15">deciliter</option>
-                  <option value="16">liter</option>
-                  <option value="17">milligram</option>
-                  <option value="18">gram</option>
-                  <option value="19">kilogram</option>
-                  <option value="20">millimeter</option>
-                  <option value="21">centimeter</option>
-                  <option value="22">meter</option>
+                <select className="conversion-select"
+                    onChange={this.update(VALUE1)}>
+                  {unitArray.map((unit, idx) => {
+                    return (
+                      <option key={idx} value={idx}>{unit}</option>
+                    )
+                  })};
                 </select>
               </div>
             </div>
@@ -203,98 +183,25 @@ class Conversion extends React.Component {
               <section className="conversion-text-result"> {this.calculateResult()} </section>
 
               <div className="conversion-unit-selector">
-                <select className="conversion-select" onChange={this.update(VALUE2)}>
-                  <option value="0">fluid ounce</option>
-                  <option value="1">gill</option>
-                  <option value="2">teaspoon</option>
-                  <option value="3">teaspoon (dry)</option>
-                  <option value="4">tablespoon</option>
-                  <option value="5">tablespoon (dry)</option>
-                  <option value="6">cup</option>
-                  <option value="7">pint</option>
-                  <option value="8">quart</option>
-                  <option value="9">gallon</option>
-                  <option value="10">ounce</option>
-                  <option value="11">pound</option>
-                  <option value="12">inch</option>
-                  <option value="13">foot</option>
-                  <option value="14">milliliter</option>
-                  <option value="15">deciliter</option>
-                  <option value="16">liter</option>
-                  <option value="17">milligram</option>
-                  <option value="18">gram</option>
-                  <option value="19">kilogram</option>
-                  <option value="20">millimeter</option>
-                  <option value="21">centimeter</option>
-                  <option value="22">meter</option>
+                <select className="conversion-select"
+                    onChange={this.update(VALUE2)}>
+                  {unitArray.map((unit, idx) => {
+                    return (
+                      <option key={idx} value={idx}>{unit}</option>
+                    )
+                  })};
                 </select>
               </div>
             </div>
           </div>
 
-          <section className="conversion conversion1">
-            <p><span className="conversion-topic">teaspoon: &nbsp;</span> teaspoon(s), t, tsp</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">tablespoon: &nbsp;</span>tablespoon(s), T, tbsp</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">fluidounce: &nbsp;</span>fluid ounce(s), fl oz</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">gill: &nbsp;</span>gill(s)</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">cup: &nbsp;</span>cup(s), c</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">pint: &nbsp;</span>pint(s), p, pt, fl pt</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">quart: &nbsp;</span>quart(s), q, qt, fl qt</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">gallon: &nbsp;</span>gallon(s), gal</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">ounce: &nbsp;</span>ounce(s), oz</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">pound: &nbsp;</span>pound(s), lb(s)</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">inch: &nbsp;</span>inch, inches, in</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">foot: &nbsp;</span>foot, feet, ft</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">milliliter: &nbsp;</span>milliliter(s), millilitre(s), ml, mL</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">deciliter: &nbsp;</span>deciliter(s), decilitre(s), dL</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">liter: &nbsp;</span>liter(s), litre(s), L</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">milligram: &nbsp;</span>milligram(s), milligramme(s), mg</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">gram: &nbsp;</span>gram(s), gramme(s), g</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">kilogram: &nbsp;</span>kilogram(s), kilogramme(s), kg(s)</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">millimeter: &nbsp;</span>millimeter(s), millimetre(s), mm</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">centimeter: &nbsp;</span>centimeter(s), centimetre(s), cm</p>
-          </section>
-          <section className="conversion">
-            <p><span className="conversion-topic">meter: &nbsp;</span>meter(s), metre(s), m</p>
-          </section>
+          {unitInfo.map((unit, idx) => {
+            return (
+              <section key={idx} className="conversion">
+                <p><span className="conversion-topic">{unit[0]}: &nbsp;</span> {unit[1]}</p>
+              </section>
+            )
+          })}
 
           </Drawer> : "" }
       </div>

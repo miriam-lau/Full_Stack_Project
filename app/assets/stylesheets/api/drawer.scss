@@ -25,6 +25,7 @@
 .converter {
   display: flex;
   flex-direction: row;
+  padding-bottom: 25px;
 }
 
 .drawer-text {
@@ -69,10 +70,6 @@
   color: #333399;
   padding: 0 0 15px 25px;
   width: 350px;
-}
-
-.conversion1 {
-  padding-top: 25px;
 }
 
 .conversion-topic, .tutorial-topic {

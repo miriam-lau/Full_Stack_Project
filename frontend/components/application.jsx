@@ -14,12 +14,6 @@ const App = () => {
   return (
     <div>
       <MainContainer />
-
-      <Switch>
-        <AuthRoute exact path='/' component={ HomeContainer }/>
-        <AuthRoute path='/signin' component={ ModalContainer } />
-        <AuthRoute path='/signup' component={ ModalContainer } />
-      </Switch>
     </div>
   );
 }

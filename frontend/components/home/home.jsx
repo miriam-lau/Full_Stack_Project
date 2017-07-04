@@ -1,14 +1,44 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+
 import HomeContainer from './home_container';
+import ModalFormContainer from '../modal/modal_container';
+
 import Carousel from 'nuka-carousel';
 import Decorator from './decorator';
+
+const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
+  return(
+    <nav className="header-group">
+      <div className="header">
+        <h1 className="greeting">myPantry</h1>
+      </div>
+
+      <div className="header">
+        <div className="nav-link">
+          <button onClick={openModal("signin")}>Sign In</button>
+        </div>
+
+        <div className="nav-link">
+          <button onClick={openModal("signup")}>Create Account</button>
+        </div>
+
+        <ModalFormContainer openModal={openModal} modalOpen={modalOpen} />
+      </div>
+    </nav>
+  )
+};
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: 'guest', password: 'password'};
+    this.state = {username: 'guest', password: 'password', modalOpen: ""};
+    this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  openModal(type) {
+    return () => this.setState({modalOpen: type});
   }
 
   handleSubmit(event) {
@@ -20,8 +50,14 @@ class Home extends React.Component {
   }
 
   render() {
+    const { signin, signup, errors, clearErrors } = this.props;
+    const openModal = this.openModal;
+    const {modalOpen} = this.state;
+
     return (
       <div className="main-content">
+        {sessionLinks({modalOpen, openModal, signin, signup, errors, clearErrors})}
+
         <Carousel className="image" wrapAround={true} autoplay={true}
           autoInterval={5000} decorators={Decorator}>
 

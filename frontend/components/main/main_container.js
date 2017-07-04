@@ -9,10 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  signout: () => dispatch(signout()),
-  signin: user => dispatch(signin(user)),
-  signup: user => dispatch(signup(user)),
-  clearErrors: () => dispatch(receiveErrors([]))
+  signout: () => dispatch(signout())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

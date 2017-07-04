@@ -6,15 +6,13 @@ import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
 import { TextField } from "material-ui";
 
-
 function ErrorBanner(props) {
   if (props.shouldShow) {
     return (
       <div className="pantry-item-error">{ props.message }</div>
     );
-  } else {
-    return null;
-  }
+  } 
+  return null;
 }
 
 class PantryItemForm extends React.Component {
@@ -96,10 +94,10 @@ class PantryItemForm extends React.Component {
     this.parseAddItem(this.state.temp);
   }
 
-  update (property) {
+  update(property) {
     return e => {
       if (property === "category") {
-        this.setState({ [property]: formCategory[parseInt(e.target.value)] });
+        this.setState({ [property]: e.target.value });
       } else {
         this.setState({ [property]: e.target.value });
       }
@@ -121,24 +119,19 @@ class PantryItemForm extends React.Component {
 
           <select className="pantry-categories"
             onChange={this.update("category")}>
-            <option selected="true" disabled="disabled">Select a Category</option>
-            <option value="0">Baking and Dry Goods</option>
-            <option value="1">Beverages</option>
-            <option value="2">Bread and Bakery</option>
-            <option value="3">Canned and Jarred Goods</option>
-            <option value="4">Dairy</option>
-            <option value="5">Dried Herbs and Spices</option>
-            <option value="6">Frozen Foods</option>
-            <option value="7">Fruits and Vegetables</option>
-            <option value="8">Meat and Seafood</option>
-            <option value="9">Oils and Sauces</option>
-            <option value="10">Snacks</option>
-            <option value="11">Miscellaneous</option>
+            <option selected="true" disabled="disabled">
+                Select a Category</option>
+            {formCategory.map((category, idx) => {
+              return(
+                <option key={idx} value={category}>{category}</option>
+              )
+            })};
           </select>
 
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
           onClick={this.handleSubmit}></i>
         </div>
+
         <ErrorBanner shouldShow={this.state.errors}
         message="Invalid entry. Entry must have 'quantity' and 'item name'" />
       </form>

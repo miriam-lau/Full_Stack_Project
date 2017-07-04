@@ -10,7 +10,6 @@ class PantryIndex extends React.Component {
     super(props)
   }
 
-// componentDidMount or WillMount?
   componentWillMount() {
     this.props.requestAllPantryItems();
   }
@@ -25,11 +24,12 @@ class PantryIndex extends React.Component {
           </div>
 
           <div className="pantry-index">
-            <section><h2 className="pantry-title">Pantry</h2>
+            <section>
+              <h2 className="pantry-title">Pantry</h2>
             </section>
 
             <div className="add-pantry-item">
-              <Route path="/pantry_items" component={ PantryItemFormContainer } />
+              <Route path="/pantry_items" component={PantryItemFormContainer} />
             </div>
 
             {indexCategory.map((category, idx) => {
@@ -49,7 +49,8 @@ class PantryIndex extends React.Component {
                           requestPantryItem={this.props.requestPantryItem}
                           deletePantryItem={this.props.deletePantryItem}
                           updatePantryItem={this.props.updatePantryItem}
-                          updateQuantityDisplay={this.props.updateQuantityDisplay} />
+                          updateQuantityDisplay=
+                              {this.props.updateQuantityDisplay} />
                         )
                       }
                     })}

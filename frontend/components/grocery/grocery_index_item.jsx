@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 import { allMeasurements } from "../utils/measurements";
 import { Checkbox, TextField } from "material-ui";
-import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault, itemStyleCategory, icon, styles } from "../utils/material_ui_styles";
+import { formCategory } from "../utils/item_categories";
+import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
+  itemStyleCategory, icon, styles } from "../utils/material_ui_styles";
 
 function ErrorBanner1(props) {
   if (props.message != null) {
@@ -144,6 +146,7 @@ class GroceryIndexItem extends React.Component {
   render() {
     const groceryItem = this.props.groceryItem;
     const deleteGroceryItem = this.props.deleteGroceryItem;
+
     let quantity = groceryItem.quantity;
     if (groceryItem.unit !== null) {
       quantity = quantity + " " + groceryItem.unit;
@@ -152,13 +155,10 @@ class GroceryIndexItem extends React.Component {
     return (
       <div>
         <div className="update-grocery-form-div">
-
           <Checkbox className="update-grocery-checkbox"
             style={styles}
             iconStyle={icon}
-            checked={this.state.purchased ? true : false}
-            onCheck={this.handleCheck}
-            />
+            checked={this.state.purchased ? true : false} onCheck={this.handleCheck} />
 
           <form className="update-grocery-form">
             <TextField id="text-field-default"
@@ -190,19 +190,13 @@ class GroceryIndexItem extends React.Component {
             {groceryItem.category === "" ?
               <select className="grocery-uncategorized"
                 onChange={this.update("category")}>
-                <option selected="true" disabled="disabled">Select a Category</option>
-                <option value="Baking and Dry Goods">Baking and Dry Goods</option>
-                <option value="Beverages">Beverages</option>
-                <option value="Bread and Bakery">Bread and Bakery</option>
-                <option value="Canned and Jarred Goods">Canned and Jarred Goods</option>
-                <option value="Dairy">Dairy</option>
-                <option value="Dried Herbs and Spices">Dried Herbs and Spices</option>
-                <option value="Frozen Foods">Frozen Foods</option>
-                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
-                <option value="Meat and Seafood">Meat and Seafood</option>
-                <option value="Oils and Sauces">Oils and Sauces</option>
-                <option value="Snacks">Snacks</option>
-                <option value="Miscellaneous">Miscellaneous</option>
+                <option selected="true" disabled="disabled">
+                    Select a Category</option>
+                {formCategory.map((category, idx) => {
+                  return(
+                    <option key={idx} value={category}>{category}</option>
+                  )
+                })};
               </select> : ""}
           </form>
 

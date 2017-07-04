@@ -6,7 +6,8 @@ import updatePantry from "./update_pantry";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
-import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault, itemStyleCategory, styles } from "../utils/material_ui_styles";
+import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault,
+  itemStyleCategory, styles } from "../utils/material_ui_styles";
 
 class PantryIndexItem extends React.Component {
   constructor(props) {
@@ -42,7 +43,6 @@ class PantryIndexItem extends React.Component {
       if (unit[unit.length - 1] == ".") {
         unit = unit.substring(0, unit.length - 1);
       }
-
       for (let i = 0; i < allMeasurements.length; i++) {
         if (allMeasurements[i].includes(unit)) {
           convertedUnit = (quantity === "1" ? allMeasurements[i][0] : allMeasurements[i][1]);
@@ -54,7 +54,6 @@ class PantryIndexItem extends React.Component {
     if (convertedUnit === null && unit != null) {
       return {error: "Invalid unit"};
     }
-
     return {quantity: parseFloat(quantity), unit: convertedUnit};
   }
 
@@ -110,39 +109,32 @@ class PantryIndexItem extends React.Component {
 
   showQuantityError(message) {
     if (message != "") {
-      return (
-        <div className="pantry-item-error">{ message }</div>
-      );
-    } else {
-      return null;
+      return (<div className="pantry-item-error">{ message }</div>);
     }
+    return null;
   }
 
   showNameError(message) {
     if (message != "" && this.state.quantityError === "") {
-      return (
-        <div className="pantry-item-name-error-only">{ message }</div>
-      );
-    } else if (message != "") {
-      return (
-        <div className="pantry-item-name-error">{ message }</div>
-      );
-    } else {
-      return null;
+      return (<div className="pantry-item-name-error-only">{ message }</div>);
     }
+    if (message != "") {
+      return (<div className="pantry-item-name-error">{ message }</div>);
+    }
+    return null;
   }
 
   render() {
     const pantryItem = this.props.pantryItem;
     const deletePantryItem = this.props.deletePantryItem;
+
     return (
       <div>
         <div className="update-pantry-form-div">
           <form className="update-pantry-form">
             <TextField id="text-field-default"
               value={ pantryItem.currentQuantityDisplay }
-              underlineFocusStyle ={underlineFocusStyle}
-              underlineStyle={underlineStyle}
+              underlineFocusStyle ={underlineFocusStyle} underlineStyle={underlineStyle}
               style={quantityStyle}
               onChange={this.handleQuantityChange()}
             />
@@ -167,26 +159,21 @@ class PantryIndexItem extends React.Component {
             {pantryItem.category === "" ?
               <select className="pantry-uncategorized"
                 onChange={this.update("category")}>
-                <option selected="true" disabled="disabled">Select a Category</option>
-                <option value="Baking and Dry Goods">Baking and Dry Goods</option>
-                <option value="Beverages">Beverages</option>
-                <option value="Bread and Bakery">Bread and Bakery</option>
-                <option value="Canned and Jarred Goods">Canned and Jarred Goods</option>
-                <option value="Dairy">Dairy</option>
-                <option value="Dried Herbs and Spices">Dried Herbs and Spices</option>
-                <option value="Frozen Foods">Frozen Foods</option>
-                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
-                <option value="Meat and Seafood">Meat and Seafood</option>
-                <option value="Oils and Sauces">Oils and Sauces</option>
-                <option value="Snacks">Snacks</option>
-                <option value="Miscellaneous">Miscellaneous</option>
+                <option selected="true" disabled="disabled">
+                    Select a Category</option>
+                {formCategory.map((category, idx) => {
+                  return(
+                    <option key={idx} value={category}>{category}</option>
+                  )
+                })};
               </select> : ""}
           </form>
 
           <i className="material-icons trash-can"
             style={styles}
             onClick={() => deletePantryItem(pantryItem.id)}>
-            delete_forever</i>
+            delete_forever
+          </i>
         </div>
 
         <div className="error-messages">

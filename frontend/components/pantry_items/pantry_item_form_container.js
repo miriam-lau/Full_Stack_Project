@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import PantryItemForm from "./pantry_item_form";
-import { createPantryItem, updatePantryItem, updateQuantityDisplay } from "../../actions/pantry_item_actions";
+import { createPantryItem, updatePantryItem, updateQuantityDisplay, deletePantryItem } from "../../actions/pantry_item_actions";
 import { selectAllPantryItems } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
@@ -14,7 +14,8 @@ const mapDispatchToProps = (dispatch) => ({
   createPantryItem: (pantryItem) => dispatch(createPantryItem(pantryItem)),
   updatePantryItem: (pantryItem) => dispatch(updatePantryItem(pantryItem)),
   updateQuantityDisplay: (id, quantityDisplay) =>
-      dispatch(updateQuantityDisplay(id, quantityDisplay))
+      dispatch(updateQuantityDisplay(id, quantityDisplay)),
+  deletePantryItem: (id) => dispatch(deletePantryItem(id))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PantryItemForm));

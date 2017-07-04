@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
+import updatePantry from "./update_pantry";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
@@ -33,7 +34,7 @@ class PantryIndexItem extends React.Component {
     super(props);
     let pantryItem = this.props.pantryItem;
     this.state = { id: pantryItem.id, user_id: pantryItem.user_id,
-      category: pantryItem.category, error: ""};
+      name: pantryItem.name, category: pantryItem.category, quantity: pantryItem.quantity, unit: pantryItem.unit, error: ""};
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
@@ -97,24 +98,32 @@ class PantryIndexItem extends React.Component {
     return e => {
       if (property === "name") {
         if (e.target.value === "") {
-          return this.setState({nameError: "Name cannot be blank"});
-        } else {
-          this.setState({nameError: ""});
+          return this.setState({error: "Name cannot be blank"});
         }
       }
 
+      // category updates only happens for existing uncategorized items.
+      // pantryItems = array; name, category, unit = strings; quantity: float;
+      // updatePantry return true if update item is successful
       if (property === "category") {
-        this.setState({ [property]: e.target.value });
+        this.setState({ [property]: e.target.value }, () => {
+          let successful = updatePantry(this.props.pantryItems,
+              this.state.id, this.state.name, this.state.category, this.state.unit, parseFloat(this.state.quantity), this.props.updatePantryItem, this.props.deletePantryItem);
+          if (successful) {
+            return true;
+          }
+        });
       }
 
-      // this.setState({[property]: e.target.value}, () => {
-      //   if (this.state.temp === "") {
-      //     const pantryItem = this.state;
-      //     this.props.updatePantryItem({pantry_item: pantryItem});
-      //   } else {
-      //     this.parseUpdateQuantity(this.state.temp);
-      //   }
-      // });
+      this.setState({error: ""});
+      let currentQuantityDisplay = this.state.quantity;
+      if (this.state.unit != null) {
+        currentQuantityDisplay += " " + this.state.unit;
+      }
+      this.setState({[property]: e.target.value, currentQuantityDisplay: currentQuantityDisplay}, () => {
+        const pantryItem = this.state;
+        this.props.updatePantryItem({pantry_item: pantryItem});
+      });
     }
   }
 
@@ -193,68 +202,3 @@ class PantryIndexItem extends React.Component {
 }
 
 export default PantryIndexItem;
-
-// update property: attempt to update item with category change
-// if (property === "category") {
-//   this.setState({[property]: e.target.value}, () => {
-//     let allItems = this.props.pantryItems;
-//
-//     for (var i = 0; i < allItems.length; i++) {
-//       if (allItems[i].category !== this.state.category) {
-//         continue;
-//       }
-//
-//       let itemName = allItems[i].name;
-//       if (itemName !== this.props.pantryItem.name) {
-//         continue;
-//       }
-//
-
-//       let itemUnit = allItems[i].unit;
-//       if (itemUnit === "inch" || itemUnit === "inches") {
-//         itemUnit = "inch";
-//       } else if (itemUnit === "foot" || itemUnit === "feet") {
-//         itemUnit = "foot";
-//       } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
-//         itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
-//       }
-//
-
-//       let convertedUnit = this.props.pantryItem.unit;
-//
-//       if (convertedUnit === "inch" || convertedUnit === "inches") {
-//         convertedUnit = "inch";
-//       } else if (convertedUnit === "foot" || convertedUnit === "feet") {
-//         convertedUnit = "foot";
-//       } else if (convertedUnit.charAt(convertedUnit.length - 1) === "s") {
-//         convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
-//       }
-//
-//       let itemQuantity = parseFloat(this.props.pantryItem.quantity);
-//       if (convertedUnit !== itemUnit) {
-//         continue;
-//       } else {
-//         itemQuantity += parseFloat(allItems[i].quantity);
-//       }
-//
-//       if (itemQuantity > 1 && convertedUnit !== "") {
-//         if (convertedUnit === "inch") {
-//           convertedUnit = "inches";
-//         } else if (convertedUnit === "foot") {
-//           convertedUnit = "feet";
-//         } else {
-//           convertedUnit += "s";
-//         }
-//       }
-//
-
-//
-//       let pantryItem = {id: allItems[i].id, name: this.props.pantryItem.name, category: allItems[i].category, quantity: itemQuantity, unit: convertedUnit};
-//
-
-//
-//       this.props.updatePantryItem({pantryItem});
-//       return true;
-//     }
-//   });
-// }

@@ -73,8 +73,9 @@ class PantryItemForm extends React.Component {
     let item = words.join(" ");
 
     // cross-check with existing items to update if found
-    let successful = updatePantry(this.props.pantryItems, item,
-      this.state.category, convertedUnit, quantity, this.props.updatePantryItem);
+    let id = -1;
+    let successful = updatePantry(this.props.pantryItems, id, item,
+      this.state.category, convertedUnit, quantity, this.props.updatePantryItem, this.props.deletePantryItem);
 
     if (successful) {
       return true;
@@ -146,61 +147,3 @@ class PantryItemForm extends React.Component {
 }
 
 export default PantryItemForm;
-
-// how to pass in an argument in a fat arrow function (allItems[i].id) (on line //160)
-// this.setState({name: item, category: allItems[i].category, quantity:
-//   quantity, unit: convertedUnit, temp: "", errors: false}, () => {
-//     let pantryItem = {id: allItems[i].id, name: this.state.name, category: this.state.category, quantity: this.state.quantity, unit: this.state.unit};
-//
-//     this.props.updatePantryItem({pantry_item: pantryItem});
-//     return true;
-//   });
-
-// for (var i = 0; i < allItems.length; i++) {
-//   if (allItems[i].category !== this.state.category) {
-//     continue;
-//   }
-//
-//   let itemName = allItems[i].name;
-//   if (itemName !== item) {
-//     continue;
-//   }
-//
-//   let itemUnit = allItems[i].unit;
-//   if (itemUnit === "inch" || itemUnit === "inches") {
-//     itemUnit = "inch";
-//   } else if (itemUnit === "foot" || itemUnit === "feet") {
-//     itemUnit = "foot";
-//   } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
-//     itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
-//   }
-//
-//   if (convertedUnit === "inch" || convertedUnit === "inches") {
-//     convertedUnit = "inch";
-//   } else if (convertedUnit === "foot" || convertedUnit === "feet") {
-//     convertedUnit = "foot";
-//   } else if (convertedUnit.charAt(convertedUnit.length - 1) === "s") {
-//     convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
-//   }
-//
-//   if (convertedUnit !== itemUnit) {
-//     continue;
-//   } else {
-//     quantity += parseFloat(allItems[i].quantity);
-//   }
-//
-//   if (quantity > 1 && convertedUnit !== "") {
-//     if (convertedUnit === "inch") {
-//       convertedUnit = "inches";
-//     } else if (convertedUnit === "foot") {
-//       convertedUnit = "feet";
-//     } else {
-//       convertedUnit += "s";
-//     }
-//   }
-//
-//   let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit};
-//
-//   this.props.updatePantryItem({pantry_item: pantryItem});
-//   return true;
-// }

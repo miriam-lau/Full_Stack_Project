@@ -12,22 +12,16 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 const App = () => {
   return (
-    <div id="wrapper">
-      <div id="header">
-          <div>
-          <MainContainer />
-          </div>
-      </div>
-    <div id="content">
+    <div>
+      <MainContainer />
 
       <Switch>
         <AuthRoute exact path='/' component={ HomeContainer }/>
         <AuthRoute path='/signin' component={ ModalContainer } />
         <AuthRoute path='/signup' component={ ModalContainer } />
       </Switch>
-
     </div>
-  </div>);
+  );
 }
 
 export default App;

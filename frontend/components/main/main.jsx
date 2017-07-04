@@ -91,7 +91,7 @@ class Main extends React.Component {
                   component={ RecipeIndexContainer } />
                 <Route exact path="/recipes/new"
                   component={ RecipeFormContainer } />
-                <Route exact path="/recipes/:id" 
+                <Route exact path="/recipes/:id"
                   component={ RecipeDetailContainer } />
                 <Route exact path='/search'
                   component={ SearchResultsContainer } />

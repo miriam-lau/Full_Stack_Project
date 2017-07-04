@@ -148,7 +148,7 @@ class Conversion extends React.Component {
 
           <div className="drawer-icon">
             <i className="material-icons closeX"
-              onClick={this.handleToggle}>close</i>
+                onClick={this.handleToggle}>close</i>
           </div>
 
           <div className="drawer-text">Conversion Calculator</div>

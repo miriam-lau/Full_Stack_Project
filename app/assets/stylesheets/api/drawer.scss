@@ -63,22 +63,25 @@
 }
 
 .conversion, .tutorial {
-  display: flex;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #333399;
-  padding: 0 0 15px 25px;
   width: 350px;
 }
 
-.conversion-topic, .tutorial-topic {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+.conversion {
+  padding: 0 0 15px 25px;
+}
+
+.conversion-topic, .tutorial section span {
   font-weight: 900;
   font-style: italic;
-  color: #333399;
   text-align: center;
+}
+
+.tutorial section {
+  padding: 0 0 15px 25px;
 }
 
 .conversion-text-result {

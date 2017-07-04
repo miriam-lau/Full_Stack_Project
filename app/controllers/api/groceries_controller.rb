@@ -2,18 +2,8 @@ class Api::GroceriesController < ApplicationController
   before_filter :require_signed_in
 
   def index
-    items = Grocery.all
-    @grocery_items = [];
-    items.each do |item|
-      if item.user_id == current_user.id
-        @grocery_items.push(item)
-      end
-    end
+    @grocery_items = current_user.groceries
     render :index
-  end
-
-  def new
-    @grocery_item = Grocery.new
   end
 
   def create
@@ -27,14 +17,6 @@ class Api::GroceriesController < ApplicationController
     end
   end
 
-  def show
-    @grocery_item = Grocery.find(params[:id])
-  end
-
-  def edit
-    @grocery_item = Grocery.find(params[:id])
-  end
-
   def update
     @grocery_item = current_user.groceries.find(params[:id])
     if @grocery_item.update_attributes(grocery_item_params)
@@ -45,9 +27,10 @@ class Api::GroceriesController < ApplicationController
   end
 
   def destroy
-    @grocery_item = Grocery.find(params[:id])
-    @grocery_item.destroy
-    render :show
+    grocery_item = Grocery.find(params[:id])
+    @grocery_item_id = grocery_item.id
+    grocery_item.destroy
+    render :delete
   end
 
   private

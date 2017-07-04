@@ -2,18 +2,8 @@ class Api::PantryItemsController < ApplicationController
   before_filter :require_signed_in
 
   def index
-    items = PantryItem.all
-    @pantry_items = [];
-    items.each do |item|
-      if item.user_id == current_user.id
-        @pantry_items.push(item)
-      end
-    end
+    @pantry_items = current_user.pantry_items
     render :index
-  end
-
-  def new
-    @pantry_item = PantryItem.new
   end
 
   def create
@@ -24,14 +14,6 @@ class Api::PantryItemsController < ApplicationController
     else
       render json: @pantry_item.errors.full_messages, status: 422
     end
-  end
-
-  def show
-    @pantry_item = PantryItem.find(params[:id])
-  end
-
-  def edit
-    @pantry_item = PantryItem.find(params[:id])
   end
 
   def update

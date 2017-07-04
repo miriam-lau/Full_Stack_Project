@@ -9,6 +9,7 @@ class User < ApplicationRecord
   #add_associations
   has_many :pantry_items
   has_many :groceries
+  has_many :recipes
   has_many :lists
 
   def password=(password)

@@ -2,19 +2,8 @@ class Api::RecipesController < ApplicationController
   before_filter :require_signed_in
 
   def index
-    allRecipes = Recipe.all
-    @recipes = [];
-    allRecipes.each do |recipe|
-      if recipe.user_id == current_user.id
-        @recipes.push(recipe)
-      end
-    end
-    puts @recipes
+    @recipes = current_user.recipes
     render :index
-  end
-
-  def new
-    @recipe = Recipe.new
   end
 
   def create
@@ -27,14 +16,6 @@ class Api::RecipesController < ApplicationController
     end
   end
 
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
-
-  def edit
-    @recipe = Recipe.find(params[:id])
-  end
-
   def update
     @recipe = current_user.recipes.find(params[:id])
     if @recipe.update_attributes(recipe_params)
@@ -45,9 +26,10 @@ class Api::RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-    render :show
+    recipe = Recipe.find(params[:id])
+    @recipe_id = recipe.id
+    recipe.destroy
+    render :delete
   end
 
   private

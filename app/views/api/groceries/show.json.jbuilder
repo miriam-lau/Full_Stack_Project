@@ -1,1 +1,2 @@
-json.partial! '/api/groceries/grocery_item', grocery_item: @grocery_item
+json.extract! @grocery_item, :id, :category, :name, :quantity, :unit,
+  :user_id, :purchased

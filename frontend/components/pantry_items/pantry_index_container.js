@@ -15,8 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
   requestPantryItem: (id) => dispatch(requestPantryItem(id)),
   deletePantryItem: (id) => dispatch(deletePantryItem(id)),
-  updatePantryItem: (pantryItem) =>
-      dispatch(updatePantryItem(pantryItem)),
+  updatePantryItem: (pantryItem) => dispatch(updatePantryItem(pantryItem)),
   updateQuantityDisplay: (id, quantityDisplay) =>
       dispatch(updateQuantityDisplay(id, quantityDisplay))
 });

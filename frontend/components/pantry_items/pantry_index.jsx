@@ -60,7 +60,8 @@ class PantryIndex extends React.Component {
           </div>
 
           <div className="reminders">
-            <section><h2 className="pantry-title">Reminders</h2>
+            <section>
+              <h2 className="pantry-title">Reminders</h2>
             </section>
 
             <div>

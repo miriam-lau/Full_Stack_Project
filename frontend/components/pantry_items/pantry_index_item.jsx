@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
 import { allMeasurements } from "../utils/measurements";
+import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault, itemStyleCategory, styles } from "../utils/material_ui_styles";
 
@@ -32,17 +33,12 @@ class PantryIndexItem extends React.Component {
     super(props);
     let pantryItem = this.props.pantryItem;
     this.state = { id: pantryItem.id, user_id: pantryItem.user_id,
-      category: pantryItem.category, temp: "", currentQuantity: "", quantityError: "", nameError: "" };
+      category: pantryItem.category, error: ""};
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
     this.update = this.update.bind(this);
-    this.currentQuantity = this.props.pantryItem.quantity;
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
-
-    if (pantryItem.unit != null && pantryItem.unit.length !== 0) {
-      this.currentQuantity = this.currentQuantity + " " + pantryItem.unit;
-    }
   }
 
   parseUpdateQuantity(str) {
@@ -99,10 +95,6 @@ class PantryIndexItem extends React.Component {
 
   update(property) {
     return e => {
-      if (property === "temp") {
-        this.currentQuantity = e.target.value;
-      }
-
       if (property === "name") {
         if (e.target.value === "") {
           return this.setState({nameError: "Name cannot be blank"});
@@ -115,14 +107,14 @@ class PantryIndexItem extends React.Component {
         this.setState({ [property]: e.target.value });
       }
 
-      this.setState({[property]: e.target.value}, () => {
-        if (this.state.temp === "") {
-          const pantryItem = this.state;
-          this.props.updatePantryItem({pantry_item: pantryItem});
-        } else {
-          this.parseUpdateQuantity(this.state.temp);
-        }
-      });
+      // this.setState({[property]: e.target.value}, () => {
+      //   if (this.state.temp === "") {
+      //     const pantryItem = this.state;
+      //     this.props.updatePantryItem({pantry_item: pantryItem});
+      //   } else {
+      //     this.parseUpdateQuantity(this.state.temp);
+      //   }
+      // });
     }
   }
 

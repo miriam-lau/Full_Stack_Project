@@ -1,1 +1,1 @@
-json.partial! '/api/lists/list', list: @list
+json.extract! @list, :id, :name, :user_id

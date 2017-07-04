@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
-import { signin } from '../../actions/session_actions';
-import Home from './home.jsx';
+import { connect } from "react-redux";
+
+import Home from "./home.jsx";
+import { signin } from "../../actions/session_actions";
 
 
 const mapStateToProps = (state) => ({

@@ -1,12 +1,12 @@
-import * as APIUtil from '../util/pantry_items_api_util';
+import * as APIUtil from "../util/pantry_items_api_util";
 
-export const RECEIVE_ALL_PANTRY_ITEMS = 'RECEIVE_ALL_PANTRY_ITEMS';
-export const RECEIVE_PANTRY_ITEM = 'RECEIVE_PANTRY_ITEM';
-export const CREATE_PANTRY_ITEM = 'CREATE_PANTRY_ITEM';
-export const UPDATE_PANTRY_ITEM = 'UPDATE_PANTRY_ITEM';
-export const DELETE_PANTRY_ITEM  = 'DELETE_PANTRY_ITEM';
-export const RECEIVE_PANTRY_ERRORS = 'RECEIVE_PANTRY_ERRORS';
-export const UPDATE_QUANTITY_DISPLAY = 'UPDATE_QUANTITY_DISPLAY';
+export const RECEIVE_ALL_PANTRY_ITEMS = "RECEIVE_ALL_PANTRY_ITEMS";
+export const RECEIVE_PANTRY_ITEM = "RECEIVE_PANTRY_ITEM";
+export const CREATE_PANTRY_ITEM = "CREATE_PANTRY_ITEM";
+export const UPDATE_PANTRY_ITEM = "UPDATE_PANTRY_ITEM";
+export const DELETE_PANTRY_ITEM  = "DELETE_PANTRY_ITEM";
+export const RECEIVE_PANTRY_ERRORS = "RECEIVE_PANTRY_ERRORS";
+export const UPDATE_QUANTITY_DISPLAY = "UPDATE_QUANTITY_DISPLAY";
 
 const receiveAllPantryItems = (pantryItems) => ({
   type: RECEIVE_ALL_PANTRY_ITEMS,
@@ -46,7 +46,6 @@ export const updateQuantityDisplay = (id, quantityDisplay) => dispatch => {
     quantityDisplay
   });
 };
-
 
 export const requestAllPantryItems = () => dispatch => (
   APIUtil.fetchAllPantryItems()

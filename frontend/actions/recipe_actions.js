@@ -1,13 +1,13 @@
 // TODO: rename private func to receive and public to delete, update, and create
 // remove exports
-import * as APIUtil from '../util/recipe_api_util';
+import * as APIUtil from "../util/recipe_api_util";
 
-export const RECEIVE_ALL_RECIPES = 'RECEIVE_ALL_RECIPES';
-export const RECEIVE_RECIPE = 'RECEIVE_RECIPE';
-export const CREATE_RECIPE = 'CREATE_RECIPE';
-export const UPDATE_RECIPE = 'UPDATE_RECIPE';
-export const DELETE_RECIPE = 'DELETE_RECIPE';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
+export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
+export const CREATE_RECIPE = "CREATE_RECIPE";
+export const UPDATE_RECIPE = "UPDATE_RECIPE";
+export const DELETE_RECIPE = "DELETE_RECIPE";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receiveAllRecipes = (recipes) => ({
   type: RECEIVE_ALL_RECIPES,

@@ -1,10 +1,10 @@
-import merge from 'lodash/merge';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import merge from "lodash/merge";
 
-import { allMeasurements } from '../utils/measurements';
-import { FontIcon, TextField } from 'material-ui/';
-import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault, itemStyleCategory, styles } from '../utils/material_ui_styles';
+import { allMeasurements } from "../utils/measurements";
+import { FontIcon, TextField } from "material-ui/";
+import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault, itemStyleCategory, styles } from "../utils/material_ui_styles";
 
 
 function ErrorBanner1(props) {
@@ -32,7 +32,7 @@ class PantryIndexItem extends React.Component {
     super(props);
     let pantryItem = this.props.pantryItem;
     this.state = { id: pantryItem.id, user_id: pantryItem.user_id,
-      category: pantryItem.category, temp: '', currentQuantity: '', quantityError: '', nameError: '' };
+      category: pantryItem.category, temp: "", currentQuantity: "", quantityError: "", nameError: "" };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
@@ -46,7 +46,7 @@ class PantryIndexItem extends React.Component {
   }
 
   parseUpdateQuantity(str) {
-    let words = str.split(' ');
+    let words = str.split(" ");
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
@@ -55,7 +55,7 @@ class PantryIndexItem extends React.Component {
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(el) {
-      return (el.trim() !== '');
+      return (el.trim() !== "");
     });
 
     let quantity = words.shift();
@@ -63,13 +63,13 @@ class PantryIndexItem extends React.Component {
     let convertedUnit = null;
 
     if (unit != null) {
-      if (unit[unit.length - 1] == '.') {
+      if (unit[unit.length - 1] == ".") {
         unit = unit.substring(0, unit.length - 1);
       }
 
       for (let i = 0; i < allMeasurements.length; i++) {
         if (allMeasurements[i].includes(unit)) {
-          convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+          convertedUnit = (quantity === "1" ? allMeasurements[i][0] : allMeasurements[i][1]);
           break;
         }
       }
@@ -99,15 +99,15 @@ class PantryIndexItem extends React.Component {
 
   update(property) {
     return e => {
-      if (property === 'temp') {
+      if (property === "temp") {
         this.currentQuantity = e.target.value;
       }
 
-      if (property === 'name') {
-        if (e.target.value === '') {
+      if (property === "name") {
+        if (e.target.value === "") {
           return this.setState({nameError: "Name cannot be blank"});
         } else {
-          this.setState({nameError: ''});
+          this.setState({nameError: ""});
         }
       }
 
@@ -116,7 +116,7 @@ class PantryIndexItem extends React.Component {
       }
 
       this.setState({[property]: e.target.value}, () => {
-        if (this.state.temp === '') {
+        if (this.state.temp === "") {
           const pantryItem = this.state;
           this.props.updatePantryItem({pantry_item: pantryItem});
         } else {
@@ -151,24 +151,24 @@ class PantryIndexItem extends React.Component {
               onBlur={this.checkError}
             />
 
-            {pantryItem.category === '' ?
+            {pantryItem.category === "" ?
               <TextField id="text-field-default"
                 value={ pantryItem.name }
                 underlineFocusStyle ={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleCategory}
-                onChange={this.update('name')}
+                onChange={this.update("name")}
               /> :
               <TextField id="text-field-default"
                 value={ pantryItem.name }
                 underlineFocusStyle ={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleDefault}
-                onChange={this.update('name')}
+                onChange={this.update("name")}
               />
             }
 
-            {pantryItem.category === '' ?
+            {pantryItem.category === "" ?
               <select className="pantry-uncategorized"
                 onChange={this.update("category")}>
                 <option selected="true" disabled="disabled">Select a Category</option>
@@ -184,7 +184,7 @@ class PantryIndexItem extends React.Component {
                 <option value="Oils and Sauces">Oils and Sauces</option>
                 <option value="Snacks">Snacks</option>
                 <option value="Miscellaneous">Miscellaneous</option>
-              </select> : ''}
+              </select> : ""}
           </form>
 
           <i className="material-icons trash-can"
@@ -219,22 +219,22 @@ export default PantryIndexItem;
 //
 
 //       let itemUnit = allItems[i].unit;
-//       if (itemUnit === 'inch' || itemUnit === 'inches') {
-//         itemUnit = 'inch';
-//       } else if (itemUnit === 'foot' || itemUnit === 'feet') {
-//         itemUnit = 'foot';
-//       } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+//       if (itemUnit === "inch" || itemUnit === "inches") {
+//         itemUnit = "inch";
+//       } else if (itemUnit === "foot" || itemUnit === "feet") {
+//         itemUnit = "foot";
+//       } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
 //         itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
 //       }
 //
 
 //       let convertedUnit = this.props.pantryItem.unit;
 //
-//       if (convertedUnit === 'inch' || convertedUnit === 'inches') {
-//         convertedUnit = 'inch';
-//       } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
-//         convertedUnit = 'foot';
-//       } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+//       if (convertedUnit === "inch" || convertedUnit === "inches") {
+//         convertedUnit = "inch";
+//       } else if (convertedUnit === "foot" || convertedUnit === "feet") {
+//         convertedUnit = "foot";
+//       } else if (convertedUnit.charAt(convertedUnit.length - 1) === "s") {
 //         convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
 //       }
 //
@@ -245,13 +245,13 @@ export default PantryIndexItem;
 //         itemQuantity += parseFloat(allItems[i].quantity);
 //       }
 //
-//       if (itemQuantity > 1 && convertedUnit !== '') {
-//         if (convertedUnit === 'inch') {
-//           convertedUnit = 'inches';
-//         } else if (convertedUnit === 'foot') {
-//           convertedUnit = 'feet';
+//       if (itemQuantity > 1 && convertedUnit !== "") {
+//         if (convertedUnit === "inch") {
+//           convertedUnit = "inches";
+//         } else if (convertedUnit === "foot") {
+//           convertedUnit = "feet";
 //         } else {
-//           convertedUnit += 's';
+//           convertedUnit += "s";
 //         }
 //       }
 //

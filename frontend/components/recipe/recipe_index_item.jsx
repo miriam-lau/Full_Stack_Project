@@ -1,21 +1,20 @@
-import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import React from "react";
+import { Link, Route } from "react-router-dom";
 
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-
-import RecipeDetailContainer from './recipe_detail_container';
+import RecipeDetailContainer from "./recipe_detail_container";
+import { GridTile } from "material-ui";
+import IconButton from "material-ui/IconButton";
 
 const styles = {
   gridTile: {
     width: 270,
     height: 200,
-    overflowY: 'hidden',
-    objectfit: 'cover',
-    borderRadius: '5px',
-    marginRight: '15px',
-    marginTop: '15px',
-    marginLeft: '15px',
+    overflowY: "hidden",
+    objectfit: "cover",
+    borderRadius: "5px",
+    marginRight: "15px",
+    marginTop: "15px",
+    marginLeft: "15px",
   },
 }
 

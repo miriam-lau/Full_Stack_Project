@@ -1,16 +1,14 @@
-// TODO: rename private func to receive and public to delete, update, and create
-// remove exports
+import * as APIUtil from "../util/search_api_util";
 
-import * as APIUtil from '../util/search_api_util';
-export const RECEIVE_ALL_SEARCH_ITEMS = 'RECEIVE_ALL_SEARCH_ITEMS';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_ALL_SEARCH_ITEMS = "RECEIVE_ALL_SEARCH_ITEMS";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const receiveAllSearchItems = (searchItems) => ({
+const receiveAllSearchItems = (searchItems) => ({
   type: RECEIVE_ALL_SEARCH_ITEMS,
   searchItems
 });
 
-export const receiveSearchErrors = (errors) => ({
+const receiveSearchErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const searchStyle = {
   "borderColor": "#E6E6FA",
@@ -27,7 +27,7 @@ export const searchFontStyle = {
 }
 
 export const underlineStyle = {
-  'borderColor': '#E6E6FA'
+  "borderColor": "#E6E6FA"
 }
 
 export const searchIcon = {

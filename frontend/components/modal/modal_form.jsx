@@ -1,9 +1,9 @@
-import React from 'react';
-import Modal from 'react-modal';
-import FontIcon from 'material-ui/FontIcon';
+import React from "react";
 
-import SignInFormContainer from '../session_form/sign_in_form_container';
-import SignUpFormContainer from '../session_form/sign_up_form_container';
+import Modal from "react-modal";
+import SignInFormContainer from "../session_form/sign_in_form_container";
+import SignUpFormContainer from "../session_form/sign_up_form_container";
+import FontIcon from "material-ui/FontIcon";
 
 class ModalForm extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class ModalForm extends React.Component {
   }
 
   componentWillMount() {
-    Modal.setAppElement('div');
+    Modal.setAppElement("div");
   }
 
   openModal() {
@@ -25,8 +25,8 @@ class ModalForm extends React.Component {
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = '#f00';
+    // references are now sync"d and can be accessed.
+    // this.subtitle.style.color = "#f00";
   }
 
   closeModal() {
@@ -36,32 +36,32 @@ class ModalForm extends React.Component {
   render() {
     const style = {
       overlay : {
-       position          : 'fixed',
-       top               : 0,
-       left              : 0,
-       right             : 0,
-       bottom            : 0,
-       opactiy: '1',
-       backgroundColor   : 'rgba(55, 55, 55, 0.9)'
+       position: "fixed",
+       top: 0,
+       left: 0,
+       right: 0,
+       bottom: 0,
+       opactiy: "1",
+       backgroundColor: "rgba(55, 55, 55, 0.9)"
       },
       content : {
-        position                   : 'fixed',
-        top                        : '20%',
-        left                       : '35%',
-        right                      : '40px',
-        bottom                     : 'auto',
-        border                     : '1px solid #ccc',
-        overflow                   : 'auto',
-        WebkitOverflowScrolling    : 'touch',
-        borderRadius               : '10px',
-        outline                    : 'none',
-        width: '25%'
+        position: "fixed",
+        top: "20%",
+        left: "35%",
+        right: "40px",
+        bottom: "auto",
+        border: "1px solid #ccc",
+        overflow: "auto",
+        WebkitOverflowScrolling: "touch",
+        borderRadius: "10px",
+        outline: "none",
+        width: "25%"
       }
     };
 
     const open = Boolean(this.props.modalOpen)
     const {openModal, modalOpen} = this.props;
-    const form = modalOpen === 'signin' ?
+    const form = modalOpen === "signin" ?
       (<SignInFormContainer openModal={openModal}/>) :
       (<SignUpFormContainer openModal={openModal}/>);
 

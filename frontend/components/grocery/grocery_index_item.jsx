@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { allMeasurements } from '../utils/measurements';
-import { Checkbox, TextField } from 'material-ui';
-import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault, itemStyleCategory, icon, styles } from '../utils/material_ui_styles';
+import { allMeasurements } from "../utils/measurements";
+import { Checkbox, TextField } from "material-ui";
+import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault, itemStyleCategory, icon, styles } from "../utils/material_ui_styles";
 
 function ErrorBanner1(props) {
   if (props.message != null) {
@@ -30,7 +30,7 @@ class GroceryIndexItem extends React.Component {
     super(props);
     let grocery_item = this.props.grocery_item;
     this.state = { id: grocery_item.id, user_id: grocery_item.user_id,
-      purchased: grocery_item.purchased, category: grocery_item.category, temp: '', quantityError: '', nameError: '' };
+      purchased: grocery_item.purchased, category: grocery_item.category, temp: "", quantityError: "", nameError: "" };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
@@ -44,7 +44,7 @@ class GroceryIndexItem extends React.Component {
   }
 
   parseUpdateQuantity(str) {
-    let words = str.split(' ');
+    let words = str.split(" ");
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
@@ -53,7 +53,7 @@ class GroceryIndexItem extends React.Component {
 
     words = splitFirstWord.concat(words);
     words = words.filter(function(el) {
-      return (el.trim() !== '');
+      return (el.trim() !== "");
     });
 
     let quantity = words.shift();
@@ -61,13 +61,13 @@ class GroceryIndexItem extends React.Component {
     let convertedUnit = null;
 
     if (unit != null) {
-      if (unit[unit.length - 1] == '.') {
+      if (unit[unit.length - 1] == ".") {
         unit = unit.substring(0, unit.length - 1);
       }
 
       for (let i = 0; i < allMeasurements.length; i++) {
         if (allMeasurements[i].includes(unit)) {
-          convertedUnit = (quantity === '1' ? allMeasurements[i][0] : allMeasurements[i][1]);
+          convertedUnit = (quantity === "1" ? allMeasurements[i][0] : allMeasurements[i][1]);
           break;
         }
       }
@@ -78,7 +78,7 @@ class GroceryIndexItem extends React.Component {
     }
 
     this.setState({quantity: parseInt(quantity), unit: convertedUnit,
-      temp: '', quantityError: ''}, () => {
+      temp: "", quantityError: ""}, () => {
         const grocery_item = this.state
         this.props.editGroceryItem({grocery_item});
       });
@@ -103,19 +103,19 @@ class GroceryIndexItem extends React.Component {
 
   update(property) {
     return e => {
-      if (property === 'temp') {
+      if (property === "temp") {
         this.currentQuantity = e.target.value;
       }
 
-      if (property === 'name') {
-        if (e.target.value === '') {
+      if (property === "name") {
+        if (e.target.value === "") {
           return this.setState({nameError: "Name cannot be blank"});
         } else {
-          this.setState({nameError: ''});
+          this.setState({nameError: ""});
         }
       }
 
-      if (property === 'purchased') {
+      if (property === "purchased") {
         this.setState({purchased: true});
       }
 
@@ -124,7 +124,7 @@ class GroceryIndexItem extends React.Component {
       }
 
       this.setState({[property]: e.target.value}, () => {
-        if (this.state.temp === '') {
+        if (this.state.temp === "") {
           const grocery_item = this.state;
           this.props.editGroceryItem({grocery_item});
         } else {
@@ -166,28 +166,28 @@ class GroceryIndexItem extends React.Component {
               underlineFocusStyle={underlineFocusStyle}
               underlineStyle={underlineStyle}
               style={quantityStyle}
-              onChange={this.update('temp')}
+              onChange={this.update("temp")}
               onBlur={this.checkError}
             />
 
-            {grocery_item.category === '' ?
+            {grocery_item.category === "" ?
               <TextField id="text-field-default"
                 defaultValue={ grocery_item.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleCategory}
-                onChange={this.update('name')}
+                onChange={this.update("name")}
               /> :
               <TextField id="text-field-default"
                 defaultValue={ grocery_item.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleDefault}
-                onChange={this.update('name')}
+                onChange={this.update("name")}
               />
             }
 
-            {grocery_item.category === '' ?
+            {grocery_item.category === "" ?
               <select className="grocery-uncategorized"
                 onChange={this.update("category")}>
                 <option selected="true" disabled="disabled">Select a Category</option>
@@ -203,7 +203,7 @@ class GroceryIndexItem extends React.Component {
                 <option value="Oils and Sauces">Oils and Sauces</option>
                 <option value="Snacks">Snacks</option>
                 <option value="Miscellaneous">Miscellaneous</option>
-              </select> : ''}
+              </select> : ""}
           </form>
 
           <i className="material-icons trash-can"

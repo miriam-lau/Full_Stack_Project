@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import PantryIndex from './pantry_index';
+import PantryIndex from "./pantry_index";
 import { requestAllPantryItems, requestPantryItem, deletePantryItem,
-  updatePantryItem, updateQuantityDisplay } from '../../actions/pantry_item_actions';
-import { selectAllPantryItems } from '../../reducers/selectors';
+  updatePantryItem, updateQuantityDisplay } from "../../actions/pantry_item_actions";
+import { selectAllPantryItems } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
   pantryItems: selectAllPantryItems(state),

@@ -1,11 +1,10 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
-import HomeContainer from './home_container';
-import ModalFormContainer from '../modal/modal_container';
-
-import Carousel from 'nuka-carousel';
-import Decorator from './decorator';
+import HomeContainer from "./home_container";
+import ModalFormContainer from "../modal/modal_container";
+import Carousel from "nuka-carousel";
+import Decorator from "./decorator";
 
 const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
   return(
@@ -32,7 +31,7 @@ const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: 'guest', password: 'password', modalOpen: ""};
+    this.state = {username: "guest", password: "password", modalOpen: ""};
     this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -45,7 +44,7 @@ class Home extends React.Component {
     event.preventDefault();
     const user = this.state;
     return this.props.receiveCurrentUser({user})
-      .then( () => { this.props.history.push('/pantry_items');
+      .then( () => { this.props.history.push("/pantry_items");
     });
   }
 

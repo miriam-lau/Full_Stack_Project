@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { allMeasurements } from '../utils/measurements';
-import { formCategory } from '../utils/item_categories';
-import { TextField } from 'material-ui';
-import { addItemStyle, hintTextStyle } from '../utils/material_ui_styles';
+import { allMeasurements } from "../utils/measurements";
+import { formCategory } from "../utils/item_categories";
+import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
+import { TextField } from "material-ui";
 
 function ErrorBanner(props) {
   if (props.shouldShow) {
@@ -18,14 +18,14 @@ function ErrorBanner(props) {
 class GroceryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: '', name: '', quantity: 0, unit: '',
-      temp: '', errors: false };
+    this.state = { category: "", name: "", quantity: 0, unit: "",
+      temp: "", errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
   }
 
   parseAddItem(str) {
-    let words = str.split(' ');
+    let words = str.split(" ");
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
@@ -33,7 +33,7 @@ class GroceryItemForm extends React.Component {
     }
 
     words = splitFirstWord.concat(words);
-    words = words.filter(function(entry) { return entry.trim() != ''; });
+    words = words.filter(function(entry) { return entry.trim() != ""; });
     let quantity = parseFloat(words.shift());
     let unit = words[0];
     let convertedUnit = null;
@@ -42,7 +42,7 @@ class GroceryItemForm extends React.Component {
      return this.setState({errors: true})
     }
 
-    if (unit[unit.length - 1] == '.') {
+    if (unit[unit.length - 1] == ".") {
     unit = unit.substring(0, unit.length - 1);
     }
 
@@ -62,16 +62,16 @@ class GroceryItemForm extends React.Component {
     }
 
     if (convertedUnit === null) {
-      convertedUnit = '';
+      convertedUnit = "";
     }
 
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substring(1);
     }
-    let item = words.join(' ');
+    let item = words.join(" ");
 
     this.setState({name: item, quantity: parseFloat(quantity),
-      unit: convertedUnit, temp: '', errors: false}, () => {
+      unit: convertedUnit, temp: "", errors: false}, () => {
         const grocery_item = this.state
         this.props.createNewGroceryItem({grocery_item})
             .then(data => this.props.history.push(`/groceries/${data.id}`))
@@ -105,7 +105,7 @@ class GroceryItemForm extends React.Component {
             style={addItemStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}
-            onChange={this.update('temp')}
+            onChange={this.update("temp")}
           />
 
           <select className="grocery-categories"

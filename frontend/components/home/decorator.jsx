@@ -19,15 +19,15 @@ const Decorator = [
       getButtonStyles(disabled) {
         return {
           border: 0,
-          background: 'rgba(0,0,0,0)',
-          color: 'white',
+          background: "rgba(0,0,0,0)",
+          color: "white",
           padding: 10,
           outline: 0,
           opacity: disabled ? 0.3 : 1,
         };
       }
     }),
-    position: 'CenterLeft'
+    position: "CenterLeft"
   },
   {
     component: React.createClass({
@@ -47,15 +47,15 @@ const Decorator = [
       getButtonStyles(disabled) {
         return {
           border: 0,
-          background: 'rgba(0,0,0,0)',
-          color: 'white',
+          background: "rgba(0,0,0,0)",
+          color: "white",
           padding: 10,
           outline: 0,
           opacity: disabled ? 0.3 : 1,
         };
       }
     }),
-    position: 'CenterRight'
+    position: "CenterRight"
   },
   {
     component: React.createClass({
@@ -89,7 +89,7 @@ const Decorator = [
       },
       getListStyles() {
         return {
-          position: 'relative',
+          position: "relative",
           margin: 0,
           top: -10,
           padding: 0
@@ -97,16 +97,16 @@ const Decorator = [
       },
       getListItemStyles() {
         return {
-          listStyleType: 'none',
-          display: 'inline-block'
+          listStyleType: "none",
+          display: "inline-block"
         }
       },
       getButtonStyles(active) {
         return {
           border: 0,
-          background: 'transparent',
-          color: 'black',
-          cursor: 'pointer',
+          background: "transparent",
+          color: "black",
+          cursor: "pointer",
           padding: 10,
           outline: 0,
           fontSize: 24,
@@ -114,7 +114,7 @@ const Decorator = [
         };
       }
     }),
-    position: 'BottomCenter'
+    position: "BottomCenter"
   }
 ];
 

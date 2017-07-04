@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const unitArray = ["fluid ounce", "gill", "teaspoon", "teaspoon (dry)",
     "tablespoon", "tablespoon (dry)", "cup", "pint", "quart", "gallon",

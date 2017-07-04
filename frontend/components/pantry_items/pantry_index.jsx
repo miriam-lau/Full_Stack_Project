@@ -1,10 +1,9 @@
-import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from "react";
+import {Route, Link} from "react-router-dom";
 
-import { indexCategory } from '../utils/item_categories';
-import PantryIndexItem from './pantry_index_item';
-import PantryItemFormContainer from './pantry_item_form_container';
-
+import PantryIndexItem from "./pantry_index_item";
+import PantryItemFormContainer from "./pantry_item_form_container";
+import { indexCategory } from "../utils/item_categories";
 
 class PantryIndex extends React.Component {
   constructor(props) {

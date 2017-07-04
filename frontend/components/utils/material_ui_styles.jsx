@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export const underlineFocusStyle = {
-  'borderColor': '#333399'
+  "borderColor": "#333399"
 }
 
 export const underlineStyle = {
-  'borderColor': '#C0C0C0',
+  "borderColor": "#C0C0C0",
   "bottom": "5px"
 }
 

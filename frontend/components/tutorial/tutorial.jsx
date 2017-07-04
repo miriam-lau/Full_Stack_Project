@@ -1,5 +1,5 @@
-import React from 'react';
-import { Drawer } from 'material-ui';
+import React from "react";
+import { Drawer } from "material-ui";
 
 class Tutorial extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Tutorial extends React.Component {
 
         {this.state.toggle ?
           <Drawer width={400}
-            containerStyle={{height: 'calc(100% - 80px)', top: 80}}
+            containerStyle={{height: "calc(100% - 80px)", top: 80}}
             openSecondary={true}>
 
             <div className="drawer-icon">

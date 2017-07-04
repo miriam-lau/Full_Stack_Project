@@ -1,11 +1,10 @@
-import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from "react";
+import {Route, Link} from "react-router-dom";
 
-import { indexCategory } from '../utils/item_categories';
-import GroceryIndexItem from './grocery_index_item';
-import GroceryItemFormContainer from './grocery_item_form_container';
-import groceryUpdatePantry from './grocery_update_pantry';
-
+import GroceryIndexItem from "./grocery_index_item";
+import GroceryItemFormContainer from "./grocery_item_form_container";
+import groceryUpdatePantry from "./grocery_update_pantry";
+import { indexCategory } from "../utils/item_categories";
 
 class GroceryIndex extends React.Component {
   constructor(props) {

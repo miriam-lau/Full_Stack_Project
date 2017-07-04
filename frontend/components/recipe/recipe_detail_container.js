@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import RecipeDetail from './recipe_detail';
-import { requestRecipe } from '../../actions/recipe_actions';
+import RecipeDetail from "./recipe_detail";
+import { requestRecipe } from "../../actions/recipe_actions";
 
 const mapStateToProps = (state) => ({
   recipes: state.recipe

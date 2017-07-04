@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const groceryUpdatePantry = (key, grocery_item, pantryItems,
   createPantryItem, updatePantryItem, removeGroceryItem) => {
@@ -6,8 +6,6 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
     let groceryUnit = grocery_item.unit;
     let item = grocery_item.name;
     let quantity = parseFloat(grocery_item.quantity);
-
-    console.log(pantryItems);
 
     for (var i = 0; i < pantryItems.length; i++) {
       if (pantryItems[i].category !== grocery_item.category) {
@@ -20,19 +18,19 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
       }
 
       let itemUnit = pantryItems[i].unit;
-      if (itemUnit === 'inch' || itemUnit === 'inches') {
-        itemUnit = 'inch';
-      } else if (itemUnit === 'foot' || itemUnit === 'feet') {
-        itemUnit = 'foot';
-      } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+      if (itemUnit === "inch" || itemUnit === "inches") {
+        itemUnit = "inch";
+      } else if (itemUnit === "foot" || itemUnit === "feet") {
+        itemUnit = "foot";
+      } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
         itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
       }
 
-      if (groceryUnit === 'inch' || groceryUnit === 'inches') {
-        groceryUnit = 'inch';
-      } else if (groceryUnit === 'foot' || groceryUnit === 'feet') {
-        groceryUnit = 'foot';
-      } else if (groceryUnit.charAt(groceryUnit.length - 1) === 's') {
+      if (groceryUnit === "inch" || groceryUnit === "inches") {
+        groceryUnit = "inch";
+      } else if (groceryUnit === "foot" || groceryUnit === "feet") {
+        groceryUnit = "foot";
+      } else if (groceryUnit.charAt(groceryUnit.length - 1) === "s") {
         groceryUnit = groceryUnit.substring(0, (groceryUnit.length - 1));
       }
 
@@ -42,13 +40,13 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
         quantity += parseFloat(pantryItems[i].quantity);
       }
 
-      if (quantity > 1 && groceryUnit !== '') {
-        if (groceryUnit === 'inch') {
-          groceryUnit = 'inches';
-        } else if (groceryUnit === 'foot') {
-          groceryUnit = 'feet';
+      if (quantity > 1 && groceryUnit !== "") {
+        if (groceryUnit === "inch") {
+          groceryUnit = "inches";
+        } else if (groceryUnit === "foot") {
+          groceryUnit = "feet";
         } else {
-          groceryUnit += 's';
+          groceryUnit += "s";
         }
       }
 
@@ -62,7 +60,7 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
     let newPantryItem = {name: grocery_item.name, quantity: grocery_item.quantity,
       category: grocery_item.category, unit: grocery_item.unit};
 
-    createPantryItem({'pantry_item': newPantryItem}).then(() => removeGroceryItem(key));
+    createPantryItem({"pantry_item": newPantryItem}).then(() => removeGroceryItem(key));
 
     return true;
 }

@@ -1,7 +1,8 @@
-import { connect } from 'react-redux';
-import { signin, signup, signout, receiveErrors } from '../../actions/session_actions';
-import {withRouter} from 'react-router-dom';
-import Main from './main';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+import Main from "./main";
+import { signin, signup, signout, receiveErrors } from "../../actions/session_actions";
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,

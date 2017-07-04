@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Conversion from '../conversion_chart/conversion';
-import Tutorial from '../tutorial/tutorial';
-import SearchFormContainer from '../search/search_form_container';
+import Conversion from "../conversion_chart/conversion";
+import Tutorial from "../tutorial/tutorial";
+import SearchFormContainer from "../search/search_form_container";
 
 class PersonalGreeting extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class PersonalGreeting extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    return this.props.signout().then(() => { this.props.history.push('/') });
+    return this.props.signout().then(() => { this.props.history.push("/") });
   }
 
   render() {

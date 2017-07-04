@@ -1,12 +1,12 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import GroceryIndex from './grocery_index';
+import GroceryIndex from "./grocery_index";
 import { requestAllGroceryItems, requestGroceryItem, removeGroceryItem,
-  editGroceryItem } from '../../actions/grocery_actions';
+  editGroceryItem } from "../../actions/grocery_actions";
 import { requestAllPantryItems, createPantryItem, updatePantryItem }
-  from '../../actions/pantry_item_actions';
-import { selectAllGroceryItems, selectAllPantryItems } from '../../reducers/selectors';
+  from "../../actions/pantry_item_actions";
+import { selectAllGroceryItems, selectAllPantryItems } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
   grocery_items: selectAllGroceryItems(state),

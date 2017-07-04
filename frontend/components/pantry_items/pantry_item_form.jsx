@@ -1,10 +1,10 @@
-import React from 'react';
-import updatePantry from './update_pantry';
+import React from "react";
 
-import { allMeasurements } from '../utils/measurements';
-import { formCategory } from '../utils/item_categories';
-import { addItemStyle, hintTextStyle } from '../utils/material_ui_styles';
-import { TextField } from 'material-ui';
+import updatePantry from "./update_pantry";
+import { allMeasurements } from "../utils/measurements";
+import { formCategory } from "../utils/item_categories";
+import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
+import { TextField } from "material-ui";
 
 
 function ErrorBanner(props) {
@@ -20,14 +20,14 @@ function ErrorBanner(props) {
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: '', name: '', quantity: 0, unit: '',
-      temp: '', errors: false };
+    this.state = { category: "", name: "", quantity: 0, unit: "",
+      temp: "", errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
   }
 
   parseAddItem(str) {
-    let words = str.split(' ');
+    let words = str.split(" ");
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
@@ -35,7 +35,7 @@ class PantryItemForm extends React.Component {
     }
 
     words = splitFirstWord.concat(words);
-    words = words.filter(function(entry) { return entry.trim() != ''; });
+    words = words.filter(function(entry) { return entry.trim() != ""; });
     let quantity = parseFloat(words.shift());
     let unit = words[0];
     let convertedUnit = null;
@@ -44,7 +44,7 @@ class PantryItemForm extends React.Component {
      return this.setState({errors: true})
     }
 
-    if (unit[unit.length - 1] == '.') {
+    if (unit[unit.length - 1] == ".") {
     unit = unit.substring(0, unit.length - 1);
     }
 
@@ -64,13 +64,13 @@ class PantryItemForm extends React.Component {
     }
 
     if (convertedUnit === null) {
-      convertedUnit = '';
+      convertedUnit = "";
     }
 
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substring(1);
     }
-    let item = words.join(' ');
+    let item = words.join(" ");
 
     // cross-check with existing items to update if found
     let successful = updatePantry(this.props.pantryItems, item,
@@ -81,7 +81,7 @@ class PantryItemForm extends React.Component {
     }
 
     // add new item
-    this.setState({name: item, category: this.state.category, quantity: parseFloat(quantity), unit: convertedUnit, temp: '', errors: false}, () => {
+    this.setState({name: item, category: this.state.category, quantity: parseFloat(quantity), unit: convertedUnit, temp: "", errors: false}, () => {
         const pantryItem = this.state
         this.props.createPantryItem({pantry_item: pantryItem})
             .then(data => this.props.history.push(`/pantry_items/${data.id}`))
@@ -115,7 +115,7 @@ class PantryItemForm extends React.Component {
             style={addItemStyle}
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
             hintStyle={hintTextStyle}
-            onChange={this.update('temp')}
+            onChange={this.update("temp")}
           />
 
           <select className="pantry-categories"
@@ -149,7 +149,7 @@ export default PantryItemForm;
 
 // how to pass in an argument in a fat arrow function (allItems[i].id) (on line //160)
 // this.setState({name: item, category: allItems[i].category, quantity:
-//   quantity, unit: convertedUnit, temp: '', errors: false}, () => {
+//   quantity, unit: convertedUnit, temp: "", errors: false}, () => {
 //     let pantryItem = {id: allItems[i].id, name: this.state.name, category: this.state.category, quantity: this.state.quantity, unit: this.state.unit};
 //
 //     this.props.updatePantryItem({pantry_item: pantryItem});
@@ -167,19 +167,19 @@ export default PantryItemForm;
 //   }
 //
 //   let itemUnit = allItems[i].unit;
-//   if (itemUnit === 'inch' || itemUnit === 'inches') {
-//     itemUnit = 'inch';
-//   } else if (itemUnit === 'foot' || itemUnit === 'feet') {
-//     itemUnit = 'foot';
-//   } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+//   if (itemUnit === "inch" || itemUnit === "inches") {
+//     itemUnit = "inch";
+//   } else if (itemUnit === "foot" || itemUnit === "feet") {
+//     itemUnit = "foot";
+//   } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
 //     itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
 //   }
 //
-//   if (convertedUnit === 'inch' || convertedUnit === 'inches') {
-//     convertedUnit = 'inch';
-//   } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
-//     convertedUnit = 'foot';
-//   } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+//   if (convertedUnit === "inch" || convertedUnit === "inches") {
+//     convertedUnit = "inch";
+//   } else if (convertedUnit === "foot" || convertedUnit === "feet") {
+//     convertedUnit = "foot";
+//   } else if (convertedUnit.charAt(convertedUnit.length - 1) === "s") {
 //     convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
 //   }
 //
@@ -189,13 +189,13 @@ export default PantryItemForm;
 //     quantity += parseFloat(allItems[i].quantity);
 //   }
 //
-//   if (quantity > 1 && convertedUnit !== '') {
-//     if (convertedUnit === 'inch') {
-//       convertedUnit = 'inches';
-//     } else if (convertedUnit === 'foot') {
-//       convertedUnit = 'feet';
+//   if (quantity > 1 && convertedUnit !== "") {
+//     if (convertedUnit === "inch") {
+//       convertedUnit = "inches";
+//     } else if (convertedUnit === "foot") {
+//       convertedUnit = "feet";
 //     } else {
-//       convertedUnit += 's';
+//       convertedUnit += "s";
 //     }
 //   }
 //

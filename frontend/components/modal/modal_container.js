@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import { signin, signup, receiveErrors } from '../../actions/session_actions';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import ModalForm from './modal_form';
+import ModalForm from "./modal_form";
+import { signin, signup, receiveErrors } from "../../actions/session_actions";
 
 const mapStateToProps = (state) => ({
   loggedIn: Boolean(state.session.currentUser),

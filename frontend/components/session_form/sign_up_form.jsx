@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function ErrorBanner(props) {
   if (!props.shouldShow) {
@@ -14,8 +14,8 @@ function ErrorBanner(props) {
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', email: '', password: '',
-      re_entered_password: '', matching_passwords: "true" };
+    this.state = { username: "", email: "", password: "",
+      re_entered_password: "", matching_passwords: "true" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuestSignIn = this.handleGuestSignIn.bind(this);
   };
@@ -32,7 +32,7 @@ class SignUpForm extends React.Component {
       this.setState({matching_passwords: true});
       const user = this.state;
       return this.props.signup({user}).then( () => {
-        this.props.history.push('/pantry_items');
+        this.props.history.push("/pantry_items");
       })
     }
   }
@@ -40,9 +40,9 @@ class SignUpForm extends React.Component {
   handleGuestSignIn(event) {
     event.preventDefault();
     // this.props.errors = [];
-    const user = {username: 'guest', password: 'password'};
+    const user = {username: "guest", password: "password"};
     this.props.signin({user})
-      .then( () => {this.props.history.push('/pantry_items');
+      .then( () => {this.props.history.push("/pantry_items");
     })
   }
 
@@ -71,7 +71,7 @@ class SignUpForm extends React.Component {
             <label>Username</label>
             <br />
             <input type="text" value={ this.state.username }
-              onChange={ this.update('username') }
+              onChange={ this.update("username") }
               className="signup-input" />
             <br />
             <br />
@@ -79,7 +79,7 @@ class SignUpForm extends React.Component {
             <label>Email</label>
             <br />
             <input type="text" value={ this.state.email }
-            onChange={ this.update('email') }
+            onChange={ this.update("email") }
             className="signup-input" />
             <br />
             <br />
@@ -87,7 +87,7 @@ class SignUpForm extends React.Component {
             <label>Password</label>
             <br />
             <input type="password" value={ this.state.password }
-              onChange={ this.update('password') }
+              onChange={ this.update("password") }
               className="signup-input" />
             <br />
             <br />
@@ -95,7 +95,7 @@ class SignUpForm extends React.Component {
             <label>Re-enter Password</label>
             <br />
             <input type="password" value={ this.state.re_entered_password }
-              onChange={ this.update('re_entered_password') }
+              onChange={ this.update("re_entered_password") }
               className="signup-input" />
 
             <ErrorBanner shouldShow={!this.state.matching_passwords}
@@ -119,8 +119,3 @@ class SignUpForm extends React.Component {
 }
 
 export default SignUpForm;
-
-
-// <div className="form-greeting">
-// <h3>myPantry</h3>
-// </div>

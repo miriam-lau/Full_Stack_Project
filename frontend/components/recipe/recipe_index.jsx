@@ -1,8 +1,8 @@
-import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Link, Switch } from "react-router-dom";
 
-import RecipeIndexItem from './recipe_index_item';
-import RecipeDetailContainer from './recipe_detail_container';
+import RecipeIndexItem from "./recipe_index_item";
+import RecipeDetailContainer from "./recipe_detail_container";
 
 class RecipeIndex extends React.Component {
   constructor(props) {

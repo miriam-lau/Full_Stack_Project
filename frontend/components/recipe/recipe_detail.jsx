@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import React from "react";
+import { Route, Link } from "react-router-dom";
 
-import RecipeIndexContainer from './recipe_index_container';
+import RecipeIndexContainer from "./recipe_index_container";
 
 class RecipeDetail extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class RecipeDetail extends React.Component {
   }
 
   strSplit(str) {
-    let strArray = str.split('\n');
+    let strArray = str.split("\n");
     return strArray;
   }
 

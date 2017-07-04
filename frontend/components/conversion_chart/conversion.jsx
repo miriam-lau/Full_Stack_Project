@@ -1,6 +1,7 @@
-import React from 'react';
-import { unitArray, liquid, dry, length, unitInfo } from './units';
-import { Drawer, TextField } from 'material-ui';
+import React from "react";
+
+import { Drawer, TextField } from "material-ui";
+import { unitArray, liquid, dry, length, unitInfo } from "./units";
 
 const VALUE1 = "value1";
 const VALUE2 = "value2";
@@ -29,35 +30,38 @@ var UnitTypeEnum = {
   LENGTH: 2,
 };
 
-let liquidConversion = new Map();
-  liquidConversion.set("teaspoon", 1);
-  liquidConversion.set("tablespoon", 3);
-  liquidConversion.set("fluid ounce", 6);
-  liquidConversion.set("gill", 24);
-  liquidConversion.set("cup", 48.7);
-  liquidConversion.set("pint", 96);
-  liquidConversion.set("quart", 192);
-  liquidConversion.set("gallon", 768);
-  liquidConversion.set("milliliter", 0.203);
-  liquidConversion.set("deciliter", 20.3);
-  liquidConversion.set("liter", 202.9);
+let liquidConversion = new Map([
+    ["teaspoon", 1],
+    ["tablespoon", 3],
+    ["fluid ounce", 6],
+    ["gill", 24],
+    ["cup", 48.7],
+    ["pint", 96],
+    ["quart", 192],
+    ["gallon", 768],
+    ["milliliter", 0.203],
+    ["deciliter", 20.3],
+    ["liter", 202.9]
+]);
 
-let dryConversion = new Map();
-  dryConversion.set("milligram", 1);
-  dryConversion.set("gram", 1000);
-  dryConversion.set("kilogram", 100000);
-  dryConversion.set("teaspoon (dry)", 4724.9);
-  dryConversion.set("tablespoon (dry)", 14174.8);
-  dryConversion.set("ounce", 28349.5);
-  dryConversion.set("cup", 226796);
-  dryConversion.set("pound", 453592);
+let dryConversion = new Map([
+  ["milligram", 1],
+  ["gram", 1000],
+  ["kilogram", 100000],
+  ["teaspoon (dry)", 4724.9],
+  ["tablespoon (dry)", 14174.8],
+  ["ounce", 28349.5],
+  ["cup", 226796],
+  ["pound", 453592]
+]);
 
-let lengthConversion = new Map();
-  lengthConversion.set("millimeter", 1);
-  lengthConversion.set("centimeter", 10);
-  lengthConversion.set("meter", 1000);
-  lengthConversion.set("inch", 25.4);
-  lengthConversion.set("foot", 304.8);
+let lengthConversion = new Map([
+  ["millimeter", 1],
+  ["centimeter", 10],
+  ["meter", 1000],
+  ["inch", 25.4],
+  ["foot", 304.8]
+]);
 
 class Conversion extends React.Component {
   constructor(props) {
@@ -143,7 +147,7 @@ class Conversion extends React.Component {
         <i className="fa fa-calculator fa-lg" aria-hidden="true" onClick={this.handleToggle}></i>
 
         {this.state.toggle ? <Drawer width={400}
-          containerStyle={{height: 'calc(100% - 80px)', top: 80}}
+          containerStyle={{height: "calc(100% - 80px)", top: 80}}
           openSecondary={true}>
 
           <div className="drawer-icon">
@@ -162,7 +166,7 @@ class Conversion extends React.Component {
                 underlineShow ={false}
                 style={addItemTextBoxStyle}
                 autoComplete="off"
-                onChange={this.update('quantity')}
+                onChange={this.update("quantity")}
               />
 
               <div className="conversion-unit-selector">

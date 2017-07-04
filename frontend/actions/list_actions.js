@@ -1,13 +1,13 @@
 // TODO: rename private func to receive and public to delete, update, and create
 // remove exports
-import * as APIUtil from '../util/list_api_util';
+import * as APIUtil from "../util/list_api_util";
 
-export const RECEIVE_ALL_LISTS = 'RECEIVE_ALL_LISTS';
-export const RECEIVE_LIST = 'RECEIVE_LIST';
-export const CREATE_LIST = 'CREATE_LIST';
-export const UPDATE_LIST = 'UPDATE_LIST';
-export const DELETE_LIST = 'DELETE_LIST';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_ALL_LISTS = "RECEIVE_ALL_LISTS";
+export const RECEIVE_LIST = "RECEIVE_LIST";
+export const CREATE_LIST = "CREATE_LIST";
+export const UPDATE_LIST = "UPDATE_LIST";
+export const DELETE_LIST = "DELETE_LIST";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receiveAllLists = (lists) => ({
   type: RECEIVE_ALL_LISTS,

@@ -1,16 +1,16 @@
-import React from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import { AuthRoute } from '../../util/route_util';
-import FontIcon from 'material-ui/FontIcon';
+import React from "react";
+import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { AuthRoute } from "../../util/route_util";
 
-import GroceryIndexContainer from '../grocery/grocery_index_container';
-import HomeContainer from '../home/home_container';
-import PantryIndexContainer from '../pantry_items/pantry_index_container';
-import PersonalGreetingContainer from './personal_greeting_container';
-import RecipeDetailContainer from '../recipe/recipe_detail_container';
-import RecipeFormContainer from '../recipe/recipe_form_container';
-import RecipeIndexContainer from '../recipe/recipe_index_container';
-import SearchResultsContainer from '../search/search_results_container';
+import GroceryIndexContainer from "../grocery/grocery_index_container";
+import HomeContainer from "../home/home_container";
+import PantryIndexContainer from "../pantry_items/pantry_index_container";
+import PersonalGreetingContainer from "./personal_greeting_container";
+import RecipeDetailContainer from "../recipe/recipe_detail_container";
+import RecipeFormContainer from "../recipe/recipe_form_container";
+import RecipeIndexContainer from "../recipe/recipe_index_container";
+import SearchResultsContainer from "../search/search_results_container";
+import FontIcon from "material-ui/FontIcon";
 
 class Main extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class Main extends React.Component {
                   component={ RecipeFormContainer } />
                 <Route exact path="/recipes/:id"
                   component={ RecipeDetailContainer } />
-                <Route exact path='/search'
+                <Route exact path="/search"
                   component={ SearchResultsContainer } />
               </Switch>
             </div>
@@ -71,7 +71,7 @@ class Main extends React.Component {
     } else {
       return (
         <div>
-          <AuthRoute exact path='/' component={ HomeContainer }/>
+          <AuthRoute exact path="/" component={ HomeContainer }/>
           <Redirect to="/" />
         </div>
       )

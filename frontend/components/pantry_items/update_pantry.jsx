@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const updatePantry = (allItems, item, category, convertedUnit, quantity,
   updatePantryItem) => {
@@ -13,19 +13,19 @@ const updatePantry = (allItems, item, category, convertedUnit, quantity,
       }
 
       let itemUnit = allItems[i].unit;
-      if (itemUnit === 'inch' || itemUnit === 'inches') {
-        itemUnit = 'inch';
-      } else if (itemUnit === 'foot' || itemUnit === 'feet') {
-        itemUnit = 'foot';
-      } else if (itemUnit.charAt(itemUnit.length - 1) === 's') {
+      if (itemUnit === "inch" || itemUnit === "inches") {
+        itemUnit = "inch";
+      } else if (itemUnit === "foot" || itemUnit === "feet") {
+        itemUnit = "foot";
+      } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
         itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
       }
 
-      if (convertedUnit === 'inch' || convertedUnit === 'inches') {
-        convertedUnit = 'inch';
-      } else if (convertedUnit === 'foot' || convertedUnit === 'feet') {
-        convertedUnit = 'foot';
-      } else if (convertedUnit.charAt(convertedUnit.length - 1) === 's') {
+      if (convertedUnit === "inch" || convertedUnit === "inches") {
+        convertedUnit = "inch";
+      } else if (convertedUnit === "foot" || convertedUnit === "feet") {
+        convertedUnit = "foot";
+      } else if (convertedUnit.charAt(convertedUnit.length - 1) === "s") {
         convertedUnit = convertedUnit.substring(0, (convertedUnit.length - 1));
       }
 
@@ -35,13 +35,13 @@ const updatePantry = (allItems, item, category, convertedUnit, quantity,
         quantity += parseFloat(allItems[i].quantity);
       }
 
-      if (quantity > 1 && convertedUnit !== '') {
-        if (convertedUnit === 'inch') {
-          convertedUnit = 'inches';
-        } else if (convertedUnit === 'foot') {
-          convertedUnit = 'feet';
+      if (quantity > 1 && convertedUnit !== "") {
+        if (convertedUnit === "inch") {
+          convertedUnit = "inches";
+        } else if (convertedUnit === "foot") {
+          convertedUnit = "feet";
         } else {
-          convertedUnit += 's';
+          convertedUnit += "s";
         }
       }
 

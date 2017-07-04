@@ -3,14 +3,14 @@
 // remove exports
 // rename grocery_item to groceryItem
 
-import * as APIUtil from '../util/grocery_api_util';
+import * as APIUtil from "../util/grocery_api_util";
 
-export const RECEIVE_ALL_GROCERY_ITEMS = 'RECEIVE_ALL_GROCERY_ITEMS';
-export const RECEIVE_GROCERY_ITEM = 'RECEIVE_GROCERY_ITEM';
-export const CREATE_GROCERY_ITEM = 'CREATE_GROCERY_ITEM';
-export const UPDATE_GROCERY_ITEM = 'UPDATE_GROCERY_ITEM';
-export const DELETE_GROCERY_ITEM  = 'DELETE_GROCERY_ITEM';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_ALL_GROCERY_ITEMS = "RECEIVE_ALL_GROCERY_ITEMS";
+export const RECEIVE_GROCERY_ITEM = "RECEIVE_GROCERY_ITEM";
+export const CREATE_GROCERY_ITEM = "CREATE_GROCERY_ITEM";
+export const UPDATE_GROCERY_ITEM = "UPDATE_GROCERY_ITEM";
+export const DELETE_GROCERY_ITEM  = "DELETE_GROCERY_ITEM";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receiveAllGroceryItems = (grocery_items) => ({
   type: RECEIVE_ALL_GROCERY_ITEMS,

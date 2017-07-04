@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import SearchForm from './search_form';
-import { requestAllSearchItems, receiveAllSearchItems } from '../../actions/search_actions';
+import SearchForm from "./search_form";
+import { requestAllSearchItems, receiveAllSearchItems } from "../../actions/search_actions";
 
 const mapStateToProps = (state) => ({
   searchItems: state.search.searchItems,

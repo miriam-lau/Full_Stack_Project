@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 class SignInForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { username: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuestSignIn = this.handleGuestSignIn.bind(this);
   };
@@ -17,15 +17,15 @@ class SignInForm extends React.Component {
     event.preventDefault();
     const user = this.state;
     this.props.signin({user}).then( () => {
-      this.props.history.push('/pantry_items');
+      this.props.history.push("/pantry_items");
     })
   }
 
   handleGuestSignIn(event) {
     event.preventDefault();
-    const user = {username: 'guest', password: 'password'};
+    const user = {username: "guest", password: "password"};
     this.props.signin({user})
-      .then( () => {this.props.history.push('/pantry_items');
+      .then( () => {this.props.history.push("/pantry_items");
     })
   }
 
@@ -54,7 +54,7 @@ class SignInForm extends React.Component {
             <label>Username</label>
             <br />
             <input type="text" value={ this.state.username }
-              onChange={ this.update('username') }
+              onChange={ this.update("username") }
               className="signin-input" />
             <br />
             <br />
@@ -62,7 +62,7 @@ class SignInForm extends React.Component {
             <label>Password</label>
             <br />
             <input type="password" value={ this.state.password }
-              onChange={ this.update('password') }
+              onChange={ this.update("password") }
               className="signin-input" />
             <br />
             <br />

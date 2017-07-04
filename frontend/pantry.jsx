@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Root from './components/root';
-import configureStore from './store/store';
+import React from "react";
+import ReactDOM from "react-dom";
 
-function displayStateChange() {
-}
+import configureStore from "./store/store";
+import Root from "./components/root";
 
-document.addEventListener('DOMContentLoaded', () => {
+// function displayStateChange() {
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
       const preloadedState = {session: {currentUser: window.currentUser, errors: [] }};
@@ -17,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.store = store;
 
-    store.subscribe(displayStateChange);
+    // store.subscribe(displayStateChange);
 
-    const root = document.getElementById('root');
+    const root = document.getElementById("root");
     ReactDOM.render(<Root store={ store } />, root);
 });

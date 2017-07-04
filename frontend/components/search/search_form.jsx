@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import SearchResults from './search_results.jsx';
+import React from "react";
+import { Route } from "react-router-dom";
 
-import { AutoComplete, FontIcon, TextField } from 'material-ui';
-import { searchStyle, textStyle, searchFontStyle, underlineStyle, searchIcon } from './material_ui_styles';
+import SearchResults from "./search_results.jsx";
+import { AutoComplete, FontIcon, TextField } from "material-ui";
+import { searchStyle, textStyle, searchFontStyle, underlineStyle, searchIcon } from "./material_ui_styles";
 
 
 class SearchForm extends React.Component {

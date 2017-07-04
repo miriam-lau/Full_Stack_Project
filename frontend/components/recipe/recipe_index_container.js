@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import RecipeIndex from './recipe_index';
+import RecipeIndex from "./recipe_index";
 import { requestAllRecipes, requestRecipe, createNewRecipe, editRecipe,
-  removeRecipe} from '../../actions/recipe_actions';
-import { selectAllRecipes } from '../../reducers/selectors';
+  removeRecipe} from "../../actions/recipe_actions";
+import { selectAllRecipes } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
   recipes: selectAllRecipes(state),

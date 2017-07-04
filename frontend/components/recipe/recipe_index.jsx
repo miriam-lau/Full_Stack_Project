@@ -38,8 +38,8 @@ class RecipeIndex extends React.Component {
                     recipe_id={item.id}
                     recipe={item}
                     requestRecipe={this.props.requestRecipe}
-                    removeRecipe={this.props.removeRecipe}
-                    editRecipe={this.props.editRecipe}
+                    deleteRecipe={this.props.deleteRecipe}
+                    updateRecipe={this.props.updateRecipe}
                   />
                 )}
               )}

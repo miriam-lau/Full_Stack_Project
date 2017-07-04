@@ -73,7 +73,7 @@ class GroceryItemForm extends React.Component {
     this.setState({name: item, quantity: parseFloat(quantity),
       unit: convertedUnit, temp: "", errors: false}, () => {
         const grocery_item = this.state
-        this.props.createNewGroceryItem({grocery_item})
+        this.props.createGroceryItem({grocery_item})
             .then(data => this.props.history.push(`/groceries/${data.id}`))
         });
 

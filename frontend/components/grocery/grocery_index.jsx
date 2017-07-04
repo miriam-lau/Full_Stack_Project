@@ -11,7 +11,7 @@ class GroceryIndex extends React.Component {
     super(props);
     this.state = {success: false};
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.grocery_items = this.props.grocery_items;
+    this.groceryItems = this.props.groceryItems;
   }
 
 // componentDidMount or WillMount?
@@ -23,18 +23,18 @@ class GroceryIndex extends React.Component {
   handleSubmit(event) {
     let successful = false;
     event.preventDefault();
-    this.props.grocery_items.map(grocery_item => {
-      if (grocery_item.purchased === true) {
-        let key = grocery_item.id;
-        successful = groceryUpdatePantry(key, grocery_item,
-          this.props.pantryItems, this.props.createPantryItem, this.props.updatePantryItem, this.props.removeGroceryItem);
+    this.props.groceryItems.map(groceryItem => {
+      if (groceryItem.purchased === true) {
+        let key = groceryItem.id;
+        successful = groceryUpdatePantry(key, groceryItem,
+          this.props.pantryItems, this.props.createPantryItem, this.props.updatePantryItem, this.props.deleteGroceryItem);
       }
     })
     this.setState({success: successful});
   }
 
   render() {
-    const grocery_items = this.props.grocery_items;
+    const groceryItems = this.props.groceryItems;
     const pantryItems = this.props.pantryItems;
     return (
       <div>
@@ -59,14 +59,14 @@ class GroceryIndex extends React.Component {
                     <h3 className="grocery-category">{category}</h3>
                   }
                   <ul className="grocery-items">
-                    {this.props.grocery_items.map((item) => {
+                    {this.props.groceryItems.map((item) => {
                       if ((item.purchased === false) && (item.category === category)) {
                         return (<GroceryIndexItem
                           key={item.id}
-                          grocery_item={item}
+                          groceryItem={item}
                           requestGroceryItem={this.props.requestGroceryItem}
-                          removeGroceryItem={this.props.removeGroceryItem}
-                          editGroceryItem={this.props.editGroceryItem} />)
+                          deleteGroceryItem={this.props.deleteGroceryItem}
+                          updateGroceryItem={this.props.updateGroceryItem} />)
                         }
                     })}
                   </ul>
@@ -98,14 +98,14 @@ class GroceryIndex extends React.Component {
                     <h3 className="grocery-category">{category}</h3>
                   }
                   <ul className="grocery-items">
-                    {this.props.grocery_items.map((item) => {
+                    {this.props.groceryItems.map((item) => {
                       if ((item.purchased === true) && (item.category === category)) {
                         return (<GroceryIndexItem
                           key={item.id}
-                          grocery_item={item}
+                          groceryItem={item}
                           requestGroceryItem={this.props.requestGroceryItem}
-                          removeGroceryItem={this.props.removeGroceryItem}
-                          editGroceryItem={this.props.editGroceryItem} />)
+                          deleteGroceryItem={this.props.deleteGroceryItem}
+                          updateGroceryItem={this.props.updateGroceryItem} />)
                         }
                     })}
                   </ul>

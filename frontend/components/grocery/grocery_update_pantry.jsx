@@ -1,14 +1,14 @@
 import React from "react";
 
-const groceryUpdatePantry = (key, grocery_item, pantryItems,
-  createPantryItem, updatePantryItem, removeGroceryItem) => {
+const groceryUpdatePantry = (key, groceryItem, pantryItems,
+  createPantryItem, updatePantryItem, deleteGroceryItem) => {
 
-    let groceryUnit = grocery_item.unit;
-    let item = grocery_item.name;
-    let quantity = parseFloat(grocery_item.quantity);
+    let groceryUnit = groceryItem.unit;
+    let item = groceryItem.name;
+    let quantity = parseFloat(groceryItem.quantity);
 
     for (var i = 0; i < pantryItems.length; i++) {
-      if (pantryItems[i].category !== grocery_item.category) {
+      if (pantryItems[i].category !== groceryItem.category) {
         continue;
       }
 
@@ -52,15 +52,15 @@ const groceryUpdatePantry = (key, grocery_item, pantryItems,
 
       let pantryItem = {id: pantryItems[i].id, name: item, category: pantryItems[i].category, quantity: quantity, unit: groceryUnit};
 
-      updatePantryItem({pantryItem}).then(() => removeGroceryItem(key));
+      updatePantryItem({pantryItem}).then(() => deleteGroceryItem(key));
       return true;
     }
 
     // add new item to pantry
-    let newPantryItem = {name: grocery_item.name, quantity: grocery_item.quantity,
-      category: grocery_item.category, unit: grocery_item.unit};
+    let newPantryItem = {name: groceryItem.name, quantity: groceryItem.quantity,
+      category: groceryItem.category, unit: groceryItem.unit};
 
-    createPantryItem({"pantry_item": newPantryItem}).then(() => removeGroceryItem(key));
+    createPantryItem({"pantry_item": newPantryItem}).then(() => deleteGroceryItem(key));
 
     return true;
 }

@@ -1,5 +1,3 @@
-// TODO: rename private func to receive and public to delete, update, and create
-// remove exports
 import * as APIUtil from "../util/list_api_util";
 
 export const RECEIVE_ALL_LISTS = "RECEIVE_ALL_LISTS";
@@ -9,64 +7,64 @@ export const UPDATE_LIST = "UPDATE_LIST";
 export const DELETE_LIST = "DELETE_LIST";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const receiveAllLists = (lists) => ({
+const receiveAllLists = (lists) => ({
   type: RECEIVE_ALL_LISTS,
   lists
 });
 
-export const receiveList = (list) => ({
+const receiveList = (list) => ({
   type: RECEIVE_LIST,
   list
 });
 
-export const createList = (list) => ({
+const receiveNewList = (list) => ({
   type: CREATE_LIST,
   list
 });
 
-export const updateList = (list) => ({
+const receiveUpdateList = (list) => ({
   type: UPDATE_LIST,
   list
 })
 
-export const deleteList = (list) => ({
+const receiveDeleteList = (list) => ({
   type: DELETE_LIST,
   list
 })
 
-export const receiveListErrors = (errors) => ({
+const receiveListErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
 
 export const requestAllLists = () => dispatch => {
   return APIUtil.fetchAllLists()
-    .then(lists =>(dispatch(receiveAllLists(lists)))
+    .then(listsRes =>(dispatch(receiveAllLists(listsRes)))
   )
 };
 
 export const requestList = (id) => dispatch => {
   return APIUtil.fetchList(id)
-    .then(list => (dispatch(receiveList(list)))
+    .then(listRes => (dispatch(receiveList(listRes)))
   )
 };
 
-export const createNewList = (list) => dispatch => {
+export const createList = (list) => dispatch => {
   return APIUtil.createList(list)
-    .then(list => (dispatch(createList(list))),
+    .then(listRes => (dispatch(receiveNewList(listRes))),
     err => (dispatch(receiveListErrors(err.responseJSON)))
   )
 };
 
-export const editList = (list) => dispatch => {
+export const updateList = (list) => dispatch => {
   return APIUtil.updateList(list)
-    .then(list => (dispatch(updateList(list))),
+    .then(listRes => (dispatch(receiveUpdateList(listRes))),
     err => (dispatch(receiveListErrors(err.responseJSON)))
   )
 };
 
-export const removeList = (id) => dispatch => {
+export const deleteList = (id) => dispatch => {
   return APIUtil.deleteList(id)
-    .then(list => (dispatch(deleteList(list)))
+    .then(listRes => (dispatch(receiveDeleteList(listRes)))
   )
 };

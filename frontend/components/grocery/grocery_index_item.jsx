@@ -28,18 +28,18 @@ function ErrorBanner2(props) {
 class GroceryIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    let grocery_item = this.props.grocery_item;
-    this.state = { id: grocery_item.id, user_id: grocery_item.user_id,
-      purchased: grocery_item.purchased, category: grocery_item.category, temp: "", quantityError: "", nameError: "" };
+    let groceryItem = this.props.groceryItem;
+    this.state = { id: groceryItem.id, user_id: groceryItem.user_id,
+      purchased: groceryItem.purchased, category: groceryItem.category, temp: "", quantityError: "", nameError: "" };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.checkError = this.checkError.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.update = this.update.bind(this);
-    this.currentQuantity = this.props.grocery_item.quantity;
+    this.currentQuantity = this.props.groceryItem.quantity;
 
-    if (grocery_item.unit != null && grocery_item.unit.length !== 0) {
-      this.currentQuantity = this.currentQuantity + " " + grocery_item.unit;
+    if (groceryItem.unit != null && groceryItem.unit.length !== 0) {
+      this.currentQuantity = this.currentQuantity + " " + groceryItem.unit;
     }
   }
 
@@ -79,8 +79,8 @@ class GroceryIndexItem extends React.Component {
 
     this.setState({quantity: parseInt(quantity), unit: convertedUnit,
       temp: "", quantityError: ""}, () => {
-        const grocery_item = this.state
-        this.props.editGroceryItem({grocery_item});
+        const groceryItem = this.state
+        this.props.updateGroceryItem({grocery_item: groceryItem});
       });
 
     return null;
@@ -90,13 +90,13 @@ class GroceryIndexItem extends React.Component {
     event.preventDefault();
     if (checked) {
       this.setState({purchased: true}, () => {
-        const grocery_item = this.state;
-        this.props.editGroceryItem({grocery_item});
+        const groceryItem = this.state;
+        this.props.updateGroceryItem({grocery_item: groceryItem});
       })
     } else {
       this.setState({purchased: false}, () => {
-        const grocery_item = this.state;
-        this.props.editGroceryItem({grocery_item});
+        const groceryItem = this.state;
+        this.props.updateGroceryItem({grocery_item: groceryItem});
       })
     }
   }
@@ -125,8 +125,8 @@ class GroceryIndexItem extends React.Component {
 
       this.setState({[property]: e.target.value}, () => {
         if (this.state.temp === "") {
-          const grocery_item = this.state;
-          this.props.editGroceryItem({grocery_item});
+          const groceryItem = this.state;
+          this.props.updateGroceryItem({grocery_item: groceryItem});
         } else {
           this.parseUpdateQuantity(this.state.temp);
         }
@@ -142,11 +142,11 @@ class GroceryIndexItem extends React.Component {
   }
 
   render() {
-    const grocery_item = this.props.grocery_item;
-    const removeGroceryItem = this.props.removeGroceryItem;
-    let quantity = grocery_item.quantity;
-    if (grocery_item.unit !== null) {
-      quantity = quantity + " " + grocery_item.unit;
+    const groceryItem = this.props.groceryItem;
+    const deleteGroceryItem = this.props.deleteGroceryItem;
+    let quantity = groceryItem.quantity;
+    if (groceryItem.unit !== null) {
+      quantity = quantity + " " + groceryItem.unit;
     }
 
     return (
@@ -170,16 +170,16 @@ class GroceryIndexItem extends React.Component {
               onBlur={this.checkError}
             />
 
-            {grocery_item.category === "" ?
+            {groceryItem.category === "" ?
               <TextField id="text-field-default"
-                defaultValue={ grocery_item.name }
+                defaultValue={ groceryItem.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleCategory}
                 onChange={this.update("name")}
               /> :
               <TextField id="text-field-default"
-                defaultValue={ grocery_item.name }
+                defaultValue={ groceryItem.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleDefault}
@@ -187,7 +187,7 @@ class GroceryIndexItem extends React.Component {
               />
             }
 
-            {grocery_item.category === "" ?
+            {groceryItem.category === "" ?
               <select className="grocery-uncategorized"
                 onChange={this.update("category")}>
                 <option selected="true" disabled="disabled">Select a Category</option>
@@ -208,7 +208,7 @@ class GroceryIndexItem extends React.Component {
 
           <i className="material-icons trash-can"
             style={styles}
-            onClick={() => removeGroceryItem(grocery_item.id)}>
+            onClick={() => deleteGroceryItem(groceryItem.id)}>
             delete_forever</i>
         </div>
 

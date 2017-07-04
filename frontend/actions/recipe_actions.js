@@ -9,64 +9,64 @@ export const UPDATE_RECIPE = "UPDATE_RECIPE";
 export const DELETE_RECIPE = "DELETE_RECIPE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const receiveAllRecipes = (recipes) => ({
+const receiveAllRecipes = (recipes) => ({
   type: RECEIVE_ALL_RECIPES,
   recipes
 });
 
-export const receiveRecipe = (recipe) => ({
+const receiveRecipe = (recipe) => ({
   type: RECEIVE_RECIPE,
   recipe
 });
 
-export const createRecipe = (recipe) => ({
+const receiveNewRecipe = (recipe) => ({
   type: CREATE_RECIPE,
   recipe
 });
 
-export const updateRecipe = (recipe) => ({
+const receiveUpdateRecipe = (recipe) => ({
   type: UPDATE_RECIPE,
   recipe
 });
 
-export const deleteRecipe = (recipe) => ({
+const receiveDeleteRecipe = (recipe) => ({
   type: DELETE_RECIPE,
   recipe
 });
 
-export const receiveRecipeErrors = (errors) => ({
+const receiveRecipeErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
 
 export const requestAllRecipes = () => dispatch => {
   return APIUtil.fetchAllRecipes()
-    .then(recipes =>(dispatch(receiveAllRecipes(recipes)))
+    .then(recipesRes =>(dispatch(receiveAllRecipes(recipesRes)))
   )
 };
 
 export const requestRecipe = (id) => dispatch => {
   return APIUtil.fetchRecipe(id)
-    .then(recipe => (dispatch(receiveRecipe(recipe)))
+    .then(recipeRes => (dispatch(receiveRecipe(recipeRes)))
   )
 };
 
-export const createNewRecipe = (recipe) => dispatch => {
+export const createRecipe = (recipe) => dispatch => {
   return APIUtil.createRecipe(recipe)
-    .then(recipe => (dispatch(createRecipe(recipe))),
+    .then(recipeRes => (dispatch(receiveNewRecipe(recipeRes))),
     err => (dispatch(receiveRecipeErrors(err.responseJSON)))
   )
 };
 
-export const editRecipe = (recipe) => dispatch => {
+export const updateRecipe = (recipe) => dispatch => {
   return APIUtil.updateRecipe(recipe)
-    .then(recipe => (dispatch(updateRecipe(recipe))),
+    .then(recipeRes => (dispatch(updateRecipe(recipeRes))),
     err => (dispatch(receiveRecipeErrors(err.responseJSON)))
   )
 };
 
-export const removeRecipe = (id) => dispatch => {
+export const deleteRecipe = (id) => dispatch => {
   return APIUtil.deleteRecipe(id)
-    .then(recipe => (dispatch(deleteRecipe(recipe)))
+    .then(recipeRes => (dispatch(receiveDeleteRecipe(recipeRes)))
   )
 };

@@ -12,9 +12,7 @@ import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault,
 class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    let pantryItem = this.props.pantryItem;
-    this.state = { id: pantryItem.id, user_id: pantryItem.user_id,
-      name: pantryItem.name, category: pantryItem.category, quantity: pantryItem.quantity, unit: pantryItem.unit, quantityError: "", nameError: ""};
+    this.state = { quantityError: "", nameError: ""};
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.showQuantityError = this.showQuantityError.bind(this);
@@ -57,6 +55,7 @@ class PantryIndexItem extends React.Component {
     return {quantity: parseFloat(quantity), unit: convertedUnit};
   }
 
+  //write what function does
   handleQuantityChange() {
     return e => {
       let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
@@ -85,27 +84,27 @@ class PantryIndexItem extends React.Component {
         }
       }
 
-//Only for existing uncategorized items; returns true if update is successful
-//pantryItems = array; name, category, unit = strings; quantity: float;
+      /*
+        Only for existing uncategorized items; returns true if updated
+        @param pantryItems{array}
+        @param name{string}
+        @param category{string}
+        @param unit{string}
+        @param quantity{float}
+        //change function name updatePantry
+      */
       if (property === "category") {
-        this.setState({ [property]: e.target.value }, () => {
-          let successful = updatePantry(this.props.pantryItems,
-              this.state.id, this.state.name, this.state.category, this.state.unit, parseFloat(this.state.quantity), this.props.updatePantryItem, this.props.deletePantryItem);
-          if (successful) {
-            return true;
-          }
-        });
-      }
+        console.log(pantryItem);
+        let pantryItem = this.props.pantryItem;
+        if (updatePantry(this.props.pantryItems, pantryItem.id,
+            pantryItem.name, e.target.value, pantryItem.unit, parseFloat(pantryItem.quantity), this.props.updatePantryItem, this.props.deletePantryItem)) {
+          return;
+        }
+      };
 
-      let currentQuantityDisplay = this.state.quantity;
-      if (this.state.unit != null) {
-        currentQuantityDisplay += " " + this.state.unit;
-      }
-      this.setState({[property]: e.target.value,
-          currentQuantityDisplay: currentQuantityDisplay}, () => {
-        const pantryItem = this.state;
-        this.props.updatePantryItem({pantry_item: pantryItem});
-      });
+      let newPantryItem = merge({}, this.props.pantryItem);
+      newPantryItem[property] = e.target.value;
+      this.props.updatePantryItem({pantry_item: newPantryItem});
     }
   }
 

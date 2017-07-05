@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_GROCERY_ITEMS, RECEIVE_GROCERY_ITEM,
   CREATE_GROCERY_ITEM, UPDATE_GROCERY_ITEM, DELETE_GROCERY_ITEM,
-  RECEIVE_ERRORS, UPDATE_QUANTITY_DISPLAY } from '../actions/grocery_actions';
+  RECEIVE_ERRORS, UPDATE_GROCERY_QUANTITY_DISPLAY } from '../actions/grocery_actions';
 
 const noErrors = Object.freeze({
   errors: []
@@ -52,7 +52,7 @@ const GroceryReducer = (state = noErrors, action) => {
     }
     case RECEIVE_ERRORS:
       return merge({}, state, action.errors);
-    case UPDATE_QUANTITY_DISPLAY: {
+    case UPDATE_GROCERY_QUANTITY_DISPLAY: {
       let newState = merge({}, state);
       newState[action.id].currentQuantityDisplay =
           action.quantityDisplay;

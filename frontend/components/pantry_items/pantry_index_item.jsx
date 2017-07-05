@@ -61,7 +61,8 @@ class PantryIndexItem extends React.Component {
     return e => {
       let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
       if (parsedUpdateQuantity.error != null) {
-        this.props.updateQuantityDisplay(this.props.pantryItem.id, e.target.value);
+        this.props.updateQuantityDisplay(this.props.pantryItem.id,
+            e.target.value);
         this.setState({quantityError: parsedUpdateQuantity.error});
       } else {
         this.setState({quantityError: ""});
@@ -100,7 +101,8 @@ class PantryIndexItem extends React.Component {
       if (this.state.unit != null) {
         currentQuantityDisplay += " " + this.state.unit;
       }
-      this.setState({[property]: e.target.value, currentQuantityDisplay: currentQuantityDisplay}, () => {
+      this.setState({[property]: e.target.value,
+          currentQuantityDisplay: currentQuantityDisplay}, () => {
         const pantryItem = this.state;
         this.props.updatePantryItem({pantry_item: pantryItem});
       });

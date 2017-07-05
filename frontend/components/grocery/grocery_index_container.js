@@ -3,10 +3,11 @@ import { withRouter } from "react-router-dom";
 
 import GroceryIndex from "./grocery_index";
 import { requestAllGroceryItems, requestGroceryItem, deleteGroceryItem,
-  updateGroceryItem } from "../../actions/grocery_actions";
+  updateGroceryItem, updateQuantityDisplay } from "../../actions/grocery_actions";
 import { requestAllPantryItems, createPantryItem, updatePantryItem }
   from "../../actions/pantry_item_actions";
-import { selectAllGroceryItems, selectAllPantryItems } from "../../reducers/selectors";
+import { selectAllGroceryItems, selectAllPantryItems } from
+  "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
   groceryItems: selectAllGroceryItems(state),
@@ -18,7 +19,10 @@ const mapDispatchToProps = (dispatch) => ({
   requestAllGroceryItems: () => dispatch(requestAllGroceryItems()),
   requestGroceryItem: (id) => dispatch(requestGroceryItem(id)),
   deleteGroceryItem: (id) => dispatch(deleteGroceryItem(id)),
-  updateGroceryItem: (groceryItem) => dispatch(updateGroceryItem(groceryItem)),
+  updateGroceryItem: (groceryItem) =>
+      dispatch(updateGroceryItem(groceryItem)),
+  updateQuantityDisplay: (id, quantityDisplay) =>
+      dispatch(updateQuantityDisplay(id, quantityDisplay)),
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
   createPantryItem: (pantryItem) =>
     dispatch(createPantryItem(pantryItem)),

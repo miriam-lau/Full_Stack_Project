@@ -1,5 +1,6 @@
 import React from "react";
 
+import updateGrocery from "./update_grocery";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -69,10 +70,19 @@ class GroceryItemForm extends React.Component {
     }
     let item = words.join(" ");
 
-    this.setState({name: item, quantity: parseFloat(quantity),
-      unit: convertedUnit, temp: "", errors: false}, () => {
-        const grocery_item = this.state
-        this.props.createGroceryItem({grocery_item})
+    // cross-check with existing items to update if found
+    let id = -1;
+    let successful = updateGrocery(this.props.groceryItems, id, item,
+      this.state.category, convertedUnit, quantity, this.props.updateGroceryItem, this.props.deleteGroceryItem);
+
+    if (successful) {
+      return true;
+    }
+
+    // add new item
+    this.setState({name: item, category: this.state.category, quantity: parseFloat(quantity), unit: convertedUnit, temp: "", errors: false}, () => {
+        const groceryItem = this.state
+        this.props.createGroceryItem({grocery_item: groceryItem})
             .then(data => this.props.history.push(`/groceries/${data.id}`))
         });
 

@@ -27,12 +27,12 @@ const receiveUpdatePantryItem = (pantryItem, currentQuantityDisplay) => ({
   type: UPDATE_PANTRY_ITEM,
   pantryItem,
   currentQuantityDisplay
-})
+});
 
 const receiveDeletePantryItem = ({pantry_item_id}) => ({
   type: DELETE_PANTRY_ITEM,
   pantryItemId: pantry_item_id
-})
+});
 
 const receivePantryErrors = (errors) => ({
   type: RECEIVE_PANTRY_ERRORS,

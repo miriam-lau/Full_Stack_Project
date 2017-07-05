@@ -6,6 +6,7 @@ export const CREATE_GROCERY_ITEM = "CREATE_GROCERY_ITEM";
 export const UPDATE_GROCERY_ITEM = "UPDATE_GROCERY_ITEM";
 export const DELETE_GROCERY_ITEM  = "DELETE_GROCERY_ITEM";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const UPDATE_QUANTITY_DISPLAY = "UPDATE_QUANTITY_DISPLAY";
 
 const receiveAllGroceryItems = (groceryItems) => ({
   type: RECEIVE_ALL_GROCERY_ITEMS,
@@ -22,21 +23,29 @@ const receiveNewGroceryItem = (groceryItem) => ({
   groceryItem
 });
 
-const receiveUpdateGroceryItem = (groceryItem) => ({
+const receiveUpdateGroceryItem = (groceryItem, currentQuantityDisplay) => ({
   type: UPDATE_GROCERY_ITEM,
-  groceryItem
-})
+  groceryItem,
+  currentQuantityDisplay
+});
 
 const receiveDeleteGroceryItem = (groceryItem) => ({
   type: DELETE_GROCERY_ITEM,
   groceryItem
-})
+});
 
 const receiveGroceryErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
 
+export const updateQuantityDisplay = (id, quantityDisplay) => dispatch => {
+  dispatch({
+    type: UPDATE_QUANTITY_DISPLAY,
+    id,
+    quantityDisplay
+  });
+};
 
 export const requestAllGroceryItems = () => dispatch => (
   APIUtil.fetchAllGroceryItems()
@@ -57,12 +66,14 @@ export const createGroceryItem = (groceryItem) => dispatch => (
   )
 );
 
-export const updateGroceryItem = (groceryItem) => dispatch => (
-  APIUtil.updateGroceryItem(groceryItem)
-    .then(groceryItemRes => (dispatch(receiveUpdateGroceryItem(groceryItemRes))),
+export const updateGroceryItem = (groceryItem) => dispatch => {
+  return APIUtil.updateGroceryItem(groceryItem)
+    .then(groceryItemRes => {
+      (dispatch(receiveUpdateGroceryItem(groceryItemRes,
+      groceryItem.grocery_item.currentQuantityDisplay)))},
     err => (dispatch(receiveGroceryErrors(err.responseJSON)))
   )
-);
+};
 
 export const deleteGroceryItem = (id) => dispatch => {
   return APIUtil.deleteGroceryItem(id)

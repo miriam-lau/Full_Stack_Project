@@ -1,48 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import merge from "lodash/merge";
 
+import updateGrocery from "./update_grocery";
 import { allMeasurements } from "../utils/measurements";
 import { Checkbox, TextField } from "material-ui";
 import { formCategory } from "../utils/item_categories";
 import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
   itemStyleCategory, icon, styles } from "../utils/material_ui_styles";
 
-function ErrorBanner1(props) {
-  if (props.message != null) {
-    return (
-      <div className="grocery-item-error">{ props.message }</div>
-    );
-  } else {
-    return null;
-  }
-}
-
-function ErrorBanner2(props) {
-  if (props.message != null) {
-    return (
-      <div className="grocery-item-error">{ props.message }</div>
-    );
-  } else {
-    return null;
-  }
-}
-
 class GroceryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     let groceryItem = this.props.groceryItem;
     this.state = { id: groceryItem.id, user_id: groceryItem.user_id,
-      purchased: groceryItem.purchased, category: groceryItem.category, temp: "", quantityError: "", nameError: "" };
+      purchased: groceryItem.purchased, name: groceryItem.name, category: groceryItem.category, quantity: groceryItem.quantity, unit: groceryItem.unit, quantityError: "", nameError: "" };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
-    this.checkError = this.checkError.bind(this);
+    this.showQuantityError = this.showQuantityError.bind(this);
+    this.showNameError = this.showNameError.bind(this);
+    this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    this.update = this.update.bind(this);
-    this.currentQuantity = this.props.groceryItem.quantity;
-
-    if (groceryItem.unit != null && groceryItem.unit.length !== 0) {
-      this.currentQuantity = this.currentQuantity + " " + groceryItem.unit;
-    }
   }
 
   parseUpdateQuantity(str) {
@@ -50,7 +28,7 @@ class GroceryIndexItem extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-      return "Quantity must begin with a number";
+      return {error: "Quantity must begin with a number"};
     }
 
     words = splitFirstWord.concat(words);
@@ -66,7 +44,6 @@ class GroceryIndexItem extends React.Component {
       if (unit[unit.length - 1] == ".") {
         unit = unit.substring(0, unit.length - 1);
       }
-
       for (let i = 0; i < allMeasurements.length; i++) {
         if (allMeasurements[i].includes(unit)) {
           convertedUnit = (quantity === "1" ? allMeasurements[i][0] : allMeasurements[i][1]);
@@ -76,16 +53,9 @@ class GroceryIndexItem extends React.Component {
     }
 
     if (convertedUnit === null && unit != null) {
-      return "Quantity must have a valid unit";
+      return {error: "Invalid unit"};
     }
-
-    this.setState({quantity: parseInt(quantity), unit: convertedUnit,
-      temp: "", quantityError: ""}, () => {
-        const groceryItem = this.state
-        this.props.updateGroceryItem({grocery_item: groceryItem});
-      });
-
-    return null;
+    return {quantity: parseFloat(quantity), unit: convertedUnit};
   }
 
   handleCheck(event, checked) {
@@ -103,12 +73,26 @@ class GroceryIndexItem extends React.Component {
     }
   }
 
+  handleQuantityChange() {
+    return e => {
+      let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
+      if (parsedUpdateQuantity.error != null) {
+        this.props.updateQuantityDisplay(this.props.groceryItem.id,
+            e.target.value);
+        this.setState({quantityError: parsedUpdateQuantity.error});
+      } else {
+        this.setState({quantityError: ""});
+        let updatedGroceryItem = merge({}, this.props.groceryItem);
+        updatedGroceryItem.currentQuantityDisplay = e.target.value;
+        updatedGroceryItem.quantity = parsedUpdateQuantity.quantity;
+        updatedGroceryItem.unit = parsedUpdateQuantity.unit;
+        this.props.updateGroceryItem({grocery_item: updatedGroceryItem});
+      }
+    }
+  }
+
   update(property) {
     return e => {
-      if (property === "temp") {
-        this.currentQuantity = e.target.value;
-      }
-
       if (property === "name") {
         if (e.target.value === "") {
           return this.setState({nameError: "Name cannot be blank"});
@@ -122,35 +106,48 @@ class GroceryIndexItem extends React.Component {
       }
 
       if (property === "category") {
-        this.setState({ [property]: e.target.value });
+        this.setState({ [property]: e.target.value }, () => {
+          let successful = updateGrocery(this.props.groceryItems,
+              this.state.id, this.state.name, this.state.category, this.state.unit, parseFloat(this.state.quantity), this.props.updateGroceryItem, this.props.deleteGroceryItem);
+          if (successful) {
+            return true;
+          }
+        });
       }
 
-      this.setState({[property]: e.target.value}, () => {
-        if (this.state.temp === "") {
+      let currentQuantityDisplay = this.state.quantity;
+      if (this.state.unit != null) {
+        currentQuantityDisplay += " " + this.state.unit;
+      }
+      this.setState({[property]: e.target.value,
+            currentQuantityDisplay: currentQuantityDisplay}, () => {
           const groceryItem = this.state;
-          this.props.updateGroceryItem({grocery_item: groceryItem});
-        } else {
-          this.parseUpdateQuantity(this.state.temp);
-        }
+          console.log(this.state);
+        this.props.updateGroceryItem({grocery_item: groceryItem});
       });
     }
   }
 
-  checkError() {
-    let errorMessage = this.parseUpdateQuantity(this.currentQuantity);
-    if (errorMessage != null) {
-      this.setState({quantityError: errorMessage});
+  showQuantityError(message) {
+    if (message != "") {
+      return (<div className="pantry-item-error">{ message }</div>);
     }
+    return null;
+  }
+
+  showNameError(message) {
+    if (message != "" && this.state.quantityError === "") {
+      return (<div className="pantry-item-name-error-only">{ message }</div>);
+    }
+    if (message != "") {
+      return (<div className="pantry-item-name-error">{ message }</div>);
+    }
+    return null;
   }
 
   render() {
     const groceryItem = this.props.groceryItem;
     const deleteGroceryItem = this.props.deleteGroceryItem;
-
-    let quantity = groceryItem.quantity;
-    if (groceryItem.unit !== null) {
-      quantity = quantity + " " + groceryItem.unit;
-    }
 
     return (
       <div>
@@ -162,24 +159,23 @@ class GroceryIndexItem extends React.Component {
 
           <form className="update-grocery-form">
             <TextField id="text-field-default"
-              defaultValue={ quantity }
+              value={ groceryItem.currentQuantityDisplay }
               underlineFocusStyle={underlineFocusStyle}
               underlineStyle={underlineStyle}
               style={quantityStyle}
-              onChange={this.update("temp")}
-              onBlur={this.checkError}
+              onChange={this.handleQuantityChange()}
             />
 
             {groceryItem.category === "" ?
               <TextField id="text-field-default"
-                defaultValue={ groceryItem.name }
+                value={ groceryItem.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleCategory}
                 onChange={this.update("name")}
               /> :
               <TextField id="text-field-default"
-                defaultValue={ groceryItem.name }
+                value={ groceryItem.name }
                 underlineFocusStyle={underlineFocusStyle}
                 underlineStyle={underlineStyle}
                 style={itemStyleDefault}
@@ -203,11 +199,14 @@ class GroceryIndexItem extends React.Component {
           <i className="material-icons trash-can"
             style={styles}
             onClick={() => deleteGroceryItem(groceryItem.id)}>
-            delete_forever</i>
+            delete_forever
+          </i>
         </div>
 
-        <ErrorBanner1 message={this.state.quantityError} />
-        <ErrorBanner2 message={this.state.nameError} />
+        <div className="error-messages">
+          {this.showQuantityError(this.state.quantityError)}
+          {this.showNameError(this.state.nameError)}
+        </div>
       </div>
     );
   }

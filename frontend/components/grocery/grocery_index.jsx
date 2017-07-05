@@ -24,9 +24,14 @@ class GroceryIndex extends React.Component {
     event.preventDefault();
     this.props.groceryItems.map(groceryItem => {
       if (groceryItem.purchased === true) {
-        let key = groceryItem.id;
-        successful = groceryUpdatePantry(key, groceryItem,
-          this.props.pantryItems, this.props.createPantryItem, this.props.updatePantryItem, this.props.deleteGroceryItem);
+        let id = groceryItem.id;
+        successful = groceryUpdatePantry(
+          this.props.pantryItems,
+          groceryItem.id,
+          groceryItem,
+          this.props.createPantryItem,
+          this.props.updatePantryItem, 
+          this.props.deleteGroceryItem);
       }
     })
     this.setState({success: successful});

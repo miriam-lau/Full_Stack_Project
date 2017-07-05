@@ -12,9 +12,7 @@ import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
 class GroceryIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    let groceryItem = this.props.groceryItem;
-    this.state = { purchased: groceryItem.purchased, quantityError: "",
-        nameError: "" };
+    this.state = { quantityError: "", nameError: "" };
 
     this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.showQuantityError = this.showQuantityError.bind(this);
@@ -63,16 +61,13 @@ class GroceryIndexItem extends React.Component {
 
   handleCheck(event, checked) {
     event.preventDefault();
+    let groceryItem = this.props.groceryItem;
     if (checked) {
-      this.setState({ purchased: true }, () => {
-        const groceryItem = this.state;
-        this.props.updateGroceryItem({ grocery_item: groceryItem });
-      })
+      groceryItem.purchased = true;
+      this.props.updateGroceryItem({ grocery_item: groceryItem });
     } else {
-      this.setState({ purchased: false }, () => {
-        const groceryItem = this.state;
-        this.props.updateGroceryItem({ grocery_item: groceryItem });
-      })
+      groceryItem.purchased = false;
+      this.props.updateGroceryItem({ grocery_item: groceryItem });
     }
   }
 
@@ -103,10 +98,6 @@ class GroceryIndexItem extends React.Component {
         } else {
           this.setState({ nameError: "" });
         }
-      }
-
-      if (property === "purchased") {
-        this.setState({ purchased: true });
       }
 
       if (property === "category") {
@@ -149,15 +140,13 @@ class GroceryIndexItem extends React.Component {
 
   render() {
     const groceryItem = this.props.groceryItem;
-    const deleteGroceryItem = this.props.deleteGroceryItem;
-
     return (
       <div>
         <div className="update-grocery-form-div">
           <Checkbox className="update-grocery-checkbox"
             style={ styles }
             iconStyle={ icon }
-            checked={ this.state.purchased ? true : false }
+            checked={ groceryItem.purchased ? true : false }
             onCheck={ this.handleCheck } />
 
           <form className="update-item-form">
@@ -194,7 +183,7 @@ class GroceryIndexItem extends React.Component {
 
           <i className="material-icons trash-can"
               style={ styles }
-              onClick={ () => deleteGroceryItem(groceryItem.id) }>
+              onClick={ () => this.props.deleteGroceryItem(groceryItem.id) }>
               delete_forever
           </i>
         </div>

@@ -11,9 +11,8 @@ class SearchResults extends React.Component {
       return (
         <div className="search-error">No items found. Try again.</div>
       );
-    } else {
-      return null;
     }
+    return null;
   }
 
   render() {
@@ -26,6 +25,7 @@ class SearchResults extends React.Component {
             return (
               <div key={idx} className="search-item-info">
                 <span>Item Name: {item.name}</span>
+                <span>Category: {item.category}</span>
                 <span>Quantity: {item.quantity}</span>
                 <span>Unit: {item.unit}</span>
                 <br/>

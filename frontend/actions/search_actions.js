@@ -18,6 +18,5 @@ export const requestAllSearchItems = (name) => dispatch => {
     .then(searchItems => {
       dispatch(receiveAllSearchItems(searchItems))
     return searchItems;
-  }
-  )
+  })
 };

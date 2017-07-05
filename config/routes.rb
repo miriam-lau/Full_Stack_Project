@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :groceries, except: [:new, :show, :edit]
     resources :recipes, except: [:new, :show, :edit]
     resources :lists, except: [:new, :show, :edit]
-    get "/search", to: "pantry_items#search"
+    get "/search", to: "search#search"
   end
 
   root "static_pages#root"

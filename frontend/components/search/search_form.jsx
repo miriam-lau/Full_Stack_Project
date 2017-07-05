@@ -21,7 +21,7 @@ class SearchForm extends React.Component {
       const name = this.state.name
       this.props.requestAllSearchItems({name})
       .then((searchItems) => {
-        let searchResults = searchItems;
+        let searchResults = searchItems
         let retrievedSearchTerms = searchResults.map(function(result) {
           return result.name;
         })

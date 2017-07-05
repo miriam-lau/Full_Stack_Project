@@ -18,28 +18,28 @@ class PantryIndex extends React.Component {
     const pantryItems = this.props.pantryItems;
     return (
       <div>
-        <div className="pantry-wrapper">
+        <div className="wrapper">
           <div className="pantry-side-nav-bar">
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png" alt="side-bar-img-pantry" className="pantry-img"/>
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png" alt="side-bar-img-pantry" className="side-nav-img"/>
           </div>
 
-          <div className="pantry-index">
+          <div className="index">
             <section>
-              <h2 className="pantry-title">Pantry</h2>
+              <h2 className="index-title">Pantry</h2>
             </section>
 
-            <div className="add-pantry-item">
+            <div className="add-item">
               <Route path="/pantry_items" component={PantryItemFormContainer} />
             </div>
 
             {indexCategory.map((category, idx) => {
               return (
-                <div key={idx} className="pantry-category-section">
+                <div key={idx} className="index-category-section">
                   {category === "" ?
-                    <h3 className="pantry-category">Uncategorized</h3> :
-                    <h3 className="pantry-category">{category}</h3>
+                    <h3 className="index-category">Uncategorized</h3> :
+                    <h3 className="index-category">{category}</h3>
                   }
-                  <ul className="pantry-items">
+                  <ul className="items">
                     {this.props.pantryItems.map((item) => {
                       if (item.category === category) {
                         return ( <PantryIndexItem
@@ -62,7 +62,7 @@ class PantryIndex extends React.Component {
 
           <div className="reminders">
             <section>
-              <h2 className="pantry-title">Reminders</h2>
+              <h2 className="index-title">Reminders</h2>
             </section>
 
             <div>

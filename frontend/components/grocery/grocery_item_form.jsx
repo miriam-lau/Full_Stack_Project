@@ -106,8 +106,8 @@ class GroceryItemForm extends React.Component {
 
   render() {
     return (
-      <form className="grocery-form" onSubmit={this.handleSubmit}>
-        <div className="grocery-form-fields">
+      <form className="item-form" onSubmit={this.handleSubmit}>
+        <div className="item-form-fields">
           <TextField id="text-field-default"
             value={this.state.temp}
             underlineShow={false}
@@ -117,7 +117,7 @@ class GroceryItemForm extends React.Component {
             onChange={this.update("temp")}
           />
 
-          <select className="grocery-categories"
+          <select className="form-categories"
             onChange={this.update("category")}>
             <option selected="true" disabled="disabled">
                 Select a Category</option>

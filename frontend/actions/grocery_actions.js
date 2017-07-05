@@ -6,7 +6,8 @@ export const CREATE_GROCERY_ITEM = "CREATE_GROCERY_ITEM";
 export const UPDATE_GROCERY_ITEM = "UPDATE_GROCERY_ITEM";
 export const DELETE_GROCERY_ITEM  = "DELETE_GROCERY_ITEM";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const UPDATE_GROCERY_QUANTITY_DISPLAY = "UPDATE_GROCERY_QUANTITY_DISPLAY";
+export const UPDATE_GROCERY_QUANTITY_DISPLAY =
+    "UPDATE_GROCERY_QUANTITY_DISPLAY";
 
 const receiveAllGroceryItems = (groceryItems) => ({
   type: RECEIVE_ALL_GROCERY_ITEMS,
@@ -39,11 +40,12 @@ const receiveGroceryErrors = (errors) => ({
   errors
 });
 
-export const updateGroceryQuantityDisplay = (id, quantityDisplay) => dispatch => {
-  dispatch({
-    type: UPDATE_GROCERY_QUANTITY_DISPLAY,
-    id,
-    quantityDisplay
+export const updateGroceryQuantityDisplay = (id, quantityDisplay) =>
+  dispatch => {
+    dispatch({
+      type: UPDATE_GROCERY_QUANTITY_DISPLAY,
+      id,
+      quantityDisplay
   });
 };
 

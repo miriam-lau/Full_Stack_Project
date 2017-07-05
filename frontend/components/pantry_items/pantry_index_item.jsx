@@ -113,9 +113,7 @@ class PantryIndexItem extends React.Component {
     if (this.state.quantityError === "") {
       return null;
     }
-    return(
-      <div className="pantry-item-error">{ this.state.quantityError }</div>
-    );
+    return (<div className="item-error">{ this.state.quantityError }</div>);
   }
 
   showNameError() {
@@ -123,14 +121,9 @@ class PantryIndexItem extends React.Component {
       return null;
     }
     if (this.state.quantityError === "") {
-      return (
-        <div className="pantry-item-name-error-only">{ this.state.nameError }
-        </div>
-      );
+      return (<div className="item-name-error2">{ this.state.nameError }</div>);
     }
-    return (
-      <div className="pantry-item-name-error">{ this.state.nameError }</div>
-    );
+    return (<div className="item-name-error1">{ this.state.nameError }</div>);
   }
 
   render() {
@@ -138,7 +131,7 @@ class PantryIndexItem extends React.Component {
     return (
       <div>
         <div className="update-pantry-form-div">
-          <form className="update-pantry-form">
+          <form className="update-item-form">
             <TextField id="text-field-default"
               value={ pantryItem.currentQuantityDisplay }
               underlineFocusStyle={ underlineFocusStyle }
@@ -152,12 +145,12 @@ class PantryIndexItem extends React.Component {
               underlineFocusStyle={ underlineFocusStyle }
               underlineStyle={ underlineStyle }
               onChange={ this.update("name") }
-              style = { pantryItem.category === "" ?
-                  itemStyleCategory : itemStyleDefault }
+              style={pantryItem.category === "" ?
+                  itemStyleCategory : itemStyleDefault}
             />
 
             {pantryItem.category === "" ?
-              <select className="pantry-uncategorized"
+              <select className="uncategorized-items"
                   onChange={ this.update("category") }>
                 <option selected="true" disabled="disabled">
                   Select a Category
@@ -171,8 +164,8 @@ class PantryIndexItem extends React.Component {
           </form>
 
           <i className="material-icons trash-can"
-            style={styles}
-            onClick={ () => this.props.deletePantryItem(pantryItem.id) }>
+              style={styles}
+              onClick={ () => this.props.deletePantryItem(pantryItem.id) }>
             delete_forever
           </i>
         </div>

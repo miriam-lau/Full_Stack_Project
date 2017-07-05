@@ -1,45 +1,4 @@
-.grocery-wrapper {
-  display: flex;
-  width: 100%;
-  left: 180px;
-  min-height: 1200px;
-  padding-top: 10px;
-}
-
-.grocery-img {
-  position: absolute;
-  top: 78px;
-  left: 0;
-  min-width: 180px;
-  max-width: 180px;
-  min-height: 1210px;
-  max-height: 1210px;
-  height: 100%;
-  opacity: 0.5;
-  object-fit: cover;
-}
-
-.grocery-index {
-  width: 600px;
-  height: auto;
-  background-color: white;
-  margin: 0 0 0 10px;
-  border-radius: 5px;
-}
-
-.grocery-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  margin: 10px 0 20px 15px;
-}
-
-.add-grocery-item {
-  border: 1px solid #C0C0C0;
-  border-radius: 5px;
-  margin: 10px 15px 20px 15px;
-}
-
+// index component
 .grocery-purchases {
   width: 100%;
   height: auto;
@@ -51,134 +10,9 @@
   background-color: #BCBCF2;
 }
 
-.grocery-form {
-  width: 100%;
-}
-
-.grocery-form-fields {
-  display: flex;
-}
-
-#text-field-default {
-  width: 330px;
-}
-
-.grocery-category-section {
-  border-top: 1px solid #e5e5e5;
-  margin-bottom: 1px;
-}
-
 .purchased-grocery-category-section {
   border-top: 1px solid #333399;
   margin-bottom: 1px;
-}
-
-.grocery-category, .purchased-grocery-category {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  margin: 8px 15px 2px 15px;
-  padding: 3px 10px 3px 10px;
-  background-color: #E6E6FA;
-  border-radius: 3px;
-}
-
-.grocery-categories {
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 900;
-  color: #333399;
-  margin-right: 20px;
-}
-
-.grocery-uncategorized {
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 900;
-  color: #333399;
-  margin-right: 16px;
-}
-
-.grocery-items ul {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  padding-right: 20px;
-}
-
-.update-grocery-form-div {
-  display: flex;
-  margin-left: 20px;
-  margin-right: 70px;
-}
-
-.update-grocery-form {
-  display: flex;
-}
-
-.update-grocery-checkbox {
-  align-self: center;
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-}
-
-.grocery-button {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  width: 60px;
-  background-color: #E6E6FA;
-  color: white;
-  border-radius: 7px;
-  border: 1px solid #E6E6FA;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.5s;
-  margin-right: 10px;
-  height: 30px;
-  align-self: center;
-}
-
-.grocery-button:hover {
-  background-color: #E6E6FA;
-  color: black;
-  border: 1px solid #E6E6FA;
-  transition: 0.5s;
-}
-
-.grocery-button-add {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  width: 60px;
-  background-color: #E6E6FA;
-  color: white;
-  border-radius: 7px;
-  border: 1px solid #E6E6FA;
-  text-align: center;
-  transition: 0.5s;
-  margin-left: 30px;
-  height: 30px;
-}
-
-.grocery-button-add:hover {
-  background-color: #E6E6FA;
-  color: black;
-  cursor: pointer;
-  border: 1px solid #E6E6FA;
-  transition: 0.5s;
-}
-
-.grocery-item-error {
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  font-style: italic;
-  color: red;
-  margin-left: 20px;
-  margin-bottom: 3px;
 }
 
 .add-to-pantry-div {
@@ -215,4 +49,30 @@
   font-weight: 900;
   color: green;
   padding: 5px 0 15px 15px;
+}
+
+// index item component
+.update-grocery-form-div {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 70px;
+}
+
+.update-grocery-checkbox {
+  align-self: center;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+
+
+.grocery-item-error {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  color: red;
+  margin-left: 20px;
+  margin-bottom: 3px;
 }

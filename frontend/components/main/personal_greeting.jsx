@@ -4,16 +4,30 @@ import { Link } from "react-router-dom";
 import Conversion from "../conversion_chart/conversion";
 import Tutorial from "../tutorial/tutorial";
 import SearchFormContainer from "../search/search_form_container";
+import { Drawer } from "material-ui";
 
 class PersonalGreeting extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {openTutorial: false, openConversion: false};
     this.handleClick = this.handleClick.bind(this);
+    this.handleTutorial = this.handleTutorial.bind(this);
+    this.handleConversion = this.handleConversion.bind(this);
   }
 
   handleClick(event) {
     event.preventDefault();
     return this.props.signout().then(() => { this.props.history.push("/") });
+  }
+
+  handleTutorial(event) {
+    this.setState({openConversion: false,
+        openTutorial: !this.state.openTutorial});
+  }
+
+  handleConversion(event) {
+    this.setState({openTutorial: false,
+        openConversion: !this.state.openConversion});
   }
 
   render() {
@@ -30,8 +44,39 @@ class PersonalGreeting extends React.Component {
               { this.props.currentUser.username }!</h2>
           </section>
 
-          <section className="header2"><Tutorial /></section>
-          <section className="header2"><Conversion /></section>
+          <section className="header2">
+            <i className="fa fa-info-circle fa-lg" aria-hidden="true"
+                onClick={this.handleTutorial}></i>
+            {this.state.openTutorial ?
+              <Drawer
+                width={400}
+                containerStyle={{height: "calc(100% - 80px)", top: 80}}
+                openSecondary={true}>
+                  <div className="drawer-icon">
+                    <i className="material-icons closeX"
+                      onClick={this.handleTutorial}>close</i>
+                  </div>
+                  <Tutorial />
+              </Drawer> : ""
+            }
+          </section>
+
+          <section className="header2">
+            <i className="fa fa-calculator fa-lg" aria-hidden="true"
+                onClick={this.handleConversion}></i>
+            {this.state.openConversion ?
+              <Drawer
+                width={400}
+                containerStyle={{height: "calc(100% - 80px)", top: 80}}
+                openSecondary={true}>
+                  <div className="drawer-icon">
+                    <i className="material-icons closeX"
+                      onClick={this.handleConversion}>close</i>
+                  </div>
+                  <Conversion />
+              </Drawer> : ""
+            }
+          </section>
 
           <section className="header2">
             <button className="header-link"

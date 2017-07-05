@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Drawer, TextField } from "material-ui";
+import { TextField } from "material-ui";
 import { unitArray, liquid, dry, length, unitInfo } from "./units";
 
 const VALUE1 = "value1";
@@ -66,18 +66,12 @@ let lengthConversion = new Map([
 class Conversion extends React.Component {
   constructor(props) {
     super(props);
-    this.state={toggle: false, quantity: ""};
+    this.state= { quantity: ""};
     this.state[VALUE1] = unitArray[0];
     this.state[VALUE2] = unitArray[0];
 
-    this.handleToggle = this.handleToggle.bind(this);
     this.calculateResult = this.calculateResult.bind(this);
     this.unitType = this.unitType.bind(this);
-  }
-
-  handleToggle(event) {
-    event.preventDefault();
-    this.setState({toggle: !this.state.toggle});
   }
 
   update(property) {
@@ -144,70 +138,56 @@ class Conversion extends React.Component {
   render() {
     return (
       <div>
-        <i className="fa fa-calculator fa-lg" aria-hidden="true" onClick={this.handleToggle}></i>
+        <div className="drawer-text">Conversion Calculator</div>
+        <div className="converter">
+          <div className="conversion-div1">
+            <TextField className="enter-quantity" id="text-field-default"
+              defaultValue={ this.state.quantity }
+              hintText="Enter a Quantity"
+              hintStyle={hintTextStyle}
+              underlineShow ={false}
+              style={addItemTextBoxStyle}
+              autoComplete="off"
+              onChange={this.update("quantity")}
+            />
 
-        {this.state.toggle ? <Drawer width={400}
-          containerStyle={{height: "calc(100% - 80px)", top: 80}}
-          openSecondary={true}>
-
-          <div className="drawer-icon">
-            <i className="material-icons closeX"
-                onClick={this.handleToggle}>close</i>
-          </div>
-
-          <div className="drawer-text">Conversion Calculator</div>
-
-          <div className="converter">
-            <div className="conversion-div1">
-              <TextField className="enter-quantity" id="text-field-default"
-                defaultValue={ this.state.quantity }
-                hintText="Enter a Quantity"
-                hintStyle={hintTextStyle}
-                underlineShow ={false}
-                style={addItemTextBoxStyle}
-                autoComplete="off"
-                onChange={this.update("quantity")}
-              />
-
-              <div className="conversion-unit-selector">
-                <select className="conversion-select"
-                    onChange={this.update(VALUE1)}>
-                  {unitArray.map((unit, idx) => {
-                    return (
-                      <option key={idx} value={idx}>{unit}</option>
-                    )
-                  })};
-                </select>
-              </div>
-            </div>
-
-            <span className="conversion-text-to">TO</span>
-
-            <div className="conversion-div2">
-              <section className="conversion-text-result"> {this.calculateResult()} </section>
-
-              <div className="conversion-unit-selector">
-                <select className="conversion-select"
-                    onChange={this.update(VALUE2)}>
-                  {unitArray.map((unit, idx) => {
-                    return (
-                      <option key={idx} value={idx}>{unit}</option>
-                    )
-                  })};
-                </select>
-              </div>
+            <div className="conversion-unit-selector">
+              <select className="conversion-select"
+                  onChange={this.update(VALUE1)}>
+                {unitArray.map((unit, idx) => {
+                  return (
+                    <option key={idx} value={idx}>{unit}</option>
+                  )
+                })};
+              </select>
             </div>
           </div>
 
-          {unitInfo.map((unit, idx) => {
-            return (
-              <section key={idx} className="conversion">
-                <p><span className="conversion-topic">{unit[0]}: &nbsp;</span> {unit[1]}</p>
-              </section>
-            )
-          })}
+          <span className="conversion-text-to">TO</span>
 
-          </Drawer> : "" }
+          <div className="conversion-div2">
+            <section className="conversion-text-result"> {this.calculateResult()} </section>
+
+            <div className="conversion-unit-selector">
+              <select className="conversion-select"
+                  onChange={this.update(VALUE2)}>
+                {unitArray.map((unit, idx) => {
+                  return (
+                    <option key={idx} value={idx}>{unit}</option>
+                  )
+                })};
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {unitInfo.map((unit, idx) => {
+          return (
+            <section key={idx} className="conversion">
+              <p><span className="conversion-topic">{unit[0]}: &nbsp;</span> {unit[1]}</p>
+            </section>
+          )
+        })}
       </div>
     )
   }

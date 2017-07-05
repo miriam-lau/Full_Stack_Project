@@ -3,9 +3,9 @@ import React from "react";
 /*
 function checks to see if current item is already in pantryItems, and updates the item if it is found, and deletes the current item if it already exists.
 
-allItems = pantryItems array; id = number; item, category, convertedUnit = stirngs, quantity = float;
+@param: allItems{array} all pantryItems; id{integer} current item id; item{string} current item name, category{string} current item category, convertedUnit{string} current item category, quantity{float} current item quantity;
 
-returns true if update is successful, otherwise false.
+@return: boolean, true if update is successful, otherwise false.
 */
 const updatePantry = (allItems, id, item, category, convertedUnit, quantity,
     updatePantryItem, deletePantryItem) => {
@@ -65,6 +65,11 @@ const updatePantry = (allItems, id, item, category, convertedUnit, quantity,
 
     let pantryItem = {id: allItems[i].id, name: item, category: allItems[i].category, quantity: quantity, unit: convertedUnit, currentQuantityDisplay: currentQuantityDisplay};
     //if update is successful, delete current item, return true;
+
+    if (id === -1) {
+      updatePantryItem({pantry_item: pantryItem});
+      return true;
+    }
     updatePantryItem({pantry_item: pantryItem}).then(() =>
         deletePantryItem(id));
     return true;

@@ -122,7 +122,6 @@ class GroceryIndexItem extends React.Component {
       this.setState({[property]: e.target.value,
             currentQuantityDisplay: currentQuantityDisplay}, () => {
           const groceryItem = this.state;
-          console.log(this.state);
         this.props.updateGroceryItem({grocery_item: groceryItem});
       });
     }

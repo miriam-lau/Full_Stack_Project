@@ -29,9 +29,9 @@ const receiveUpdateGroceryItem = (groceryItem, currentQuantityDisplay) => ({
   currentQuantityDisplay
 });
 
-const receiveDeleteGroceryItem = (groceryItem) => ({
+const receiveDeleteGroceryItem = ({grocery_item_id}) => ({
   type: DELETE_GROCERY_ITEM,
-  groceryItem
+  groceryItemId: grocery_item_id
 });
 
 const receiveGroceryErrors = (errors) => ({
@@ -77,6 +77,6 @@ export const updateGroceryItem = (groceryItem) => dispatch => {
 
 export const deleteGroceryItem = (id) => dispatch => {
   return APIUtil.deleteGroceryItem(id)
-    .then(groceryItemRes => (dispatch(receiveDeleteGroceryItem(groceryItemRes)))
+    .then(groceryIdRes => (dispatch(receiveDeleteGroceryItem(groceryIdRes)))
   )
 };

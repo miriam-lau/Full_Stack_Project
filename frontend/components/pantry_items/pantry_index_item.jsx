@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
-import updatePantry from "./update_pantry";
-import { allMeasurements } from "../utils/measurements";
+import checkDuplicateItems from "../utils/check_duplicate_items";
+import parseUpdateQuantity from "../utils/parse_update_quantity";
+import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
 import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault,
@@ -13,55 +14,15 @@ class PantryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { quantityError: "", nameError: "" };
-
-    this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.showQuantityError = this.showQuantityError.bind(this);
     this.showNameError = this.showNameError.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
   }
 
-  parseUpdateQuantity(str) {
-    let words = str.split(" ");
-    let firstNum = /(^\d+(?:\.\d+)?)/;
-    let splitFirstWord = words.shift().split(firstNum);
-    if (splitFirstWord.length === 1) {
-      return { error: "Quantity must be a number" };
-    }
-
-    words = splitFirstWord.concat(words);
-    words = words.filter(function(el) {
-      return (el.trim() !== "");
-    });
-
-    let quantity = words.shift();
-    let unit = words[0];
-    let convertedUnit = null;
-
-    if (unit != null) {
-      if (unit[unit.length - 1] === ".") {
-        unit = unit.substring(0, unit.length - 1);
-      }
-      for (let i = 0; i < allMeasurements.length; i++) {
-        if (allMeasurements[i].includes(unit)) {
-          convertedUnit =
-              (quantity === "1" ?
-               allMeasurements[i][0] :
-               allMeasurements[i][1]);
-          break;
-        }
-      }
-    }
-
-    if (convertedUnit == null && unit != null) {
-      return { error: "Invalid unit" };
-    }
-    return { quantity: parseFloat(quantity), unit: convertedUnit };
-  }
-
   // TODO: write what function does
   handleQuantityChange() {
     return e => {
-      let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
+      let parsedUpdateQuantity = parseUpdateQuantity(e.target.value);
       if (parsedUpdateQuantity.error != null) {
         this.props.updateQuantityDisplay(this.props.pantryItem.id,
             e.target.value);
@@ -90,22 +51,45 @@ class PantryIndexItem extends React.Component {
 
       if (property === "category") {
         let pantryItem = this.props.pantryItem;
-        if (updatePantry(
-            this.props.pantryItems,
-            pantryItem.id,
-            pantryItem.name,
-            e.target.value,
-            pantryItem.unit,
-            parseFloat(pantryItem.quantity),
-            this.props.updatePantryItem,
-            this.props.deletePantryItem)) {
+        pantryItem.category = e.target.value;
+
+        // check for duplicate items
+        let duplicateItem = checkDuplicateItems(this.props.pantryItems,
+            pantryItem.id, pantryItem);
+
+        if (duplicateItem != null) {
+          let quantity = parseFloat(pantryItem.quantity) +
+              parseFloat(duplicateItem.quantity);
+          let itemUnit = singularizeUnit(duplicateItem.unit);
+
+          if (quantity > 1 && itemUnit !== "") {
+            itemUnit = pluralizeUnit(itemUnit);
+          }
+
+          // set the currentQuantityDisplay
+          let currentQuantityDisplay = quantity;
+          if (itemUnit !== "") {
+            currentQuantityDisplay += " " + itemUnit;
+          }
+
+          let updateDuplicateItem = {
+            id: duplicateItem.id,
+            name: duplicateItem.name,
+            category: duplicateItem.category,
+            quantity: quantity,
+            unit: itemUnit,
+            currentQuantityDisplay: currentQuantityDisplay
+          };
+
+          this.props.updatePantryItem({ pantry_item: updateDuplicateItem })
+              .then(() => this.props.deletePantryItem(pantryItem.id));
           return;
         }
       };
 
-      let newPantryItem = merge({}, this.props.pantryItem);
-      newPantryItem[property] = e.target.value;
-      this.props.updatePantryItem({ pantry_item: newPantryItem });
+      let updatePantryItem = merge({}, this.props.pantryItem);
+      updatePantryItem[property] = e.target.value;
+      this.props.updatePantryItem({ pantry_item: updatePantryItem });
     }
   }
 

@@ -1,6 +1,7 @@
 import React from "react";
 
-import updateGrocery from "./update_grocery";
+import checkDuplicateItems from "../utils/check_duplicate_items";
+import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -8,9 +9,7 @@ import { TextField } from "material-ui";
 
 function ErrorBanner(props) {
   if (props.shouldShow) {
-    return (
-      <div className="grocery-item-error">{ props.message }</div>
-    );
+    return (<div className="grocery-item-error">{ props.message }</div>);
   }
   return null;
 }
@@ -18,7 +17,7 @@ function ErrorBanner(props) {
 class GroceryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: "", name: "", quantity: 0, unit: "",
+    this.state = { id: -1, category: "", name: "", quantity: 0, unit: "",
       temp: "", errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
@@ -29,17 +28,22 @@ class GroceryItemForm extends React.Component {
     let firstNum = /(^\d+(?:\.\d+)?)/;
     let splitFirstWord = words.shift().split(firstNum);
     if (splitFirstWord.length === 1) {
-   	  return this.setState({errors: true});
+   	  this.setState({ errors: true });
+      return;
     }
 
     words = splitFirstWord.concat(words);
-    words = words.filter(function(entry) { return entry.trim() != ""; });
+    words = words.filter(function(entry) {
+      return (entry.trim() != "");
+    });
+
     let quantity = parseFloat(words.shift());
     let unit = words[0];
     let convertedUnit = null;
 
     if (unit == null || unit.length === 0) {
-     return this.setState({errors: true})
+     this.setState({ errors: true });
+     return;
     }
 
     if (unit[unit.length - 1] == ".") {
@@ -48,7 +52,10 @@ class GroceryItemForm extends React.Component {
 
     for (let i = 0; i < allMeasurements.length; i++) {
       if (allMeasurements[i].includes(unit)) {
-        convertedUnit = (quantity === 1 ? allMeasurements[i][0] : allMeasurements[i][1]);
+        convertedUnit =
+            (quantity === 1 ?
+             allMeasurements[i][0] :
+             allMeasurements[i][1]);
         break;
       }
     }
@@ -58,7 +65,8 @@ class GroceryItemForm extends React.Component {
     }
 
     if (words.length == 0) {
-     return this.setState({errors: true});
+     this.setState({ errors: true });
+     return;
     }
 
     if (convertedUnit === null) {
@@ -70,23 +78,43 @@ class GroceryItemForm extends React.Component {
     }
     let item = words.join(" ");
 
-    // cross-check with existing items to update if found
-    let id = -1;
-    let successful = updateGrocery(this.props.groceryItems, id, item,
-      this.state.category, convertedUnit, quantity, this.props.updateGroceryItem, this.props.deleteGroceryItem);
+    this.setState({ name: item, quantity: quantity, unit: convertedUnit },
+      () => {
+        let item = this.state;
 
-    if (successful) {
-      return true;
-    }
+        // cross-check with existing items to update if found
+        let duplicateItem = checkDuplicateItems(this.props.groceryItems,
+            item.id, item);
 
-    // add new item
-    this.setState({name: item, category: this.state.category, quantity: parseFloat(quantity), unit: convertedUnit, temp: "", errors: false}, () => {
-        const groceryItem = this.state
-        this.props.createGroceryItem({grocery_item: groceryItem})
-            .then(data => this.props.history.push(`/groceries/${data.id}`))
-        });
+        if (duplicateItem != null) {
+          let quantity = parseFloat(item.quantity) +
+              parseFloat(duplicateItem.quantity);
+          let itemUnit = singularizeUnit(duplicateItem.unit);
+          if (quantity > 1 && itemUnit !== "") {
+            itemUnit = pluralizeUnit(itemUnit);
+          }
 
-    return true;
+          let currentQuantityDisplay = quantity;
+          if (itemUnit !== "") {
+            currentQuantityDisplay += " " + itemUnit;
+          }
+
+          let updateDuplicateItem = {
+            id: duplicateItem.id,
+            name: duplicateItem.name,
+            category: duplicateItem.category,
+            quantity: quantity,
+            unit: itemUnit,
+            currentQuantityDisplay: currentQuantityDisplay
+          };
+
+          this.props.updateGroceryItem({ grocery_item: updateDuplicateItem });
+        } else {
+          // add new item
+          this.props.createGroceryItem({ grocery_item: item })
+              .then(data => this.props.history.push(`/groceries/${data.id}`))
+        }
+    });
   }
 
   handleSubmit(event) {
@@ -96,44 +124,40 @@ class GroceryItemForm extends React.Component {
 
   update (property) {
     return e => {
-      if (property === "category") {
-        this.setState({ [property]: e.target.value });
-      } else {
-        this.setState({ [property]: e.target.value });
-      }
+      this.setState({ [property]: e.target.value });
     }
   }
 
   render() {
     return (
-      <form className="item-form" onSubmit={this.handleSubmit}>
+      <form className="item-form" onSubmit={ this.handleSubmit }>
         <div className="item-form-fields">
           <TextField id="text-field-default"
-            value={this.state.temp}
-            underlineShow={false}
-            style={addItemStyle}
+            value={ this.state.temp }
+            underlineShow={ false }
+            style={ addItemStyle }
             hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
-            hintStyle={hintTextStyle}
-            onChange={this.update("temp")}
+            hintStyle={ hintTextStyle }
+            onChange={ this.update("temp") }
           />
 
           <select className="form-categories"
-            onChange={this.update("category")}>
+            onChange={ this.update("category") }>
             <option selected="true" disabled="disabled">
                 Select a Category</option>
             {formCategory.map((category, idx) => {
               return(
-                <option key={idx} value={category}>{category}</option>
+                <option key={ idx } value={ category }>{ category }</option>
               )
             })};
           </select>
 
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
-          onClick={this.handleSubmit}></i>
+          onClick={ this.handleSubmit }></i>
         </div>
 
-        <ErrorBanner shouldShow={this.state.errors}
-        message="Invalid entry. Entry must have 'quantity' and 'item name'" />
+        <ErrorBanner shouldShow={ this.state.errors }
+            message="Invalid entry. Entry must have 'quantity' and 'item name'" />
       </form>
     );
   }

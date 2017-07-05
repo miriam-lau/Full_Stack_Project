@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
-import updateGrocery from "./update_grocery";
-import { allMeasurements } from "../utils/measurements";
+import checkDuplicateItems from "../utils/check_duplicate_items";
+import parseUpdateQuantity from "../utils/parse_update_quantity";
+import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
 import { Checkbox, TextField } from "material-ui";
 import { formCategory } from "../utils/item_categories";
 import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
@@ -13,50 +14,10 @@ class GroceryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { quantityError: "", nameError: "" };
-
-    this.parseUpdateQuantity = this.parseUpdateQuantity.bind(this);
     this.showQuantityError = this.showQuantityError.bind(this);
     this.showNameError = this.showNameError.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-  }
-
-  parseUpdateQuantity(str) {
-    let words = str.split(" ");
-    let firstNum = /(^\d+(?:\.\d+)?)/;
-    let splitFirstWord = words.shift().split(firstNum);
-    if (splitFirstWord.length === 1) {
-      return { error: "Quantity must begin with a number" };
-    }
-
-    words = splitFirstWord.concat(words);
-    words = words.filter(function(el) {
-      return (el.trim() !== "");
-    });
-
-    let quantity = words.shift();
-    let unit = words[0];
-    let convertedUnit = null;
-
-    if (unit != null) {
-      if (unit[unit.length - 1] === ".") {
-        unit = unit.substring(0, unit.length - 1);
-      }
-      for (let i = 0; i < allMeasurements.length; i++) {
-        if (allMeasurements[i].includes(unit)) {
-            convertedUnit =
-                (quantity === "1" ?
-                 allMeasurements[i][0] :
-                 allMeasurements[i][1]);
-          break;
-        }
-      }
-    }
-
-    if (convertedUnit == null && unit != null) {
-      return { error: "Invalid unit" };
-    }
-    return { quantity: parseFloat(quantity), unit: convertedUnit };
   }
 
   handleCheck(event, checked) {
@@ -73,7 +34,7 @@ class GroceryIndexItem extends React.Component {
 
   handleQuantityChange() {
     return e => {
-      let parsedUpdateQuantity = this.parseUpdateQuantity(e.target.value);
+      let parsedUpdateQuantity = parseUpdateQuantity(e.target.value);
       if (parsedUpdateQuantity.error != null) {
         this.props.updateQuantityDisplay(this.props.groceryItem.id,
             e.target.value);
@@ -102,22 +63,45 @@ class GroceryIndexItem extends React.Component {
 
       if (property === "category") {
         let groceryItem = this.props.groceryItem;
-        if (updateGrocery(
-            this.props.groceryItems,
-            groceryItem.id,
-            groceryItem.name,
-            e.target.value,
-            groceryItem.unit,
-            parseFloat(groceryItem.quantity),
-            this.props.updateGroceryItem,
-            this.props.deleteGroceryItem)) {
+        groceryItem.category = e.target.value;
+
+        // check for duplicate items
+        let duplicateItem = checkDuplicateItems(this.props.groceryItems,
+            groceryItem.id, groceryItem);
+
+        if (duplicateItem != null) {
+          let quantity = parseFloat(groceryItem.quantity) +
+              parseFloat(duplicateItem.quantity);
+          let itemUnit = singularizeUnit(duplicateItem.unit);
+
+          if (quantity > 1 && itemUnit !== "") {
+            itemUnit = pluralizeUnit(itemUnit);
+          }
+
+          // set the currentQuantityDisplay
+          let currentQuantityDisplay = quantity;
+          if (itemUnit !== "") {
+            currentQuantityDisplay += " " + itemUnit;
+          }
+
+          let updateDuplicateItem = {
+            id: duplicateItem.id,
+            name: duplicateItem.name,
+            category: duplicateItem.category,
+            quantity: quantity,
+            unit: itemUnit,
+            currentQuantityDisplay: currentQuantityDisplay
+          };
+
+          this.props.updateGroceryItem({ grocery_item: updateDuplicateItem })
+              .then(() => this.props.deleteGroceryItem(groceryItem.id));
           return;
         }
       };
 
       let newGroceryItem = merge({}, this.props.groceryItem);
-      newGroceryItem[property] = e.target.value;
-      this.props.updateGroceryItem({ grocery_item: groceryItem });
+      updateGroceryItem[property] = e.target.value;
+      this.props.updateGroceryItem({ grocery_item: updateGroceryItem });
     }
   }
 

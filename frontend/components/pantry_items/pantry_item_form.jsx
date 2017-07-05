@@ -1,6 +1,7 @@
 import React from "react";
 
-import updatePantry from "./update_pantry";
+import checkDuplicateItems from "../utils/check_duplicate_items";
+import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -16,8 +17,8 @@ function ErrorBanner(props) {
 class PantryItemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { category: "", name: "", quantity: 0, unit: "", temp: "",
-        errors: false };
+    this.state = { id: -1, name: "", category: "", quantity: 0, unit: "",
+        temp: "", errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
   }
@@ -32,7 +33,10 @@ class PantryItemForm extends React.Component {
     }
 
     words = splitFirstWord.concat(words);
-    words = words.filter(function(entry) { return entry.trim() != ""; });
+    words = words.filter(function(entry) {
+      return (entry.trim() !== "");
+    });
+
     let quantity = parseFloat(words.shift());
     let unit = words[0];
     let convertedUnit = null;
@@ -72,30 +76,45 @@ class PantryItemForm extends React.Component {
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substring(1);
     }
-    let item = words.join(" ");
+    let name = words.join(" ");
 
-    // cross-check with existing items to update if found
-    let id = -1;
-    if (updatePantry(
-        this.props.pantryItems,
-        id,
-        item,
-        this.state.category,
-        convertedUnit,
-        quantity,
-        this.props.updatePantryItem,
-        this.props.deletePantryItem)) {
-      return
-    };
+    this.setState({ name: name, quantity: quantity, unit: convertedUnit },
+      () => {
+        let item = this.state;
 
-    // add new item
-    this.setState({ name: item, category: this.state.category, quantity:
-        parseFloat(quantity), unit: convertedUnit, temp: "", errors: false }, () => {
-          const pantryItem = this.state;
-          this.props.createPantryItem({ pantry_item: pantryItem }).then(
-              data => this.props.history.push(`/pantry_items/${data.id}`))
-          });
-    return;
+        // cross-check with existing items to update if found
+        let duplicateItem = checkDuplicateItems(this.props.pantryItems,
+            item.id, item);
+
+        if (duplicateItem != null) {
+          let quantity = parseFloat(item.quantity) +
+              parseFloat(duplicateItem.quantity);
+          let itemUnit = singularizeUnit(duplicateItem.unit);
+          if (quantity > 1 && itemUnit !== "") {
+            itemUnit = pluralizeUnit(itemUnit);
+          }
+
+          let currentQuantityDisplay = quantity;
+          if (itemUnit !== "") {
+            currentQuantityDisplay += " " + itemUnit;
+          }
+
+          let updateDuplicateItem = {
+            id: duplicateItem.id,
+            name: duplicateItem.name,
+            category: duplicateItem.category,
+            quantity: quantity,
+            unit: itemUnit,
+            currentQuantityDisplay: currentQuantityDisplay
+          };
+
+          this.props.updatePantryItem({ pantry_item: updateDuplicateItem });
+        } else {
+          // add new item
+          this.props.createPantryItem({ pantry_item: item })
+              .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+        }
+    });
   }
 
   handleSubmit(event) {

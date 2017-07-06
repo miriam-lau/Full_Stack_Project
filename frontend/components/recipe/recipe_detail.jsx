@@ -2,11 +2,14 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 
 import RecipeIndexContainer from "./recipe_index_container";
+import { FontIcon } from "material-ui/";
+import { styles } from "../utils/material_ui_styles";
 
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
     this.strSplit = this.strSplit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +27,10 @@ class RecipeDetail extends React.Component {
     return strArray;
   }
 
+  handleClick() {
+    console.log("hello");
+  }
+
   render() {
     const recipe_id = parseInt(this.props.match.params.id);
     const recipes = this.props.recipes;
@@ -35,9 +42,26 @@ class RecipeDetail extends React.Component {
       <div className="recipe-detail-wrapper">
         <div className="recipe-detail-nav-bar"></div>
         <div className="recipe-detail">
-          <br />
-          <Link className="recipe-link" to="/recipes">Back to Recipes</Link>
-          <Route exact path="/recipes" component={ RecipeIndexContainer } />
+          <div className="recipe-detail-options">
+            <section>
+              <Link className="recipe-link" to="/recipes">Back to Recipes</Link>
+              <Route exact path="/recipes" component={ RecipeIndexContainer } />
+            </section>
+
+            <section>
+              <i className="fa fa-pencil fa-lg" aria-hidden="true"
+                  onClick={ this.handleClick }>
+              </i>
+            </section>
+
+            <section>
+              <i className="material-icons trash-can"
+                  style={styles}
+                  onClick={ () => this.props.deletePantryItem(pantryItem.id) }>
+                delete_forever
+              </i>
+            </section>
+          </div>
 
           <section className="recipe-detail-info">
             <h2>{recipe.name}</h2>

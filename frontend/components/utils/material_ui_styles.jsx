@@ -42,7 +42,8 @@ export const itemStyleCategory = {
 
 export const styles = {
   "width": "30px",
-  "alignItems": "top"
+  "alignItems": "top",
+  "fontSize": "22px"
 }
 
 export const icon = {

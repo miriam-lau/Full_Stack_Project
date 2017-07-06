@@ -246,6 +246,15 @@
   transition: 0.5s;
 }
 
+.recipe-detail-options {
+  display: flex;
+  flex-direction: row;
+}
+
+.recipe-detail-options section {
+  padding: 10px 15px 0 0;
+}
+
 .recipe-link {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;

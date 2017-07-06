@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
-import checkDuplicateItems from "../utils/check_duplicate_items";
-import parseUpdateQuantity from "../utils/parse_update_quantity";
-import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
+import { findMatchingItem, parseUpdateQuantity, pluralizeUnit,
+    singularizeUnit } from "../utils/item_helpers";
 import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault,
@@ -19,25 +18,31 @@ class PantryIndexItem extends React.Component {
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
   }
 
-  // TODO: write what function does
+  /*
+   Handles quantity and unit changes and sets the state if there is an error, otherwise it updates the pantry item.
+  */
   handleQuantityChange() {
     return e => {
       let parsedUpdateQuantity = parseUpdateQuantity(e.target.value);
       if (parsedUpdateQuantity.error != null) {
-        this.props.updateQuantityDisplay(this.props.pantryItem.id,
-            e.target.value);
+        this.props.updateQuantityDisplay(
+            this.props.pantryItem.id, e.target.value);
         this.setState({ quantityError: parsedUpdateQuantity.error });
       } else {
-        this.setState({ quantityError: "" });
         let updatedPantryItem = merge({}, this.props.pantryItem);
         updatedPantryItem.currentQuantityDisplay = e.target.value;
         updatedPantryItem.quantity = parsedUpdateQuantity.quantity;
         updatedPantryItem.unit = parsedUpdateQuantity.unit;
         this.props.updatePantryItem({ pantry_item: updatedPantryItem });
+        this.setState({ quantityError: "" });
       }
     }
   }
 
+  /*
+    On changes to item fields, it will update the corresponding property, then either combine with a duplicate item (if found) or update the item.
+    @param {property} property of the item
+  */
   update(property) {
     return e => {
       if (property === "name") {
@@ -54,17 +59,16 @@ class PantryIndexItem extends React.Component {
         pantryItem.category = e.target.value;
 
         // check for duplicate items
-        let duplicateItem = checkDuplicateItems(this.props.pantryItems,
+        let duplicateItem = findMatchingItem(this.props.pantryItems,
             pantryItem.id, pantryItem);
 
         if (duplicateItem != null) {
           let quantity = parseFloat(pantryItem.quantity) +
               parseFloat(duplicateItem.quantity);
-          let itemUnit = singularizeUnit(duplicateItem.unit);
 
-          if (quantity > 1 && itemUnit !== "") {
-            itemUnit = pluralizeUnit(itemUnit);
-          }
+          let itemUnit = quantity > 1 ?
+              singularizeUnit(duplicateItem.unit) :
+              pluralizeUnit(duplicateItem.unit);
 
           // set the currentQuantityDisplay
           let currentQuantityDisplay = quantity;
@@ -93,6 +97,10 @@ class PantryIndexItem extends React.Component {
     }
   }
 
+  /*
+    Checks if there is a quantity error.
+    @return {string} error string or null
+  */
   showQuantityError() {
     if (this.state.quantityError === "") {
       return null;
@@ -100,6 +108,10 @@ class PantryIndexItem extends React.Component {
     return (<div className="item-error">{ this.state.quantityError }</div>);
   }
 
+  /*
+    Checks if there is a name error.
+    @return {string} error string or null
+  */
   showNameError() {
     if (this.state.nameError === "") {
       return null;

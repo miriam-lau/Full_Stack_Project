@@ -1,7 +1,7 @@
 import React from "react";
-import {Route, Link} from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
-import PantryIndexItem from "./pantry_index_item";
+import PantryIndexItemContainer from "./pantry_index_item_container";
 import PantryItemFormContainer from "./pantry_item_form_container";
 import { indexCategory } from "../utils/item_categories";
 
@@ -15,12 +15,12 @@ class PantryIndex extends React.Component {
   }
 
   render() {
-    const pantryItems = this.props.pantryItems;
     return (
       <div>
         <div className="wrapper">
           <div className="pantry-side-nav-bar">
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png" alt="side-bar-img-pantry" className="side-nav-img"/>
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png"
+                alt="side-bar-img-pantry" className="side-nav-img"/>
           </div>
 
           <div className="index">
@@ -29,28 +29,21 @@ class PantryIndex extends React.Component {
             </section>
 
             <div className="add-item">
-              <Route path="/pantry_items" component={PantryItemFormContainer} />
+              <PantryItemFormContainer />
             </div>
 
             {indexCategory.map((category, idx) => {
               return (
                 <div key={idx} className="index-category-section">
-                  {category === "" ?
-                    <h3 className="index-category">Uncategorized</h3> :
-                    <h3 className="index-category">{category}</h3>
-                  }
+                  <h3 className="index-category">{category === "" ?
+                      "Uncategorized" : category}
+                  </h3>
                   <ul className="items">
                     {this.props.pantryItems.map((item) => {
                       if (item.category === category) {
-                        return ( <PantryIndexItem
+                        return ( <PantryIndexItemContainer
                           key={item.id}
-                          pantryItem={item}
-                          pantryItems={this.props.pantryItems}
-                          requestPantryItem={this.props.requestPantryItem}
-                          deletePantryItem={this.props.deletePantryItem}
-                          updatePantryItem={this.props.updatePantryItem}
-                          updateQuantityDisplay=
-                              {this.props.updateQuantityDisplay} />
+                          pantryItem={item} />
                         )
                       }
                     })}

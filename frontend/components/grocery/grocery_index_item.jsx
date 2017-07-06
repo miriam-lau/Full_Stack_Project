@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
-import checkDuplicateItems from "../utils/check_duplicate_items";
-import parseUpdateQuantity from "../utils/parse_update_quantity";
-import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
+import { findMatchingItem, parseUpdateQuantity, pluralizeUnit,
+    singularizeUnit } from "../utils/item_helpers";
 import { Checkbox, TextField } from "material-ui";
 import { formCategory } from "../utils/item_categories";
 import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
@@ -66,7 +65,7 @@ class GroceryIndexItem extends React.Component {
         groceryItem.category = e.target.value;
 
         // check for duplicate items
-        let duplicateItem = checkDuplicateItems(this.props.groceryItems,
+        let duplicateItem = findMatchingItem(this.props.groceryItems,
             groceryItem.id, groceryItem);
 
         if (duplicateItem != null) {

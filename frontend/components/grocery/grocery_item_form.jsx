@@ -1,7 +1,7 @@
 import React from "react";
 
-import checkDuplicateItems from "../utils/check_duplicate_items";
-import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
+import { findMatchingItem, pluralizeUnit, singularizeUnit } from
+    "../utils/item_helpers";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -83,7 +83,7 @@ class GroceryItemForm extends React.Component {
         let item = this.state;
 
         // cross-check with existing items to update if found
-        let duplicateItem = checkDuplicateItems(this.props.groceryItems,
+        let duplicateItem = findMatchingItem(this.props.groceryItems,
             item.id, item);
 
         if (duplicateItem != null) {

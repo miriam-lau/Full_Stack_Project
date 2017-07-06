@@ -1,7 +1,7 @@
 import React from "react";
 
-import checkDuplicateItems from "../utils/check_duplicate_items";
-import { pluralizeUnit, singularizeUnit } from "../utils/set_unit";
+import { findMatchingItem, pluralizeUnit, singularizeUnit } from
+    "../utils/item_helpers";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -83,16 +83,16 @@ class PantryItemForm extends React.Component {
         let item = this.state;
 
         // cross-check with existing items to update if found
-        let duplicateItem = checkDuplicateItems(this.props.pantryItems,
+        let duplicateItem = findMatchingItem(this.props.pantryItems,
             item.id, item);
 
         if (duplicateItem != null) {
           let quantity = parseFloat(item.quantity) +
               parseFloat(duplicateItem.quantity);
-          let itemUnit = singularizeUnit(duplicateItem.unit);
-          if (quantity > 1 && itemUnit !== "") {
-            itemUnit = pluralizeUnit(itemUnit);
-          }
+
+          let itemUnit = quantity > 1 ?
+              singularizeUnit(duplicateItem.unit) :
+              pluralizeUnit(duplicateItem.unit);
 
           let currentQuantityDisplay = quantity;
           if (itemUnit !== "") {
@@ -112,7 +112,7 @@ class PantryItemForm extends React.Component {
         } else {
           // add new item
           this.props.createPantryItem({ pantry_item: item })
-              .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+              // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
         }
     });
   }

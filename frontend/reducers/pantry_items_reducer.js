@@ -1,7 +1,7 @@
-import merge from 'lodash/merge';
-import { RECEIVE_ALL_PANTRY_ITEMS, RECEIVE_PANTRY_ITEM,
-  CREATE_PANTRY_ITEM, UPDATE_PANTRY_ITEM, DELETE_PANTRY_ITEM,
-  RECEIVE_PANTRY_ERRORS, UPDATE_QUANTITY_DISPLAY } from '../actions/pantry_item_actions';
+import merge from "lodash/merge";
+import { RECEIVE_ALL_PANTRY_ITEMS, RECEIVE_PANTRY_ITEM, CREATE_PANTRY_ITEM,
+    UPDATE_PANTRY_ITEM, DELETE_PANTRY_ITEM, RECEIVE_PANTRY_ERRORS, UPDATE_QUANTITY_DISPLAY } from "../actions/pantry_item_actions";
+// import generateDisplayQuantity from "../components/utils/item_helpers";
 
 const noErrors = Object.freeze({
   errors: []
@@ -13,6 +13,7 @@ const pantryItemWithDisplayQuantity = (pantryItem) => {
     currentQuantityDisplay += " " + pantryItem.unit;
   }
   pantryItem.currentQuantityDisplay = currentQuantityDisplay;
+  // pantryItem.currentQuantityDisplay = generateDisplayQuantity(pantryItem);
   return pantryItem;
 }
 

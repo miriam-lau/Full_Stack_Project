@@ -92,6 +92,7 @@ class Conversion extends React.Component {
     if (length.includes(unit)) {
       return UnitTypeEnum.LENGTH;
     }
+    return null;
   }
 
   calculateResult() {

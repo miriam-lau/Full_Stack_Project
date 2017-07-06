@@ -34,7 +34,7 @@ class PantryIndex extends React.Component {
 
             {indexCategory.map((category, idx) => {
               return (
-                <div key={idx} className="index-category-section">
+                <div key={ idx } className="index-category-section">
                   <h3 className="index-category">{category === "" ?
                       "Uncategorized" : category}
                   </h3>
@@ -42,8 +42,8 @@ class PantryIndex extends React.Component {
                     {this.props.pantryItems.map((item) => {
                       if (item.category === category) {
                         return ( <PantryIndexItemContainer
-                          key={item.id}
-                          pantryItem={item} />
+                          key={ item.id }
+                          pantryItem={ item } />
                         )
                       }
                     })}

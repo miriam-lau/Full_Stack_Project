@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
-import { findMatchingItem, parseUpdateQuantity, pluralizeUnit,
-    singularizeUnit } from "../utils/item_helpers";
+import { findMatchingItem, generateDisplayQuantity, parseUpdateQuantity,
+    pluralizeUnit, singularizeUnit } from "../utils/item_helpers";
 import { formCategory } from "../utils/item_categories";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineStyle, underlineFocusStyle, quantityStyle, itemStyleDefault,
@@ -55,15 +55,15 @@ class PantryIndexItem extends React.Component {
       }
 
       if (property === "category") {
-        let pantryItem = this.props.pantryItem;
+        let item = this.props.pantryItem;
         pantryItem.category = e.target.value;
 
         // check for duplicate items
         let duplicateItem = findMatchingItem(this.props.pantryItems,
-            pantryItem.id, pantryItem);
+            item.id, item);
 
         if (duplicateItem != null) {
-          let quantity = parseFloat(pantryItem.quantity) +
+          let quantity = parseFloat(item.quantity) +
               parseFloat(duplicateItem.quantity);
 
           let itemUnit = quantity > 1 ?
@@ -71,10 +71,7 @@ class PantryIndexItem extends React.Component {
               pluralizeUnit(duplicateItem.unit);
 
           // set the currentQuantityDisplay
-          let currentQuantityDisplay = quantity;
-          if (itemUnit !== "") {
-            currentQuantityDisplay += " " + itemUnit;
-          }
+          let currentQuantityDisplay = generateDisplayQuantity(item);
 
           let updateDuplicateItem = {
             id: duplicateItem.id,
@@ -86,7 +83,7 @@ class PantryIndexItem extends React.Component {
           };
 
           this.props.updatePantryItem({ pantry_item: updateDuplicateItem })
-              .then(() => this.props.deletePantryItem(pantryItem.id));
+              .then(() => this.props.deletePantryItem(item.id));
           return;
         }
       };
@@ -166,7 +163,7 @@ class PantryIndexItem extends React.Component {
           </i>
         </div>
 
-        <div className="error-messages">
+        <div className="item-error-messages">
           { this.showQuantityError() }
           { this.showNameError() }
         </div>

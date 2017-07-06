@@ -1,7 +1,7 @@
 import React from "react";
 
-import { findMatchingItem, pluralizeUnit, singularizeUnit } from
-    "../utils/item_helpers";
+import { findMatchingItem, generateDisplayQuantity, pluralizeUnit,
+    singularizeUnit } from "../utils/item_helpers";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -9,7 +9,7 @@ import { TextField } from "material-ui";
 
 function ErrorBanner(props) {
   if (props.shouldShow) {
-    return (<div className="pantry-item-error">{ props.message }</div>);
+    return (<div className="add-item-error">{ props.message }</div>);
   }
   return null;
 }
@@ -94,10 +94,7 @@ class PantryItemForm extends React.Component {
               singularizeUnit(duplicateItem.unit) :
               pluralizeUnit(duplicateItem.unit);
 
-          let currentQuantityDisplay = quantity;
-          if (itemUnit !== "") {
-            currentQuantityDisplay += " " + itemUnit;
-          }
+          let currentQuantityDisplay = generateDisplayQuantity(item);
 
           let updateDuplicateItem = {
             id: duplicateItem.id,
@@ -111,8 +108,7 @@ class PantryItemForm extends React.Component {
           this.props.updatePantryItem({ pantry_item: updateDuplicateItem });
         } else {
           // add new item
-          this.props.createPantryItem({ pantry_item: item })
-              // .then(data => this.props.history.push(`/pantry_items/${data.id}`))
+          this.props.createPantryItem({ pantry_item: item });
         }
     });
   }

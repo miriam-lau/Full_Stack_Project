@@ -2,8 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import GroceryIndex from "./grocery_index";
-import { requestAllGroceryItems, requestGroceryItem, deleteGroceryItem,
-    updateGroceryItem, updateQuantityDisplay } from
+import { requestAllGroceryItems, deleteGroceryItem } from
     "../../actions/grocery_actions";
 import { requestAllPantryItems, createPantryItem, updatePantryItem } from
     "../../actions/pantry_item_actions";
@@ -18,11 +17,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllGroceryItems: () => dispatch(requestAllGroceryItems()),
-  requestGroceryItem: (id) => dispatch(requestGroceryItem(id)),
   deleteGroceryItem: (id) => dispatch(deleteGroceryItem(id)),
-  updateGroceryItem: (groceryItem) => dispatch(updateGroceryItem(groceryItem)),
-  updateQuantityDisplay: (id, quantityDisplay) =>
-      dispatch(updateQuantityDisplay(id, quantityDisplay)),
   requestAllPantryItems: () => dispatch(requestAllPantryItems()),
   createPantryItem: (pantryItem) => dispatch(createPantryItem(pantryItem)),
   updatePantryItem: (pantryItem) => dispatch(updatePantryItem(pantryItem))

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { findMatchingItem, pluralizeUnit, singularizeUnit } from
-    "../utils/item_helpers";
+import { findMatchingItem, generateDisplayQuantity, pluralizeUnit,
+    singularizeUnit } from "../utils/item_helpers";
 import { allMeasurements } from "../utils/measurements";
 import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
@@ -9,7 +9,7 @@ import { TextField } from "material-ui";
 
 function ErrorBanner(props) {
   if (props.shouldShow) {
-    return (<div className="grocery-item-error">{ props.message }</div>);
+    return (<div className="add-item-error">{ props.message }</div>);
   }
   return null;
 }
@@ -89,15 +89,12 @@ class GroceryItemForm extends React.Component {
         if (duplicateItem != null) {
           let quantity = parseFloat(item.quantity) +
               parseFloat(duplicateItem.quantity);
-          let itemUnit = singularizeUnit(duplicateItem.unit);
-          if (quantity > 1 && itemUnit !== "") {
-            itemUnit = pluralizeUnit(itemUnit);
-          }
 
-          let currentQuantityDisplay = quantity;
-          if (itemUnit !== "") {
-            currentQuantityDisplay += " " + itemUnit;
-          }
+          let itemUnit = quantity > 1 ?
+              singularizeUnit(duplicateItem.unit) :
+              pluralizeUnit(duplicateItem.unit);
+
+          let currentQuantityDisplay = generateDisplayQuantity(item);
 
           let updateDuplicateItem = {
             id: duplicateItem.id,
@@ -111,8 +108,7 @@ class GroceryItemForm extends React.Component {
           this.props.updateGroceryItem({ grocery_item: updateDuplicateItem });
         } else {
           // add new item
-          this.props.createGroceryItem({ grocery_item: item })
-              .then(data => this.props.history.push(`/groceries/${data.id}`))
+          this.props.createGroceryItem({ grocery_item: item });
         }
     });
   }

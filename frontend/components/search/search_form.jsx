@@ -10,8 +10,6 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {dataSource: [], name: ""};
-
-    this.searchResults = [];
     this.handleUpdateInput = this.handleUpdateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,10 +17,8 @@ class SearchForm extends React.Component {
   handleUpdateInput(inputValue) {
     this.setState({name: inputValue}, () => {
       const name = this.state.name
-      this.props.requestAllSearchItems({name})
-      .then((searchItems) => {
-        let searchResults = searchItems
-        let retrievedSearchTerms = searchResults.map(function(result) {
+      this.props.requestAllSearchItems({name}).then((searchItems) => {
+        let retrievedSearchTerms = searchItems.map(function(result) {
           return result.name;
         })
         this.setState({dataSource: retrievedSearchTerms});

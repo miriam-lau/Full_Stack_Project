@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 
-import { findMatchingItem, parseUpdateQuantity, pluralizeUnit,
-    singularizeUnit } from "../utils/item_helpers";
+import { findMatchingItem, generateDisplayQuantity, parseUpdateQuantity,
+    pluralizeUnit, singularizeUnit } from "../utils/item_helpers";
 import { Checkbox, TextField } from "material-ui";
 import { formCategory } from "../utils/item_categories";
 import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
@@ -22,33 +22,35 @@ class GroceryIndexItem extends React.Component {
   handleCheck(event, checked) {
     event.preventDefault();
     let groceryItem = this.props.groceryItem;
-    if (checked) {
-      groceryItem.purchased = true;
-      this.props.updateGroceryItem({ grocery_item: groceryItem });
-    } else {
-      groceryItem.purchased = false;
-      this.props.updateGroceryItem({ grocery_item: groceryItem });
-    }
+    groceryItem.purchased = checked ? true : false;
+    this.props.updateGroceryItem({ grocery_item: groceryItem });
   }
 
+  /*
+   Handles quantity and unit changes and sets the state if there is an error, otherwise it updates the pantry item.
+  */
   handleQuantityChange() {
     return e => {
       let parsedUpdateQuantity = parseUpdateQuantity(e.target.value);
       if (parsedUpdateQuantity.error != null) {
-        this.props.updateQuantityDisplay(this.props.groceryItem.id,
-            e.target.value);
+        this.props.updateGroceryQuantityDisplay(
+            this.props.groceryItem.id, e.target.value);
         this.setState({ quantityError: parsedUpdateQuantity.error });
       } else {
-        this.setState({ quantityError: "" });
         let updatedGroceryItem = merge({}, this.props.groceryItem);
         updatedGroceryItem.currentQuantityDisplay = e.target.value;
         updatedGroceryItem.quantity = parsedUpdateQuantity.quantity;
         updatedGroceryItem.unit = parsedUpdateQuantity.unit;
         this.props.updateGroceryItem({ grocery_item: updatedGroceryItem });
+        this.setState({ quantityError: "" });
       }
     }
   }
 
+  /*
+    On changes to item fields, it will update the corresponding property, then either combine with a duplicate item (if found) or update the item.
+    @param {property} property of the item
+  */
   update(property) {
     return e => {
       if (property === "name") {
@@ -61,27 +63,23 @@ class GroceryIndexItem extends React.Component {
       }
 
       if (property === "category") {
-        let groceryItem = this.props.groceryItem;
+        let item = this.props.groceryItem;
         groceryItem.category = e.target.value;
 
         // check for duplicate items
         let duplicateItem = findMatchingItem(this.props.groceryItems,
-            groceryItem.id, groceryItem);
+            item.id, item);
 
         if (duplicateItem != null) {
-          let quantity = parseFloat(groceryItem.quantity) +
+          let quantity = parseFloat(item.quantity) +
               parseFloat(duplicateItem.quantity);
-          let itemUnit = singularizeUnit(duplicateItem.unit);
 
-          if (quantity > 1 && itemUnit !== "") {
-            itemUnit = pluralizeUnit(itemUnit);
-          }
+          let itemUnit = quantity > 1 ?
+              singularizeUnit(duplicateItem.unit) :
+              pluralizeUnit(duplicateItem.unit);
 
           // set the currentQuantityDisplay
-          let currentQuantityDisplay = quantity;
-          if (itemUnit !== "") {
-            currentQuantityDisplay += " " + itemUnit;
-          }
+          let currentQuantityDisplay = generateDisplayQuantity(item);
 
           let updateDuplicateItem = {
             id: duplicateItem.id,
@@ -93,17 +91,21 @@ class GroceryIndexItem extends React.Component {
           };
 
           this.props.updateGroceryItem({ grocery_item: updateDuplicateItem })
-              .then(() => this.props.deleteGroceryItem(groceryItem.id));
+              .then(() => this.props.deleteGroceryItem(item.id));
           return;
         }
       };
 
-      let newGroceryItem = merge({}, this.props.groceryItem);
+      let updateGroceryItem = merge({}, this.props.groceryItem);
       updateGroceryItem[property] = e.target.value;
       this.props.updateGroceryItem({ grocery_item: updateGroceryItem });
     }
   }
 
+  /*
+    Checks if there is a quantity error.
+    @return {string} error string or null
+  */
   showQuantityError() {
     if (this.state.quantityError === "") {
       return null;
@@ -111,14 +113,17 @@ class GroceryIndexItem extends React.Component {
     return (<div className="item-error">{ this.state.quantityError }</div>);
   }
 
+  /*
+    Checks if there is a name error.
+    @return {string} error string or null
+  */
   showNameError() {
     if (this.state.nameError === "") {
       return null;
     }
-    if (this.state.quantityError === "") {
-      return (<div className="item-name-error2">{ this.state.nameError }</div>);
-    }
-    return (<div className="item-name-error1">{ this.state.nameError }</div>);
+    let errorClass = this.state.quantityError === "" ?
+        "item-name-error2" : "item-name-error1";
+    return (<div className={ errorClass }>{ this.state.nameError }</div>);
   }
 
   render() {
@@ -171,7 +176,7 @@ class GroceryIndexItem extends React.Component {
           </i>
         </div>
 
-        <div className="error-messages">
+        <div className="item-error-messages">
           { this.showQuantityError() }
           { this.showNameError() }
         </div>

@@ -6,8 +6,9 @@ import ModalFormContainer from "../modal/modal_container";
 import Carousel from "nuka-carousel";
 import Decorator from "./decorator";
 
-const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors}) => {
-  return(
+const sessionLinks = ({ modalOpen, openModal, signin, signup, errors,
+    clearErrors }) => {
+  return (
     <nav className="header-group">
       <div className="header">
         <h1 className="greeting">myPantry</h1>
@@ -15,14 +16,14 @@ const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors
 
       <div className="header">
         <div className="nav-link">
-          <button onClick={openModal("signin")}>Sign In</button>
+          <button onClick={ openModal("signin") }>Sign In</button>
         </div>
 
         <div className="nav-link">
-          <button onClick={openModal("signup")}>Create Account</button>
+          <button onClick={ openModal("signup") }>Create Account</button>
         </div>
 
-        <ModalFormContainer openModal={openModal} modalOpen={modalOpen} />
+        <ModalFormContainer openModal={ openModal } modalOpen={ modalOpen } />
       </div>
     </nav>
   )
@@ -31,21 +32,20 @@ const sessionLinks = ({modalOpen, openModal, signin, signup, errors, clearErrors
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "guest", password: "password", modalOpen: ""};
+    this.state = { username: "guest", password: "password", modalOpen: "" };
     this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   openModal(type) {
-    return () => this.setState({modalOpen: type});
+    return () => this.setState({ modalOpen: type });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    return this.props.receiveCurrentUser({user})
-      .then( () => { this.props.history.push("/pantry_items");
-    });
+    return this.props.receiveCurrentUser({ user })
+        .then(() => { this.props.history.push("/pantry_items") });
   }
 
   render() {
@@ -55,10 +55,11 @@ class Home extends React.Component {
 
     return (
       <div className="main-content">
-        {sessionLinks({modalOpen, openModal, signin, signup, errors, clearErrors})}
+        {sessionLinks({ modalOpen, openModal, signin, signup, errors,
+            clearErrors })}
 
-        <Carousel className="image" wrapAround={true} autoplay={true}
-          autoInterval={5000} decorators={Decorator}>
+        <Carousel className="image" wrapAround={ true } autoplay={ true }
+            autoInterval={ 5000 } decorators={ Decorator }>
 
           <div className="home-panels">
             <h2 className="home-titles1">myPantry</h2>
@@ -75,13 +76,13 @@ class Home extends React.Component {
           <div>
             <h2 className="home-titles">Make Grocery Lists</h2>
             <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg"
-             alt="splash-img"/>
+              alt="splash-img"/>
           </div>
 
           <div>
             <h2 className="home-titles">Save Recipes</h2>
             <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg"
-              alt="splash-img"/>
+                alt="splash-img"/>
           </div>
         </Carousel>
 
@@ -89,7 +90,8 @@ class Home extends React.Component {
           <section className="app-info">
             <section>
               <h3>Keep Track of Your Pantry</h3>
-              <p>Always know what you have in your pantry.  Check out the auto-update feature: after purchasing groceries, click a button and myPantry will combine duplicate items and add new items to your pantry from your Grocery page.</p>
+              <p>Always know what you have in your pantry.  Check out the
+              auto-update feature: after purchasing groceries, click a button and myPantry will combine duplicate items and add new items to your pantry from your Grocery page.</p>
             </section>
             <section>
               <h3>Make Grocery Lists</h3>
@@ -102,11 +104,14 @@ class Home extends React.Component {
           </section>
         </div>
 
-       <div>
-         <footer className="home-footer">
-           <div><i className="fa fa-copyright" aria-hidden="true"></i> 2017 myPantry. &nbsp; All rights reserved.</div>
-         </footer>
-       </div>
+        <div>
+          <footer className="home-footer">
+            <div>
+              <i className="fa fa-copyright" aria-hidden="true"></i>
+                  2017 myPantry. &nbsp; All rights reserved.
+            </div>
+          </footer>
+        </div>
 
       </div>
     )

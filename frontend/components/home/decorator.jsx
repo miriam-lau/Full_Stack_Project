@@ -6,12 +6,13 @@ const Decorator = [
       render() {
         return (
           <button
-            style={this.getButtonStyles(this.props.currentSlide === 0 && !this.props.wrapAround)} >
+              style={this.getButtonStyles(this.props.currentSlide === 0 && !this.props.wrapAround)}>
             <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1497910926/left_arrow_zijqiu.png"
-              id="left-button" onClick={this.handleClick} />
+                id="left-button" onClick={this.handleClick} />
           </button>
         );
       },
+
       handleClick(event) {
         event.preventDefault();
         this.props.previousSlide();
@@ -34,9 +35,9 @@ const Decorator = [
       render() {
         return (
           <button
-            style={this.getButtonStyles(this.props.currentSlide + this.props.slidesToScroll >= this.props.slideCount && !this.props.wrapAround)} >
+              style={this.getButtonStyles(this.props.currentSlide + this.props.slidesToScroll >= this.props.slideCount && !this.props.wrapAround)} >
             <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1497910923/right_arrow_amcxml.png"
-              id="right-button" onClick={this.handleClick} />
+                id="right-button" onClick={this.handleClick} />
           </button>
         );
       },
@@ -61,21 +62,21 @@ const Decorator = [
     component: React.createClass({
       render() {
         var self = this;
-        var indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
+        var indexes = this.getIndexes(self.props.slideCount,
+            self.props.slidesToScroll);
         return (
           <ul style={self.getListStyles()}>
-            {
-              indexes.map(function(index) {
-                return (
-                  <li style={self.getListItemStyles()} key={index}>
-                    <button
-                      style={self.getButtonStyles(self.props.currentSlide === index)}
+            {indexes.map(function(index) {
+              return (
+                <li style={self.getListItemStyles()} key={index}>
+                  <button
+                      style={self.getButtonStyles(
+                          self.props.currentSlide === index)}
                       onClick={self.props.goToSlide.bind(null, index)}>
-                      &bull;
-                    </button>
-                  </li>
-                )
-              })
+                    &bull;
+                  </button>
+                </li>
+              )})
             }
           </ul>
         );

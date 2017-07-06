@@ -78,6 +78,19 @@ export const findMatchingItem = (allItems, id, item) => {
 }
 
 /*
+  Creates item display of quantity and unit together.
+  @param {object} takes in an item object
+  @return {string} string of quantity and unit.
+*/
+export const generateDisplayQuantity = (item) => {
+  let currentQuantityDisplay = item.quantity;
+  if (item.unit != null) {
+    currentQuantityDisplay += " " + item.unit;
+  }
+  return currentQuantityDisplay;
+}
+
+/*
   Checks if combined quantity and unit string is valid, and updates changes to the new quantity and unit string.
 
   @param str {string} quantity and unit string

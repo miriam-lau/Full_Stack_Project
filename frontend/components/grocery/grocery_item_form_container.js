@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import GroceryItemForm from "./grocery_item_form";
-import { createGroceryItem, updateGroceryItem, updateQuantityDisplay,
+import { createGroceryItem, updateGroceryItem, updateGroceryQuantityDisplay,
     deleteGroceryItem } from "../../actions/grocery_actions";
 import { selectAllGroceryItems } from "../../reducers/selectors";
 
@@ -14,8 +14,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   createGroceryItem: (groceryItem) => dispatch(createGroceryItem(groceryItem)),
   updateGroceryItem: (groceryItem) => dispatch(updateGroceryItem(groceryItem)),
-  updateQuantityDisplay: (id, quantityDisplay) =>
-      dispatch(updateQuantityDisplay(id, quantityDisplay)),
+  updateGroceryQuantityDisplay: (id, quantityDisplay) =>
+      dispatch(updateGroceryQuantityDisplay(id, quantityDisplay)),
   deleteGroceryItem: (id) => dispatch(deleteGroceryItem(id))
 });
 

@@ -10,6 +10,6 @@ export const selectAllRecipes = ({ recipe }) => (
   Object.keys(recipe).map(id => recipe[id])
 );
 
-export const selectAllLists = ({ list }) => (
-  Object.keys(list).map(id => list[id])
+export const selectAllReminders = ({ reminder }) => (
+  Object.keys(reminder).map(id => reminder[id])
 );

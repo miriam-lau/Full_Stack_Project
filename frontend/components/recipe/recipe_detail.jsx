@@ -31,6 +31,10 @@ class RecipeDetail extends React.Component {
     console.log("hello");
   }
 
+  handleDateClick() {
+    console.log("hello1");
+  }
+
   render() {
     const recipe_id = parseInt(this.props.match.params.id);
     const recipes = this.props.recipes;
@@ -43,9 +47,15 @@ class RecipeDetail extends React.Component {
         <div className="recipe-detail-nav-bar"></div>
         <div className="recipe-detail">
           <div className="recipe-detail-options">
-            <section>
+            <section id="link-to-recipes">
               <Link className="recipe-link" to="/recipes">Back to Recipes</Link>
               <Route exact path="/recipes" component={ RecipeIndexContainer } />
+            </section>
+
+            <section>
+              <i className="fa fa-calendar fa-lg" aria-hidden="true"
+                  onClick={ this.handleDateClick }>
+              </i>
             </section>
 
             <section>
@@ -90,16 +100,16 @@ class RecipeDetail extends React.Component {
             <div className="recipe-detail-content2">
               <section className="ingredients">
                 <h3 className="recipe-detail-title">INGREDIENTS</h3>
-                <ul>{ this.strSplit(recipe.ingredients).map(line => {
-                  return (<li>{ line }</li>)
+                <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
+                  return (<li key={ idx }>{ line }</li>)
                 })}
                 </ul>
               </section>
 
               <section className="directions">
                 <h3 className="recipe-detail-title">DIRECTIONS</h3>
-                <ul>{ this.strSplit(recipe.directions).map(line => {
-                  return (<li>{ line }</li>)
+                <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
+                  return (<li key={ idx }>{ line }</li>)
                 })}
                 </ul>
               </section>

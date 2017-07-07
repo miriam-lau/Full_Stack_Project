@@ -269,21 +269,28 @@
   transition: 0.5s;
 }
 
+#link-to-recipes {
+  padding-top: 13px;
+}
+
 .recipe-link:hover {
   color: #333399;
   text-decoration: underline;
   transition: 0.5s;
 }
 
-.fa-pencil {
+.fa-pencil, .fa-calendar {
   cursor: pointer;
   padding: 5px;
-  margin-left: 15px;
   vertical-align: top;
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
-.fa-pencil:hover {
+.fa-calendar {
+  margin-left: 15px;
+}
+
+.fa-pencil:hover, .fa-calendar:hover {
   cursor: pointer;
   padding: 5px;
   color: white;
@@ -292,9 +299,18 @@
 }
 
 .trash-can-recipe {
-  border: 1px solid black;
-  padding: 1px 0 1px 0;
+  // border: 1px solid black;
+  padding: 2px 0 1px 0;
   text-align: center;
+  cursor: pointer;
+}
+
+.trash-can-recipe:hover {
+  // border: 1px solid black;
+  padding: 2px 0 1px 0;
+  text-align: center;
+  color: red;
+  cursor: pointer;
 }
 
 // recipe detail component

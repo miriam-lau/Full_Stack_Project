@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :pantry_items
   has_many :groceries
   has_many :recipes
-  has_many :lists
+  has_many :reminders
 
   def password=(password)
     @password = password

@@ -67,8 +67,8 @@ class PantryIndexItem extends React.Component {
               parseFloat(duplicateItem.quantity);
 
           let itemUnit = quantity > 1 ?
-              singularizeUnit(duplicateItem.unit) :
-              pluralizeUnit(duplicateItem.unit);
+              pluralizeUnit(duplicateItem.unit) :
+              singularizeUnit(duplicateItem.unit);
 
           // set the currentQuantityDisplay
           let currentQuantityDisplay = generateDisplayQuantity(item);

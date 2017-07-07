@@ -39,7 +39,7 @@ class RecipeDetail extends React.Component {
     if (!recipes) return null;
 
     return (
-      <div className="recipe-detail-wrapper">
+      <div className="recipe-wrapper">
         <div className="recipe-detail-nav-bar"></div>
         <div className="recipe-detail">
           <div className="recipe-detail-options">
@@ -55,9 +55,9 @@ class RecipeDetail extends React.Component {
             </section>
 
             <section>
-              <i className="material-icons trash-can"
+              <i className="material-icons trash-can-recipe"
                   style={styles}
-                  onClick={ () => this.props.deletePantryItem(pantryItem.id) }>
+                  onClick={ () => this.props.deletePantryItem(recipe.id) }>
                 delete_forever
               </i>
             </section>

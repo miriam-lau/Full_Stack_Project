@@ -1,4 +1,5 @@
-.recipe-wrapper, .recipe-detail-wrapper {
+// recipe index
+.recipe-wrapper {
   display: flex;
   width: 100%;
   height: 100%;
@@ -20,18 +21,6 @@
   object-fit: cover;
 }
 
-.recipe-form-nav-bar, .recipe-detail-nav-bar {
-  position: absolute;
-  top: 78px;
-  left: 0;
-  min-width: 180px;
-  max-width: 180px;
-  min-height: 1210px;
-  max-height: 1210px;
-  height: 100%;
-  background-color: #E6E6FA;
-}
-
 .recipe-list, .recipe-detail {
   min-width: 600px;
   max-width: 1200px;
@@ -50,6 +39,20 @@
   width: 100%;
 }
 
+// recipe form and detail component shared
+.recipe-form-nav-bar, .recipe-detail-nav-bar {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 1210px;
+  max-height: 1210px;
+  height: 100%;
+  background-color: #E6E6FA;
+}
+
+// recipe form
 .recipe-form {
   width: 900px;
   height: 1200px;
@@ -71,6 +74,7 @@
   font-weight: 900;
   padding: 10px 0 30px 15px;
 }
+
 
 .recipe-items, .recipe-form-input {
   font-family: 'Nunito', sans-serif;
@@ -271,6 +275,29 @@
   transition: 0.5s;
 }
 
+.fa-pencil {
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 15px;
+  vertical-align: top;
+  border: 1px solid black;
+}
+
+.fa-pencil:hover {
+  cursor: pointer;
+  padding: 5px;
+  color: white;
+  background-color: #333399;
+  border-radius: 3px;
+}
+
+.trash-can-recipe {
+  border: 1px solid black;
+  padding: 1px 0 1px 0;
+  text-align: center;
+}
+
+// recipe detail component
 .recipe-detail-info {
   margin: 30px 10px 0 15px;
   font-family: 'Nunito', sans-serif;
@@ -310,10 +337,12 @@
   border-radius: 5px;
 }
 
+//??
 #recipe-detail-img:hover {
   transform: scale(0.8);
 }
 
+// recipe detail
 .recipe-detail-content1 {
   margin: 10px 15px 10px 0;
 }

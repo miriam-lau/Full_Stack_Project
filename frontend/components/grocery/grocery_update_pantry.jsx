@@ -1,56 +1,37 @@
 import React from "react";
+import { generateDisplayQuantity, pluralizeUnit, singularizeUnit } from
+    "../utils/item_helpers";
 
-const groceryUpdatePantry = (pantryItems, id, groceryItem,
+const groceryUpdatePantry = (pantryItems, id, item,
   createPantryItem, updatePantryItem, deleteGroceryItem) => {
+    let quantity = parseFloat(item.quantity);
+    let groceryUnit = singularizeUnit(item.unit);
 
-    let groceryUnit = groceryItem.unit;
-    let quantity = parseFloat(groceryItem.quantity);
-
-    for (var i = 0; i < pantryItems.length; i++) {
-      if (pantryItems[i].category !== groceryItem.category ||
-          pantryItems[i].name !== groceryItem.name) {
+    for (let i = 0; i < pantryItems.length; i++) {
+      if (pantryItems[i].category !== item.category ||
+          pantryItems[i].name !== item.name) {
         continue;
       }
 
-      let itemUnit = pantryItems[i].unit;
-      if (itemUnit === "inch" || itemUnit === "inches") {
-        itemUnit = "inch";
-      } else if (itemUnit === "foot" || itemUnit === "feet") {
-        itemUnit = "foot";
-      } else if (itemUnit.charAt(itemUnit.length - 1) === "s") {
-        itemUnit = itemUnit.substring(0, (itemUnit.length - 1));
-      }
-
-      if (groceryUnit === "inch" || groceryUnit === "inches") {
-        groceryUnit = "inch";
-      } else if (groceryUnit === "foot" || groceryUnit === "feet") {
-        groceryUnit = "foot";
-      } else if (groceryUnit.charAt(groceryUnit.length - 1) === "s") {
-        groceryUnit = groceryUnit.substring(0, (groceryUnit.length - 1));
-      }
-
+      let itemUnit = singularizeUnit(pantryItems[i].unit);
       if (groceryUnit !== itemUnit) {
         continue;
-      } else {
-        quantity += parseFloat(pantryItems[i].quantity);
       }
 
-      if (quantity > 1 && groceryUnit !== "") {
-        if (groceryUnit === "inch") {
-          groceryUnit = "inches";
-        } else if (groceryUnit === "foot") {
-          groceryUnit = "feet";
-        } else {
-          groceryUnit += "s";
-        }
+      quantity += parseFloat(pantryItems[i].quantity);
+      if (quantity > 1) {
+        itemUnit = pluralizeUnit(itemUnit);
       }
+
+      let currentQuantityDisplay = generateDisplayQuantity(item);
 
       let pantryItem = {
           id: pantryItems[i].id,
           name: pantryItems[i].name,
           category: pantryItems[i].category,
           quantity: quantity,
-          unit: groceryUnit
+          unit: itemUnit,
+          currentQuantityDisplay: currentQuantityDisplay
       };
 
       updatePantryItem({ pantry_item: pantryItem })
@@ -60,10 +41,10 @@ const groceryUpdatePantry = (pantryItems, id, groceryItem,
 
     // add new item to pantry
     let newPantryItem = {
-        name: groceryItem.name,
-        quantity: groceryItem.quantity,
-        category: groceryItem.category,
-        unit: groceryItem.unit
+        name: item.name,
+        quantity: item.quantity,
+        category: item.category,
+        unit: item.unit
     };
 
     createPantryItem({ pantry_item: newPantryItem})

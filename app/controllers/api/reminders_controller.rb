@@ -35,6 +35,6 @@ class Api::RemindersController < ApplicationController
   private
 
   def reminder_params
-    params.require(:reminder).permit(:name)
+    params.require(:reminder).permit(:name, :due_date)
   end
 end

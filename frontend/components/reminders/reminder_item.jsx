@@ -1,6 +1,6 @@
 import React from "react";
 
-class ReminderForm extends React.Component {
+class ReminderItem extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -8,10 +8,10 @@ class ReminderForm extends React.Component {
   render() {
     return (
       <div>
-        In Reminder Form.
+        In reminder items
       </div>
     );
   }
 }
 
-export default ReminderForm;
+export default ReminderItem;

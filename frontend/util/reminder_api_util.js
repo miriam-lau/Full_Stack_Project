@@ -12,19 +12,19 @@ export const fetchReminder = (id) => {
   });
 };
 
-export const createReminder = (list) => {
+export const createReminder = (reminder) => {
   return $.ajax({
     method: "POST",
     url: "api/reminders",
-    data: list
+    data: reminder
   });
 };
 
-export const updateReminder = (list) => {
+export const updateReminder = (reminder) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/reminders/${list.list.id}`,
-    data: list
+    url: `/api/reminders/${reminder.reminder.id}`,
+    data: reminder
   });
 }
 

@@ -36,16 +36,6 @@ class ReminderIndex extends React.Component {
           return (
             <div key={ idx } className="purchased-grocery-category-section">
               <h3 className="index-category reminder-index-category">{category}</h3>
-              <ul className="items reminder-items">
-                {this.props.reminders.map((reminder) => {
-                  if (checkDate(item) === true) {
-                    return ( <ReminderItemContainer
-                      key={ reminder.id }
-                      reminder={ reminder } />
-                    )
-                  }
-                })}
-              </ul>
             </div>
           )
         })}
@@ -55,3 +45,14 @@ class ReminderIndex extends React.Component {
 }
 
 export default ReminderIndex;
+
+// <ul className="items reminder-items">
+// {this.props.reminders.map((reminder) => {
+//   if (checkDate(item) === true) {
+//     return ( <ReminderItemContainer
+//       key={ reminder.id }
+//       reminder={ reminder } />
+//     )
+//   }
+// })}
+// </ul>

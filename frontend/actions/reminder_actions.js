@@ -39,7 +39,7 @@ const receiveReminderErrors = (errors) => ({
 
 export const requestAllReminders = () => dispatch => {
   return APIUtil.fetchAllReminders()
-    .then(RemindersRes =>(dispatch(receiveAllReminders(RemindersRes)))
+    .then(remindersRes =>(dispatch(receiveAllReminders(remindersRes)))
   )
 };
 

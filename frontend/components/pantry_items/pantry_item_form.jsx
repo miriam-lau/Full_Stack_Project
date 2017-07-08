@@ -147,10 +147,12 @@ class PantryItemForm extends React.Component {
               )
             })};
           </select>
-
-          <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
-              onClick={ this.handleSubmit }>
-          </i>
+          
+          <div className="plus-circle">
+            <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
+                onClick={ this.handleSubmit }>
+            </i>
+          </div>
         </div>
 
         <ErrorBanner shouldShow={ this.state.errors }

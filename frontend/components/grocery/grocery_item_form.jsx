@@ -118,7 +118,7 @@ class GroceryItemForm extends React.Component {
     this.parseAddItem(this.state.temp);
   }
 
-  update (property) {
+  update(property) {
     return e => {
       this.setState({ [property]: e.target.value });
     }
@@ -148,8 +148,11 @@ class GroceryItemForm extends React.Component {
             })};
           </select>
 
-          <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
-          onClick={ this.handleSubmit }></i>
+          <div className="plus-circle">
+            <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
+                onClick={ this.handleSubmit }>
+            </i>
+          </div>
         </div>
 
         <ErrorBanner shouldShow={ this.state.errors }

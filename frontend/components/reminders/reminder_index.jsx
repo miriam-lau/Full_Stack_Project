@@ -35,7 +35,9 @@ class ReminderIndex extends React.Component {
         {reminderCategory.map((category, idx) => {
           return (
             <div key={ idx } className="purchased-grocery-category-section">
-              <h3 className="index-category reminder-index-category">{category}</h3>
+              <h3 className="index-category reminder-index-category">
+                { category }
+              </h3>
             </div>
           )
         })}

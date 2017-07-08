@@ -144,60 +144,19 @@
   cursor: pointer;
 }
 
+.plus-circle {
+  margin-right: 15px;
+  padding: 6px 0 5px 0;
+}
+
 .fa-plus-circle {
   align-self: center;
+  transition: 0.5s;
 }
 
 .fa-plus-circle:hover {
   align-self: center;
+  transition: 0.25s;
   transform: scale(1.5);
   cursor: pointer;
 }
-
-// .pantry-button {
-//   font-family: 'Nunito', sans-serif;
-//   font-size: 14px;
-//   font-weight: bold;
-//   width: 60px;
-//   background-color: #E6E6FA;
-//   color: white;
-//   border-radius: 7px;
-//   border: 1px solid #E6E6FA;
-//   text-align: center;
-//   cursor: pointer;
-//   transition: 0.5s;
-//   margin-right: 10px;
-//   height: 30px;
-//   align-self: center;
-// }
-//
-// .pantry-button:hover {
-//   background-color: #E6E6FA;
-//   color: black;
-//   border: 1px solid #E6E6FA;
-//   transition: 0.5s;
-// }
-//
-// .pantry-button-add {
-//   font-family: 'Nunito', sans-serif;
-//   font-size: 14px;
-//   font-weight: bold;
-//   width: 60px;
-//   background-color: #E6E6FA;
-//   color: white;
-//   border-radius: 7px;
-//   border: 1px solid #E6E6FA;
-//   text-align: center;
-//   cursor: pointer;
-//   transition: 0.5s;
-//   margin-left: 30px;
-//   height: 30px;
-// }
-//
-// .pantry-button-add:hover {
-//   background-color: #E6E6FA;
-//   color: black;
-//   cursor: pointer;
-//   border: 1px solid #E6E6FA;
-//   transition: 0.5s;
-// }

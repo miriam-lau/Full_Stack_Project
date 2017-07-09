@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :pantry_items, except: [:new, :show, :edit]
     resources :groceries, except: [:new, :show, :edit]
-    resources :recipes, except: [:new, :show, :edit]
+    resources :recipes, except: [:new, :edit]
     resources :reminders, except: [:new, :show, :edit]
     get "/search", to: "search#search"
   end

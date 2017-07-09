@@ -16,6 +16,10 @@ class Api::RecipesController < ApplicationController
     end
   end
 
+  def show
+    @recipe = current_user.recipes.find(params[:id])
+  end
+
   def update
     @recipe = current_user.recipes.find(params[:id])
     if @recipe.update_attributes(recipe_params)

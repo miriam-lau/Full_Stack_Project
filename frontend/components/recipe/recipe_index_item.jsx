@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import RecipeDetailContainer from "./recipe_detail_container";
 import { GridTile } from "material-ui";
 import IconButton from "material-ui/IconButton";
 

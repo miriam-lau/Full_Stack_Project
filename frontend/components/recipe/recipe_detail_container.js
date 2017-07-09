@@ -2,14 +2,15 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import RecipeDetail from "./recipe_detail";
-import { requestRecipe } from "../../actions/recipe_actions";
+import { requestRecipe, deleteRecipe } from "../../actions/recipe_actions";
 
 const mapStateToProps = (state) => ({
-  recipes: state.recipe
+  recipe: state.recipe
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestRecipe: id => dispatch(requestRecipe(id))
+  requestRecipe: (id) => dispatch(requestRecipe(id)),
+  deleteRecipe: (id) => dispatch(deleteRecipe(id))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecipeDetail));

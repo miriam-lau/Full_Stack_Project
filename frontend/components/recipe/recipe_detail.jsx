@@ -9,7 +9,8 @@ class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
     this.strSplit = this.strSplit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleDateClick = this.handleDatetClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class RecipeDetail extends React.Component {
     return strArray;
   }
 
-  handleClick() {
+  handleEditClick() {
     console.log("hello");
   }
 
@@ -37,10 +38,10 @@ class RecipeDetail extends React.Component {
 
   render() {
     const recipe_id = parseInt(this.props.match.params.id);
-    const recipes = this.props.recipes;
+    const recipe = this.props.recipe;
     // if type recipes.recipe_id it will become a string literal, need index
-    const recipe = recipes[recipe_id];
-    if (!recipes) return null;
+    // const recipe = recipes[recipe_id];
+    if (!recipe) return null;
 
     return (
       <div className="recipe-wrapper">
@@ -60,14 +61,14 @@ class RecipeDetail extends React.Component {
 
             <section>
               <i className="fa fa-pencil fa-lg" aria-hidden="true"
-                  onClick={ this.handleClick }>
+                  onClick={ this.handleEditClick }>
               </i>
             </section>
 
             <section>
               <i className="material-icons trash-can-recipe"
                   style={styles}
-                  onClick={ () => this.props.deletePantryItem(recipe.id) }>
+                  onClick={ () => this.props.deleteRecipe(recipe.id) }>
                 delete_forever
               </i>
             </section>

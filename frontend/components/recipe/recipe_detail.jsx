@@ -91,31 +91,34 @@ class RecipeDetail extends React.Component {
                   </figure>
 
                   <section className="recipe-detail-content1">
-                    <div>
-                      <span className="recipe-detail-title">SERVINGS: </span> <span>{recipe.serving}</span>
+                    <div className="recipe-1">
+                      <div className="recipe-detail-title">SERVINGS: </div> <div className="recipe-text">{recipe.serving}</div>
                     </div>
 
-                    <div>
-                      <span className="recipe-detail-title">RATING: </span> <span>{recipe.rating}</span>
+                    <div className="recipe-1">
+                      <div className="recipe-detail-title">RATING: </div>
+                      <div className="recipe-text">{recipe.rating}</div>
                     </div>
 
-                    <div>
-                      <h3 className="recipe-detail-title">DESCRIPTION</h3>
-                      {recipe.description}
-                    </div>
-
-                    <div>
-                      <span  className="recipe-detail-title">WEBSITE: </span>
+                    <div className="recipe-1">
+                      <div  className="recipe-detail-title">WEBSITE: </div>
                       <a href={recipe.link}
                           className="recipe-detail-link">{recipe.link}
                       </a>
+                    </div>
+
+                    <div>
+                      <h3 className="recipe-detail-title2">DESCRIPTION</h3>
+                      <div className="recipe-text">
+                          {recipe.description}
+                      </div>
                     </div>
                   </section>
                 </div>
 
                 <div className="recipe-detail-content2">
                   <section className="ingredients">
-                    <h3 className="recipe-detail-title">INGREDIENTS</h3>
+                    <h3 className="recipe-detail-title2">INGREDIENTS</h3>
                     <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
                       return (<li key={ idx }>{ line }</li>)
                     })}
@@ -123,7 +126,7 @@ class RecipeDetail extends React.Component {
                   </section>
 
                   <section className="directions">
-                    <h3 className="recipe-detail-title">DIRECTIONS</h3>
+                    <h3 className="recipe-detail-title2">DIRECTIONS</h3>
                     <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
                       return (<li key={ idx }>{ line }</li>)
                     })}
@@ -133,8 +136,8 @@ class RecipeDetail extends React.Component {
                 </div>
 
                 <section>
-                  <h3 className="recipe-detail-title">NOTES</h3>
-                  <div> className="recipe-detail-last-section">{recipe.notes}
+                  <h3 className="recipe-detail-title2">NOTES</h3>
+                  <div className="recipe-detail-last-section">{recipe.notes}
                   </div>
                 </section>
               </section>

@@ -323,11 +323,12 @@
   font-weight: bold;
 }
 
-.recipe-detail-info > h2, .recipe-detail-info-h2 {
+.recipe-detail-info > h2 {
   font-family: 'Nunito', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: #333399;
+  margin-bottom: 15px;
 }
 
 .recipe-detail-info > ul > li {
@@ -339,69 +340,83 @@
   justify-content: flex-start;
 }
 
-.recipe-detail-img {
-  width: 350px;
-  max-height: 250px;
-  min-height: 250px;
-  // object-fit: cover;
-  // border-radius: 5px;
-  margin: 10px 10px 20px 0;
-}
-
-.recipe-detail-img > img {
-  width: 350px;
-  max-height: 250px;
-  min-height: 250px;
+// recipe index item component
+#recipe-detail-img {
+  width: 270px;
+  max-height: 190px;
+  min-height: 190px;
   object-fit: cover;
   border-radius: 5px;
+  margin: 10px 10px 20px 0;
+  transition: 0.5s;
 }
 
-//??
 #recipe-detail-img:hover {
   transform: scale(0.8);
+  transition: 0.5s;
 }
 
 // recipe detail
+.recipe-detail-img {
+  min-width: 350px;
+  max-width: 350px;
+}
+
+.recipe-detail-img > img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
 .recipe-detail-content1 {
-  margin: 10px 15px 10px 0;
+  margin: 10px 15px 10px 30px;
+}
+
+.recipe-1 {
+  display: flex;
 }
 
 .recipe-detail-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
+  margin-bottom: 25px;
+  min-width: 100px;
   color: #333399;
-  margin-bottom: 5px;
 }
 
-.recipe-detail-content1 > h3 {
-  margin-left: 15px;
+.recipe-detail-title2 {
+  font-size: 16px;
+  font-weight: 900;
+  margin: 15px 0 10px 0;
+  min-width: 100px;
+  color: #333399;
 }
 
-.recipe-detail-content1 > div {
-  font-size: 15px;
-  margin: 0 0 20px 15px;
+.recipe-text {
+  font-size: 14px;
 }
 
 .recipe-detail-content2 {
   display: flex;
   justify-content: flex-start;
+  margin-top: 10px;
 }
 
 .ingredients {
-  max-width: 325px;
-  min-width: 325px;
-  margin-right: 45px;
-  font-size: 15px;
+  max-width: 350px;
+  min-width: 350px;
+  margin-right: 30px;
   margin-bottom: 20px;
 }
 
 .recipe-detail-content2 > section > ul > li {
   margin-bottom: 15px;
   padding-right: 15px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .recipe-detail-link {
+  font-size: 14px;
   color: blue;
 }
 
@@ -421,14 +436,14 @@
 
 .update-recipe-name {
   font-family: 'Nunito', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: #333399;
   border-radius: 3px;
   border: 1px solid #333399;
   background-color: white;
   padding: 5px 0 5px 10px;
-  margin-top: 15px;
+  margin: 15px 0 15px 0;
   width: 859px;
 }
 
@@ -437,20 +452,24 @@
   justify-content: flex-start;
 }
 
+.update-recipe-content1 {
+  margin: 10px 15px 10px 30px;
+}
+
 .update-recipe-1 {
   display: flex;
 }
 
 .update-recipe-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
   margin-bottom: 5px;
-  min-width: 90px;
+  min-width: 100px;
   padding-top: 6px;
 }
 
 .update-description-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
   min-width: 90px;
   padding-top: 6px;
@@ -458,8 +477,9 @@
 }
 
 .update-input-field {
-  margin-left: 10px;
-  width: 391px;
+  margin: 0 0 20px 10px;
+  width: 367px;
+  color: #333399;
   border-radius: 3px;
   border: 1px solid #333399;
   background-color: white;
@@ -467,7 +487,8 @@
 
 .update-input-website {
   margin-left: 10px;
-  width: 381px;
+  width: 357px;
+  color: #333399;
   border: 1px solid #333399;
   border-radius: 3px;
   padding: 5px 10px 5px 10px;
@@ -475,22 +496,64 @@
 }
 
 .update-input-textarea {
-  width: 481px;
+  width: 467px;
+  color: #333399;
   border: 1px solid #333399;
   border-radius: 3px;
   padding: 5px 10px 5px 10px;
   background-color: white;
 }
 
-.update-upload-img {
+.update-recipe-img {
   margin-top: 10px;
   min-width: 350px;
-  max-height: 290px;
-  min-height: 290px;
+  max-height: 273px;
+  min-height: 273px;
   object-fit: cover;
   border-radius: 3px;
   border: 1px solid #333399;
   background-color: white;
+}
+
+.update-recipe-img > figure {
+  text-align: center;
+  min-width: 320px;
+  max-width: 320px;
+  max-height: 243px;
+  min-height: 243px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px dashed #333399;
+  background-color: #E6E6FA;
+  margin: 15px 0 0 15px;
+}
+
+.update-recipe-img > figure > div {
+  position: absolute;
+  top: 280px;
+  left: 320px;
+  color: #333399;
+  background-color: white;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.current-recipe-img {
+  margin: 8px 0 0 0;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.current-recipe-img:hover {
+  margin: 8px 0 0 0;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.25s;
+  opacity: 0;
 }
 
 .update-recipe-2 {
@@ -499,15 +562,24 @@
 }
 
 .update-title2 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
   min-width: 90px;
   padding-top: 6px;
-  margin: 0 0 5px 0;
+  margin: 10px 0 5px 0;
+}
+
+.update-directions-title {
+  font-size: 16px;
+  font-weight: 900;
+  min-width: 90px;
+  padding-top: 6px;
+  margin: 0 0 5px 30px;
 }
 
 .update-input-ingredients {
   width: 330px;
+  color: #333399;
   border: 1px solid #333399;
   border-radius: 3px;
   padding: 5px 10px 5px 10px;
@@ -515,11 +587,12 @@
 }
 
 .update-directions-div {
-  margin-left: 15px;
+  margin-left: 30px;
 }
 
 .update-input-directions {
-  width: 481px;
+  width: 467px;
+  color: #333399;
   border: 1px solid #333399;
   border-radius: 3px;
   padding: 5px 10px 5px 10px;
@@ -527,7 +600,7 @@
 }
 
 .update-title3 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
   min-width: 90px;
   padding-top: 25px;
@@ -536,9 +609,33 @@
 
 .update-input-notes {
   width: 848px;
+  color: #333399;
   border: 1px solid #333399;
   border-radius: 3px;
   padding: 5px 10px 5px 10px;
   margin-bottom: 25px;
   background-color: white;
+}
+
+.update-recipe-form-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #333399;
+  text-align: center;
+  margin: 10px 15px 0 0;
+  width: 100%;
+  padding: 8px 0 8px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.update-recipe-form-button:hover {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #333399;
+  transition: 0.5s;
 }

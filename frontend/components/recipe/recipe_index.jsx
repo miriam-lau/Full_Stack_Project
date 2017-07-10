@@ -3,6 +3,8 @@ import { Route, Link, Switch } from "react-router-dom";
 
 import RecipeIndexItem from "./recipe_index_item";
 import RecipeDetailContainer from "./recipe_detail_container";
+import RecipeFormContainer from "./recipe_form_container";
+
 
 class RecipeIndex extends React.Component {
   constructor(props) {
@@ -25,6 +27,7 @@ class RecipeIndex extends React.Component {
           <div className="recipe-list">
             <br />
             <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>
+            <Route exact path="/recipes/new" component={ RecipeFormContainer } />
 
             <section>
               <h2 className="recipe-title">Recipes</h2>
@@ -42,6 +45,7 @@ class RecipeIndex extends React.Component {
             </div>
           </div>
         </div>
+        <Route path="/recipes/:recipeId" component={ RecipeDetailContainer } />
       </div>
     );
   }

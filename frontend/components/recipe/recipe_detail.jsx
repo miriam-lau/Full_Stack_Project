@@ -2,15 +2,17 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 
 import RecipeIndexContainer from "./recipe_index_container";
-import { FontIcon } from "material-ui/";
-import { styles } from "../utils/material_ui_styles";
+import RecipeUpdateContainer from "./recipe_update_container";
+import { FontIcon, TextField } from "material-ui/";
+import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
+    "../utils/material_ui_styles";
 
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { openUpdate: false };
     this.strSplit = this.strSplit.bind(this);
-    this.handleEditClick = this.handleEditClick.bind(this);
-    this.handleDateClick = this.handleDatetClick.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -28,101 +30,116 @@ class RecipeDetail extends React.Component {
     return strArray;
   }
 
-  handleEditClick() {
-    console.log("hello");
+  handleUpdate(event) {
+    this.setState({ openUpdate: !this.state.openUpdate });
   }
 
-  handleDateClick() {
+  handleDateClick(event) {
+    event.preventDefault();
     console.log("hello1");
   }
 
   render() {
-    const recipe_id = parseInt(this.props.match.params.id);
-    const recipe = this.props.recipe;
+    const recipeId = parseInt(this.props.match.params.id);
+    const recipe = this.props.recipe[recipeId];
     // if type recipes.recipe_id it will become a string literal, need index
-    // const recipe = recipes[recipe_id];
     if (!recipe) return null;
 
     return (
       <div className="recipe-wrapper">
         <div className="recipe-detail-nav-bar"></div>
-        <div className="recipe-detail">
-          <div className="recipe-detail-options">
-            <section id="link-to-recipes">
-              <Link className="recipe-link" to="/recipes">Back to Recipes</Link>
-              <Route exact path="/recipes" component={ RecipeIndexContainer } />
-            </section>
+        <div>
+          {this.state.openUpdate ?
+            <RecipeUpdateContainer recipe={ recipe } /> :
+            <div className="recipe-detail">
+              <div className="recipe-detail-options">
+                <section id="link-to-recipes">
+                  <Link className="recipe-link" to="/recipes">
+                      Back to Recipes
+                  </Link>
+                  <Route exact path="/recipes"
+                      component={ RecipeIndexContainer }
+                  />
+                </section>
 
-            <section>
-              <i className="fa fa-calendar fa-lg" aria-hidden="true"
-                  onClick={ this.handleDateClick }>
-              </i>
-            </section>
+                <section>
+                  <i className="fa fa-calendar fa-lg" aria-hidden="true"
+                      onClick={ this.handleDateClick }>
+                  </i>
+                </section>
 
-            <section>
-              <i className="fa fa-pencil fa-lg" aria-hidden="true"
-                  onClick={ this.handleEditClick }>
-              </i>
-            </section>
+                <section>
+                    <i className="fa fa-pencil fa-lg" aria-hidden="true"
+                        onClick={ this.handleUpdate }>
+                    </i>
+                </section>
 
-            <section>
-              <i className="material-icons trash-can-recipe"
-                  style={styles}
-                  onClick={ () => this.props.deleteRecipe(recipe.id) }>
-                delete_forever
-              </i>
-            </section>
-          </div>
+                <section>
+                  <i className="material-icons trash-can-recipe"
+                      style={styles}
+                      onClick={ () => this.props.deleteRecipe(recipe.id) }>
+                      delete_forever
+                  </i>
+                </section>
+              </div>
 
-          <section className="recipe-detail-info">
-            <h2>{recipe.name}</h2>
-            <div className="recipe-detail-content">
-              <figure className="recipe-detail-img">
-                <img src={recipe.image_url} alt={recipe.name} />
-              </figure>
-              <section className="recipe-detail-content1">
-                <p>
-                  <span className="recipe-detail-title">SERVINGS: </span> {recipe.serving}
-                </p>
+              <section className="recipe-detail-info">
+                <h2>{recipe.name}</h2>
+                <div className="recipe-detail-content">
+                  <figure className="recipe-detail-img">
+                    <img src={recipe.image_url} alt={recipe.name} />
+                  </figure>
 
-                <p>
-                  <span className="recipe-detail-title">RATING: </span> {recipe.rating}
-                </p>
+                  <section className="recipe-detail-content1">
+                    <div>
+                      <span className="recipe-detail-title">SERVINGS: </span> <span>{recipe.serving}</span>
+                    </div>
 
-                <h3 className="recipe-detail-title">DESCRIPTION</h3>
-                <p>{recipe.description}</p>
+                    <div>
+                      <span className="recipe-detail-title">RATING: </span> <span>{recipe.rating}</span>
+                    </div>
 
-                <p>
-                  <span className="recipe-detail-title">LINK: </span> <a href={recipe.link} className="recipe-detail-link">{recipe.link}</a>
-                </p>
+                    <div>
+                      <h3 className="recipe-detail-title">DESCRIPTION</h3>
+                      {recipe.description}
+                    </div>
+
+                    <div>
+                      <span  className="recipe-detail-title">WEBSITE: </span>
+                      <a href={recipe.link}
+                          className="recipe-detail-link">{recipe.link}
+                      </a>
+                    </div>
+                  </section>
+                </div>
+
+                <div className="recipe-detail-content2">
+                  <section className="ingredients">
+                    <h3 className="recipe-detail-title">INGREDIENTS</h3>
+                    <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
+                      return (<li key={ idx }>{ line }</li>)
+                    })}
+                    </ul>
+                  </section>
+
+                  <section className="directions">
+                    <h3 className="recipe-detail-title">DIRECTIONS</h3>
+                    <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
+                      return (<li key={ idx }>{ line }</li>)
+                    })}
+                    </ul>
+                  </section>
+
+                </div>
+
+                <section>
+                  <h3 className="recipe-detail-title">NOTES</h3>
+                  <div> className="recipe-detail-last-section">{recipe.notes}
+                  </div>
+                </section>
               </section>
             </div>
-
-            <div className="recipe-detail-content2">
-              <section className="ingredients">
-                <h3 className="recipe-detail-title">INGREDIENTS</h3>
-                <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
-                  return (<li key={ idx }>{ line }</li>)
-                })}
-                </ul>
-              </section>
-
-              <section className="directions">
-                <h3 className="recipe-detail-title">DIRECTIONS</h3>
-                <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
-                  return (<li key={ idx }>{ line }</li>)
-                })}
-                </ul>
-              </section>
-
-            </div>
-
-            <section>
-              <h3 className="recipe-detail-title">NOTES</h3>
-              <p className="recipe-detail-last-section">{recipe.notes}
-              </p>
-            </section>
-          </section>
+          }
         </div>
       </div>
     );

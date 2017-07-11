@@ -13,7 +13,7 @@ const styles = {
     borderRadius: "5px",
     marginRight: "15px",
     marginTop: "15px",
-    marginLeft: "15px",
+    marginLeft: "15px"
   },
 }
 
@@ -31,7 +31,13 @@ class RecipeIndexItem extends React.Component{
             key={recipe.image_url}
             title={recipe.name}
           >
-            <img src={recipe.image_url} id="recipe-detail-img"/>
+            <div id="recipe-detail-img-div">
+              {recipe.image_url != "" ?
+                <img src={recipe.image_url} id="recipe-detail-img" /> :
+                <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1499811084/recipe-default_pc7b4b.jpg"
+                    id="recipe-detail-img" />
+              }
+            </div>
           </GridTile>
         </Link>
       </div>

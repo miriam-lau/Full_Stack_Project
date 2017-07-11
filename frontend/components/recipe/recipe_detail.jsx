@@ -87,7 +87,11 @@ class RecipeDetail extends React.Component {
                 <h2>{recipe.name}</h2>
                 <div className="recipe-detail-content">
                   <figure className="recipe-detail-img">
-                    <img src={recipe.image_url} alt={recipe.name} />
+                    {recipe.image_url != "" ?
+                      <img src={ recipe.image_url } alt={ recipe.name }/> :
+                      <img
+                          src="http://res.cloudinary.com/miriam-lau/image/upload/v1499811084/recipe-default_pc7b4b.jpg"/>
+                    }
                   </figure>
 
                   <section className="recipe-detail-content1">

@@ -90,6 +90,7 @@
   margin: 30px 0 0 15px;
 }
 
+// recipe index item component
 .recipe-info {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
@@ -97,8 +98,36 @@
   margin: 10px 0 0 0;
 }
 
-.recipe-info:hover {
-  transform: scale(1.05);
+#recipe-detail-img-div {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.recipe-img-default {
+  background-color: #BCBCF2;
+  color: black;
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+#recipe-detail-img, .recipe-img-default {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+#recipe-detail-img:hover, .recipe-img-default:hover {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .recipe-form-part2 {
@@ -286,6 +315,7 @@
   cursor: pointer;
   padding: 5px;
   vertical-align: top;
+  transition: 0.5s;
   // border: 1px solid black;
 }
 
@@ -299,6 +329,7 @@
   color: white;
   background-color: #333399;
   border-radius: 3px;
+  transition: 0.5s;
 }
 
 .trash-can-recipe {
@@ -344,21 +375,6 @@
   justify-content: flex-start;
 }
 
-// recipe index item component
-#recipe-detail-img {
-  width: 270px;
-  max-height: 190px;
-  min-height: 190px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin: 10px 10px 20px 0;
-  transition: 0.5s;
-}
-
-#recipe-detail-img:hover {
-  transform: scale(0.8);
-  transition: 0.5s;
-}
 
 // recipe detail
 .recipe-detail-img {

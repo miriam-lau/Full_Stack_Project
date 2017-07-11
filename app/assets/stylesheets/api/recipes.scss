@@ -329,6 +329,10 @@
   font-weight: bold;
   color: #333399;
   margin-bottom: 15px;
+  background-color: #E6E6FA;
+  padding: 5px 10px 5px 10px;
+  // border-radius: 3px;
+  border-bottom: 1px solid #333399;
 }
 
 .recipe-detail-info > ul > li {
@@ -369,31 +373,83 @@
 }
 
 .recipe-detail-content1 {
-  margin: 10px 15px 10px 30px;
+  width: 100%;
+  margin: 0 0 10px 30px;
+
 }
 
 .recipe-1 {
   display: flex;
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.recipe-detail-servings-title {
+  font-size: 16px;
+  font-weight: 900;
+  margin: 0 0 10px 0;
+  min-width: 100px;
+  color: #333399;
+  padding: 5px 10px 5px 10px;
 }
 
 .recipe-detail-title {
   font-size: 16px;
   font-weight: 900;
-  margin-bottom: 25px;
+  margin: 10px 0 10px 0;
   min-width: 100px;
   color: #333399;
+  padding: 5px 10px 5px 10px;
 }
 
 .recipe-detail-title2 {
   font-size: 16px;
   font-weight: 900;
   margin: 15px 0 10px 0;
-  min-width: 100px;
   color: #333399;
+  background-color: #E6E6FA;
+  border-bottom: 1px solid #333399;
+  padding: 5px 10px 5px 10px;
+}
+
+.recipe-detail-description-title {
+  font-size: 16px;
+  font-weight: 900;
+  margin: 25px 0 10px 0;
+  color: #333399;
+  background-color: #E6E6FA;
+  border-bottom: 1px solid #333399;
+  padding: 5px 10px 5px 10px;
+}
+
+.directions {
+  width: 100%;
+}
+
+.recipe-detail-title3 {
+  font-size: 16px;
+  font-weight: 900;
+  margin: 15px 0 10px 0;
+  color: #333399;
+  background-color: #E6E6FA;
+  border-bottom: 1px solid #333399;
+  padding: 5px 10px 5px 10px;
+}
+
+.recipe-servings-text {
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  padding: 9px 10px 0 10px;
 }
 
 .recipe-text {
-  font-size: 14px;
+  font-size: 13px;
+  margin: 10px 0 10px 0;
+  padding: 9px 10px 0 10px;
+}
+
+.recipe-description-text {
+  font-size: 13px;
+  padding: 0 10px 0 10px;
 }
 
 .recipe-detail-content2 {
@@ -401,6 +457,8 @@
   justify-content: flex-start;
   margin-top: 10px;
 }
+
+
 
 .ingredients {
   max-width: 350px;
@@ -411,22 +469,24 @@
 
 .recipe-detail-content2 > section > ul > li {
   margin-bottom: 15px;
-  padding-right: 15px;
-  font-size: 14px;
+  padding: 0 10px 0 10px;
+  font-size: 13px;
 }
 
 .recipe-detail-link {
-  font-size: 14px;
   color: blue;
+  font-size: 13px;
+  margin: 10px 0 10px 0;
+  padding: 9px 10px 0 10px;
 }
 
 .recipe-detail-link:hover {
   text-decoration: underline;
 }
 
-.recipe-detail-last-section {
-  padding-bottom: 30px;
-  font-size: 15px;
+.recipe-detail-notes {
+  padding: 0 10px 30px 10px;
+  font-size: 13px;
 }
 
 // recipe update

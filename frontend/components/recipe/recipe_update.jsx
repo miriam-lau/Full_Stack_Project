@@ -15,14 +15,14 @@ class RecipeForm extends React.Component {
 
   handleImageUpload(event) {
     console.log("in recipe image upload");
-    <input id="file" type="file" accept="image/*" />
+    return (<input id="file" type="file" accept="image/*" />);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("in hanlde submit");
+    console.log("in handle submit");
     const recipe = this.state;
-    // this.props.createRecipe({recipe})
+    // this.props.updateRecipe({recipe})
     //   .then(data => this.props.history.push(`/recipes/${recipe.id}`));
   }
 
@@ -39,7 +39,7 @@ class RecipeForm extends React.Component {
             <div className="update-recipe-content">
               {recipe.image_url ?
                 <div className="update-recipe-img">
-                  <figure onClick={ this.handleImageUpload} >
+                  <figure onClick={ this.handleImageUpload } >
                     <div>Upload a New Image</div>
                     <img src={recipe.image_url} className="current-recipe-img"
                         alt={recipe.name} />
@@ -47,7 +47,7 @@ class RecipeForm extends React.Component {
                 </div> :
                 <div className="update-recipe-img">
                   <figure>
-                    <label className="upload-file">Upload an Image</label>
+                    <div>Upload an Image</div>
                     <input id="file" type="file" accept="image/*" />
                   </figure>
                 </div>

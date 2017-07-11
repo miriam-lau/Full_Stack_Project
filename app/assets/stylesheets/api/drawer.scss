@@ -1,9 +1,11 @@
 .fa-info-circle, .fa-calculator {
   cursor: pointer;
+  transition: 0.25s;
 }
 
 .fa-info-circle:hover, .fa-calculator:hover {
   transform: scale(1.5);
+  transition: 0.25s;
   cursor: pointer;
 }
 

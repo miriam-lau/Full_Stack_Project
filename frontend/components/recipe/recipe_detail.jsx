@@ -90,7 +90,7 @@ class RecipeDetail extends React.Component {
                     {recipe.image_url != "" ?
                       <img src={ recipe.image_url } alt={ recipe.name }/> :
                       <img
-                          src="http://res.cloudinary.com/miriam-lau/image/upload/v1499811084/recipe-default_pc7b4b.jpg"/>
+                          src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
                     }
                   </figure>
 

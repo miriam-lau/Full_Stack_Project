@@ -39,16 +39,20 @@ class RecipeForm extends React.Component {
             <div className="update-recipe-content">
               {recipe.image_url ?
                 <div className="update-recipe-img">
-                  <figure onClick={ this.handleImageUpload } >
-                    <div>Upload a New Image</div>
-                    <img src={recipe.image_url} className="current-recipe-img"
-                        alt={recipe.name} />
+                  <figure>
+                    <div className="update-img-text">
+                      <img src={recipe.image_url}
+                          className="current-recipe-img"
+                          alt={recipe.name} />
+                    </div>
+                    <input id="upload-img-file" type="file" accept="image/*" />
+
                   </figure>
                 </div> :
                 <div className="update-recipe-img">
                   <figure>
-                    <div>Upload an Image</div>
-                    <input id="file" type="file" accept="image/*" />
+                    <div className="upload-img-text-default">Upload an Image</div>
+                    <input id="upload-img-file" type="file" accept="image/*" />
                   </figure>
                 </div>
               }

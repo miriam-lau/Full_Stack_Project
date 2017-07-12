@@ -5,6 +5,7 @@
   left: 180px;
   min-height: 1200px;
   padding-top: 10px;
+  overflow: scroll;
 }
 
 .side-nav-img {
@@ -21,11 +22,13 @@
 }
 
 .index {
-  width: 600px;
+  min-width: 610px;
+  max-width: 610px;
   height: auto;
   background-color: white;
   margin: 0 0 0 10px;
   border-radius: 5px;
+  overflow: scroll;
 }
 
 .index-title {
@@ -75,7 +78,7 @@
 }
 
 #text-field-default {
-  width: 330px;
+  width: 332px;
 }
 
 .form-categories {
@@ -145,18 +148,19 @@
 }
 
 .plus-circle {
-  margin-right: 15px;
-  padding: 6px 0 5px 0;
+  margin-right: 10px;
+  padding: 6px 0 5px 5px;
 }
 
 .fa-plus-circle {
-  align-self: center;
-  transition: 0.5s;
+  align-self: flex-start;
+  margin-left: 5px;
+  transform: scale(0.9);
+  transition: 0.25s;
 }
 
 .fa-plus-circle:hover {
-  align-self: center;
+  transform: scale(1.1);
   transition: 0.25s;
-  transform: scale(1.5);
   cursor: pointer;
 }

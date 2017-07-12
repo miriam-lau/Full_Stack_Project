@@ -6,6 +6,7 @@
   min-height: 1200px;
   padding-top: 10px;
   margin: 0 0 0 10px;
+  overflow: scroll;
 }
 
 .recipe-img {
@@ -25,11 +26,13 @@
   min-width: 600px;
   max-width: 1200px;
   min-height: 1200px;
+  max-height: 1200px;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
   border-radius: 5px;
   background-color: white;
+  overflow: scroll;
 }
 
 .recipe-three-list {

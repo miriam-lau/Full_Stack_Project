@@ -45,8 +45,8 @@ class ReminderForm extends React.Component {
               onChange={ this.update("due_date") } />
 
           <div className="plus-circle-reminder">
-            <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
-                onClick={ this.handleSubmit }>
+            <i className="fa fa-plus-circle fa-lg reminder-plus-circle"
+                aria-hidden="true" onClick={ this.handleSubmit }>
             </i>
           </div>
         </div>

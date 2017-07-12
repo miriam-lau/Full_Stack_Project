@@ -56,7 +56,7 @@ export const addItemStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "330px",
+  "width": "332px",
   "display": "inline",
   "marginLeft": "10px",
   "marginRight": "5px",

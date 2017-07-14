@@ -21,6 +21,8 @@ export const createRecipe = (recipe) => {
 };
 
 export const updateRecipe = (recipe) => {
+  console.log("in recipe api");
+  console.log(recipe.recipe.id);
   return $.ajax({
     method: "PATCH",
     url: `/api/recipes/${recipe.recipe.id}`,

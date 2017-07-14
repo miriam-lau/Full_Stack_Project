@@ -7,7 +7,7 @@ export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
 export const CREATE_RECIPE = "CREATE_RECIPE";
 export const UPDATE_RECIPE = "UPDATE_RECIPE";
 export const DELETE_RECIPE = "DELETE_RECIPE";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS";
 
 const receiveAllRecipes = (recipes) => ({
   type: RECEIVE_ALL_RECIPES,
@@ -35,7 +35,7 @@ const receiveDeleteRecipe = (recipe) => ({
 });
 
 const receiveRecipeErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_RECIPE_ERRORS,
   errors
 });
 
@@ -59,6 +59,8 @@ export const createRecipe = (recipe) => dispatch => {
 };
 
 export const updateRecipe = (recipe) => dispatch => {
+  console.log("in recipe actions");
+  console.log(recipe);
   return APIUtil.updateRecipe(recipe)
     .then(recipeRes => (dispatch(updateRecipe(recipeRes))),
     err => (dispatch(receiveRecipeErrors(err.responseJSON)))

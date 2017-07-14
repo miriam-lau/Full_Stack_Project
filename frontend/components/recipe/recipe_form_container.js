@@ -5,7 +5,7 @@ import RecipeForm from "./recipe_form";
 import { createRecipe } from "../../actions/recipe_actions";
 
 const mapStateToProps = (state) => ({
-  errors: state.errors
+  errors: state.recipe.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

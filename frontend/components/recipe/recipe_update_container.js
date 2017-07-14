@@ -6,7 +6,7 @@ import { updateRecipe } from "../../actions/recipe_actions";
 
 const mapStateToProps = (state) => ({
   recipe: state.recipe,
-  errors: state.errors
+  errors: state.recipe.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

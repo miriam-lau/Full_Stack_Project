@@ -56,7 +56,7 @@ class PantryIndexItem extends React.Component {
 
       if (property === "category") {
         let item = this.props.pantryItem;
-        pantryItem.category = e.target.value;
+        item.category = e.target.value;
 
         // check for duplicate items
         let duplicateItem = findMatchingItem(this.props.pantryItems,
@@ -121,6 +121,7 @@ class PantryIndexItem extends React.Component {
 
   render() {
     const pantryItem = this.props.pantryItem;
+    console.log(pantryItem);
     return (
       <div>
         <div className="update-pantry-form-div">

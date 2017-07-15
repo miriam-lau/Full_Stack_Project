@@ -64,7 +64,7 @@ class GroceryIndexItem extends React.Component {
 
       if (property === "category") {
         let item = this.props.groceryItem;
-        groceryItem.category = e.target.value;
+        item.category = e.target.value;
 
         // check for duplicate items
         let duplicateItem = findMatchingItem(this.props.groceryItems,

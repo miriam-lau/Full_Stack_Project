@@ -47,7 +47,7 @@ const PantryItemsReducer = (state = noErrors, action) => {
       return newState;
     }
     case DELETE_PANTRY_ITEM: {
-      const newState = merge({}, state);
+      let newState = merge({}, state);
       delete newState[action.pantryItemId];
       return newState;
     }

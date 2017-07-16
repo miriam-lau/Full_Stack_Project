@@ -46,108 +46,111 @@ class RecipeDetail extends React.Component {
     if (!recipe) return null;
 
     return (
-      <div className="recipe-wrapper">
-        <div className="recipe-detail-nav-bar"></div>
+      <div className="wrapper">
         <div>
-          {this.state.openUpdate ?
-            <RecipeUpdateContainer recipe={ recipe } /> :
-            <div className="recipe-detail">
-              <div className="recipe-detail-options">
-                <section id="link-to-recipes">
-                  <Link className="recipe-link" to="/recipes">
-                      Back to Recipes
-                  </Link>
-                  <Route exact path="/recipes"
-                      component={ RecipeIndexContainer }
-                  />
-                </section>
+          <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"/>
+        </div>
 
-                <section>
-                  <i className="fa fa-calendar fa-lg" aria-hidden="true"
-                      onClick={ this.handleDateClick }>
+        {this.state.openUpdate ?
+          <RecipeUpdateContainer recipe={ recipe } /> :
+          <div className="recipe-detail">
+            <div className="recipe-detail-options">
+              <section id="link-to-recipes">
+                <Link className="recipe-link" to="/recipes">
+                    Back to Recipes
+                </Link>
+                <Route exact path="/recipes"
+                    component={ RecipeIndexContainer }
+                />
+              </section>
+
+              <section>
+                <i className="fa fa-calendar fa-lg" aria-hidden="true"
+                    onClick={ this.handleDateClick }>
+                </i>
+              </section>
+
+              <section>
+                  <i className="fa fa-pencil fa-lg" aria-hidden="true"
+                      onClick={ this.handleUpdate }>
                   </i>
-                </section>
+              </section>
 
-                <section>
-                    <i className="fa fa-pencil fa-lg" aria-hidden="true"
-                        onClick={ this.handleUpdate }>
-                    </i>
-                </section>
+              <section>
+                <i className="material-icons trash-can-recipe"
+                    style={styles}
+                    onClick={ () => this.props.deleteRecipe(recipe.id) }>
+                    delete_forever
+                </i>
+              </section>
+            </div>
 
-                <section>
-                  <i className="material-icons trash-can-recipe"
-                      style={styles}
-                      onClick={ () => this.props.deleteRecipe(recipe.id) }>
-                      delete_forever
-                  </i>
+            <section className="recipe-detail-info">
+              <h2>{recipe.name}</h2>
+              <div className="recipe-detail-content">
+                <figure className="recipe-detail-img">
+                  {recipe.image_url != "" ?
+                    <img src={ recipe.image_url } alt={ recipe.name }/> :
+                    <img
+                        src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
+                  }
+                </figure>
+
+                <section className="recipe-detail-content1">
+                  <div className="recipe-1">
+                    <div className="recipe-detail-servings-title">Servings: </div>
+                    <div className="recipe-servings-text">{recipe.serving}
+                    </div>
+                  </div>
+
+                  <div className="recipe-1">
+                    <div className="recipe-detail-title">Rating: </div>
+                    <div className="recipe-text">{recipe.rating}</div>
+                  </div>
+
+                  <div className="recipe-1">
+                    <div  className="recipe-detail-title">Website: </div>
+                    <a href={recipe.link}
+                        className="recipe-detail-link">{recipe.link}
+                    </a>
+                  </div>
+
+                  <div>
+                    <h3 className="recipe-detail-description-title">Description</h3>
+                    <div className="recipe-description-text">
+                        {recipe.description}
+                    </div>
+                  </div>
                 </section>
               </div>
 
-              <section className="recipe-detail-info">
-                <h2>{recipe.name}</h2>
-                <div className="recipe-detail-content">
-                  <figure className="recipe-detail-img">
-                    {recipe.image_url != "" ?
-                      <img src={ recipe.image_url } alt={ recipe.name }/> :
-                      <img
-                          src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
-                    }
-                  </figure>
-
-                  <section className="recipe-detail-content1">
-                    <div className="recipe-1">
-                      <div className="recipe-detail-servings-title">Servings: </div> <div className="recipe-servings-text">{recipe.serving}</div>
-                    </div>
-
-                    <div className="recipe-1">
-                      <div className="recipe-detail-title">Rating: </div>
-                      <div className="recipe-text">{recipe.rating}</div>
-                    </div>
-
-                    <div className="recipe-1">
-                      <div  className="recipe-detail-title">Website: </div>
-                      <a href={recipe.link}
-                          className="recipe-detail-link">{recipe.link}
-                      </a>
-                    </div>
-
-                    <div>
-                      <h3 className="recipe-detail-description-title">Description</h3>
-                      <div className="recipe-description-text">
-                          {recipe.description}
-                      </div>
-                    </div>
-                  </section>
-                </div>
-
-                <div className="recipe-detail-content2">
-                  <section className="ingredients">
-                    <h3 className="recipe-detail-title2">Ingredients</h3>
-                    <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
-                      return (<li key={ idx }>{ line }</li>)
-                    })}
-                    </ul>
-                  </section>
-
-                  <section className="directions">
-                    <h3 className="recipe-detail-title3">Directions</h3>
-                    <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
-                      return (<li key={ idx }>{ line }</li>)
-                    })}
-                    </ul>
-                  </section>
-
-                </div>
-
-                <section>
-                  <h3 className="recipe-detail-title2">Cooking Notes</h3>
-                  <div className="recipe-detail-notes">{recipe.notes}
-                  </div>
+              <div className="recipe-detail-content2">
+                <section className="ingredients">
+                  <h3 className="recipe-detail-title2">Ingredients</h3>
+                  <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
+                    return (<li key={ idx }>{ line }</li>)
+                  })}
+                  </ul>
                 </section>
+
+                <section className="directions">
+                  <h3 className="recipe-detail-title3">Directions</h3>
+                  <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
+                    return (<li key={ idx }>{ line }</li>)
+                  })}
+                  </ul>
+                </section>
+
+              </div>
+
+              <section>
+                <h3 className="recipe-detail-title2">Cooking Notes</h3>
+                <div className="recipe-detail-notes">{recipe.notes}
+                </div>
               </section>
-            </div>
-          }
-        </div>
+            </section>
+          </div>
+        }
       </div>
     );
   }

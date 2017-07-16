@@ -19,12 +19,12 @@ class RecipeIndex extends React.Component {
     const recipes = this.props.recipes;
     return (
       <div>
-        <div className="recipe-wrapper">
-          <div className="recipe-side-nav-bar">
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="recipe-img"/>
+        <div className="wrapper">
+          <div>
+            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"/>
           </div>
 
-          <div className="recipe-list">
+          <div className="recipe-index">
             <br />
             <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>
             <Route exact path="/recipes/new" component={ RecipeFormContainer } />
@@ -33,7 +33,7 @@ class RecipeIndex extends React.Component {
               <h2 className="recipe-title">Recipes</h2>
             </section>
 
-            <div className="recipe-three-list">
+            <div className="recipe-list">
               {this.props.recipes.map((item) => {
                 return (
                   <RecipeIndexItem

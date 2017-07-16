@@ -1,5 +1,3 @@
-// TODO: rename private func to receive and public to delete, update, and create
-// remove exports
 import * as APIUtil from "../util/recipe_api_util";
 
 export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
@@ -29,9 +27,9 @@ const receiveUpdateRecipe = (recipe) => ({
   recipe
 });
 
-const receiveDeleteRecipe = (recipe) => ({
+const receiveDeleteRecipe = ({recipe_id}) => ({
   type: DELETE_RECIPE,
-  recipe
+  recipeId: recipe_id
 });
 
 const receiveRecipeErrors = (errors) => ({
@@ -62,13 +60,16 @@ export const updateRecipe = (recipe) => dispatch => {
   console.log("in recipe actions");
   console.log(recipe);
   return APIUtil.updateRecipe(recipe)
-    .then(recipeRes => (dispatch(updateRecipe(recipeRes))),
+    .then(recipeRes => {
+      (dispatch(updateRecipe(recipeRes)))},
     err => (dispatch(receiveRecipeErrors(err.responseJSON)))
   )
 };
 
 export const deleteRecipe = (id) => dispatch => {
+  console.log("in recipe actions delete");
+  console.log(id);
   return APIUtil.deleteRecipe(id)
-    .then(recipeRes => (dispatch(receiveDeleteRecipe(recipeRes)))
+    .then(recipeIdRes => (dispatch(receiveDeleteRecipe(recipeIdRes)))
   )
 };

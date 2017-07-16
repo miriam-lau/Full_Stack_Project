@@ -18,13 +18,20 @@ const RecipeReducer = (state = noErrors, action) => {
     case CREATE_RECIPE:
       newState = merge({}, state, {[action.recipe.id]: action.recipe});
       return newState;
-    case UPDATE_RECIPE:
-      newState = merge({}, state, {[action.recipe.id]: action.recipe});
+    case UPDATE_RECIPE: {
+      let newState = merge({}, state);
+      console.log("in recipe reducer");
+      console.log(action.recipe);
+      newState[action.recipe.id] = action.recipe;
       return newState;
-    case DELETE_RECIPE:
-      newState = merge({}, state);
-      delete newState[Object.keys(action.recipe)[0]];
+    }
+    case DELETE_RECIPE: {
+      console.log("in recipe reducer in delete");
+      console.log(action.recipeId);
+      let newState = merge({}, state);
+      delete newState[action.recipeId];
       return newState;
+    }
     case RECEIVE_RECIPE_ERRORS:
       newState = merge({}, state, action.errors);
       return newState;

@@ -25,17 +25,17 @@ class RecipeIndexItem extends React.Component{
   render() {
     const recipe = this.props.recipe;
     return (
-      <div className="recipe-info">
+      <div className="recipe-item">
         <Link to={`/recipes/${recipe.id}`}>
           <GridTile style={styles.gridTile}
             key={recipe.image_url}
             title={recipe.name}
           >
-            <div id="recipe-detail-img-div">
+            <div id="recipe-item-img-div">
               {recipe.image_url != "" ?
-                <img src={recipe.image_url} id="recipe-detail-img" /> :
+                <img src={recipe.image_url} id="recipe-item-img" /> :
                 <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
-                    id="recipe-detail-img" />
+                    id="recipe-item-img" />
               }
             </div>
           </GridTile>

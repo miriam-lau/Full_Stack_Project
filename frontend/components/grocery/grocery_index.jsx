@@ -41,7 +41,7 @@ class GroceryIndex extends React.Component {
     const pantryItems = this.props.pantryItems;
     return (
       <div className="wrapper">
-        <div className="grocery-side-nav-bar">
+        <div>
           <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447613/side_nav_grocery_fi2cgm.png"
               alt="side-bar-img-grocery" className="side-nav-img"/>
         </div>

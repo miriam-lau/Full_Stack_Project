@@ -46,103 +46,97 @@ class RecipeUpdate extends React.Component {
   render() {
     const recipe = this.props.recipe;
     return (
-      <div>
-        <div className="recipe-form-nav-bar"></div>
-        <form className="recipe-update-form" onSubmit={ this.handleSubmit }>
-          <div className="update-recipe-info">
-            <input className="update-recipe-name" type="text"
-                value={this.state.name} onChange={ this.update("name") } />
+      <form className="recipe-form" onSubmit={ this.handleSubmit }>
+        <div className="recipe-name-div">
+          <input className="update-recipe-name" type="text"
+              value={this.state.name} onChange={ this.update("name") } />
+        </div>
 
-            <div className="update-recipe-content">
-              {recipe.image_url ?
-                <div className="update-recipe-img">
-                  <figure>
-                    <div className="update-img-text">
-                      <img src={ this.state.image_url }
-                          className="current-recipe-img"
-                          alt={ recipe.name } />
-                    </div>
-                    <input id="upload-img-file" type="file" accept="image/*" />
-
-                  </figure>
-                </div> :
-                <div className="update-recipe-img">
-                  <figure>
-                    <div className="upload-img-text-default">Upload an Image</div>
-                    <input id="upload-img-file" type="file" accept="image/*" />
-                  </figure>
+        <div className="update-recipe-content">
+          {recipe.image_url ?
+            <div className="update-recipe-img">
+              <figure>
+                <div className="update-img-text">
+                  <img src={ this.state.image_url }
+                      className="current-recipe-img"
+                      alt={ recipe.name } />
                 </div>
-              }
+                <input id="upload-img-file" type="file" accept="image/*" />
+              </figure>
+            </div> :
+            <div className="update-recipe-img">
+              <figure>
+                <div className="upload-img-text-default">Upload an Image</div>
+                <input id="upload-img-file" type="file" accept="image/*" />
+              </figure>
+            </div>
+          }
 
-              <div className="update-recipe-content1">
-                <div className="update-recipe-1">
-                  <div className="update-recipe-title">SERVINGS: </div>
-                  <input className="update-input-field" type="number"
-                      value={ this.state.serving }
-                      onChange={ this.update("serving") }
-                  />
-                </div>
-
-                <div className="update-recipe-1">
-                  <div className="update-recipe-title">RATING: </div>
-                  <input className="update-input-field" type="number"
-                      value={ this.state.rating } onChange={ this.update("rating") }
-                  />
-                </div>
-
-                <div className="update-recipe-1">
-                  <div className="update-recipe-title">WEBSITE: </div>
-                  <textarea className="update-input-website" name="website"
-                      value={ this.state.link } rows="2"
-                      onChange={ this.update("link") }
-                  />
-                </div>
-
-                <div>
-                  <h3 className="update-description-title">DESCRIPTION</h3>
-                  <textarea className="update-input-textarea"
-                      name="description" value={ this.state.description }
-                      rows="3" onChange={ this.update("description") }
-                  />
-                </div>
-              </div>
+          <div className="update-recipe-content1">
+            <div className="update-recipe-1">
+              <div className="update-recipe-title">SERVINGS: </div>
+              <input className="update-input-field" type="number"
+                  value={ this.state.serving }
+                  onChange={ this.update("serving") }
+              />
             </div>
 
-            <div className="update-recipe-2">
-              <div>
-                <h3 className="update-title2">INGREDIENTS</h3>
-                <textarea className="update-input-ingredients"
-                    name="ingredients" value={ this.state.ingredients }
-                    rows="15" onChange={ this.update("ingredients") }
-                />
-              </div>
-
-              <div className="update-directions-div">
-                <h3 className="update-title2">DIRECTIONS</h3>
-                <textarea className="update-input-directions"
-                    name="directions" value={ this.state.directions }
-                    rows="15" onChange={ this.update("directions") }
-                />
-              </div>
-
+            <div className="update-recipe-1">
+              <div className="update-recipe-title">RATING: </div>
+              <input className="update-input-field" type="number"
+                  value={ this.state.rating } onChange={ this.update("rating") }
+              />
             </div>
 
-            <div>
-              <h3 className="update-title3">NOTES</h3>
-              <textarea className="update-input-notes" name="notes"
-                  value={ this.state.notes } rows="3"
-                  onChange={ this.update("notes") }
+            <div className="update-recipe-1">
+              <div className="update-recipe-title">WEBSITE: </div>
+              <textarea className="update-input-website" name="website"
+                  value={ this.state.link } rows="2"
+                  onChange={ this.update("link") }
               />
             </div>
 
             <div>
-              <span></span>
-              <button className="update-recipe-form-button">Update Recipe</button>
+              <h3 className="update-description-title">DESCRIPTION</h3>
+              <textarea className="update-input-textarea"
+                  name="description" value={ this.state.description }
+                  rows="3" onChange={ this.update("description") }
+              />
             </div>
           </div>
+        </div>
 
-        </form>
-      </div>
+        <div className="update-recipe-2">
+          <div>
+            <h3 className="update-title2">INGREDIENTS</h3>
+            <textarea className="update-input-ingredients"
+                name="ingredients" value={ this.state.ingredients }
+                rows="15" onChange={ this.update("ingredients") }
+            />
+          </div>
+
+          <div className="update-directions-div">
+            <h3 className="update-title2">DIRECTIONS</h3>
+            <textarea className="update-input-textarea"
+                name="directions" value={ this.state.directions }
+                rows="15" onChange={ this.update("directions") }
+            />
+          </div>
+        </div>
+
+        <div>
+          <h3 className="update-title3">NOTES</h3>
+          <textarea className="update-input-textarea" name="notes"
+              value={ this.state.notes } rows="3"
+              onChange={ this.update("notes") }
+          />
+        </div>
+
+        <div>
+          <span></span>
+          <button className="update-recipe-form-button">Update Recipe</button>
+        </div>
+      </form>
     )
   }
 }

@@ -30,9 +30,9 @@ export const updateRecipe = (recipe) => {
   });
 }
 
-export const deleteRecipe = (recipe) => {
+export const deleteRecipe = (id) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/recipes/${recipe.id}`
+    url: `/api/recipes/${id}`
   });
 }

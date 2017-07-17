@@ -38,9 +38,9 @@ class RecipeUpdate extends React.Component {
       directions: this.state.directions,
       notes: this.state.notes
     }
-    console.log(updatedRecipe);
-    this.props.updateRecipe({ recipe: updatedRecipe })
-      .then(recipe => this.props.history.push(`/recipes/${recipe.id}`));
+
+    this.props.updateRecipe({recipe: updatedRecipe})
+      .then(data => this.props.history.push(`/recipes/${recipe.id}`));
   }
 
   render() {

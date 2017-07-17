@@ -336,7 +336,7 @@
 
 .recipe-detail-content1 {
   width: 100%;
-  margin: 0 0 10px 30px;
+  margin: 0 0 10px 40px;
 }
 
 .recipe-1 {
@@ -440,6 +440,16 @@
 .recipe-detail-notes {
   padding: 0 10px 30px 10px;
   font-size: 13px;
+}
+
+.recipe-detail-ingredients {
+  min-width: 350px;
+  max-width: 350px;
+  margin-right: 40px;
+}
+
+.recipe-detail-directions {
+  width: 100%;
 }
 
 // recipe update
@@ -555,7 +565,7 @@
 .upload-img-text-default {
   position: absolute;
   top: 285px;
-  left: 330px;
+  left: 320px;
   color: #333399;
   background-color: #E6E6FA;
   padding: 5px;

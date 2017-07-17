@@ -26,8 +26,6 @@ const RecipeReducer = (state = noErrors, action) => {
       return newState;
     }
     case DELETE_RECIPE: {
-      console.log("in recipe reducer in delete");
-      console.log(action.recipeId);
       let newState = merge({}, state);
       delete newState[action.recipeId];
       return newState;

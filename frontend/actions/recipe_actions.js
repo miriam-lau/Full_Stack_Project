@@ -59,14 +59,14 @@ export const createRecipe = (recipe) => dispatch => {
 export const updateRecipe = (recipe) => dispatch => {
   return APIUtil.updateRecipe(recipe)
     .then(recipeRes => {
+      console.log("in recipe actions");
+      console.log(recipeRes);
       (dispatch(receiveUpdateRecipe(recipeRes)))},
     err => (dispatch(receiveRecipeErrors(err.responseJSON)))
   )
 };
 
 export const deleteRecipe = (id) => dispatch => {
-  console.log("in recipe actions delete");
-  console.log(id);
   return APIUtil.deleteRecipe(id)
     .then(recipeIdRes => (dispatch(receiveDeleteRecipe(recipeIdRes)))
   )

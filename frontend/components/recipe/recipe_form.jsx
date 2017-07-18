@@ -28,8 +28,9 @@ class RecipeForm extends React.Component {
       notes: this.state.notes
     }
 
-    this.props.createRecipe({ recipe: newRecipe });
-    //not rendering show page for new recipe.
+    this.props.createRecipe({ recipe: newRecipe }).then( (recipe) => {
+          this.props.history.push(`/recipes/${recipe.recipe.id}`)
+      });
   }
 
   render() {

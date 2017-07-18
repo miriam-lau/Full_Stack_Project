@@ -25,6 +25,9 @@ class RecipeDetail extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  // }
+
   strSplit(str) {
     let strArray = str.split("\n");
     return strArray;
@@ -78,7 +81,7 @@ class RecipeDetail extends React.Component {
 
               <section>
                 <i className="material-icons trash-can-recipe"
-                    style={styles}
+                    style={ styles }
                     onClick={ () => this.props.deleteRecipe(recipe.id) }>
                     delete_forever
                 </i>

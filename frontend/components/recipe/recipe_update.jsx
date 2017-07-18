@@ -39,9 +39,12 @@ class RecipeUpdate extends React.Component {
       notes: this.state.notes
     }
 
-    this.props.updateRecipe({recipe: updatedRecipe})
-      //does not re-render the recipe detail page
-      .then(data => this.props.history.push(`/recipes/${recipe.id}`));
+    this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
+        console.log("in recipe form after update");
+        console.log(recipe);
+        this.props.history.push("/recipes")
+        //should re-render show page but it doesn't work, cannot push to recipe id again- is there a way to re-render the show page?
+      });
   }
 
   render() {

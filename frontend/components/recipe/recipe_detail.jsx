@@ -89,7 +89,7 @@ class RecipeDetail extends React.Component {
               <h2>{recipe.name}</h2>
               <div className="recipe-detail-content">
                 <figure className="recipe-detail-img">
-                  {recipe.image_url != "" ?
+                  {recipe.image_url !== "" ?
                     <img src={ recipe.image_url } alt={ recipe.name }/> :
                     <img
                         src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
@@ -99,13 +99,16 @@ class RecipeDetail extends React.Component {
                 <section className="recipe-detail-content1">
                   <div className="recipe-1">
                     <div className="recipe-detail-servings-title">Servings: </div>
-                    <div className="recipe-servings-text">{recipe.serving}
+                    <div className="recipe-servings-text">
+                        {recipe.serving === 0 ? "Not Specified" : recipe.serving}
                     </div>
                   </div>
 
                   <div className="recipe-1">
                     <div className="recipe-detail-title">Rating: </div>
-                    <div className="recipe-text">{recipe.rating}</div>
+                    <div className="recipe-text">{recipe.rating === 0 ?
+                        "No Rating Yet" : recipe.rating}
+                    </div>
                   </div>
 
                   <div className="recipe-1">

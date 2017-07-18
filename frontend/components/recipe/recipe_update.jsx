@@ -40,6 +40,7 @@ class RecipeUpdate extends React.Component {
     }
 
     this.props.updateRecipe({recipe: updatedRecipe})
+      //does not re-render the recipe detail page
       .then(data => this.props.history.push(`/recipes/${recipe.id}`));
   }
 

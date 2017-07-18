@@ -15,13 +15,13 @@ const RecipeReducer = (state = noErrors, action) => {
     case RECEIVE_RECIPE:
       newState = merge({}, state, action.recipe);
       return newState;
-    case CREATE_RECIPE:
-      newState = merge({}, state, {[action.recipe.id]: action.recipe});
+    case CREATE_RECIPE: {
+      let newState = merge({}, state);
+      newState[action.recipe.id] = action.recipe;
       return newState;
+    }
     case UPDATE_RECIPE: {
       let newState = merge({}, state);
-      console.log("in recipe reducer");
-      console.log(action.recipe);
       newState[action.recipe.id] = action.recipe;
       return newState;
     }

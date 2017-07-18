@@ -3,20 +3,33 @@ import React from "react";
 class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", image_url: "", link: "", serving: 0,
-      rating: 0, ingredients: "", description: "", directions: "", notes: ""};
+    this.state = { name: "", image_url: "", link: "", serving: "",
+      rating: "", ingredients: "", description: "", directions: "", notes: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
-    return event => this.setState({ [property]: event.target.value });
+    return event => {
+      this.setState({ [property]: event.target.value });
+    }
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const recipe = this.state;
-    this.props.createRecipe({recipe})
-      .then(data => this.props.history.push(`/recipes/${recipe.id}`));
+    let newRecipe = {
+      name: this.state.name,
+      image_url: this.state.image_url,
+      link: this.state.link,
+      serving: parseInt(this.state.serving),
+      rating: parseFloat(this.state.rating),
+      ingredients: this.state.ingredients,
+      description: this.state.description,
+      directions: this.state.directions,
+      notes: this.state.notes
+    }
+
+    this.props.createRecipe({ recipe: newRecipe });
+    //not rendering show page for new recipe.
   }
 
   render() {
@@ -52,14 +65,16 @@ class RecipeForm extends React.Component {
               <div className="recipe-form-part3">
                 <div className="recipe-form-part2">
                   <span>Servings</span>
-                  <input className="input-field" type="number" value={this.state.serving} placeholder="Number of Servings"
+                  <input className="input-field" type="number" min="0" value={this.state.serving} placeholder="Number of Servings"
                     onChange={this.update("serving")} />
                 </div>
 
                 <div className="recipe-form-part2">
                   <span>Rating</span>
-                  <input className="input-field" type="number" value={this.state.rating} placeholder="Stars"
-                    onChange={this.update("rating")} />
+                  <input className="input-field" type="number" min="0" max="10"
+                      value={this.state.rating}
+                      placeholder="Rating from 1 to 10"
+                      onChange={this.update("rating")} />
                 </div>
 
                 <div className="recipe-form-part2">

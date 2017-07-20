@@ -13,6 +13,7 @@ class RecipeDetail extends React.Component {
     this.state = { openUpdate: false };
     this.strSplit = this.strSplit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,14 @@ class RecipeDetail extends React.Component {
     console.log("hello1");
   }
 
+  handleDelete(event) {
+    const recipeId = parseInt(this.props.match.params.id);
+    const recipe = this.props.recipe[recipeId];
+    this.props.deleteRecipe(recipe.id).then( () => {
+      this.props.history.push("/recipes");
+    });
+  }
+
   render() {
     const recipeId = parseInt(this.props.match.params.id);
     const recipe = this.props.recipe[recipeId];
@@ -67,24 +76,26 @@ class RecipeDetail extends React.Component {
                 />
               </section>
 
-              <section>
-                <i className="fa fa-calendar fa-lg" aria-hidden="true"
-                    onClick={ this.handleDateClick }>
-                </i>
-              </section>
-
-              <section>
-                  <i className="fa fa-pencil fa-lg" aria-hidden="true"
-                      onClick={ this.handleUpdate }>
+              <section id="recipe-detail-icon-wrapper">
+                <div id="fa-calendar-wrapper">
+                  <i className="fa fa-calendar fa-lg" aria-hidden="true"
+                      onClick={ this.handleDateClick }>
                   </i>
-              </section>
+                </div>
 
-              <section>
-                <i className="material-icons trash-can-recipe"
-                    style={ styles }
-                    onClick={ () => this.props.deleteRecipe(recipe.id) }>
-                    delete_forever
-                </i>
+                <div id="fa-pencil-wrapper">
+                    <i className="fa fa-pencil fa-lg" aria-hidden="true"
+                        onClick={ this.handleUpdate }>
+                    </i>
+                </div>
+
+                <div id="fa-trash-can-wrapper">
+                  <i className="material-icons trash-can-recipe"
+                      style={ styles }
+                      onClick={ this.handleDelete }>
+                      delete_forever
+                  </i>
+                </div>
               </section>
             </div>
 

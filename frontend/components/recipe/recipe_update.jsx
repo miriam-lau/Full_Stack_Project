@@ -1,5 +1,4 @@
 import React from "react";
-import merge from "lodash/merge";
 
 class RecipeUpdate extends React.Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class RecipeUpdate extends React.Component {
   update(property) {
     let recipe = this.props.recipe;
     return e => {
-      // recipe[property] = e.target.value;
       this.setState({ [property]: e.target.value });
     }
   }
@@ -21,10 +19,6 @@ class RecipeUpdate extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let recipe = this.props.recipe;
-    // let updatedRecipe = merge({}, this.state);
-    // console.log(recipe.id);
-    // updatedRecipe[id] = recipe.id;
-
 
     let updatedRecipe = {
       id: recipe.id,
@@ -146,6 +140,3 @@ class RecipeUpdate extends React.Component {
 }
 
 export default RecipeUpdate;
-
-// <input className="update-recipe-name" type="text"
-//     value={recipe.name} onChange={ this.update("name") } />

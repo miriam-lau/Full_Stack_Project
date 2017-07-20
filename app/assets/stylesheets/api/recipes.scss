@@ -233,7 +233,66 @@
 }
 
 .recipe-detail-options section {
-  padding: 10px 15px 0 0;
+  padding: 6px 15px 0 0;
+}
+
+#recipe-detail-trash-can-wrapper {
+  padding: 10px 10px 0 0;
+}
+
+#recipe-detail-icon-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+#fa-calendar-wrapper {
+  border: 1px solid white;
+  border-radius: 3px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 1s;
+  height: 28px;
+}
+
+#fa-pencil-wrapper {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 1px 0.5px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 1s;
+  height: 26px;
+}
+
+#fa-trash-can-wrapper {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 1px 0;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 1s;
+  height: 26px;
+}
+
+#fa-calendar-wrapper:hover  {
+  border: 1px solid #333399;
+  border-radius: 3px;
+  background-color: #BCBCF2;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 1s;
+  height: 28px;
+}
+
+#fa-pencil-wrapper:hover {
+  border: 1px solid #333399;
+  border-radius: 3px;
+  background-color: #BCBCF2;
+  padding: 1px 0.5px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 1s;
+  height: 26px;
 }
 
 #link-to-recipes {
@@ -256,41 +315,34 @@
   transition: 0.5s;
 }
 
-.fa-pencil, .fa-calendar {
+.fa-pencil {
   cursor: pointer;
   padding: 5px;
   vertical-align: top;
   transition: 0.5s;
-  // border: 1px solid black;
 }
 
 .fa-calendar {
-  margin-left: 15px;
+  padding: 6px 5px;
+  cursor: pointer;
+  vertical-align: top;
+  transition: 0.5s;
   transform: scale(0.9);
 }
 
-.fa-pencil:hover, .fa-calendar:hover {
-  cursor: pointer;
-  padding: 5px;
-  color: white;
-  background-color: #333399;
-  border-radius: 3px;
-  transition: 0.5s;
-}
-
 .trash-can-recipe {
-  // border: 1px solid black;
   padding: 2px 0 1px 0;
   text-align: center;
   cursor: pointer;
+  transition: 1s;
 }
 
 .trash-can-recipe:hover {
-  // border: 1px solid black;
   padding: 2px 0 1px 0;
   text-align: center;
   color: red;
   cursor: pointer;
+  transition: 1s;
 }
 
 // recipe detail component and recipe update component

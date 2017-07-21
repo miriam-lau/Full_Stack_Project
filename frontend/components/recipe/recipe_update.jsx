@@ -36,7 +36,7 @@ class RecipeUpdate extends React.Component {
     this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
         console.log("in recipe form after update");
         console.log(recipe);
-        this.props.history.push("/recipes")
+        this.props.history.push("/recipes");
         //should re-render show page but it doesn't work, cannot push to recipe id again- is there a way to re-render the show page?
       });
   }

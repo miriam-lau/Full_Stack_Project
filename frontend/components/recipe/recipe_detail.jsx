@@ -10,10 +10,11 @@ import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { openUpdate: false };
+    this.state = { openUpdate: false, showCalendar: false };
     this.strSplit = this.strSplit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleCalendar = this.handleCalendar.bind(this);
   }
 
   componentDidMount() {
@@ -38,9 +39,21 @@ class RecipeDetail extends React.Component {
     this.setState({ openUpdate: !this.state.openUpdate });
   }
 
-  handleDateClick(event) {
-    event.preventDefault();
-    console.log("hello1");
+  handleCalendar(event){
+    this.setState({ showCalendar: !this.state.showCalendar });
+  }
+
+  handleSetDate(event) {
+    console.log("in recipe detail handle set date");
+    // add date column to recipe DB
+    // return event => {
+    //   const recipeId = parseInt(this.props.match.params.id);
+    //   const updatedRecipe = this.props.recipe[recipeId];
+    //   updatedRecipe.due_date = event.target.value;
+    //   this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
+    //     this.props.history.push("/pantry_items");
+    //   });
+    // }
   }
 
   handleDelete(event) {
@@ -79,9 +92,13 @@ class RecipeDetail extends React.Component {
               <section id="recipe-detail-icon-wrapper">
                 <div id="fa-calendar-wrapper">
                   <i className="fa fa-calendar fa-lg" aria-hidden="true"
-                      onClick={ this.handleDateClick }>
+                      onClick={ this.handleCalendar }>
                   </i>
                 </div>
+                {this.state.showCalendar ?
+                  <input className="form-date" type="date"
+                  onChange={ this.handleSetDate } /> : ""
+                }
 
                 <div id="fa-pencil-wrapper">
                     <i className="fa fa-pencil fa-lg" aria-hidden="true"

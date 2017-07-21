@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateRecipe: recipe => dispatch(updateRecipe(recipe)),
+  updateRecipe: (recipe) => dispatch(updateRecipe(recipe)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecipeUpdate));

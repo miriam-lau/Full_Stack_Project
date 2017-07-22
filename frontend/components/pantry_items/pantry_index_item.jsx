@@ -33,6 +33,7 @@ class PantryIndexItem extends React.Component {
         updatedPantryItem.currentQuantityDisplay = e.target.value;
         updatedPantryItem.quantity = parsedUpdateQuantity.quantity;
         updatedPantryItem.unit = parsedUpdateQuantity.unit;
+
         this.props.updatePantryItem({ pantry_item: updatedPantryItem });
         this.setState({ quantityError: "" });
       }

@@ -45,7 +45,6 @@ class RecipeDetail extends React.Component {
 
   handleSetDate(event) {
     console.log("in recipe detail handle set date");
-    // add date column to recipe DB
     // return event => {
     //   const recipeId = parseInt(this.props.match.params.id);
     //   const updatedRecipe = this.props.recipe[recipeId];

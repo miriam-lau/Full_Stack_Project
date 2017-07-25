@@ -45,14 +45,15 @@ class RecipeDetail extends React.Component {
 
   handleSetDate(event) {
     console.log("in recipe detail handle set date");
-    // return event => {
-    //   const recipeId = parseInt(this.props.match.params.id);
-    //   const updatedRecipe = this.props.recipe[recipeId];
-    //   updatedRecipe.due_date = event.target.value;
-    //   this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
-    //     this.props.history.push("/pantry_items");
-    //   });
-    // }
+    return event => {
+      const recipeId = parseInt(this.props.match.params.id);
+      const updatedRecipe = this.props.recipe[recipeId];
+      console.log(event.target.value);
+      updatedRecipe.due_date = event.target.value;
+      this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
+        this.props.history.push("/pantry_items");
+      });
+    }
   }
 
   handleDelete(event) {

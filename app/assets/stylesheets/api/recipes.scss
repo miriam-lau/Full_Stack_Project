@@ -230,10 +230,12 @@
 .recipe-detail-options {
   display: flex;
   flex-direction: row;
+  line-height: 30px;
+  padding: 10px;
 }
 
 .recipe-detail-options section {
-  padding: 6px 15px 0 0;
+  padding: 0 15px 0 0;
 }
 
 #recipe-detail-trash-can-wrapper {
@@ -254,17 +256,18 @@
 }
 
 #fa-calendar-wrapper {
-  height: 28px;
+  height: 30px;
+  padding: 0px 2px;
 }
 
 #fa-pencil-wrapper {
-  padding: 1px 0.5px;
-  height: 26px;
+  height: 30px;
+  padding: 0px 2.8px;
 }
 
 #fa-trash-can-wrapper {
-  padding: 1px 0;
-  height: 26px;
+  padding: 2.5px 0.8px 0 0.8px;
+  height: 27px;
 }
 
 #recipe-detail-icon-wrapper > div:hover {
@@ -277,7 +280,11 @@
 }
 
 #link-to-recipes {
-  padding-top: 13px;
+  padding: 2px 10px 0 4px;
+}
+
+#link-to-add-recipe {
+  padding-left: 15px;
 }
 
 .recipe-link {
@@ -285,7 +292,7 @@
   font-size: 15px;
   font-weight: bold;
   align-self: center;
-  margin: 10px 0 0 15px;
+  margin-top: 10px;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -297,17 +304,11 @@
 }
 
 .fa-pencil {
-  cursor: pointer;
   padding: 5px;
-  vertical-align: top;
-  transition: 0.5s;
 }
 
 .fa-calendar {
-  padding: 6px 5px;
-  cursor: pointer;
-  vertical-align: top;
-  transition: 0.5s;
+  padding: 5px 5px;
   transform: scale(0.9);
 }
 

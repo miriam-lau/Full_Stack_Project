@@ -26,8 +26,10 @@ class RecipeIndex extends React.Component {
 
           <div className="recipe-index">
             <br />
-            <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>
-            <Route exact path="/recipes/new" component={ RecipeFormContainer } />
+            <section id="link-to-add-recipe">
+              <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>
+              <Route exact path="/recipes/new" component={ RecipeFormContainer } />
+            </section>
 
             <section>
               <h2 className="recipe-title">Recipes</h2>

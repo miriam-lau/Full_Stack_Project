@@ -66,5 +66,6 @@ export const addItemStyle = {
 export const hintTextStyle = {
   "bottom": "3px",
   "color": "#333399",
-  "width": "330px"
+  "width": "330px",
+  "font-style": "italic"
 }

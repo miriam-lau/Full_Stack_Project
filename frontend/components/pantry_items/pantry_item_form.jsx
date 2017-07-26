@@ -147,7 +147,7 @@ class PantryItemForm extends React.Component {
               )
             })};
           </select>
-          
+
           <div className="plus-circle">
             <i className="fa fa-plus-circle fa-lg" aria-hidden="true"
                 onClick={ this.handleSubmit }>

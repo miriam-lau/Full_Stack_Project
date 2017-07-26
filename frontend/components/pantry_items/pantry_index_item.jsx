@@ -34,38 +34,6 @@ class PantryIndexItem extends React.Component {
         updatedPantryItem.quantity = parsedUpdateQuantity.quantity;
         updatedPantryItem.unit = parsedUpdateQuantity.unit;
 
-        // check for duplicate items
-        // let item = updatedPantryItem;
-        // item.unit = singularizeUnit(item.unit);
-        // let duplicateItem = findMatchingItem(this.props.pantryItems,
-        //     item.id, item);
-        //
-        // if (duplicateItem != null) {
-        //   let quantity = parseFloat(item.quantity) +
-        //       parseFloat(duplicateItem.quantity);
-        //
-        //   singularizeUnit(duplicateItem.unit);
-        //   let itemUnit = quantity > 1 ?
-        //       pluralizeUnit(duplicateItem.unit) :
-        //       singularizeUnit(duplicateItem.unit);
-        //
-        //   // set the currentQuantityDisplay
-        //   let currentQuantityDisplay = generateDisplayQuantity(item);
-        //
-        //   let updateDuplicateItem = {
-        //     id: duplicateItem.id,
-        //     name: duplicateItem.name,
-        //     category: duplicateItem.category,
-        //     quantity: quantity,
-        //     unit: itemUnit,
-        //     currentQuantityDisplay: currentQuantityDisplay
-        //   };
-        //
-        //   this.props.updatePantryItem({ pantry_item: updateDuplicateItem })
-        //       .then(() => this.props.deletePantryItem(item.id));
-        //   return;
-        // }
-
         this.props.updatePantryItem({ pantry_item: updatedPantryItem });
         this.setState({ quantityError: "" });
       }

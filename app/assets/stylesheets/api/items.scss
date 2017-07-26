@@ -42,6 +42,14 @@
   border: 1px solid #C0C0C0;
   border-radius: 5px;
   margin: 10px 15px 20px 15px;
+  transition: 1s;
+}
+
+.add-item:hover {
+  border: 1px solid #333399;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  transition: 1s;
 }
 
 // index category
@@ -71,10 +79,12 @@
 // item form component
 .item-form {
   width: 100%;
+  border-radius: 5px;
 }
 
 .item-form-fields {
   display: flex;
+  border-radius: 5px;
 }
 
 #text-field-default {
@@ -84,6 +94,7 @@
 .form-categories {
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
+  font-style: italic;
   font-weight: 900;
   color: #333399;
   margin-right: 20px;
@@ -98,6 +109,7 @@
 .uncategorized-items {
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
+  font-style: italic;
   font-weight: 900;
   color: #333399;
   margin-right: 16px;

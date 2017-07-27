@@ -47,7 +47,7 @@
 
 .add-item:hover {
   border: 1px solid #333399;
-  background-color: #e5e5e5;
+  background-color: #E6E6FA;
   border-radius: 5px;
   transition: 1s;
 }
@@ -79,12 +79,10 @@
 // item form component
 .item-form {
   width: 100%;
-  border-radius: 5px;
 }
 
 .item-form-fields {
   display: flex;
-  border-radius: 5px;
 }
 
 #text-field-default {

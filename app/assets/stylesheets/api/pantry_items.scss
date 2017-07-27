@@ -5,7 +5,9 @@
 }
 
 .reminders {
-  width: 100%;
+  // width: 100%;
+  min-width: 600px;
+  max-width: 100%;
   height: auto;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;

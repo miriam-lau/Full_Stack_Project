@@ -327,6 +327,22 @@
   transition: 1s;
 }
 
+.recipe-form-date {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 900;
+  color: #333399;
+  margin-right: 20px;
+  min-width: 250px;
+  max-width: 250px;
+  border: 1px solid #333399;
+  border-radius: 3px;
+  line-height: 11px;
+  padding: 1px 0 0 5px;
+}
+
+
 // recipe detail component and recipe update component
 .recipe-detail-info {
   margin: 30px 10px 0 15px;

@@ -96,8 +96,9 @@ class RecipeDetail extends React.Component {
                   </i>
                 </div>
                 {this.state.showCalendar ?
-                  <input className="form-date" type="date"
-                  onChange={ this.handleSetDate } /> : ""
+                  <input className="recipe-form-date" type="date"
+                    placeholder="Select a date"
+                    onChange={ this.handleSetDate } /> : ""
                 }
 
                 <div id="fa-pencil-wrapper">

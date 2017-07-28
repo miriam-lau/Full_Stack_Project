@@ -327,9 +327,17 @@
   transition: 1s;
 }
 
+.recipe-calendar-directions {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 20px 10px 20px 10px;
+  color: #333399;
+}
+
 .recipe-form-date {
   font-family: 'Nunito', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic;
   font-weight: 900;
   color: #333399;
@@ -340,6 +348,28 @@
   border-radius: 3px;
   line-height: 11px;
   padding: 1px 0 0 5px;
+}
+
+.recipe-calendar-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.recipe-calendar-submit {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #333399;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #333399;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  width: 100%;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 

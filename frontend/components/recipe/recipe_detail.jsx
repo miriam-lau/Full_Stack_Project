@@ -1,20 +1,55 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
+import Modal from "react-modal";
 
+import CalendarModalForm from "./calendar_modal_form";
 import RecipeIndexContainer from "./recipe_index_container";
 import RecipeUpdateContainer from "./recipe_update_container";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
     "../utils/material_ui_styles";
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { openUpdate: false, showCalendar: false };
+    this.state = { openUpdate: false, showCalendar: false, modalIsOpen: false };
     this.strSplit = this.strSplit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleCalendar = this.handleCalendar.bind(this);
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  // calendar modal functions
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  componentWillMount() {
+    Modal.setAppElement("div");
   }
 
   componentDidMount() {
@@ -92,14 +127,34 @@ class RecipeDetail extends React.Component {
               <section id="recipe-detail-icon-wrapper">
                 <div id="fa-calendar-wrapper">
                   <i className="fa fa-calendar fa-lg" aria-hidden="true"
-                      onClick={ this.handleCalendar }>
+                      onClick={ this.openModal }>
                   </i>
+                  <Modal
+                      isOpen={this.state.modalIsOpen}
+                      onAfterOpen={this.afterOpenModal}
+                      onRequestClose={this.closeModal}
+                      style={customStyles}
+                      contentLabel="Example Modal"
+                  >
+                    <div className="modal-icon">
+                      <i className="material-icons closeX"
+                          onClick={ this.closeModal }>close</i>
+                    </div>
+
+                    <div className="recipe-calendar-directions">Choose a date to make {recipe.name}</div>
+
+                    <form className="recipe-calendar-form"
+                        onSubmit={ this.handleSubmitDate }>
+                      <input className="recipe-form-date" type="date"
+                        placeholder="Select a date"
+                        onChange={ this.handleSetDate } />
+                        
+                      <button className="recipe-calendar-submit">
+                          Save Date
+                      </button>
+                    </form>
+                  </Modal>
                 </div>
-                {this.state.showCalendar ?
-                  <input className="recipe-form-date" type="date"
-                    placeholder="Select a date"
-                    onChange={ this.handleSetDate } /> : ""
-                }
 
                 <div id="fa-pencil-wrapper">
                     <i className="fa fa-pencil fa-lg" aria-hidden="true"

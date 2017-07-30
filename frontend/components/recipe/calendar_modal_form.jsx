@@ -6,75 +6,27 @@ import FontIcon from "material-ui/FontIcon";
 class CalendarModalForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {modalIsOpen: false};
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    Modal.setAppElement("div");
-  }
-
-  openModal() {
-    this.closeModal();
-    this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
-    // references are now sync"d and can be accessed.
-    // this.subtitle.style.color = "#f00";
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
+  handleSubmit(event) {
+    console.log("in modal set recipe date");
   }
 
   render() {
-    const style = {
-      overlay : {
-       position: "fixed",
-       top: 0,
-       left: 0,
-       right: 0,
-       bottom: 0,
-       opactiy: "1",
-       backgroundColor: "rgba(55, 55, 55, 0.9)"
-      },
-      content : {
-        position: "fixed",
-        top: "20%",
-        left: "35%",
-        right: "40px",
-        bottom: "auto",
-        border: "1px solid #ccc",
-        overflow: "auto",
-        WebkitOverflowScrolling: "touch",
-        borderRadius: "10px",
-        outline: "none",
-        width: "25%"
-      }
-    };
-
-    const open = Boolean(this.props.modalOpen)
-    const {modalOpen} = this.props;
+    let recipe = this.props.recipe;
 
     return (
-      <div>
-        <Modal isOpen={true} onAfterOpen={this.afterOpenModal}
-          onRequestClose={ this.closeModal } style={style} contentLabel="session-form">
+      <form className="recipe-calendar-form"
+          onSubmit={ this.handleSubmit }>
+        <h2 className="recipe-calendar-title">Select a Date</h2>
+        <div className="recipe-calendar-directions">Recipe to make: "{recipe.name}"</div>
 
-          <div className="modal-icon">
-            <i className="material-icons closeX"
-                onClick={ this.closeModal }>close</i>
-          </div>
-
-          <form>
-            <input className="recipe-form-date" type="date"
-              placeholder="Select a date"
-              onChange={ this.handleSetDate } />
-          </form>
-        </Modal>
-      </div>
+        <input className="recipe-form-date" type="date"
+          placeholder="Select a date"
+        />
+        <button className="recipe-calendar-submit">Save Date</button>
+      </form>
     );
   }
 }

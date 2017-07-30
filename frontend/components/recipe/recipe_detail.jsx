@@ -11,12 +11,13 @@ import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: '1px solid black'
   }
 };
 
@@ -41,7 +42,7 @@ class RecipeDetail extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
+    // this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -129,31 +130,14 @@ class RecipeDetail extends React.Component {
                   <i className="fa fa-calendar fa-lg" aria-hidden="true"
                       onClick={ this.openModal }>
                   </i>
-                  <Modal
-                      isOpen={this.state.modalIsOpen}
-                      onAfterOpen={this.afterOpenModal}
-                      onRequestClose={this.closeModal}
-                      style={customStyles}
-                      contentLabel="Example Modal"
-                  >
-                    <div className="modal-icon">
-                      <i className="material-icons closeX"
-                          onClick={ this.closeModal }>close</i>
-                    </div>
-
-                    <div className="recipe-calendar-directions">Choose a date to make {recipe.name}</div>
-
-                    <form className="recipe-calendar-form"
-                        onSubmit={ this.handleSubmitDate }>
-                      <input className="recipe-form-date" type="date"
-                        placeholder="Select a date"
-                        onChange={ this.handleSetDate } />
-                        
-                      <button className="recipe-calendar-submit">
-                          Save Date
-                      </button>
-                    </form>
-                  </Modal>
+                  <Modal isOpen={this.state.modalIsOpen}
+                      onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} >
+                     <div className="modal-icon">
+                       <i className="material-icons closeX"
+                           onClick={ this.closeModal }>close</i>
+                     </div>
+                     <CalendarModalForm recipe={ recipe }/>
+                   </Modal>
                 </div>
 
                 <div id="fa-pencil-wrapper">

@@ -1,23 +1,25 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
-import Modal from "react-modal";
 
 import CalendarModalForm from "./calendar_modal_form";
 import RecipeIndexContainer from "./recipe_index_container";
 import RecipeUpdateContainer from "./recipe_update_container";
+
+import Modal from "react-modal";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
     "../utils/material_ui_styles";
 
 const customStyles = {
   content : {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    border: '1px solid black'
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    border: "1px solid #333399",
+    height: "420px"
   }
 };
 

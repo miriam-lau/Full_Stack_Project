@@ -1,5 +1,7 @@
 import React from "react";
 
+// import DayPickerInput from "react-day-picker/DayPickerInput";
+// import moment from "moment";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
 import { TextField } from "material-ui";
 
@@ -41,6 +43,7 @@ class ReminderForm extends React.Component {
             onChange={ this.update("name") }
           />
 
+
           <input className="form-date" type="date"
               onChange={ this.update("due_date") } />
 
@@ -59,3 +62,5 @@ class ReminderForm extends React.Component {
 }
 
 export default ReminderForm;
+
+// <DayPickerInput placeholder="Pick a day" />

@@ -25,8 +25,29 @@
   display: flex;
 }
 
-#text-field-default {
-  width: 332px;
+#reminder-text-field-default {
+  min-width: 332px;
+}
+
+.selectedCustomDate {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.fa-sort-desc {
+  padding: 3px 0 0 3px;
+}
+
+.form-date-input {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 900;
+  color: #333399;
+  margin-top: 1px;
+  border: none;
 }
 
 .form-date {
@@ -37,10 +58,8 @@
   color: #333399;
   margin-right: 20px;
   margin-top: 1px;
-  min-width: 250px;
-  max-width: 250px;
+  width: 100%;
   border: none;
-  line-height: 17px;
 }
 
 .plus-circle-reminder {

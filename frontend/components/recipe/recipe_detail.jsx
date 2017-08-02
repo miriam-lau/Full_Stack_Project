@@ -27,6 +27,7 @@ class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { openUpdate: false, showCalendar: false, modalIsOpen: false };
+
     this.strSplit = this.strSplit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -134,11 +135,11 @@ class RecipeDetail extends React.Component {
                   </i>
                   <Modal isOpen={this.state.modalIsOpen}
                       onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} >
-                     <div className="modal-icon">
-                       <i className="material-icons closeX"
-                           onClick={ this.closeModal }>close</i>
-                     </div>
-                     <CalendarModalForm recipe={ recipe }/>
+                    <div className="modal-icon">
+                      <i className="material-icons closeX"
+                          onClick={ this.closeModal }>close</i>
+                    </div>
+                    <CalendarModalForm recipe={ recipe }/>
                    </Modal>
                 </div>
 

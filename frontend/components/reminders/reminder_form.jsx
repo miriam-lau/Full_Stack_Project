@@ -2,6 +2,7 @@ import React from "react";
 
 import DayPicker from "react-day-picker";
 import Modal from "react-modal";
+import { reminderModalStyle } from "../utils/modal_styles";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
 import { TextField } from "material-ui";
 
@@ -11,19 +12,6 @@ function ErrorBanner(props) {
   }
   return null;
 }
-
-const customStyles = {
-  content : {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "1px solid #333399",
-    height: "380px"
-  }
-};
 
 class ReminderForm extends React.Component {
   constructor(props) {
@@ -115,13 +103,16 @@ class ReminderForm extends React.Component {
               </div>
           }
 
-          <Modal isOpen={this.state.modalIsOpen}
-              onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} >
+          <Modal
+              isOpen={ this.state.modalIsOpen }
+              onAfterOpen={ this.afterOpenModal }
+              onRequestClose={ this.closeModal } 
+              style={ reminderModalStyle } >
             <div className="modal-icon">
-              <i className="material-icons closeX"
+              <i className="material-icons calendar-closeX"
                   onClick={ this.closeModal }>close</i>
             </div>
-            <h2 className="recipe-calendar-title">Select a Date</h2>
+            <h2 className="calendar-title">Select a Date</h2>
             <br />
             <DayPicker
               enableOutsideDays

@@ -327,18 +327,29 @@
   transition: 1s;
 }
 
+.recipe-calendar-closeX {
+  padding: 5px 0 0 5px;
+  cursor: pointer;
+}
+
+.recipe-calendar-closeX:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .recipe-calendar-title {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-weight: 900;
   color: #333399;
+  padding: 0 15px;
 }
 
 .recipe-calendar-directions {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 900;
-  padding: 20px 0;
+  padding: 20px 15px;
   text-align: left;
   color: #333399;
 }

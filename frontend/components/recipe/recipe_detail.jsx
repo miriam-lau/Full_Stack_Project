@@ -6,22 +6,10 @@ import RecipeIndexContainer from "./recipe_index_container";
 import RecipeUpdateContainer from "./recipe_update_container";
 
 import Modal from "react-modal";
+import { recipeModalStyle } from "../utils/modal_styles";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
     "../utils/material_ui_styles";
-
-const customStyles = {
-  content : {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "1px solid #333399",
-    height: "420px"
-  }
-};
 
 class RecipeDetail extends React.Component {
   constructor(props) {
@@ -65,9 +53,6 @@ class RecipeDetail extends React.Component {
       this.props.requestRecipe(nextProps.match.params.id);
     }
   }
-
-  // componentDidUpdate(prevProps) {
-  // }
 
   strSplit(str) {
     let strArray = str.split("\n");
@@ -133,10 +118,13 @@ class RecipeDetail extends React.Component {
                   <i className="fa fa-calendar fa-lg" aria-hidden="true"
                       onClick={ this.openModal }>
                   </i>
-                  <Modal isOpen={this.state.modalIsOpen}
-                      onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} >
+                  <Modal
+                      isOpen={ this.state.modalIsOpen }
+                      onAfterOpen={ this.afterOpenModal }
+                      onRequestClose={ this.closeModal }
+                      style={ recipeModalStyle } >
                     <div className="modal-icon">
-                      <i className="material-icons closeX"
+                      <i className="material-icons calendar-closeX"
                           onClick={ this.closeModal }>close</i>
                     </div>
                     <CalendarModalForm recipe={ recipe }/>

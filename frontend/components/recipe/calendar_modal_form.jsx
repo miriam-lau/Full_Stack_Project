@@ -20,7 +20,7 @@ class CalendarModalForm extends React.Component {
 
     return (
       <div>
-        <h2 className="recipe-calendar-title">Select a Date</h2>
+        <h2 className="calendar-title">Select a Date</h2>
         <div className="recipe-calendar-directions">To make: "{recipe.name}"</div>
 
         <DayPicker className="date-picker"

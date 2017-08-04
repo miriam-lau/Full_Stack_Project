@@ -38,7 +38,7 @@ class ReminderForm extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({ modalIsOpen: false });
   }
 
   componentWillMount() {
@@ -46,23 +46,36 @@ class ReminderForm extends React.Component {
   }
 
   update(property) {
+    let date = new Date();
+    // let month
+    // let day
+    // let year
+
     return e => {
       console.log("in update property");
       if (property == "due_date") {
-        this.setState({ due_date: "set due date"});
+        this.setState({ due_date: "set due date" });
         this.closeModal();
       }
-      this.setState({ [property]: e.target.value }, () => {
-        console.log("in set state of property");
-        if (this.state.date == "customDate") {
-          this.openModal();
-        }
-      });
+      // if (property == "today") {
+      //   const today = moment(Number[]);
+      //   this.setState({ due_date: "day, month, year" });
+      // } else if (property == "tomorrow") {
+      //   const tomorrow = moment().add(1, "day");
+      //   this.setSate({ due_date: "day, month, year" });
+      // } else {
+        this.setState({ [property]: e.target.value }, () => {
+          console.log("in set state of property");
+          if (this.state.date == "customDate") {
+            this.openModal();
+          }
+        });
+      // }
     }
   }
 
   changeDueDate(event) {
-    this.setState({ due_date: ""});
+    this.setState({ due_date: "" });
   }
 
   handleSubmit(event) {
@@ -71,8 +84,9 @@ class ReminderForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.date);
-    console.log(this.state.modalIsOpen);
+    // console.log("due date format");
+    // console.log(due_date);
+    // postgres format "DD MM YYYY"
     return (
       <form className="item-form" onSubmit={ this.handleSubmit }>
         <div className="item-form-fields">
@@ -92,7 +106,6 @@ class ReminderForm extends React.Component {
                     Select a Due Date</option>
                 <option value="today">Today</option>
                 <option value="tomorrow">Tomorrow</option>
-                <option value="oneWeek">In One Week</option>
                 <option value="customDate">Select a Date</option>
               </select> :
               <div className="selectedCustomDate">
@@ -106,7 +119,7 @@ class ReminderForm extends React.Component {
           <Modal
               isOpen={ this.state.modalIsOpen }
               onAfterOpen={ this.afterOpenModal }
-              onRequestClose={ this.closeModal } 
+              onRequestClose={ this.closeModal }
               style={ reminderModalStyle } >
             <div className="modal-icon">
               <i className="material-icons calendar-closeX"
@@ -116,7 +129,7 @@ class ReminderForm extends React.Component {
             <br />
             <DayPicker
               enableOutsideDays
-              onDayClick= { this.update("due_date")}
+              onDayClick= { this.update("due_date") }
             />
           </Modal>
 

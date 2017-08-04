@@ -127,7 +127,8 @@ class RecipeDetail extends React.Component {
                       <i className="material-icons calendar-closeX"
                           onClick={ this.closeModal }>close</i>
                     </div>
-                    <CalendarModalForm recipe={ recipe }/>
+                    <CalendarModalForm recipe={ recipe }
+                      updateRecipe = { this.props.updateRecipe }/>
                    </Modal>
                 </div>
 

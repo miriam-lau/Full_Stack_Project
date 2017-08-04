@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import merge from "lodash/merge";
 
+import merge from "lodash/merge";
 import { findMatchingItem, generateDisplayQuantity, parseUpdateQuantity,
     pluralizeUnit, singularizeUnit } from "../utils/item_helpers";
 import { formCategory } from "../utils/item_categories";

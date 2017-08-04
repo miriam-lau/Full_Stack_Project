@@ -2,6 +2,7 @@ import React from "react";
 
 import DayPicker from "react-day-picker";
 import FontIcon from "material-ui/FontIcon";
+import merge from "lodash/merge";
 import Modal from "react-modal";
 
 class CalendarModalForm extends React.Component {
@@ -11,7 +12,17 @@ class CalendarModalForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault;
     console.log("in modal set recipe date");
+    let setDate = new Date();
+    // let month =
+    // let day =
+    // let year =
+    // let updatedRecipe = merge({}, this.props.recipe);
+    // updatedRecipe.due_date = setDate;
+    // this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
+    //   this.props.history.push("/pantry_items");
+    // });
   }
 
   render() {

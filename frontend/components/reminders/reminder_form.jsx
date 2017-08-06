@@ -46,10 +46,7 @@ class ReminderForm extends React.Component {
   }
 
   update(property) {
-    let date = new Date();
-    // let month
-    // let day
-    // let year
+    var moment = require("moment");
 
     return e => {
       console.log("in update property");
@@ -57,20 +54,20 @@ class ReminderForm extends React.Component {
         this.setState({ due_date: "set due date" });
         this.closeModal();
       }
-      // if (property == "today") {
-      //   const today = moment(Number[]);
-      //   this.setState({ due_date: "day, month, year" });
-      // } else if (property == "tomorrow") {
-      //   const tomorrow = moment().add(1, "day");
-      //   this.setSate({ due_date: "day, month, year" });
-      // } else {
-        this.setState({ [property]: e.target.value }, () => {
-          console.log("in set state of property");
-          if (this.state.date == "customDate") {
-            this.openModal();
-          }
-        });
-      // }
+
+      // postgres format "DD MM YYYY"
+      this.setState({ [property]: e.target.value }, () => {
+        console.log("in set state of property");
+        if (this.state.date == "customDate") {
+          this.openModal();
+        } else if (this.state.date == "today") {
+          let today = moment().format("MM-DD-YYYY");
+          this.setState({ due_date: today });
+        } else if (this.state.date == "tomorrow") {
+          let tomorrow = moment().add(1, "day").format("MM-DD-YYYY");
+          this.setState({ due_date: tomorrow });
+        }
+      });
     }
   }
 
@@ -84,9 +81,6 @@ class ReminderForm extends React.Component {
   }
 
   render() {
-    // console.log("due date format");
-    // console.log(due_date);
-    // postgres format "DD MM YYYY"
     return (
       <form className="item-form" onSubmit={ this.handleSubmit }>
         <div className="item-form-fields">
@@ -129,6 +123,7 @@ class ReminderForm extends React.Component {
             <br />
             <DayPicker
               enableOutsideDays
+              selected= { this.state.date }
               onDayClick= { this.update("due_date") }
             />
           </Modal>
@@ -148,3 +143,11 @@ class ReminderForm extends React.Component {
 }
 
 export default ReminderForm;
+
+// split dateString
+// let todayDateSplit = todayDate.split(",");
+// console.log(todayDateSplit);
+// let month = todayDateSplit[0];
+// let day = todayDateSplit[1];
+// let year = todayDateSplit[2];
+// let today = day + "," + month + "," + year;

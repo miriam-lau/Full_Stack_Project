@@ -14,10 +14,8 @@ class CalendarModalForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault;
     console.log("in modal set recipe date");
-    let setDate = new Date();
-    // let month =
-    // let day =
-    // let year =
+    var moment = require("moment");
+    let setDate = moment().format("MM-DD-YYYY");
     // let updatedRecipe = merge({}, this.props.recipe);
     // updatedRecipe.due_date = setDate;
     // this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {

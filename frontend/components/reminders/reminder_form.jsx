@@ -17,7 +17,7 @@ class ReminderForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: "", date: "", due_date: "", modalIsOpen: false,
-        errors: false };
+        errors: false, selectedDay: new Date() };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeDueDate = this.changeDueDate.bind(this);
@@ -47,27 +47,28 @@ class ReminderForm extends React.Component {
 
   update(property) {
     var moment = require("moment");
+    return event => {
 
-    return e => {
       console.log("in update property");
       if (property == "due_date") {
-        this.setState({ due_date: "set due date" });
+        this.setState({ due_date: event });
         this.closeModal();
-      }
+      } else {
 
       // postgres format "DD MM YYYY"
-      this.setState({ [property]: e.target.value }, () => {
-        console.log("in set state of property");
-        if (this.state.date == "customDate") {
-          this.openModal();
-        } else if (this.state.date == "today") {
-          let today = moment().format("MM-DD-YYYY");
-          this.setState({ due_date: today });
-        } else if (this.state.date == "tomorrow") {
-          let tomorrow = moment().add(1, "day").format("MM-DD-YYYY");
-          this.setState({ due_date: tomorrow });
-        }
-      });
+        this.setState({ [property]: event.target.value }, () => {
+          console.log("in set state of property");
+          if (this.state.date == "customDate") {
+            this.openModal();
+          } else if (this.state.date == "today") {
+            let today = moment().format("MM-DD-YYYY");
+            this.setState({ due_date: today });
+          } else if (this.state.date == "tomorrow") {
+            let tomorrow = moment().add(1, "day").format("MM-DD-YYYY");
+            this.setState({ due_date: tomorrow });
+          }
+        });
+      }
     }
   }
 
@@ -123,7 +124,7 @@ class ReminderForm extends React.Component {
             <br />
             <DayPicker
               enableOutsideDays
-              selected= { this.state.date }
+              selectedDays= { this.state.selectedDay }
               onDayClick= { this.update("due_date") }
             />
           </Modal>

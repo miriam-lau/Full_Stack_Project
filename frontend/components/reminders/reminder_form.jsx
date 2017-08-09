@@ -13,11 +13,14 @@ function ErrorBanner(props) {
   return null;
 }
 
+const months = ["Jan", "Feb"]
+
 class ReminderForm extends React.Component {
   constructor(props) {
     super(props);
+    let moment = require("moment");
     this.state = { name: "", date: "", due_date: "", modalIsOpen: false,
-        errors: false, selectedDay: new Date() };
+        errors: false, selectedDay: moment().format("MM-DD-YYYY") };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeDueDate = this.changeDueDate.bind(this);
@@ -46,12 +49,20 @@ class ReminderForm extends React.Component {
   }
 
   update(property) {
-    var moment = require("moment");
     return event => {
-
-      console.log("in update property");
       if (property == "due_date") {
-        this.setState({ due_date: event });
+        let month = event.getMonth() + 1;
+        let monthStr = "";
+        monthStr = (month < 10) ? ("0" + month) : ("" + month);
+
+        let dayStr = "";
+        let day = event.getDate();
+        dayStr = (day < 10) ? ("0" + day) : ("" + day);
+
+        let year = event.getFullYear();
+        let customDate = monthStr + "-" + dayStr + "-" + year;
+        console.log(customDate);
+        this.setState({ due_date: customDate });
         this.closeModal();
       } else {
 

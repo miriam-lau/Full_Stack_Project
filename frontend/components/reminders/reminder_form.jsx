@@ -13,8 +13,6 @@ function ErrorBanner(props) {
   return null;
 }
 
-const months = ["Jan", "Feb"]
-
 class ReminderForm extends React.Component {
   constructor(props) {
     super(props);
@@ -62,11 +60,10 @@ class ReminderForm extends React.Component {
         let year = event.getFullYear();
         let customDate = monthStr + "-" + dayStr + "-" + year;
         console.log(customDate);
+
         this.setState({ due_date: customDate });
         this.closeModal();
       } else {
-
-      // postgres format "DD MM YYYY"
         this.setState({ [property]: event.target.value }, () => {
           console.log("in set state of property");
           if (this.state.date == "customDate") {
@@ -155,11 +152,3 @@ class ReminderForm extends React.Component {
 }
 
 export default ReminderForm;
-
-// split dateString
-// let todayDateSplit = todayDate.split(",");
-// console.log(todayDateSplit);
-// let month = todayDateSplit[0];
-// let day = todayDateSplit[1];
-// let year = todayDateSplit[2];
-// let today = day + "," + month + "," + year;

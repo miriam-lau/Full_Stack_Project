@@ -19,7 +19,6 @@ class RecipeDetail extends React.Component {
     this.strSplit = this.strSplit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleCalendar = this.handleCalendar.bind(this);
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -61,10 +60,6 @@ class RecipeDetail extends React.Component {
 
   handleUpdate(event) {
     this.setState({ openUpdate: !this.state.openUpdate });
-  }
-
-  handleCalendar(event){
-    this.setState({ showCalendar: !this.state.showCalendar });
   }
 
   handleSetDate(event) {
@@ -127,7 +122,7 @@ class RecipeDetail extends React.Component {
                       <i className="material-icons calendar-closeX"
                           onClick={ this.closeModal }>close</i>
                     </div>
-                    <CalendarModalForm recipe={ recipe } 
+                    <CalendarModalForm recipe={ recipe }
                       modalIsOpen= { this.state.modalIsOpen }
                       updateRecipe = { this.props.updateRecipe }/>
                    </Modal>

@@ -2,6 +2,7 @@ import React from "react";
 
 import DayPicker from "react-day-picker";
 import Modal from "react-modal";
+
 import { reminderModalStyle } from "../utils/modal_styles";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
 import { TextField } from "material-ui";

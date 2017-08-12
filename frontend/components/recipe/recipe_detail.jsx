@@ -1,11 +1,13 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 
-import CalendarModalForm from "./calendar_modal_form";
 import RecipeIndexContainer from "./recipe_index_container";
 import RecipeUpdateContainer from "./recipe_update_container";
 
+import DayPicker from "react-day-picker";
+import merge from "lodash/merge";
 import Modal from "react-modal";
+
 import { recipeModalStyle } from "../utils/modal_styles";
 import { FontIcon, TextField } from "material-ui/";
 import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
@@ -14,11 +16,14 @@ import { underlineFocusStyle, underlineStyle, itemStyleDefault, styles } from
 class RecipeDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { openUpdate: false, showCalendar: false, modalIsOpen: false };
+    let moment = require("moment");
+    this.state = { selectedDay: moment().format("MM-DD-YYYY"),
+        openUpdate: false, modalIsOpen: false, due_date: "" };
 
     this.strSplit = this.strSplit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleSetDate = this.handleSetDate.bind(this);
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -63,16 +68,29 @@ class RecipeDetail extends React.Component {
   }
 
   handleSetDate(event) {
-    console.log("in recipe detail handle set date");
-    return event => {
-      const recipeId = parseInt(this.props.match.params.id);
-      const updatedRecipe = this.props.recipe[recipeId];
-      console.log(event.target.value);
-      updatedRecipe.due_date = event.target.value;
-      this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
-        this.props.history.push("/pantry_items");
-      });
-    }
+    console.log("in modal set recipe date");
+
+    let month = event.getMonth() + 1;
+    let monthStr = "";
+    monthStr = (month < 10) ? ("0" + month) : ("" + month);
+
+    let dayStr = "";
+    let day = event.getDate();
+    dayStr = (day < 10) ? ("0" + day) : ("" + day);
+
+    let year = event.getFullYear();
+    let customDate = monthStr + "-" + dayStr + "-" + year;
+
+    console.log(customDate);
+
+    this.setState({ due_date: customDate });
+    this.closeModal();
+
+      // let updatedRecipe = merge({}, this.props.recipe);
+      // updatedRecipe.due_date = setDate;
+      // this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
+      //   this.props.history.push("/pantry_items");
+      // });
   }
 
   handleDelete(event) {
@@ -88,6 +106,8 @@ class RecipeDetail extends React.Component {
     const recipe = this.props.recipe[recipeId];
     // if type recipes.recipe_id it will become a string literal, need index
     if (!recipe) return null;
+    let disabledDays = {};
+    let selectedDay = this.state.selectedDay;
 
     return (
       <div className="wrapper">
@@ -122,9 +142,17 @@ class RecipeDetail extends React.Component {
                       <i className="material-icons calendar-closeX"
                           onClick={ this.closeModal }>close</i>
                     </div>
-                    <CalendarModalForm recipe={ recipe }
-                      modalIsOpen= { this.state.modalIsOpen }
-                      updateRecipe = { this.props.updateRecipe }/>
+                    <div>
+                      <h2 className="calendar-title">Select a Date</h2>
+                      <div className="recipe-calendar-directions">To make: "{recipe.name}"</div>
+
+                      <DayPicker
+                        enableOutsideDays
+                        disabledDays={ disabledDays }
+                        selectedDays={ this.state.selectedDay }
+                        onDayClick={ this.handleSetDate }
+                      />
+                    </div>
                    </Modal>
                 </div>
 

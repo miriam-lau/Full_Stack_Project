@@ -68,6 +68,9 @@ class RecipeDetail extends React.Component {
   }
 
   handleSetDate(event) {
+    const recipeId = parseInt(this.props.match.params.id);
+    const recipe = this.props.recipe[recipeId];
+
     console.log("in modal set recipe date");
 
     let month = event.getMonth() + 1;
@@ -83,14 +86,14 @@ class RecipeDetail extends React.Component {
 
     console.log(customDate);
 
-    this.setState({ due_date: customDate });
-    this.closeModal();
-
-      // let updatedRecipe = merge({}, this.props.recipe);
-      // updatedRecipe.due_date = setDate;
-      // this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
-      //   this.props.history.push("/pantry_items");
-      // });
+    this.setState({ due_date: customDate }, () => {
+      this.closeModal();
+      let updatedRecipe = merge({}, this.props.recipe);
+      updatedRecipe.due_date = this.state.due_date;
+      this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
+        this.props.history.push("/pantry_items");
+      });
+    });
   }
 
   handleDelete(event) {
@@ -182,6 +185,10 @@ class RecipeDetail extends React.Component {
                         src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
                   }
                 </figure>
+
+                {recipe.due_date != "" ?
+                    <section>Date to make recipe: { recipe.due_date }</section> : ""
+                }
 
                 <section className="recipe-detail-content1">
                   <div className="recipe-1">

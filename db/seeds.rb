@@ -87,7 +87,7 @@ recipe1 = Recipe.create(name: "Fig, Melon and Ham Salad", serving: 6,
   directions: "1. Arrange melon, figs, and ham on a serving platter.\n2. Drizzle with olive oil and sprinkle with salt.\n3. Scatter with basil leaves and serve.",
   notes: "Important to get fig and canteloupe in season.",
   link: "http://www.seriouseats.com/recipes/2015/07/fig-melon-spanish-ham-basil-salad-summer.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915033/recipe1_ic7rgg.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915033/recipe1_ic7rgg.jpg", due_date: "",
   user_id: guest.id)
 
 recipe2 = Recipe.create(name: "Spinach and Artichoke Dip", serving: 4,
@@ -97,7 +97,7 @@ recipe2 = Recipe.create(name: "Spinach and Artichoke Dip", serving: 4,
   directions: "1. Boil spinach and artichokes in 1 cup of water until tender and drain. Discard liquid.\n2. Heat cream cheese in microwave for 1 minute or until hot and soft.\n3. Stir in rest of ingredients and serve hot.",
   notes: "Pairs well with Chardonnay.",
   link: "http://www.foodnetwork.com/recipes/alton-brown/hot-spinach-and-artichoke-dip-recipe-1912620",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915112/recipe2_inj3wq.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915112/recipe2_inj3wq.jpg", due_date: "",
   user_id: guest.id)
 
 recipe3 = Recipe.create(name: "Guacamole", serving: 4,
@@ -107,7 +107,7 @@ recipe3 = Recipe.create(name: "Guacamole", serving: 4,
   directions: "1. In a large bowl place the scooped avocado pulp and lime juice, toss to coat. Drain, and reserve the lime juice, after all of the avocados have been coated. Using a potato masher add the salt, cumin, and cayenne and mash.\n2. Then, fold in the onions, tomatoes, cilantro, and garlic.\n3. Add 1 tablespoon of the reserved lime juice.\n4. Let sit at room temperature for 1 hour and then serve. ",
   notes: "Pairs well with lager.",
   link: "http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe-1940609",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915210/recipe3_oy80yb.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915210/recipe3_oy80yb.jpg", due_date: "",
   user_id: guest.id)
 
 recipe4 = Recipe.create(name: "Oven-Fried Buffalo Wings", serving: 6,
@@ -117,7 +117,7 @@ recipe4 = Recipe.create(name: "Oven-Fried Buffalo Wings", serving: 6,
   directions: "1. Line a rimmed baking sheet with aluminum foil and set a wire rack inside. Carefully dry chicken wings with paper towels. In a large bowl, combine wings with baking powder and salt and toss until thoroughly and evenly coated. Place on rack, leaving a slight space between each wing. Repeat with remaining 2 batches of wings.\n2. Place baking sheet with wings in refrigerator and allow to rest, uncovered, at least 8 hours and up to 24 hours.\n3. Adjust oven rack to upper-middle position and preheat oven to 450°F (230°C). Add chicken wings and cook for 20 minutes. Flip wings and continue to cook until crisp and golden brown, 15 to 30 minutes longer, flipping a few more times towards the end.\n4. Meanwhile, combine butter and hot sauce in a small saucepan and cook over medium heat, whisking until combined. Transfer wings to a large bowl, add sauce, and toss to thoroughly coat. Serve wings immediately with blue cheese dressing and celery sticks, conspicuously shunning anyone who says that real Buffalo wings must be fried.",
   notes: "Air-drying the wings overnight helps them crisp up faster when you bake them, which corresponds to juicier meat in the end.\nBaking powder adds surface area to the chicken wings, intensifying their crunch.",
   link: "http://www.seriouseats.com/recipes/2010/02/the-best-buffalo-wings-oven-fried-wings-recipe.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915338/recipe4_cmdgv7.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915338/recipe4_cmdgv7.jpg", due_date: "",
   user_id: guest.id)
 
 recipe5 = Recipe.create(name: "Chinese Tea Eggs", serving: 6,
@@ -128,7 +128,7 @@ recipe5 = Recipe.create(name: "Chinese Tea Eggs", serving: 6,
   directions: "1. Place eggs in a pot and cover with about an inch of cold water. Bring to a boil, then simmer for 1 to 2 minutes.\n2. Rinse the eggs with cold water. One by one, take each egg and tap it gently with the blunt end of a knife or the back of a spoon until the entire surface is lightly cracked.\n3. If small pieces flake off, don't worry, but do try to keep the shell intact over the egg.\n4. Return the eggs to the pot and refill with water. Add just enough water to barely cover the eggs, but for the sake of precision, it should be about 1 1/2 to 2 cups. Add the rest of the ingredients: soy sauce, salt, tea, star anise, cinnamon, orange peel, pepper, and sugar (optional), and give it a good stir.\n5. Bring the mixture back to a boil, then reduce the heat to low\n6. Simmer for 3 hours in a pot uncovered as it yields firmer eggs with better flavor. The water will evaporate fairly quickly, so add more as it simmers.\n7. These eggs never have the soft, bright yellow yolks you get from hard-boiling for just a few minutes. They often have that greenish tinge because they cook for much longer.\n8. For a stronger flavor, steep overnight after you finish simmering.",
   notes: "If you like softer eggs, cover the pot as it simmers.",
   link: "https://food52.com/blog/9956-how-to-make-street-style-chinese-tea-eggs-at-home",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/v1497915426/recipe5_cmkdfd.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/v1497915426/recipe5_cmkdfd.jpg", due_date: "",
   user_id: guest.id)
 
 recipe6 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
@@ -138,7 +138,7 @@ recipe6 = Recipe.create(name: "Mac and Cheddar Cheese", serving: 4,
   directions: "1. Heat a medium, deep skillet over medium heat. Add oil and butter. When butter melts into the oil, add flour and combine. Gently cook, whisking flour and butter together, until smooth and flour has had a chance to cook, about 3 minutes.\n2. Slowly add milk while continuing to whisk. Gently bring milk to a bubble while stirring frequently. Allow the milk to thicken a bit, then stir in 2 cups of shredded Cheddar cheese a handful at a time.\n3. Season sauce with nutmeg and cayenne. Taste and add a little salt, if you like.\n4. Add cooked pasta to sauce and coat completely by turning over and over in the cheese sauce.\n5. Transfer to a baking dish and top with remaining cheese.\n6. Place baking dish under a hot broiler and brown the Cheddar cheese on top.",
   notes: "None.",
   link: "http://www.foodnetwork.com/recipes/rachael-ray/macaroni-and-cheddar-cheese-recipe-2131153",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915471/recipe6_a29fop.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915471/recipe6_a29fop.jpg", due_date: "",
   user_id: guest.id)
 
 recipe7 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
@@ -150,7 +150,7 @@ recipe7 = Recipe.create(name: "Fettuccine Alfredo", serving: 4,
   directions: "1. Combine cheese, heavy cream, egg, cornstarch, olive oil, and lemon zest (if using) in a large bowl. Season lightly with salt and heavily with black pepper and whisk to combine. Set aside.\n2. In a large Dutch oven or saucepan, bring 2 quarts of water and 2 tablespoons (24g) of salt to a boil over high heat. Add pasta and cook, stirring frequently to prevent sticking, until cooked but still very firm (not quite al dente), about 45 seconds for fresh pasta or 1 minute less than package directions indicate for dried pasta. Drain pasta into a colander set over a large bowl. Transfer 2 cups (480ml) of cooking water to a liquid measuring cup and discard the rest. Transfer pasta to the now-empty bowl. Add garlic and butter and toss to coat.\n3. Whisking constantly, slowly add 1 1/2 cups of pasta cooking water to bowl with cheese mixture. Transfer cheese mixture to the now-empty pasta cooking pot, scraping the bottom to make sure you get everything. Cook over medium-high heat, stirring constantly with a rubber spatula, until mixture comes to a boil and thickens, about 45 seconds. Season sauce to taste with more salt and pepper as desired. Transfer pasta to sauce mixture and turn to coat. Just before serving, stir in more pasta water to thin sauce out as necessary. Serve immediately, sprinkled with minced herbs, black pepper, and cheese, and drizzled with additional olive oil.",
   notes: "None.",
   link: "http://www.seriouseats.com/recipes/2014/09/lighter-fettuccine-alfredo-recipe.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915520/recipe7_i5gphd.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915520/recipe7_i5gphd.jpg", due_date: "",
   user_id: guest.id)
 
 recipe8 = Recipe.create(name: "Chicken Pot Pie", serving: 4,
@@ -161,7 +161,7 @@ recipe8 = Recipe.create(name: "Chicken Pot Pie", serving: 4,
   chicken, carrots, peas, onions and parsley. Mix well.\n4. For the pastry, mix the flour, salt, and baking powder in the bowl of a food processor fitted with a metal blade. Add the shortening and butter and mix quickly with your fingers until each piece is coated with flour. Pulse until the fat is the size of peas (~10 times). With the motor running, add the ice water; process only enough to moisten the dough and have it just come together. Dump the dough out onto a floured board and knead quickly into a ball. Wrap the dough in plastic and refrigerate for 30 minutes.\n5. Preheat the oven to 375 degrees F.\n6. Divide the filling equally among 4 ovenproof bowls. Divide the dough into quarters and roll each piece into an 8-inch circle. Brush the dough with egg wash and make three slits in the top. Sprinkle with sea salt and cracked pepper. Place on a baking sheet and bake for 1 hour, or until the top is golden brown and the filling is bubbling hot.",
   notes: "Pairs well with Chardonnay.",
   link: "http://www.foodnetwork.com/recipes/ina-garten/chicken-pot-pie-recipe-2014304",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915579/recipe8_dakqxn.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915579/recipe8_dakqxn.jpg", due_date: "",
   user_id: guest.id)
 
 recipe9 = Recipe.create(name: "Ultra-Smashed Cheeseburger", serving: 1,
@@ -171,7 +171,7 @@ recipe9 = Recipe.create(name: "Ultra-Smashed Cheeseburger", serving: 1,
   directions: "1. Prepare burger bun by laying toppings on bottom half of bun. Have it nearby and ready for when your burger is cooked.\n2. Preheat a large stainless steel sauté pan or skillet over high heat for 2 minutes. Place balls of beef in pan and smash down with a stiff metal spatula, using a second spatula to add pressure. Smashed patties should be slightly wider than burger bun.\n3. Season generously with salt and pepper and allow to cook until patties are well browned and tops are beginning to turn pale pink/gray in spots, about 45 seconds. Using a bench scraper or the back side of a stiff metal spatula, carefully scrape patties from pan, making sure to get all of the browned bits.\n4. Flip patties and immediately place a slice of cheese over 1 patty, then stack the second directly on top. Immediately remove from pan and transfer to waiting burger bun. Serve.",
   notes: "These burgers cook very fast, so it's best to make them one at a time. If making multiple burgers, keep them warm under a tent of foil while preparing subsequent burgers.",
   link: "http://www.seriouseats.com/recipes/2014/03/ultra-smashed-cheeseburger-recipe-food-lab.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915622/recipe9_zir4vb.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915622/recipe9_zir4vb.jpg", due_date: "",
   user_id: guest.id)
 
 recipe10 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
@@ -181,7 +181,7 @@ recipe10 = Recipe.create(name: "Strawberry Shortcake", serving: 5,
   directions: "1. Adjust oven rack to center position and preheat oven to 450°F. Toss strawberries with 6 tablespoons sugar in a medium bowl and set aside.\n2. Place flour in a large bowl. Whisk in 1 tabespoon sugar. Stirring with a wooden spoon, drizzle in 3/4 cup cream. Stir until a lumpy dough is formed. Do not over mix.\n3. Using a 1-ounce cookie scoop, scoop balls of dough onto a parchment-lined baking sheet, spacing them 2 inches apart. Brush tops with cream and bake until golden brown, about 12 minutes. Remove biscuits and set aside.\n4. Using a wire whisk or an electric mixer, whip remaining cream with remaining tablespoon sugar and vanilla extract until stiff peaks form. Split biscuits, top with strawberries and cream, close shortcakes, top with more whipped cream, and serve immediately.",
   notes: "None.",
   link: "http://www.seriouseats.com/recipes/2015/10/five-ingredient-strawberry-shortcake-scratch-recipe.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915703/recipe10_pcitml.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915703/recipe10_pcitml.jpg", due_date: "",
   user_id: guest.id)
 
 recipe11 = Recipe.create(name: "Caramel Apples", serving: 8,
@@ -192,7 +192,7 @@ recipe11 = Recipe.create(name: "Caramel Apples", serving: 8,
   directions: "1. Skewer apples with popsicle sticks, then return to fridge. In a 3-quart stainless steel saucier, combine water, sugar, and salt over medium heat. Stir with a fork until sugar is fully dissolved and syrup comes to a rolling boil, about 4 minutes. Simmer, without stirring, until syrup is honey-gold, roughly 9 minutes. Immediately add cream (the mixture will sputter) and reduce heat to medium-low, stirring constantly with a heat-resistant spatula, until caramel registers 250°F (121°C) on a digital thermometer, about 7 minutes. Transfer to a small heat-resistant bowl and cool to about 212°F (100°C).\n2. Dip cold apples in caramel, letting excess drip off before transferring to a parchment-lined cutting board. Let stand at room temperature until fully set, about 10 minutes, and serve.",
   notes: "If you have fond memories of apples dipped in the sort of super-thick and chewy caramel that can really work your jaw, reduce the cream to 6 ounces (3/4 cup).",
   link: "http://www.seriouseats.com/recipes/2016/10/homemade-caramel-apple-recipe.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915740/recipe11_lil9xr.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915740/recipe11_lil9xr.jpg", due_date: "",
   user_id: guest.id)
 
 recipe12 = Recipe.create(name: "Mexican Wedding Cookies", serving: 10,
@@ -202,7 +202,7 @@ recipe12 = Recipe.create(name: "Mexican Wedding Cookies", serving: 10,
   directions: "1. For the Dough: Adjust oven rack to lower-middle position and preheat oven to 350°F (177°C). Combine pecans and powdered sugar in a 10-inch stainless steel skillet and toast in oven until fragrant but not deeply browned, 12 to 15 minutes. When pecans and sugar have cooled to room temperature, combine with flour, cold butter, vanilla, salt, and cinnamon in the bowl of a food processor. (Save the skillet for step 2.) Pulse until pecan pieces disappear, then continue pulsing to form a stiff dough.\n2. To Finish: Sprinkle about half of powdered sugar into skillet, then divide dough into 20 half-ounce portions (I use a #60 scoop). Tumble each piece in powdered sugar until fully coated and roll into a ball. When all pieces have been rounded up, shake skillet so the cookie dough rolls around, collecting more sugar. Arrange on a parchment-lined half sheet pan and bake until puffed and firm, about 18 minutes. Cool to room temperature directly on baking sheet and sift remaining powdered sugar on top.",
   notes: "Toasting gives the pecans and the powdered sugar more depth of flavor.\nA food processor does the work of chopping the pecans and mixing the dough all at once.\nSmaller portions of dough have a better ratio of cookie to powdered sugar, so portion these out with a scoop or scale.",
   link: "http://www.seriouseats.com/recipes/2016/12/easy-mexican-wedding-cookie-russian-tea-cake-snowball-recipe.html",
-  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915802/recipe12_sn70fp.jpg",
+  image_url: "http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1497915802/recipe12_sn70fp.jpg", due_date: "",
   user_id: guest.id)
 
 mir = User.create(username: "mir", password: "password",

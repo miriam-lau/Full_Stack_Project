@@ -177,6 +177,11 @@ class RecipeDetail extends React.Component {
 
             <section className="recipe-detail-info">
               <h2>{recipe.name}</h2>
+              {recipe.due_date != "" ?
+                  <section className="recipe-choosen-date">
+                      Date to make recipe: { recipe.due_date }
+                  </section> : ""
+              }
               <div className="recipe-detail-content">
                 <figure className="recipe-detail-img">
                   {recipe.image_url !== "" ?
@@ -185,10 +190,6 @@ class RecipeDetail extends React.Component {
                         src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
                   }
                 </figure>
-
-                {recipe.due_date != "" ?
-                    <section>Date to make recipe: { recipe.due_date }</section> : ""
-                }
 
                 <section className="recipe-detail-content1">
                   <div className="recipe-1">

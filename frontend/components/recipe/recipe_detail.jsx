@@ -121,67 +121,69 @@ class RecipeDetail extends React.Component {
         {this.state.openUpdate ?
           <RecipeUpdateContainer recipe={ recipe } /> :
           <div className="recipe-detail">
-            <div className="recipe-detail-options">
-              <section id="link-to-recipes">
-                <Link className="recipe-link" to="/recipes">
-                    Back to Recipes
-                </Link>
-                <Route exact path="/recipes"
-                    component={ RecipeIndexContainer }
-                />
-              </section>
-
-              <section id="recipe-detail-icon-wrapper">
-                <div id="fa-calendar-wrapper">
-                  <i className="fa fa-calendar fa-lg" aria-hidden="true"
-                      onClick={ this.openModal }>
-                  </i>
-                  <Modal
-                      isOpen={ this.state.modalIsOpen }
-                      onAfterOpen={ this.afterOpenModal }
-                      onRequestClose={ this.closeModal }
-                      style={ recipeModalStyle } >
-                    <div className="modal-icon">
-                      <i className="material-icons calendar-closeX"
-                          onClick={ this.closeModal }>close</i>
-                    </div>
-                    <div>
-                      <h2 className="calendar-title">Select a Date</h2>
-                      <div className="recipe-calendar-directions">To make: "{recipe.name}"</div>
-
-                      <DayPicker
-                        enableOutsideDays
-                        disabledDays={ disabledDays }
-                        selectedDays={ this.state.selectedDay }
-                        onDayClick={ this.handleSetDate }
-                      />
-                    </div>
-                   </Modal>
-                </div>
-
-                <div id="fa-pencil-wrapper">
-                    <i className="fa fa-pencil fa-lg" aria-hidden="true"
-                        onClick={ this.handleUpdate }>
-                    </i>
-                </div>
-
-                <div id="fa-trash-can-wrapper">
-                  <i className="material-icons trash-can-recipe"
-                      style={ styles }
-                      onClick={ this.handleDelete }>
-                      delete_forever
-                  </i>
-                </div>
-              </section>
-            </div>
+            <section className="recipe-link-wrapper">
+              <Link className="recipe-link" to="/recipes">All Recipes</Link>
+              <Route exact path="/recipes" component={ RecipeIndexContainer } />
+            </section>
 
             <section className="recipe-detail-info">
               <h2>{recipe.name}</h2>
-              {recipe.due_date != "" ?
-                  <section className="recipe-choosen-date">
-                      Date to make recipe: { recipe.due_date }
-                  </section> : ""
-              }
+
+              <div className="recipe-detail-choices">
+                <section id="recipe-detail-icon-wrapper">
+                  <div id="fa-calendar-wrapper">
+                    <i className="fa fa-calendar fa-lg" aria-hidden="true"
+                        onClick={ this.openModal }>
+                    </i>
+                    <Modal
+                        isOpen={ this.state.modalIsOpen }
+                        onAfterOpen={ this.afterOpenModal }
+                        onRequestClose={ this.closeModal }
+                        style={ recipeModalStyle } >
+                      <div className="modal-icon">
+                        <i className="material-icons calendar-closeX"
+                            onClick={ this.closeModal }>close</i>
+                      </div>
+                      <div>
+                        <h2 className="calendar-title">Select a Date</h2>
+                        <div className="recipe-calendar-directions">To make: "{recipe.name}"</div>
+
+                        <DayPicker
+                          enableOutsideDays
+                          disabledDays={ disabledDays }
+                          selectedDays={ this.state.selectedDay }
+                          onDayClick={ this.handleSetDate }
+                        />
+                      </div>
+                     </Modal>
+                  </div>
+
+                  <div id="fa-pencil-wrapper">
+                      <i className="fa fa-pencil fa-lg" aria-hidden="true"
+                          onClick={ this.handleUpdate }>
+                      </i>
+                  </div>
+
+                  <div id="fa-trash-can-wrapper">
+                    <i className="material-icons trash-can-recipe"
+                        style={ styles }
+                        onClick={ this.handleDelete }>
+                        delete_forever
+                    </i>
+                  </div>
+                </section>
+
+                {recipe.due_date != "" ?
+                    <section className="recipe-choosen-date">
+                        Date to make recipe: { recipe.due_date }
+                    </section> :
+                    <section className="recipe-choosen-date">
+                        Date to make recipe: None
+                    </section>
+                }
+
+              </div>
+
               <div className="recipe-detail-content">
                 <figure className="recipe-detail-img">
                   {recipe.image_url !== "" ?

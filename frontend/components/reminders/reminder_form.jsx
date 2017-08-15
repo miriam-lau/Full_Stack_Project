@@ -88,6 +88,10 @@ class ReminderForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log("in handle submit");
+
+    let newReminder = this.state;
+    console.log(newReminder);
+    this.props.createReminder({ reminder: newReminder });
   }
 
   render() {

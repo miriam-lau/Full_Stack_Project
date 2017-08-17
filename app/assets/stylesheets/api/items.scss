@@ -2,7 +2,7 @@
 .wrapper {
   display: flex;
   width: 100%;
-  left: 180px;
+  left: 160px;
   min-height: 1200px;
   padding-top: 10px;
   overflow: scroll;
@@ -10,10 +10,10 @@
 
 .side-nav-img {
   position: absolute;
-  top: 78px;
+  top: 67px;
   left: 0;
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 160px;
+  max-width: 160px;
   min-height: 1210px;
   max-height: 1210px;
   height: 100%;
@@ -22,8 +22,8 @@
 }
 
 .index {
-  min-width: 610px;
-  max-width: 610px;
+  min-width: 600px;
+  max-width: 600px;
   height: auto;
   background-color: white;
   margin: 0 0 0 10px;

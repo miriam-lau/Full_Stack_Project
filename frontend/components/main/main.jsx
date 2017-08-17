@@ -30,7 +30,11 @@ class Main extends React.Component {
             <div className="side-nav-bar">
               <div>
                 <Link className="nav-titles" to="/pantry_items">
-                  <span className="nav-titles-img"><i className="material-icons fridge">kitchen</i></span>
+                  <span className="nav-titles-img">
+                    <i id="fridge"
+                        className="material-icons fridge">kitchen
+                    </i>
+                  </span>
                   <span className="nav-titles-options">Pantry</span>
                 </Link>
               </div>

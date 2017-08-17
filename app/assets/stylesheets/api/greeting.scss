@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #333399;
   color: #E6E6FA;
-  padding: 15px 0 15px 0;
+  padding: 10px 0 10px 0;
 }
 
 .header-group2 {
@@ -13,7 +13,7 @@
   align-items: center;
   background-color: #333399;
   color: white;
-  padding: 15px 0 15px 0;
+  padding: 10px 0 10px 0;
 }
 
 .header {
@@ -30,7 +30,7 @@
 
 .header-name {
   font-family: 'Nunito', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -98,9 +98,9 @@
   margin: auto;
 }
 
-.header-bar {
-  height: 78px;
-}
+// .header-bar {
+//   height: 78px;
+// }
 
 .greeting-wrapper {
   width: 100%;
@@ -109,16 +109,15 @@
 
 .side-nav-bar {
   position: absolute;
-  top: 78px;
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 160px;
+  max-width: 160px;
   min-height: 1210px;
   z-index: 1;
 }
 
 .nav-titles {
   font-family: 'Nunito', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   height: 20px;
   padding: 10px 0 10px 0;
   font-weight: bold;
@@ -142,12 +141,13 @@
   margin-right: 10px;
 }
 
-.fridge {
+#fridge {
   vertical-align: middle;
+  font-size: 21px;
 }
 
 .item-list {
-  margin-left: 180px;
+  margin-left: 160px;
   width: auto;
   min-height: 1200px;
   background-color: #E6E6FA;
@@ -155,17 +155,17 @@
 
 .nav-titles-img {
   position: absolute;
-  left: 40px;
+  left: 30px;
 }
 
 .nav-titles-img-recipes {
   position: absolute;
-  left: 43px;
+  left: 33px;
 }
 
 .nav-titles-options {
   position: absolute;
-  left: 80px;
+  left: 70px;
 }
 
 .footer {

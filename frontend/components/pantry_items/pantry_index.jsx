@@ -35,7 +35,7 @@ class PantryIndex extends React.Component {
           {indexCategory.map((category, idx) => {
             return (
               <div key={ idx } className="index-category-section">
-                <h3 className="index-category">{category === "" ?
+                <h3 className="index-category">{ category === "" ?
                     "Uncategorized" : category}
                 </h3>
                 <ul className="items">

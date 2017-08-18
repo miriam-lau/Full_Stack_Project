@@ -4,15 +4,15 @@ import { Route, Link } from "react-router-dom";
 import ReminderFormContainer from "./reminder_form_container";
 import ReminderItemContainer from "./reminder_item_container";
 
-// GET url api/reminders 500 internal server error
-// reminders displayed on same page as pantry items, need to fix that
-
 const reminderCategory =
-    ["No Due Date", "Due Today", "Due Tomorrow", "This Week", "Next Week"];
+    [null, "Due Today", "Due Tomorrow", "This Week", "Next Week"];
+
+const recipeDates =
+    ["This Week", "Coming Weeks"];
 
 // create a map
 const reminderCategoryMap = {
-  nil: "No Due Date"
+  null: "No Due Date"
 };
 
 class ReminderIndex extends React.Component {
@@ -40,6 +40,8 @@ class ReminderIndex extends React.Component {
 
   render() {
     const reminders = this.props.reminders;
+    console.log("in reminder index");
+    // why is reminders empty?
     console.log(reminders);
     return (
       <div>
@@ -52,6 +54,27 @@ class ReminderIndex extends React.Component {
         </div>
 
         {reminderCategory.map((category, idx) => {
+          return (
+            <div key={ idx } className="purchased-grocery-category-section">
+              <h3 className="index-category reminder-index-category">
+                { category == null ? "No Due Date" : category }
+              </h3>
+              <ul className="items">
+                {this.props.reminders.map((reminder) => {
+                  return (
+                    <div>{ reminder.name }</div>
+                  )
+                })}
+              </ul>
+            </div>
+          )
+        })}
+
+        <section>
+          <h2 className="planned-recipes-title">Planned Recipes</h2>
+        </section>
+
+        {recipeDates.map((category, idx) => {
           return (
             <div key={ idx } className="purchased-grocery-category-section">
               <h3 className="index-category reminder-index-category">
@@ -77,15 +100,4 @@ export default ReminderIndex;
 //       )
 //     }
 //   })}
-// </ul>
-
-// <ul className="items reminder-items">
-// {this.props.reminders.map((reminder) => {
-//   if (checkDate(item) === true) {
-//     return ( <ReminderItemContainer
-//       key={ reminder.id }
-//       reminder={ reminder } />
-//     )
-//   }
-// })}
 // </ul>

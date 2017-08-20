@@ -5,10 +5,10 @@ import ReminderFormContainer from "./reminder_form_container";
 import ReminderItemContainer from "./reminder_item_container";
 
 const reminderCategory =
-    [null, "Due Today", "Due Tomorrow", "This Week", "Next Week"];
+    ["Overdue", null, "Due Today", "Due Tomorrow", "This Week", "Next Week"];
 
 const recipeDates =
-    ["This Week", "Coming Weeks"];
+    ["Overdue", "This Week", "Coming Weeks"];
 
 // create a map
 const reminderCategoryMap = {

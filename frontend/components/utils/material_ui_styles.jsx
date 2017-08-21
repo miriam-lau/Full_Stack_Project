@@ -24,7 +24,7 @@ export const itemStyleDefault = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "347px",
+  "width": "345px",
   "display": "inline",
   "height": "30px",
   "marginRight": "20px"

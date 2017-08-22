@@ -89,6 +89,10 @@ class ReminderForm extends React.Component {
     event.preventDefault();
     console.log("in handle submit");
 
+    if (this.state.due_date = "") {
+      this.setState({ due_date: "None" });
+    }
+
     let newReminder = this.state;
     console.log(newReminder);
     this.props.createReminder({ reminder: newReminder });

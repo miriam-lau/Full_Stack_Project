@@ -25,6 +25,7 @@ class RecipeDetail extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSetDate = this.handleSetDate.bind(this);
 
+    // calendar modal functions
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);

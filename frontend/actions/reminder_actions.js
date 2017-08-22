@@ -7,9 +7,9 @@ export const UPDATE_REMINDER = "UPDATE_REMINDER";
 export const DELETE_REMINDER = "DELETE_REMINDER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-const receiveAllReminders = (Reminders) => ({
+const receiveAllReminders = (reminders) => ({
   type: RECEIVE_ALL_REMINDERS,
-  Reminders
+  reminders
 });
 
 const receiveReminder = (reminder) => ({

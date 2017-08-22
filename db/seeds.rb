@@ -9,6 +9,7 @@ User.destroy_all
 PantryItem.destroy_all
 Grocery.destroy_all
 Recipe.destroy_all
+Reminder.destroy_all
 
 
 guest = User.create(username: "guest", password: "password",
@@ -48,6 +49,12 @@ pantry14 = PantryItem.create(category: "", name: "Paper Towel",
   quantity: 3, unit: "", user_id: guest.id)
 pantry15 = PantryItem.create(category: "", name: "Garlic",
   quantity: 5, unit: "", user_id: guest.id)
+
+
+reminder1 = Reminder.create(name: "Grocery Shopping Every Monday",
+  due_date: "None", user_id: guest.id)
+reminder2 = Reminder.create(name: "Farmer's Market Every Wednesday",
+  due_date: "None", user_id: guest.id)
 
 
 grocery1 = Grocery.create(category: "Fruits and Vegetables", name: "Banana",

@@ -5,15 +5,10 @@ import ReminderFormContainer from "./reminder_form_container";
 import ReminderItemContainer from "./reminder_item_container";
 
 const reminderCategory =
-    ["Overdue", null, "Due Today", "Due Tomorrow", "This Week", "Next Week"];
+    ["Overdue", "None", "Due Today", "Due Tomorrow", "This Week", "Next Week"];
 
 const recipeDates =
     ["Overdue", "This Week", "Coming Weeks"];
-
-// create a map
-const reminderCategoryMap = {
-  null: "No Due Date"
-};
 
 class ReminderIndex extends React.Component {
   constructor(props) {
@@ -57,13 +52,15 @@ class ReminderIndex extends React.Component {
           return (
             <div key={ idx } className="purchased-grocery-category-section">
               <h3 className="index-category reminder-index-category">
-                { category == null ? "No Due Date" : category }
+                { category }
               </h3>
               <ul className="items">
                 {this.props.reminders.map((reminder) => {
-                  return (
-                    <div>{ reminder.name }</div>
-                  )
+                  if (reminder.due_date === category) {
+                    return (
+                      <div>{ reminder.name }</div>
+                    )
+                  }
                 })}
               </ul>
             </div>

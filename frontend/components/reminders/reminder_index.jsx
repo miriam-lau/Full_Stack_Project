@@ -35,9 +35,6 @@ class ReminderIndex extends React.Component {
 
   render() {
     const reminders = this.props.reminders;
-    console.log("in reminder index");
-    // why is reminders empty?
-    console.log(reminders);
     return (
       <div>
         <section>
@@ -87,14 +84,3 @@ class ReminderIndex extends React.Component {
 }
 
 export default ReminderIndex;
-
-// <ul className="items">
-//   {this.props.reminders.map((reminder) => {
-//     if (reminderCategoryMap.get(reminder.due_date) === reminderCategory) {
-//       return ( <ReminderItemContainer
-//         key={ reminder.id }
-//         reminder={ reminder } />
-//       )
-//     }
-//   })}
-// </ul>

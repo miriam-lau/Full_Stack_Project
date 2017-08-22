@@ -79,3 +79,14 @@
   transition: 0.25s;
   cursor: pointer;
 }
+
+.reminder-items {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  margin: 8px 15px 2px 15px;
+  padding: 3px 10px 3px 10px;
+}
+
+.reminder-items > div {
+  padding-bottom: 5px;
+}

@@ -51,10 +51,10 @@ pantry15 = PantryItem.create(category: "", name: "Garlic",
   quantity: 5, unit: "", user_id: guest.id)
 
 
-reminder1 = Reminder.create(name: "Grocery Shopping Every Monday",
+reminder1 = Reminder.create(name: "Every Monday: Grocery Shopping",
   due_date: "None", user_id: guest.id)
-reminder2 = Reminder.create(name: "Farmer's Market Every Wednesday",
-  due_date: "None", user_id: guest.id)
+reminder2 = Reminder.create(name: "Every Wednesday: Farmer's
+  Market", due_date: "None", user_id: guest.id)
 
 
 grocery1 = Grocery.create(category: "Fruits and Vegetables", name: "Banana",

@@ -51,7 +51,7 @@ class ReminderIndex extends React.Component {
               <h3 className="index-category reminder-index-category">
                 { category }
               </h3>
-              <ul className="items">
+              <ul className="reminder-items">
                 {this.props.reminders.map((reminder) => {
                   if (reminder.due_date === category) {
                     return (

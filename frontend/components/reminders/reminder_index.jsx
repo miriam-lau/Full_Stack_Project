@@ -3,26 +3,16 @@ import { Route, Link } from "react-router-dom";
 
 import ReminderFormContainer from "./reminder_form_container";
 import ReminderItemContainer from "./reminder_item_container";
+import RecipeReminderContainer from "../recipe/recipe_reminder_container";
 
 const reminderCategory =
-    ["Overdue", "None", "Due Today", "Due Tomorrow", "This Week", "Next Week"];
+    ["Overdue", "None", "Due Today", "This Week", "Coming Weeks"];
 
-const recipeDates =
-    ["Overdue", "This Week", "Coming Weeks"];
+const recipeDates = ["Overdue", "Today", "This Week", "Coming Weeks"];
 
 class ReminderIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = { reminderCategory = "" };
-
-    // let moment = require("moment");
-    // let today = moment().format("MM-DD-YYYY");
-    // let dueDate = this.props.reminder.due_date;
-    // if (dueDate == nil) {
-    //   this.setState({ reminderCategory = "No Due Date" });
-    // } else if (dueDate == today) {
-    //   this.setState({ reminderCategory = "Due Today" });
-    // }
   }
 
   componentWillMount() {
@@ -51,6 +41,7 @@ class ReminderIndex extends React.Component {
               <h3 className="index-category reminder-index-category">
                 { category }
               </h3>
+
               <ul className="reminder-items">
                 {this.props.reminders.map((reminder) => {
                   if (reminder.due_date === category) {
@@ -75,6 +66,7 @@ class ReminderIndex extends React.Component {
                 { category }
               </h3>
 
+
             </div>
           )
         })}
@@ -84,3 +76,7 @@ class ReminderIndex extends React.Component {
 }
 
 export default ReminderIndex;
+
+// <div>
+//   <RecipeReminderContainer />
+// </div>

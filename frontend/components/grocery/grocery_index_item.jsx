@@ -7,7 +7,7 @@ import { findMatchingItem, generateDisplayQuantity, parseUpdateQuantity,
 import { Checkbox, TextField } from "material-ui";
 import { formCategory } from "../utils/item_categories";
 import { underlineFocusStyle, underlineStyle, quantityStyle, itemStyleDefault,
-    itemStyleCategory, icon, styles } from "../utils/material_ui_styles";
+    itemStyleCategory, icon, styles, checkboxStyles } from "../utils/material_ui_styles";
 
 class GroceryIndexItem extends React.Component {
   constructor(props) {
@@ -132,7 +132,7 @@ class GroceryIndexItem extends React.Component {
       <div>
         <div className="update-grocery-form-div">
           <Checkbox className="update-grocery-checkbox"
-            style={ styles }
+            style={ checkboxStyles }
             iconStyle={ icon }
             checked={ groceryItem.purchased ? true : false }
             onCheck={ this.handleCheck } />

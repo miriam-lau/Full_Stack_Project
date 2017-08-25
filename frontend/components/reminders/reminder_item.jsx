@@ -1,5 +1,7 @@
 import React from "react";
 
+import { styles } from "../utils/material_ui_styles";
+
 class ReminderItem extends React.Component {
   constructor(props) {
     super(props);
@@ -9,12 +11,8 @@ class ReminderItem extends React.Component {
     const reminder = this.props.reminder;
     console.log(reminder);
     return (
-      <div className="update-pantry-form-div">
-        <TextField id="text-field-default"
-          value={ reminder.name }
-          underlineFocusStyle={ underlineFocusStyle }
-          underlineStyle={ underlineStyle }
-        />
+      <div className="reminder-item">
+        <div>{ reminder.name } </div>
 
         <i className="material-icons trash-can"
             style={styles}

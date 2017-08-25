@@ -132,7 +132,7 @@ class RecipeDetail extends React.Component {
 
               <div className="recipe-detail-choices">
                 <section id="recipe-detail-icon-wrapper">
-                  <div id="fa-calendar-wrapper">
+                  <div id="recipe-button-wrapper">
                     <i className="fa fa-calendar fa-lg" aria-hidden="true"
                         onClick={ this.openModal }>
                     </i>
@@ -159,13 +159,13 @@ class RecipeDetail extends React.Component {
                      </Modal>
                   </div>
 
-                  <div id="fa-pencil-wrapper">
+                  <div id="recipe-button-wrapper">
                       <i className="fa fa-pencil fa-lg" aria-hidden="true"
                           onClick={ this.handleUpdate }>
                       </i>
                   </div>
 
-                  <div id="fa-trash-can-wrapper">
+                  <div id="recipe-button-wrapper">
                     <i className="material-icons trash-can-recipe"
                         style={ styles }
                         onClick={ this.handleDelete }>

@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import PantryIndexItemContainer from "./pantry_index_item_container";
 import PantryItemFormContainer from "./pantry_item_form_container";
-// import RecipeReminderContainer from "../recipe/recipe_reminder_container";
+import RecipeReminderContainer from "../reminders/recipe_reminder_container";
 import ReminderIndexContainer from "../reminders/reminder_index_container";
 import { indexCategory } from "../utils/item_categories";
 
@@ -56,6 +56,7 @@ class PantryIndex extends React.Component {
 
         <div className="reminders">
           <ReminderIndexContainer />
+          <RecipeReminderContainer />
         </div>
       </div>
     );
@@ -63,7 +64,3 @@ class PantryIndex extends React.Component {
 }
 
 export default PantryIndex;
-
-// <div className="reminders">
-//   <RecipeReminderContainer />
-// </div>

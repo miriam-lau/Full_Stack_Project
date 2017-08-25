@@ -3,12 +3,9 @@ import { Route, Link } from "react-router-dom";
 
 import ReminderFormContainer from "./reminder_form_container";
 import ReminderItemContainer from "./reminder_item_container";
-import RecipeReminderContainer from "../recipe/recipe_reminder_container";
 
 const reminderCategory =
     ["Overdue", "None", "Due Today", "This Week", "Coming Weeks"];
-
-const recipeDates = ["Overdue", "Today", "This Week", "Coming Weeks"];
 
 class ReminderIndex extends React.Component {
   constructor(props) {
@@ -46,27 +43,14 @@ class ReminderIndex extends React.Component {
                 {this.props.reminders.map((reminder) => {
                   if (reminder.due_date === category) {
                     return (
-                      <div>{ reminder.name }</div>
+                      <ReminderItemContainer
+                        key = { reminder.id }
+                        reminder = { reminder }
+                      />
                     )
                   }
                 })}
               </ul>
-            </div>
-          )
-        })}
-
-        <section>
-          <h2 className="planned-recipes-title">Planned Recipes</h2>
-        </section>
-
-        {recipeDates.map((category, idx) => {
-          return (
-            <div key={ idx } className="purchased-grocery-category-section">
-              <h3 className="index-category reminder-index-category">
-                { category }
-              </h3>
-
-
             </div>
           )
         })}
@@ -77,6 +61,4 @@ class ReminderIndex extends React.Component {
 
 export default ReminderIndex;
 
-// <div>
-//   <RecipeReminderContainer />
-// </div>
+// <div key={reminder.id}>{ reminder.name }</div>

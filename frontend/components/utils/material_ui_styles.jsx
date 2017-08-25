@@ -40,7 +40,7 @@ export const itemStyleCategory = {
   "marginRight": "20px"
 }
 
-export const styles = {
+export const checkboxStyles = {
   "width": "30px",
   "alignItems": "top",
   "fontSize": "22px"
@@ -50,6 +50,11 @@ export const icon = {
   "fill": "black",
   "width": "16px",
   "height": "16px"
+}
+
+export const styles = {
+  "alignItems": "top",
+  "fontSize": "22px"
 }
 
 export const addItemStyle = {

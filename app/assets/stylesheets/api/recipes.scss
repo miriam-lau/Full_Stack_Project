@@ -261,19 +261,10 @@
   transition: 1s;
 }
 
-#fa-calendar-wrapper {
+#recipe-button-wrapper {
   height: 30px;
+  width: 30px;
   padding: 0px 2px;
-}
-
-#fa-pencil-wrapper {
-  height: 30px;
-  padding: 0px 7px;
-}
-
-#fa-trash-can-wrapper {
-  padding: 2.5px 0.8px 0.5px 0.8px;
-  height: 27px;
 }
 
 #recipe-detail-icon-wrapper > div:hover {
@@ -314,18 +305,17 @@
 }
 
 .fa-pencil {
-  padding: 7px 0;
+  padding: 8.5px 7px 0px 7px;
   transform: scale(1.05);
 }
 
 .fa-calendar {
-  padding: 7.6px 5px;
+  padding: 8.5px 6px 0px 6px;
   transform: scale(0.9);
 }
 
 .trash-can-recipe {
-  padding: 1.3px 0 2px 0;
-  text-align: center;
+  padding: 3.5px 3.4px;
 }
 
 .recipe-calendar-closeX {

@@ -68,15 +68,14 @@
   border-radius: 3px;
 }
 
-.items ul {
+.items {
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  padding-right: 20px;
+  flex-direction: column;
+  margin: 8px 15px 2px 15px;
+  padding: 3px 5px 3px 5px;
 }
 
-// item form component
+// add item form component
 .item-form {
   width: 100%;
 }
@@ -95,13 +94,18 @@
   font-style: italic;
   font-weight: 900;
   color: #333399;
-  margin-right: 20px;
+  margin-right: 11px;
   margin-top: 1px;
 }
 
 // index item component
+.update-item-form-div {
+  display: flex;
+}
+
 .update-item-form {
   display: flex;
+  margin-right: 16px;
 }
 
 .uncategorized-items {
@@ -110,7 +114,7 @@
   font-style: italic;
   font-weight: 900;
   color: #333399;
-  margin-right: 16px;
+  margin-left: 10px;
 }
 
 // item-errors
@@ -124,19 +128,21 @@
   color: red;
 }
 
+// update item errors
 .item-error {
   width: 126px;
-  margin: 0 0 3px 50px;
+  margin: 0 0 3px 32px;
 }
 
 .item-name-error1 {
-  margin: 0 0 3px 5px;
+  margin: 0 0 3px 4px;
 }
 
 .item-name-error2 {
-  margin: 0 0 3px 180px;
+  margin: 0 0 3px 162px;
 }
 
+// add new item error
 .add-item-error {
   font-family: 'Nunito', sans-serif;
   font-size: 10px;
@@ -158,8 +164,7 @@
 }
 
 .plus-circle {
-  margin-right: 10px;
-  padding: 6px 0 5px 5px;
+  padding: 6.5px 6px 0px 0px;
 }
 
 .fa-plus-circle {

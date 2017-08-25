@@ -24,20 +24,20 @@ export const itemStyleDefault = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "345px",
+  "width": "346px",
   "display": "inline",
   "height": "30px",
-  "marginRight": "20px"
+  // "marginRight": "20px"
 }
 
 export const itemStyleCategory = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
   "fontWeight": "bold",
-  "width": "160px",
+  "width": "165px",
   "display": "inline",
   "height": "30px",
-  "marginRight": "20px"
+  // "marginRight": "20px"
 }
 
 export const checkboxStyles = {

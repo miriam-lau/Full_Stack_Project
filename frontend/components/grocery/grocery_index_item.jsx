@@ -130,7 +130,7 @@ class GroceryIndexItem extends React.Component {
     const groceryItem = this.props.groceryItem;
     return (
       <div>
-        <div className="update-grocery-form-div">
+        <div className="update-item-form-div">
           <Checkbox className="update-grocery-checkbox"
             style={ checkboxStyles }
             iconStyle={ icon }

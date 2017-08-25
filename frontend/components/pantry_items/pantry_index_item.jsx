@@ -125,7 +125,9 @@ class PantryIndexItem extends React.Component {
     console.log(pantryItem);
     return (
       <div>
-        <div className="update-pantry-form-div">
+        <div className="update-item-form-div">
+          <div className="checkbox-placeholder"></div>
+
           <form className="update-item-form">
             <TextField id="text-field-default"
               value={ pantryItem.currentQuantityDisplay }

@@ -52,27 +52,9 @@
 }
 
 // index item component
-.update-grocery-form-div {
-  display: flex;
-  margin-left: 20px;
-  margin-right: 70px;
-}
-
 .update-grocery-checkbox {
   align-self: center;
   display: inline-block;
   width: 10px;
   height: 10px;
-}
-
-
-
-.grocery-item-error {
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  font-style: italic;
-  color: red;
-  margin-left: 20px;
-  margin-bottom: 3px;
 }

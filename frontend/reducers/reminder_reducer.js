@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_REMINDERS, RECEIVE_REMINDER, CREATE_REMINDER,
-    UPDATE_REMINDER, DELETE_REMINDER, RECEIVE_ERRORS } from '../actions/reminder_actions';
+    DELETE_REMINDER, RECEIVE_ERRORS } from '../actions/reminder_actions';
 
 const noErrors = Object.freeze({
   errors: []
@@ -17,9 +17,6 @@ const ReminderReducer = (state = noErrors, action) => {
       newState = merge({}, action.reminder);
       return newState;
     case CREATE_REMINDER:
-      newState = merge({}, state, {[action.reminder.id]: action.reminder});
-      return newState;
-    case UPDATE_REMINDER:
       newState = merge({}, state, {[action.reminder.id]: action.reminder});
       return newState;
     case DELETE_REMINDER:

@@ -16,15 +16,6 @@ class Api::RemindersController < ApplicationController
     end
   end
 
-  def update
-    @reminder = current_user.reminders.find(params[:id])
-    if @reminder.update_attributes(reminder_params)
-      render :show
-    else
-      render json: @reminder.errors.full_messages, status: 422
-    end
-  end
-
   def destroy
     reminder = Reminder.find(params[:id])
     @reminder_id = reminder.id

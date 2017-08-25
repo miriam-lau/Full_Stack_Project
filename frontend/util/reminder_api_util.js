@@ -20,14 +20,6 @@ export const createReminder = (reminder) => {
   });
 };
 
-// export const updateReminder = (reminder) => {
-//   return $.ajax({
-//     method: "PATCH",
-//     url: `/api/reminders/${reminder.reminder.id}`,
-//     data: reminder
-//   });
-// }
-
 export const deleteReminder = (id) => {
   return $.ajax({
     method: "DELETE",

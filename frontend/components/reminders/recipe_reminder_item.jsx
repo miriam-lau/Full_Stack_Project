@@ -1,5 +1,3 @@
-// Do not need container for this one, pass only recipe to this component.
-
 import React from "react";
 
 import { styles } from "../utils/material_ui_styles";
@@ -7,8 +5,10 @@ import { styles } from "../utils/material_ui_styles";
 class RecipeReminderItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleRemoveDate = this.handleRemoveDate.bind(this);
   }
 
+// when to use this function?
   displayDate(due_date) {
     let moment = require("moment");
     let todayString = moment().format("MM-DD-YYYY");
@@ -40,16 +40,22 @@ class RecipeReminderItem extends React.Component {
     }
   }
 
+  handleRemoveDate() {
+    this.setState({ due_date: "" });
+    // update recipe
+  }
+
   render() {
     const recipe = this.props.recipe;
     console.log(recipe);
+    
     return (
       <div className="reminder-item">
-        <div>{ recipe.name } </div>
+        <div>{ recipe.due_date }: { recipe.name }</div>
 
         <i className="material-icons trash-can"
-            style={styles}
-            onClick={ () => this.setState({ due_date: "" }) }>
+            style={ styles }
+            onClick={ this.handleRemoveDate }>
           delete_forever
         </i>
       </div>

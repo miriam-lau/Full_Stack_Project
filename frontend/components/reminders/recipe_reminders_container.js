@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import RecipeReminders from "./recipe_reminders";
-import { requestAllRecipes } from "../../actions/recipe_actions";
+import { requestAllRecipes, updateRecipe } from "../../actions/recipe_actions";
 import { selectAllRecipes } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestAllRecipes: () => dispatch(requestAllRecipes())
+  requestAllRecipes: () => dispatch(requestAllRecipes()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecipeReminders));

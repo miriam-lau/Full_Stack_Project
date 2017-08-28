@@ -18,6 +18,8 @@ class RecipeReminders extends React.Component {
   render() {
     const recipes = this.props.recipes;
     console.log(recipes);
+    // renders empty lines of recipes with no due date initially
+    // on refresh it displays one more than than ones with due date
 
     return (
       <div>

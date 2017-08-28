@@ -1,5 +1,5 @@
 import React from "react";
-
+import merge from "lodash/merge";
 import { styles } from "../utils/material_ui_styles";
 
 class RecipeReminderItem extends React.Component {
@@ -41,14 +41,19 @@ class RecipeReminderItem extends React.Component {
   }
 
   handleRemoveDate() {
-    this.setState({ due_date: "" });
-    // update recipe
+    let updatedRecipe = merge({}, this.props.recipe);
+    updatedRecipe.due_date = "";
+
+    this.props.updateRecipe({ recipe: updatedRecipe }).then(() => {
+      // how to re-render pantry_items page?
+      this.props.history.push("/pantry_items");
+    });
   }
 
   render() {
     const recipe = this.props.recipe;
     console.log(recipe);
-    
+
     return (
       <div className="reminder-item">
         <div>{ recipe.due_date }: { recipe.name }</div>

@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllRecipes: () => dispatch(requestAllRecipes()),
+  updateRecipe: () => dispatch(updateRecipe())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecipeReminders));

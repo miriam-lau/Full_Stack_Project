@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 
-import RecipeReminderItemContainer from "./recipe_reminder_item_container";
+import RecipeReminderItem from "./recipe_reminder_item";
 
 const recipeDates = ["Overdue", "Today", "This Week", "Coming Weeks"];
 
@@ -37,11 +37,10 @@ class RecipeReminders extends React.Component {
               <ul className="reminder-items">
                 {this.props.recipes.map((recipe) => {
                   if (recipe.due_date !== "") {
-                    return (
-                      <RecipeReminderItemContainer
-                        key = { recipe.id }
-                        recipe = { recipe }
-                      />
+                    return ( <RecipeReminderItem
+                      key = { recipe.id }
+                      recipe = { recipe }
+                      updateRecipe = { this.props.updateRecipe } />
                     )
                   }
                 })}

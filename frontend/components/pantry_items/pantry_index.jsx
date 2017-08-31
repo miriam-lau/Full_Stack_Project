@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import PantryIndexItemContainer from "./pantry_index_item_container";
 import PantryItemFormContainer from "./pantry_item_form_container";
-import RecipeReminderContainer from "../reminders/recipe_reminders_container";
+import RecipeRemindersContainer from "../reminders/recipe_reminders_container";
 import ReminderIndexContainer from "../reminders/reminder_index_container";
 import { indexCategory } from "../utils/item_categories";
 
@@ -39,12 +39,13 @@ class PantryIndex extends React.Component {
                 <h3 className="index-category">{ category === "" ?
                     "Uncategorized" : category}
                 </h3>
+
                 <ul className="items">
                   {this.props.pantryItems.map((item) => {
                     if (item.category === category) {
                       return ( <PantryIndexItemContainer
-                        key={ item.id }
-                        pantryItem={ item } />
+                        key = { item.id }
+                        pantryItem = { item } />
                       )
                     }
                   })}
@@ -56,7 +57,7 @@ class PantryIndex extends React.Component {
 
         <div className="reminders">
           <ReminderIndexContainer />
-          <RecipeReminderContainer />
+          <RecipeRemindersContainer />
         </div>
       </div>
     );

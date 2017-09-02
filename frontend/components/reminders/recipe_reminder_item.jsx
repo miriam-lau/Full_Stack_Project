@@ -52,8 +52,6 @@ class RecipeReminderItem extends React.Component {
 
   render() {
     const recipe = this.props.recipe;
-    console.log(recipe);
-
     return (
       <div className="reminder-item">
         <div>{ recipe.due_date }: { recipe.name }</div>

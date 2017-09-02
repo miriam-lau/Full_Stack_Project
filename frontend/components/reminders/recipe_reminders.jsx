@@ -8,7 +8,6 @@ const recipeDates = ["Overdue", "Today", "This Week", "Coming Weeks"];
 class RecipeReminders extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dateCategory: "" };
   }
 
   componentWillMount() {
@@ -17,10 +16,6 @@ class RecipeReminders extends React.Component {
 
   render() {
     const recipes = this.props.recipes;
-    console.log(recipes);
-    // renders empty lines of recipes with no due date initially
-    // on refresh it displays one more than than ones with due date
-
     return (
       <div>
         <section>
@@ -37,10 +32,12 @@ class RecipeReminders extends React.Component {
               <ul className="reminder-items">
                 {this.props.recipes.map((recipe) => {
                   if (recipe.due_date !== "") {
-                    return ( <RecipeReminderItem
-                      key = { recipe.id }
-                      recipe = { recipe }
-                      updateRecipe = { this.props.updateRecipe } />
+                    return (
+                      <RecipeReminderItem
+                        key = { recipe.id }
+                        recipe = { recipe }
+                        updateRecipe = { this.props.updateRecipe }
+                      />
                     )
                   }
                 })}

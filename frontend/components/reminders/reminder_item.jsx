@@ -9,7 +9,6 @@ class ReminderItem extends React.Component {
 
   render() {
     const reminder = this.props.reminder;
-    console.log(reminder);
     return (
       <div className="reminder-item">
         <div>{ reminder.name } </div>

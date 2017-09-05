@@ -38,8 +38,8 @@ class RecipeIndex extends React.Component {
               {this.props.recipes.map((item) => {
                 return (
                   <RecipeIndexItem
-                    key={item.id}
-                    recipe={item}
+                    key = { item.id }
+                    recipe = { item }
                   />
                 )}
               )}

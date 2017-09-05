@@ -6,6 +6,8 @@ class RecipeReminderItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleRemoveDate = this.handleRemoveDate.bind(this);
+
+    this.state = { dateCategory: "" };
   }
 
 // when to use this function?
@@ -16,15 +18,17 @@ class RecipeReminderItem extends React.Component {
     let currentMonth = parseInt(todaySplit[0]);
     let currentDay = parseInt(todaySplit[1]);
     let currentYear = parseInt(todaySplit[2]);
-    console.log("date");
-    console.log(currentMonth);
-    console.log(currentDay);
-    console.log(currentYear);
 
-    let recipeDateSplit = due_date.split("-");
-    let recipeMonth = parseInt(recipeDateSplit[0]);
-    let recipeDay = parseInt(recipeDateSplit[1]);
-    let recipeYear = parseInt(recipeDateSplit[2]);
+    let recipeMonth = -1;
+    let recipeDay = -1;
+    let recipeYear = -1;
+
+    if (due_date !== "none") {
+      let recipeDateSplit = due_date.split("-");
+      let recipeMonth = parseInt(recipeDateSplit[0]);
+      let recipeDay = parseInt(recipeDateSplit[1]);
+      let recipeYear = parseInt(recipeDateSplit[2]);
+    }
 
     if (recipeMonth === currentMonth && recipeYear === currentYear) {
       if (recipeDay === currentDay) {
@@ -52,6 +56,18 @@ class RecipeReminderItem extends React.Component {
 
   render() {
     const recipe = this.props.recipe;
+    console.log("in render");
+    console.log(recipe);
+    console.log(recipe.due_date);
+
+    // if (recipe.due_date != "none") {
+    //   console.log(recipe);
+    //   this.displayDate(recipe.due_date);
+    // }
+
+    console.log("current state after displaydate");
+    console.log(this.state);
+
     return (
       <div className="reminder-item">
         <div>{ recipe.due_date }: { recipe.name }</div>

@@ -31,20 +31,22 @@ class RecipeDetail extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  // calendar modal functions
+  // Opens the modal
   openModal() {
     this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
+  // afterOpenModal() {
     // references are now sync'd and can be accessed.
     // this.subtitle.style.color = '#f00';
-  }
+  // }
 
+  // Opens the modal
   closeModal() {
     this.setState({modalIsOpen: false});
   }
 
+  // Defines what html element the modal will mount with
   componentWillMount() {
     Modal.setAppElement("div");
   }
@@ -59,15 +61,27 @@ class RecipeDetail extends React.Component {
     }
   }
 
+  /*
+    Splits the html string on "\n".
+    @param {string}
+  */
   strSplit(str) {
     let strArray = str.split("\n");
     return strArray;
   }
 
+  /*
+    Toggles the open and close state of update form.
+    @param {event}
+  */
   handleUpdate(event) {
     this.setState({ openUpdate: !this.state.openUpdate });
   }
 
+  /*
+    On click, sets the date of a recipe in the format "MM-DD-YYYY", and updates the recipe with the date.
+    @param {event}
+  */
   handleSetDate(event) {
     const recipeId = parseInt(this.props.match.params.id);
     const recipe = this.props.recipe[recipeId];
@@ -97,6 +111,10 @@ class RecipeDetail extends React.Component {
     });
   }
 
+  /*
+    On click, deletes the recipe.
+    @param {event}
+  */
   handleDelete(event) {
     const recipeId = parseInt(this.props.match.params.id);
     const recipe = this.props.recipe[recipeId];

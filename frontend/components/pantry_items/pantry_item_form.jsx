@@ -23,6 +23,10 @@ class PantryItemForm extends React.Component {
     this.parseAddItem = this.parseAddItem.bind(this);
   }
 
+  /*
+    Splits the submitted text into quantity, unit and item name. Checks if item matches a previous item or is a new item.  If the item matches a previous item, that item is updated. If the item is a new item, a new item is created.
+    @param {string} input string
+  */
   parseAddItem(str) {
     let words = str.split(" ");
     let firstNum = /(^\d+(?:\.\d+)?)/;
@@ -113,11 +117,19 @@ class PantryItemForm extends React.Component {
     });
   }
 
+  /*
+    Passes the submitted string to the parseAddItem function.
+    @param {event} form submission
+  */
   handleSubmit(event) {
     event.preventDefault();
     this.parseAddItem(this.state.temp);
   }
 
+  /*
+    On changes to item fields, it will update the state of "temp".
+    @param {property} property of the item
+  */
   update(property) {
     return e => {
       this.setState({ [property]: e.target.value });
@@ -157,7 +169,7 @@ class PantryItemForm extends React.Component {
 
         <ErrorBanner shouldShow={ this.state.errors }
             message="Invalid entry. Entry must have 'quantity' and 'item name'"
-            />
+        />
       </form>
     );
   }

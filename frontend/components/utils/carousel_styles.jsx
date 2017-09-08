@@ -1,6 +1,6 @@
 import React from "react";
 
-const Decorator = [
+const CarouselStyles = [
   {
     component: React.createClass({
       render() {
@@ -119,4 +119,4 @@ const Decorator = [
   }
 ];
 
-export default Decorator;
+export default CarouselStyles;

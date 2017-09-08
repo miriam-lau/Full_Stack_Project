@@ -85,3 +85,21 @@ export const gridTileStyle = {
   marginTop: "15px",
   marginLeft: "15px"
 }
+
+export const conversionHintTextStyle = {
+  "bottom": "3px",
+  "color": "#333399",
+  "margin-left": "18px"
+}
+
+export const conversionAddItemTextBoxStyle = {
+  "fontFamily": "'Nunito', sans-serif",
+  "fontSize": "14px",
+  "fontWeight": "bold",
+  "width": "140px",
+  "display": "inline",
+  "text-align": "center",
+  "height": "35px",
+  "border-bottom": "1px solid #C0C0C0",
+  "color": "#333399"
+}

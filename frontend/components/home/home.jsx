@@ -4,8 +4,14 @@ import { Link, withRouter } from "react-router-dom";
 import HomeContainer from "./home_container";
 import ModalFormContainer from "../modal/modal_container";
 import Carousel from "nuka-carousel";
-import Decorator from "./decorator";
+import CarouselStyles from "../utils/carousel_styles";
 
+/*
+  Opens a new session, either signin or signup
+  @param {modalOpen} state of modal
+  @param {openModal} type of modal, either signin or signup
+*/
+// extract to it's own file?
 const sessionLinks = ({ modalOpen, openModal, signin, signup, errors,
     clearErrors }) => {
   return (
@@ -37,10 +43,18 @@ class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /*
+    Opens the modal
+    @param {type} type is either "Sign In" or "Sign Up"
+  */
   openModal(type) {
     return () => this.setState({ modalOpen: type });
   }
 
+  /*
+    On submit, signs in user and redirects to pantry items page.
+    @param {event}
+  */
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
@@ -51,7 +65,7 @@ class Home extends React.Component {
   render() {
     const { signin, signup, errors, clearErrors } = this.props;
     const openModal = this.openModal;
-    const {modalOpen} = this.state;
+    const { modalOpen } = this.state;
 
     return (
       <div className="main-content">
@@ -59,7 +73,7 @@ class Home extends React.Component {
             clearErrors })}
 
         <Carousel className="image" wrapAround={ true } autoplay={ true }
-            autoInterval={ 5000 } decorators={ Decorator }>
+            autoInterval={ 5000 } decorators={ CarouselStyles }>
 
           <div className="home-panels">
             <h2 className="home-titles1">myPantry</h2>

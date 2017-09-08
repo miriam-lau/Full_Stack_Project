@@ -2,27 +2,11 @@ import React from "react";
 
 import { TextField } from "material-ui";
 import { unitArray, liquid, dry, length, unitInfo } from "./units";
+import { conversionHintTextStyle, conversionAddItemTextBoxStyle } from
+    "../utils/material_ui_styles";
 
 const VALUE1 = "value1";
 const VALUE2 = "value2";
-
-const hintTextStyle = {
-  "bottom": "3px",
-  "color": "#333399",
-  "margin-left": "18px"
-}
-
-const addItemTextBoxStyle = {
-  "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
-  "fontWeight": "bold",
-  "width": "140px",
-  "display": "inline",
-  "text-align": "center",
-  "height": "35px",
-  "border-bottom": "1px solid #C0C0C0",
-  "color": "#333399"
-}
 
 var UnitTypeEnum = {
   LIQUID: 0,
@@ -30,6 +14,7 @@ var UnitTypeEnum = {
   LENGTH: 2,
 };
 
+// Liquid conversion measurements
 let liquidConversion = new Map([
     ["teaspoon", 1],
     ["tablespoon", 3],
@@ -44,6 +29,7 @@ let liquidConversion = new Map([
     ["liter", 202.9]
 ]);
 
+// Dry conversion measurements
 let dryConversion = new Map([
   ["milligram", 1],
   ["gram", 1000],
@@ -55,6 +41,7 @@ let dryConversion = new Map([
   ["pound", 453592]
 ]);
 
+// Length conversion measurements
 let lengthConversion = new Map([
   ["millimeter", 1],
   ["centimeter", 10],
@@ -74,6 +61,10 @@ class Conversion extends React.Component {
     this.unitType = this.unitType.bind(this);
   }
 
+  /*
+    On change, it will update the corresponding property.
+    @param {property} property of the item
+  */
   update(property) {
     return e => {
       this.setState({ [property]:
@@ -82,6 +73,10 @@ class Conversion extends React.Component {
     }
   }
 
+  /*
+    Finds the corresponding conversion type for the unit
+    @param {unit} unit choosen
+  */
   unitType(unit) {
     if (liquid.includes(unit)) {
       return UnitTypeEnum.LIQUID;
@@ -95,6 +90,7 @@ class Conversion extends React.Component {
     return null;
   }
 
+  // Calculates the conversion from the initial unit to the desired unit.
   calculateResult() {
     let result = 0;
     if (this.state.quantity === "") {
@@ -145,19 +141,19 @@ class Conversion extends React.Component {
             <TextField className="enter-quantity" id="text-field-default"
               defaultValue={ this.state.quantity }
               hintText="Enter a Quantity"
-              hintStyle={hintTextStyle}
-              underlineShow ={false}
-              style={addItemTextBoxStyle}
+              hintStyle={ conversionHintTextStyle }
+              underlineShow ={ false }
+              style={ conversionAddItemTextBoxStyle }
               autoComplete="off"
-              onChange={this.update("quantity")}
+              onChange={ this.update("quantity") }
             />
 
             <div className="conversion-unit-selector">
               <select className="conversion-select"
-                  onChange={this.update(VALUE1)}>
+                  onChange={ this.update(VALUE1) }>
                 {unitArray.map((unit, idx) => {
                   return (
-                    <option key={idx} value={idx}>{unit}</option>
+                    <option key = { idx } value = { idx }>{ unit }</option>
                   )
                 })};
               </select>
@@ -171,10 +167,10 @@ class Conversion extends React.Component {
 
             <div className="conversion-unit-selector">
               <select className="conversion-select"
-                  onChange={this.update(VALUE2)}>
+                  onChange={ this.update(VALUE2) }>
                 {unitArray.map((unit, idx) => {
                   return (
-                    <option key={idx} value={idx}>{unit}</option>
+                    <option key = { idx } value = { idx }>{ unit }</option>
                   )
                 })};
               </select>
@@ -185,7 +181,7 @@ class Conversion extends React.Component {
         {unitInfo.map((unit, idx) => {
           return (
             <section key={idx} className="conversion">
-              <p><span className="conversion-topic">{unit[0]}: &nbsp;</span> {unit[1]}</p>
+              <p><span className="conversion-topic">{ unit[0] }: &nbsp;</span> { unit[1] }</p>
             </section>
           )
         })}

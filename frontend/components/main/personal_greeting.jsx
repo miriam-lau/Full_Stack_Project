@@ -10,24 +10,36 @@ class PersonalGreeting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {openTutorial: false, openConversion: false};
-    this.handleClick = this.handleClick.bind(this);
+    this.handleSignOut = this.handleSignOut.bind(this);
     this.handleTutorial = this.handleTutorial.bind(this);
     this.handleConversion = this.handleConversion.bind(this);
   }
 
-  handleClick(event) {
+  /*
+    Logs out user and redirects to home.
+    @param {event}
+  */
+  handleSignOut(event) {
     event.preventDefault();
     return this.props.signout().then(() => { this.props.history.push("/") });
   }
 
+  /*
+    Toggles the state of the tutorial page from open to close.
+    @param {event}
+  */
   handleTutorial(event) {
-    this.setState({openConversion: false,
-        openTutorial: !this.state.openTutorial});
+    this.setState({ openConversion: false,
+        openTutorial: !this.state.openTutorial });
   }
 
+  /*
+    Toggles the state of the conversion page from open to close.
+    @param {event}
+  */
   handleConversion(event) {
-    this.setState({openTutorial: false,
-        openConversion: !this.state.openConversion});
+    this.setState({ openTutorial: false,
+        openConversion: !this.state.openConversion });
   }
 
   render() {
@@ -46,15 +58,15 @@ class PersonalGreeting extends React.Component {
 
           <section className="header2">
             <i className="fa fa-info-circle fa-lg" aria-hidden="true"
-                onClick={this.handleTutorial}></i>
+                onClick={ this.handleTutorial }></i>
             {this.state.openTutorial ?
               <Drawer
-                width={400}
-                containerStyle={{height: "calc(100% - 80px)", top: 80}}
-                openSecondary={true}>
+                width={ 400 }
+                containerStyle={ { height: "calc(100% - 80px)", top: 80 } }
+                openSecondary={ true }>
                   <div className="drawer-icon">
                     <i className="material-icons closeX"
-                      onClick={this.handleTutorial}>close</i>
+                      onClick={ this.handleTutorial }>close</i>
                   </div>
                   <Tutorial />
               </Drawer> : ""
@@ -63,15 +75,15 @@ class PersonalGreeting extends React.Component {
 
           <section className="header2">
             <i className="fa fa-calculator fa-lg" aria-hidden="true"
-                onClick={this.handleConversion}></i>
+                onClick={ this.handleConversion }></i>
             {this.state.openConversion ?
               <Drawer
-                width={400}
-                containerStyle={{height: "calc(100% - 80px)", top: 80}}
-                openSecondary={true}>
+                width={ 400 }
+                containerStyle={ { height: "calc(100% - 80px)", top: 80 } }
+                openSecondary={ true }>
                   <div className="drawer-icon">
                     <i className="material-icons closeX"
-                      onClick={this.handleConversion}>close</i>
+                      onClick={ this.handleConversion }>close</i>
                   </div>
                   <Conversion />
               </Drawer> : ""
@@ -80,7 +92,7 @@ class PersonalGreeting extends React.Component {
 
           <section className="header2">
             <button className="header-link"
-              onClick={ this.handleClick }>Sign Out</button>
+              onClick={ this.handleSignOut }>Sign Out</button>
           </section>
         </div>
       </nav>

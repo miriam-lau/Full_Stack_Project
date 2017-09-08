@@ -8,12 +8,20 @@ class RecipeForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /*
+    On changes to property fields, it will update the state of that property.
+    @param {property} property of the item
+  */
   update(property) {
     return event => {
       this.setState({ [property]: event.target.value });
     }
   }
 
+  /*
+    Passes the saved state to the createRecipe action.
+    @param {event} form submission
+  */
   handleSubmit(event) {
     event.preventDefault();
     let newRecipe = {

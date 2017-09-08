@@ -9,6 +9,10 @@ class RecipeUpdate extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /*
+    On changes to property fields, it will update the state of that property.
+    @param {property} property of the item
+  */
   update(property) {
     let recipe = this.props.recipe;
     return e => {
@@ -16,6 +20,10 @@ class RecipeUpdate extends React.Component {
     }
   }
 
+  /*
+    Passes the saved state to the updateRecipe action.
+    @param {event} form submission
+  */
   handleSubmit(event) {
     event.preventDefault();
     let recipe = this.props.recipe;
@@ -34,8 +42,6 @@ class RecipeUpdate extends React.Component {
     }
 
     this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
-        console.log("in recipe form after update");
-        console.log(recipe);
         this.props.history.push("/recipes");
         //should re-render show page but it doesn't work, cannot push to recipe id again- is there a way to re-render the show page?
       });

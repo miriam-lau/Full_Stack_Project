@@ -74,3 +74,14 @@ export const hintTextStyle = {
   "width": "330px",
   "font-style": "italic"
 }
+
+export const gridTileStyle = {
+  width: 270,
+  height: 200,
+  overflowY: "hidden",
+  objectfit: "cover",
+  borderRadius: "5px",
+  marginRight: "15px",
+  marginTop: "15px",
+  marginLeft: "15px"
+}

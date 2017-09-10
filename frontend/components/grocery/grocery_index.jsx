@@ -9,7 +9,8 @@ import { indexCategory } from "../utils/item_categories";
 class GroceryIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {success: false};
+    this.state = { success: false };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -18,6 +19,10 @@ class GroceryIndex extends React.Component {
     this.props.requestAllPantryItems();
   }
 
+  /*
+    On submit, if grocery item "purchased" category is true, set state to successful. "groceryUpdatePantry" is a presentational component to update the pantry with the purchased grocery item.
+    @param {event}
+  */
   handleSubmit(event) {
     let successful = false;
     event.preventDefault();
@@ -57,7 +62,7 @@ class GroceryIndex extends React.Component {
 
           {indexCategory.map((category, idx) => {
             return (
-              <div key={ idx } className="index-category-section">
+              <div key = { idx } className="index-category-section">
                 <h3 className="index-category">{category === "" ?
                     "Uncategorized" : category}
                 </h3>
@@ -66,8 +71,8 @@ class GroceryIndex extends React.Component {
                     if ((item.purchased === false) &&
                         (item.category === category)) {
                       return (<GroceryIndexItemContainer
-                        key={ item.id }
-                        groceryItem={ item } />
+                        key = { item.id }
+                        groceryItem = { item } />
                       )
                     }
                   })}
@@ -85,7 +90,7 @@ class GroceryIndex extends React.Component {
           <div className="add-to-pantry-div">
             <section>
               <button className="add-to-pantry-button"
-                  onClick={this.handleSubmit}>Add to Pantry</button>
+                  onClick={ this.handleSubmit }>Add to Pantry</button>
             </section>
 
             <div className="add-success">
@@ -95,7 +100,7 @@ class GroceryIndex extends React.Component {
 
           {indexCategory.map((category, idx) => {
             return (
-              <div key={ idx } className="purchased-grocery-category-section">
+              <div key = { idx } className="purchased-grocery-category-section">
                 <h3 className="index-category">{category === "" ?
                     "Uncategorized" : category}
                 </h3>
@@ -104,8 +109,8 @@ class GroceryIndex extends React.Component {
                     if ((item.purchased === true) &&
                         (item.category === category)) {
                       return ( <GroceryIndexItemContainer
-                        key={ item.id }
-                        groceryItem={ item } />
+                        key = { item.id }
+                        groceryItem = { item } />
                       )
                     }
                   })}

@@ -7,6 +7,10 @@ import { formCategory } from "../utils/item_categories";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
 import { TextField } from "material-ui";
 
+/*
+  Returns error message if "shouldShow" is true.
+  @param {props} if true props.message is passed in
+*/
 function ErrorBanner(props) {
   if (props.shouldShow) {
     return (<div className="add-item-error">{ props.message }</div>);
@@ -127,7 +131,7 @@ class PantryItemForm extends React.Component {
   }
 
   /*
-    On changes to item fields, it will update the state of "temp".
+    On changes to item fields, it will update the state of the property.
     @param {property} property of the item
   */
   update(property) {

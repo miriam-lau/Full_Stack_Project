@@ -13,12 +13,18 @@ class GroceryIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { quantityError: "", nameError: "" };
+
     this.showQuantityError = this.showQuantityError.bind(this);
     this.showNameError = this.showNameError.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
   }
 
+  /*
+    Toggles the checked state of a grocery item
+    @param { event }
+    @param { checked } current checked state of grocery item
+  */
   handleCheck(event, checked) {
     event.preventDefault();
     let groceryItem = this.props.groceryItem;

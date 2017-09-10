@@ -2,6 +2,15 @@ import React from "react";
 import { generateDisplayQuantity, pluralizeUnit, singularizeUnit } from
     "../utils/item_helpers";
 
+/*
+  Checks if purchased grocery item exists in pantry, if it exists, the pantry item is updated with the grocery item, else a new pantry item is created. Then the grocery item is deleted.
+  @param {pantryItems} all pantry items
+  @param {id} grocery item id
+  @param {item} grocery item
+  @param {createPantryItem} pantry action to create a new pantry item
+  @param {updatePantryItem} pantry action to update a pantry item
+  @param {deleteGroceryItem} grocery action to delete a grocery item
+*/
 const groceryUpdatePantry = (pantryItems, id, item,
   createPantryItem, updatePantryItem, deleteGroceryItem) => {
     let quantity = parseFloat(item.quantity);

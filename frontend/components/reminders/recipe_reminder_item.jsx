@@ -10,6 +10,10 @@ class RecipeReminderItem extends React.Component {
     this.state = { dateCategory: "" };
   }
 
+  /*
+    Sets the date category in state for each recipe with a due date.
+    @param {due_date} recipe.due_date
+  */
 // when to use this function?
   displayDate(due_date) {
     let moment = require("moment");
@@ -44,6 +48,9 @@ class RecipeReminderItem extends React.Component {
     }
   }
 
+  /*
+    On click of delete button, sets the recipe's due_date to an empty string, and updates the recipe.
+  */
   handleRemoveDate() {
     let updatedRecipe = merge({}, this.props.recipe);
     updatedRecipe.due_date = "";

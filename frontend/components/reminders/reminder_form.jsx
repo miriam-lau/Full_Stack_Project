@@ -7,6 +7,10 @@ import { reminderModalStyle } from "../utils/modal_styles";
 import { addItemStyle, hintTextStyle } from "../utils/material_ui_styles";
 import { TextField } from "material-ui";
 
+/*
+  Returns error message if "shouldShow" is true.
+  @param {props} if true props.message is passed in
+*/
 function ErrorBanner(props) {
   if (props.shouldShow) {
     return (<div className="add-item-error">{ props.message }</div>);
@@ -25,28 +29,34 @@ class ReminderForm extends React.Component {
     this.changeDueDate = this.changeDueDate.bind(this);
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
+    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
-  // calendar modal functions
+  // Opens the modal
   openModal() {
     this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
+  // afterOpenModal() {
     // references are now sync'd and can be accessed.
     // this.subtitle.style.color = '#f00';
-  }
+  // }
 
+  // Closes the modal
   closeModal() {
     this.setState({ modalIsOpen: false });
   }
 
+  // Defines the html element the modal will use
   componentWillMount() {
     Modal.setAppElement("div");
   }
 
+  /*
+    On changes to item fields, it will update the state of the property. If the property is "due_date", formats the due_date to "MM-DD-YYYY".
+    @param {property} property of the item
+  */
   update(property) {
     return event => {
       if (property == "due_date") {
@@ -81,20 +91,26 @@ class ReminderForm extends React.Component {
     }
   }
 
+  /*
+    On click, resets due_date to an empty string.
+    @param {event}
+  */
   changeDueDate(event) {
     this.setState({ due_date: "" });
   }
 
+  /*
+    On click, submits the state and creates a new reminder.
+    @param {event}
+  */
   handleSubmit(event) {
     event.preventDefault();
-    console.log("in handle submit");
 
     if (this.state.due_date = "") {
       this.setState({ due_date: "None" });
     }
 
     let newReminder = this.state;
-    console.log(newReminder);
     this.props.createReminder({ reminder: newReminder });
   }
 

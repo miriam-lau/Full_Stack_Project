@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import RecipeReminderItemContainer from "./recipe_reminder_item_container";
 
+// Recipe date categories
 const recipeDates = ["Overdue", "Today", "This Week", "Coming Weeks"];
 
 class RecipeReminders extends React.Component {

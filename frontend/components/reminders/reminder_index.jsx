@@ -4,6 +4,7 @@ import { Route, Link } from "react-router-dom";
 import ReminderFormContainer from "./reminder_form_container";
 import ReminderItem from "./reminder_item";
 
+// Categories for reminders
 const reminderCategory =
     ["Overdue", "None", "Due Today", "This Week", "Coming Weeks"];
 
@@ -15,6 +16,7 @@ class ReminderIndex extends React.Component {
   componentWillMount() {
     this.props.requestAllReminders();
   }
+
   // check the Date of the reminder, return true if fits, else false
   checkDate() {
     console.log("hello2");

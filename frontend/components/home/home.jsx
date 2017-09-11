@@ -39,6 +39,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: "guest", password: "password", modalOpen: "" };
+
     this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -77,25 +78,32 @@ class Home extends React.Component {
 
           <div className="home-panels">
             <h2 className="home-titles1">myPantry</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914784/splash1_ewnc3w.jpg"
-              alt="splash-img"/>
+            <img
+                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914784/splash1_ewnc3w.jpg"
+                alt="splash-img"
+            />
           </div>
 
           <div>
             <h2 className="home-titles">Keep Track of Your Pantry</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091372/splash6_ltuu4o.jpg"
-              alt="splash-img"/>
+            <img
+                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091372/splash6_ltuu4o.jpg"
+                alt="splash-img"
+            />
           </div>
 
           <div>
             <h2 className="home-titles">Add Items to Groceries</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg"
-              alt="splash-img"/>
+            <img
+                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg"
+                alt="splash-img"
+            />
           </div>
 
           <div>
             <h2 className="home-titles">Create and Save Recipes</h2>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg"
+            <img
+                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg"
                 alt="splash-img"/>
           </div>
         </Carousel>

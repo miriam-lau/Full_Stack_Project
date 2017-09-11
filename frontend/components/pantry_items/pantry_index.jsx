@@ -20,8 +20,10 @@ class PantryIndex extends React.Component {
     return (
       <div className="wrapper">
         <div>
-          <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png"
-              alt="side-bar-img-pantry" className="side-nav-img"/>
+          <img
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png"
+              alt="side-bar-img-pantry" className="side-nav-img"
+          />
         </div>
 
         <div className="index">
@@ -43,9 +45,11 @@ class PantryIndex extends React.Component {
                 <ul className="items">
                   {this.props.pantryItems.map((item) => {
                     if (item.category === category) {
-                      return ( <PantryIndexItemContainer
-                        key = { item.id }
-                        pantryItem = { item } />
+                      return (
+                        <PantryIndexItemContainer
+                          key={ item.id }
+                          pantryItem={ item }
+                        />
                       )
                     }
                   })}

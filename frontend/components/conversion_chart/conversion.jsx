@@ -139,13 +139,13 @@ class Conversion extends React.Component {
         <div className="converter">
           <div className="conversion-div1">
             <TextField className="enter-quantity" id="text-field-default"
-              defaultValue={ this.state.quantity }
-              hintText="Enter a Quantity"
-              hintStyle={ conversionHintTextStyle }
-              underlineShow ={ false }
-              style={ conversionAddItemTextBoxStyle }
-              autoComplete="off"
-              onChange={ this.update("quantity") }
+                defaultValue={ this.state.quantity }
+                hintText="Enter a Quantity"
+                hintStyle={ conversionHintTextStyle }
+                underlineShow ={ false }
+                style={ conversionAddItemTextBoxStyle }
+                autoComplete="off"
+                onChange={ this.update("quantity") }
             />
 
             <div className="conversion-unit-selector">
@@ -153,7 +153,7 @@ class Conversion extends React.Component {
                   onChange={ this.update(VALUE1) }>
                 {unitArray.map((unit, idx) => {
                   return (
-                    <option key = { idx } value = { idx }>{ unit }</option>
+                    <option key={ idx } value={ idx }>{ unit }</option>
                   )
                 })};
               </select>
@@ -163,14 +163,16 @@ class Conversion extends React.Component {
           <span className="conversion-text-to">TO</span>
 
           <div className="conversion-div2">
-            <section className="conversion-text-result"> {this.calculateResult()} </section>
+            <section className="conversion-text-result">
+                {this.calculateResult()}
+            </section>
 
             <div className="conversion-unit-selector">
               <select className="conversion-select"
                   onChange={ this.update(VALUE2) }>
                 {unitArray.map((unit, idx) => {
                   return (
-                    <option key = { idx } value = { idx }>{ unit }</option>
+                    <option key={ idx } value={ idx }>{ unit }</option>
                   )
                 })};
               </select>
@@ -181,7 +183,10 @@ class Conversion extends React.Component {
         {unitInfo.map((unit, idx) => {
           return (
             <section key={idx} className="conversion">
-              <p><span className="conversion-topic">{ unit[0] }: &nbsp;</span> { unit[1] }</p>
+              <p>
+                <span className="conversion-topic">{ unit[0] }: &nbsp;</span>
+                  { unit[1] }
+              </p>
             </section>
           )
         })}

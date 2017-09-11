@@ -20,13 +20,17 @@ class RecipeIndex extends React.Component {
       <div>
         <div className="wrapper">
           <div>
-            <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"/>
+            <img
+                src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"
+            />
           </div>
 
           <div className="recipe-index">
             <section className="recipe-link-wrapper">
               <Link className="recipe-link" to="/recipes/new">Add Recipe</Link>
-              <Route exact path="/recipes/new" component={ RecipeFormContainer } />
+              <Route exact path="/recipes/new"
+                  component={ RecipeFormContainer }
+              />
             </section>
 
             <section>
@@ -37,8 +41,8 @@ class RecipeIndex extends React.Component {
               {this.props.recipes.map((item) => {
                 return (
                   <RecipeIndexItem
-                    key = { item.id }
-                    recipe = { item }
+                    key={ item.id }
+                    recipe={ item }
                   />
                 )}
               )}

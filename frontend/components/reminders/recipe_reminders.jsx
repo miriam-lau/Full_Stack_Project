@@ -35,8 +35,8 @@ class RecipeReminders extends React.Component {
                   if (recipe.due_date != "none") {
                     return (
                       <RecipeReminderItemContainer
-                        key = { recipe.id }
-                        recipe = { recipe }
+                        key={ recipe.id }
+                        recipe={ recipe }
                       />
                     )
                   } else {

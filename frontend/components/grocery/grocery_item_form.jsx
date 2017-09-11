@@ -146,21 +146,21 @@ class GroceryItemForm extends React.Component {
       <form className="item-form" onSubmit={ this.handleSubmit }>
         <div className="item-form-fields">
           <TextField id="text-field-default"
-            value={ this.state.temp }
-            underlineShow={ false }
-            style={ addItemStyle }
-            hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
-            hintStyle={ hintTextStyle }
-            onChange={ this.update("temp") }
+              value={ this.state.temp }
+              underlineShow={ false }
+              style={ addItemStyle }
+              hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
+              hintStyle={ hintTextStyle }
+              onChange={ this.update("temp") }
           />
 
           <select className="form-categories"
-            onChange={ this.update("category") }>
+              onChange={ this.update("category") }>
             <option selected="true" disabled="disabled">
                 Select a Category</option>
             {formCategory.map((category, idx) => {
-              return(
-                <option key = { idx } value = { category }>{ category }</option>
+              return (
+                <option key={ idx } value={ category }>{ category }</option>
               )
             })};
           </select>

@@ -14,7 +14,7 @@ class ReminderItem extends React.Component {
         <div>{ reminder.name } </div>
 
         <i className="material-icons trash-can"
-            style={styles}
+            style={ styles }
             onClick={ () => this.props.deleteReminder(reminder.id) }>
           delete_forever
         </i>

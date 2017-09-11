@@ -47,8 +47,10 @@ class GroceryIndex extends React.Component {
     return (
       <div className="wrapper">
         <div>
-          <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447613/side_nav_grocery_fi2cgm.png"
-              alt="side-bar-img-grocery" className="side-nav-img"/>
+          <img
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447613/side_nav_grocery_fi2cgm.png"
+              alt="side-bar-img-grocery" className="side-nav-img"
+          />
         </div>
 
         <div className="index">
@@ -62,7 +64,7 @@ class GroceryIndex extends React.Component {
 
           {indexCategory.map((category, idx) => {
             return (
-              <div key = { idx } className="index-category-section">
+              <div key={ idx } className="index-category-section">
                 <h3 className="index-category">{category === "" ?
                     "Uncategorized" : category}
                 </h3>
@@ -70,9 +72,11 @@ class GroceryIndex extends React.Component {
                   {this.props.groceryItems.map((item) => {
                     if ((item.purchased === false) &&
                         (item.category === category)) {
-                      return (<GroceryIndexItemContainer
-                        key = { item.id }
-                        groceryItem = { item } />
+                      return (
+                        <GroceryIndexItemContainer
+                          key={ item.id }
+                          groceryItem={ item }
+                        />
                       )
                     }
                   })}
@@ -90,7 +94,8 @@ class GroceryIndex extends React.Component {
           <div className="add-to-pantry-div">
             <section>
               <button className="add-to-pantry-button"
-                  onClick={ this.handleSubmit }>Add to Pantry</button>
+                  onClick={ this.handleSubmit }>Add to Pantry
+              </button>
             </section>
 
             <div className="add-success">
@@ -108,9 +113,11 @@ class GroceryIndex extends React.Component {
                   {this.props.groceryItems.map((item) => {
                     if ((item.purchased === true) &&
                         (item.category === category)) {
-                      return ( <GroceryIndexItemContainer
-                        key = { item.id }
-                        groceryItem = { item } />
+                      return (
+                        <GroceryIndexItemContainer
+                          key={ item.id }
+                          groceryItem={ item }
+                        />
                       )
                     }
                   })}

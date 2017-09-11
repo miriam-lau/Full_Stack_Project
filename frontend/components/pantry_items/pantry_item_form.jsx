@@ -13,7 +13,9 @@ import { TextField } from "material-ui";
 */
 function ErrorBanner(props) {
   if (props.shouldShow) {
-    return (<div className="add-item-error">{ props.message }</div>);
+    return (
+      <div className="add-item-error">{ props.message }</div>
+    );
   }
   return null;
 }
@@ -23,6 +25,7 @@ class PantryItemForm extends React.Component {
     super(props);
     this.state = { id: -1, name: "", category: "", quantity: 0, unit: "",
         temp: "", errors: false };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAddItem = this.parseAddItem.bind(this);
   }
@@ -145,16 +148,16 @@ class PantryItemForm extends React.Component {
       <form className="item-form" onSubmit={ this.handleSubmit }>
         <div className="item-form-fields">
           <TextField id="text-field-default"
-            value={ this.state.temp }
-            underlineShow={ false }
-            style={ addItemStyle }
-            hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
-            hintStyle={ hintTextStyle }
-            onChange={ this.update("temp") }
+              value={ this.state.temp }
+              underlineShow={ false }
+              style={ addItemStyle }
+              hintText="Add an Item,  e.g. '2 Oranges' or '3 cups Milk'"
+              hintStyle={ hintTextStyle }
+              onChange={ this.update("temp") }
           />
 
           <select className="form-categories"
-            onChange={ this.update("category") }>
+              onChange={ this.update("category") }>
             <option selected="true" disabled="disabled">
                 Select a Category</option>
             {formCategory.map((category, idx) => {

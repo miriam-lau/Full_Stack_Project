@@ -53,7 +53,7 @@ class RecipeUpdate extends React.Component {
       <form className="recipe-form" onSubmit={ this.handleSubmit }>
         <div className="recipe-name-div">
           <input className="update-recipe-name" type="text"
-              value={this.state.name} onChange={ this.update("name") } />
+              value={ this.state.name } onChange={ this.update("name") } />
         </div>
 
         <div className="update-recipe-content">
@@ -63,7 +63,8 @@ class RecipeUpdate extends React.Component {
                 <div className="update-img-text">
                   <img src={ this.state.image_url }
                       className="current-recipe-img"
-                      alt={ recipe.name } />
+                      alt={ recipe.name }
+                  />
                 </div>
                 <input id="upload-img-file" type="file" accept="image/*" />
               </figure>

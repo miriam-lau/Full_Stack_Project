@@ -165,7 +165,9 @@ class RecipeDetail extends React.Component {
                       </div>
                       <div>
                         <h2 className="calendar-title">Select a Date</h2>
-                        <div className="recipe-calendar-directions">To make: "{recipe.name}"</div>
+                        <div className="recipe-calendar-directions">
+                            To make: "{ recipe.name }"
+                        </div>
 
                         <DayPicker
                           enableOutsideDays
@@ -229,15 +231,15 @@ class RecipeDetail extends React.Component {
 
                   <div className="recipe-1">
                     <div  className="recipe-detail-title">Website: </div>
-                    <a href={recipe.link}
-                        className="recipe-detail-link">{recipe.link}
+                    <a href={ recipe.link }
+                        className="recipe-detail-link">{ recipe.link }
                     </a>
                   </div>
 
                   <div>
                     <h3 className="recipe-detail-description-title">Description</h3>
                     <div className="recipe-description-text">
-                        {recipe.description}
+                        { recipe.description }
                     </div>
                   </div>
                 </section>
@@ -246,16 +248,20 @@ class RecipeDetail extends React.Component {
               <div className="recipe-detail-content2">
                 <section className="recipe-detail-ingredients">
                   <h3 className="recipe-detail-title2">Ingredients</h3>
-                  <ul>{ this.strSplit(recipe.ingredients).map((line, idx) => {
-                    return (<li key={ idx }>{ line }</li>)
+                  <ul>{this.strSplit(recipe.ingredients).map((line, idx) => {
+                    return (
+                      <li key={ idx }>{ line }</li>
+                    )
                   })}
                   </ul>
                 </section>
 
                 <section className="recipe-detail-directions">
                   <h3 className="recipe-detail-title3">Directions</h3>
-                  <ul>{ this.strSplit(recipe.directions).map((line, idx) => {
-                    return (<li key={ idx }>{ line }</li>)
+                  <ul>{this.strSplit(recipe.directions).map((line, idx) => {
+                    return (
+                      <li key={ idx }>{ line }</li>
+                    )
                   })}
                   </ul>
                 </section>
@@ -264,7 +270,7 @@ class RecipeDetail extends React.Component {
 
               <section>
                 <h3 className="recipe-detail-title2">Cooking Notes</h3>
-                <div className="recipe-detail-notes">{recipe.notes}
+                <div className="recipe-detail-notes">{ recipe.notes }
                 </div>
               </section>
             </section>

@@ -138,27 +138,28 @@ class GroceryIndexItem extends React.Component {
       <div>
         <div className="update-item-form-div">
           <Checkbox className="update-grocery-checkbox"
-            style={ checkboxStyles }
-            iconStyle={ icon }
-            checked={ groceryItem.purchased ? true : false }
-            onCheck={ this.handleCheck } />
+              style={ checkboxStyles }
+              iconStyle={ icon }
+              checked={ groceryItem.purchased ? true : false }
+              onCheck={ this.handleCheck }
+          />
 
           <form className="update-item-form">
             <TextField id="text-field-default"
-              value={ groceryItem.currentQuantityDisplay }
-              underlineFocusStyle={ underlineFocusStyle }
-              underlineStyle={ underlineStyle }
-              style={ quantityStyle }
-              onChange={ this.handleQuantityChange() }
+                value={ groceryItem.currentQuantityDisplay }
+                underlineFocusStyle={ underlineFocusStyle }
+                underlineStyle={ underlineStyle }
+                style={ quantityStyle }
+                onChange={ this.handleQuantityChange() }
             />
 
             <TextField id="text-field-default"
-              value={ groceryItem.name }
-              underlineFocusStyle={ underlineFocusStyle }
-              underlineStyle={ underlineStyle }
-              onChange={ this.update("name") }
-              style={groceryItem.category === "" ?
-                  itemStyleCategory : itemStyleDefault}
+                value={ groceryItem.name }
+                underlineFocusStyle={ underlineFocusStyle }
+                underlineStyle={ underlineStyle }
+                onChange={ this.update("name") }
+                style={ groceryItem.category === "" ?
+                    itemStyleCategory : itemStyleDefault }
             />
 
             {groceryItem.category === "" ?

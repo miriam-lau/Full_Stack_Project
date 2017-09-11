@@ -46,9 +46,9 @@ class ReminderIndex extends React.Component {
                   if (reminder.due_date === category) {
                     return (
                       <ReminderItem
-                        key = { reminder.id }
-                        reminder = { reminder }
-                        deleteReminder = { this.props.deleteReminder }
+                        key={ reminder.id }
+                        reminder={ reminder }
+                        deleteReminder={ this.props.deleteReminder }
                       />
                     )
                   }

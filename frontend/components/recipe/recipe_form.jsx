@@ -55,7 +55,7 @@ class RecipeForm extends React.Component {
             <div>
               <span>Name</span>
               <input className="input-field" type="text"
-                  value={this.state.name} placeholder="Recipe Name" onChange={this.update("name")} />
+                  value={ this.state.name } placeholder="Recipe Name" onChange={ this.update("name") } />
             </div>
 
             <div className="recipe-form-part1">
@@ -74,29 +74,37 @@ class RecipeForm extends React.Component {
               <div className="recipe-form-part3">
                 <div className="recipe-form-part2">
                   <span>Servings</span>
-                  <input className="input-field" type="number" min="0" value={this.state.serving} placeholder="Number of Servings"
-                    onChange={this.update("serving")} />
+                  <input className="input-field" type="number" min="0"
+                      value={ this.state.serving }
+                      placeholder="Number of Servings"
+                      onChange={ this.update("serving") }
+                  />
                 </div>
 
                 <div className="recipe-form-part2">
                   <span>Rating</span>
                   <input className="input-field" type="number" min="0" max="10"
-                      value={this.state.rating}
+                      value={ this.state.rating }
                       placeholder="Rating from 1 to 10"
-                      onChange={this.update("rating")} />
+                      onChange={ this.update("rating") }
+                  />
                 </div>
 
                 <div className="recipe-form-part2">
                   <span>Website</span>
-                  <textarea className="input-field-description" type="text" value={this.state.link} rows="2" placeholder="URL"
-                    onChange={this.update("link")} />
+                  <textarea className="input-field-description" type="text"
+                      value={ this.state.link } rows="2" placeholder="URL"
+                      onChange={ this.update("link") }
+                  />
                 </div>
 
                 <div className="recipe-form-part2">
                   <span>Description</span>
-                  <textarea className="input-field-description" value={this.state.description}
-                    placeholder="Short Description" rows="3"
-                    onChange={this.update("description")} />
+                  <textarea className="input-field-description"
+                      value={ this.state.description }
+                      placeholder="Short Description" rows="3"
+                      onChange={ this.update("description") }
+                  />
                 </div>
 
               </div>
@@ -105,23 +113,28 @@ class RecipeForm extends React.Component {
             <div>
               <span>Ingredients</span>
               <textarea className="recipe-form-part5"
-                value={this.state.ingredients}
-                placeholder="List Ingredients (Separate each ingredient with a new line)" rows="11"
-                onChange={this.update("ingredients")} />
+                  value={ this.state.ingredients }
+                  placeholder="List Ingredients (Separate each ingredient with
+                      a new line)" rows="11"
+                  onChange={ this.update("ingredients") }
+              />
             </div>
 
             <div>
               <span>Directions</span>
               <textarea className="recipe-form-part5"
-                value={this.state.directions}
-                placeholder="List Directions (Separate each direction with a new line)" rows="11"
-                onChange={this.update("directions")} />
+                  value={ this.state.directions }
+                  placeholder="List Directions (Separate each direction with a
+                      new line)" rows="11"
+                  onChange={ this.update("directions") }
+              />
             </div>
             <div>
               <span>Notes</span>
-              <textarea className="recipe-form-part5" value={this.state.notes}
-                placeholder="Cooking Notes" rows="3"
-                onChange={this.update("notes")} />
+              <textarea className="recipe-form-part5" value={ this.state.notes }
+                  placeholder="Cooking Notes" rows="3"
+                  onChange={ this.update("notes") }
+              />
             </div>
 
             <div>

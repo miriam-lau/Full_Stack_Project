@@ -161,7 +161,7 @@ class PantryIndexItem extends React.Component {
           </form>
 
           <i className="material-icons trash-can"
-              style={styles}
+              style={ styles }
               onClick={ () => this.props.deletePantryItem(pantryItem.id) }>
             delete_forever
           </i>

@@ -157,8 +157,8 @@ class ReminderForm extends React.Component {
             <br />
             <DayPicker
               enableOutsideDays
-              selectedDays= { this.state.selectedDay }
-              onDayClick= { this.update("due_date") }
+              selectedDays={ this.state.selectedDay }
+              onDayClick={ this.update("due_date") }
             />
           </Modal>
 

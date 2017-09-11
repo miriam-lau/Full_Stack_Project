@@ -23,7 +23,10 @@ class Main extends React.Component {
       return (
         <div>
           <div className="header-bar">
-            <PersonalGreetingContainer currentUser={currentUser} signout={signout} />
+            <PersonalGreetingContainer
+                currentUser={currentUser}
+                signout={signout}
+            />
           </div>
 
           <div className="greeting-wrapper">
@@ -41,14 +44,22 @@ class Main extends React.Component {
 
               <div className="side-nav-bar-options">
                 <Link className="nav-titles" to="/groceries">
-                  <span className="nav-titles-img"><i className="fa fa-shopping-basket fa-lg" aria-hidden="true"></i></span>
+                  <span className="nav-titles-img">
+                    <i className="fa fa-shopping-basket fa-lg"
+                        aria-hidden="true">
+                    </i>
+                  </span>
                   <span className="nav-titles-options">Grocery</span>
                 </Link>
               </div>
 
               <div>
                 <Link className="nav-titles" to="/recipes">
-                  <span className="nav-titles-img-recipes"><i className="fa fa-book fa-lg" aria-hidden="true"></i></span>
+                  <span className="nav-titles-img-recipes">
+                    <i className="fa fa-book fa-lg"
+                        aria-hidden="true">
+                    </i>
+                  </span>
                   <span className="nav-titles-options">Recipes</span>
                 </Link>
               </div>

@@ -4,12 +4,10 @@ import { withRouter } from "react-router-dom";
 import SignInForm from "./sign_in_form";
 import { signin, receiveErrors } from "../../actions/session_actions";
 
-const mapStateToProps = (state) => {
-  return {
-    loggedIn: Boolean(state.session.currentUser),
-    errors: state.session.errors
-  }
-};
+const mapStateToProps = (state) => ({
+  loggedIn: Boolean(state.session.currentUser),
+  errors: state.session.errors
+});
 
 const mapDispatchToProps = (dispatch) => ({
   signin: user => dispatch(signin(user)),

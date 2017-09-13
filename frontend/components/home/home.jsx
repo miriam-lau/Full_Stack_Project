@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import HomeContainer from "./home_container";
-import ModalFormContainer from "../modal/modal_container";
+import ModalFormContainer from "./modal_container";
 import Carousel from "nuka-carousel";
 import CarouselStyles from "../utils/carousel_styles";
 

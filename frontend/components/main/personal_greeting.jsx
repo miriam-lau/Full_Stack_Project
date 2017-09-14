@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Conversion from "../conversion_chart/conversion";
-import Tutorial from "../tutorial/tutorial";
+import Conversion from "../drawers/conversion";
+import Tutorial from "../drawers/tutorial";
 import SearchFormContainer from "../search/search_form_container";
 import { Drawer } from "material-ui";
 

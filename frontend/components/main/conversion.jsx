@@ -1,7 +1,7 @@
 import React from "react";
 
 import { TextField } from "material-ui";
-import { unitArray, liquid, dry, length, unitInfo } from "./units";
+import { unitArray, liquid, dry, length, unitInfo } from "./conversion_units";
 import { conversionHintTextStyle, conversionAddItemTextBoxStyle } from
     "../utils/material_ui_styles";
 

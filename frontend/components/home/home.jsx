@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import HomeContainer from "./home_container";
 import ModalFormContainer from "./modal_container";
 import Carousel from "nuka-carousel";
-import CarouselStyles from "../utils/carousel_styles";
+import CarouselStyles from "./carousel_styles";
 
 /*
   Opens a new session, either signin or signup

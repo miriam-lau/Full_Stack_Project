@@ -5,7 +5,6 @@
   left: 160px;
   min-height: 1200px;
   padding-top: 10px;
-  overflow: scroll;
 }
 
 .side-nav-img {
@@ -24,11 +23,11 @@
 .index {
   min-width: 600px;
   max-width: 600px;
-  height: auto;
+  height: 1200px;
   background-color: white;
   margin: 0 0 0 10px;
   border-radius: 5px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .index-title {

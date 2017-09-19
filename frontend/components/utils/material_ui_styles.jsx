@@ -89,12 +89,13 @@ export const gridTileStyle = {
 export const conversionHintTextStyle = {
   "bottom": "3px",
   "color": "#333399",
-  "margin-left": "18px"
+  "margin-left": "18px",
+  "fontStyle": "italic"
 }
 
 export const conversionAddItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
-  "fontSize": "14px",
+  "fontSize": "13px",
   "fontWeight": "bold",
   "width": "140px",
   "display": "inline",

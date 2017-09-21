@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #333399;
   color: #E6E6FA;
-  padding: 10px 0 10px 0;
+  padding: 5px 0 5px 0;
 }
 
 .header-group2 {
@@ -13,7 +13,7 @@
   align-items: center;
   background-color: #333399;
   color: white;
-  padding: 10px 0 10px 0;
+  padding: 5px 0 5px 0;
 }
 
 .header {
@@ -56,12 +56,10 @@
 }
 
 .greeting {
-  font-size: 25px;
+  font-size: 16px;
   font-family: 'Pacifico', cursive;
-  width: 180px;
-  text-align: center;
+  padding-left: 20px;
   flex: 1;
-  padding: 2px 0 2px 0;
 }
 
 .nav-link {
@@ -170,4 +168,15 @@
   color: white;
   padding: 40px 0 40px 0;
   width: 100%;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+}
+
+.icon {
+  width: 35px;
+  padding-left: 35px;
 }

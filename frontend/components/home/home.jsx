@@ -17,7 +17,14 @@ const sessionLinks = ({ modalOpen, openModal, signin, signup, errors,
   return (
     <nav className="header-group">
       <div className="header">
-        <h1 className="greeting">myPantry</h1>
+        <div className="icon-wrapper">
+          <div className="greeting">myPantry</div>
+          <div>
+            <img className="icon"
+                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_308/v1505960077/mypantry_icon.001_zht9v9.png" alt="icon"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="header">

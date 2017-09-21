@@ -33,7 +33,8 @@ class RecipeForm extends React.Component {
       ingredients: this.state.ingredients,
       description: this.state.description,
       directions: this.state.directions,
-      notes: this.state.notes
+      notes: this.state.notes,
+      due_date: "none"
     }
 
     this.props.createRecipe({ recipe: newRecipe }).then( (recipe) => {

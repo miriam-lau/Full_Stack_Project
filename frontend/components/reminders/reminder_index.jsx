@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 
+import RecipeReminderItem from "./recipe_reminder_item";
 import ReminderFormContainer from "./reminder_form_container";
 import ReminderItem from "./reminder_item";
 
@@ -15,6 +16,7 @@ class ReminderIndex extends React.Component {
 
   componentWillMount() {
     this.props.requestAllReminders();
+    this.props.requestAllRecipes();
   }
 
   // check the Date of the reminder, return true if fits, else false
@@ -49,6 +51,18 @@ class ReminderIndex extends React.Component {
                         key={ reminder.id }
                         reminder={ reminder }
                         deleteReminder={ this.props.deleteReminder }
+                      />
+                    )
+                  }
+                })}
+
+                {this.props.recipes.map((recipe) => {
+                  if (recipe.due_date !== "none") {
+                    return (
+                      <RecipeReminderItem
+                        key={ recipe.id }
+                        recipe={ recipe }
+                        updateRecipe={ this.props.updateRecipe }
                       />
                     )
                   }

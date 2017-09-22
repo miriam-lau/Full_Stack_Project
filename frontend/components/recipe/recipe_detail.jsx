@@ -134,7 +134,9 @@ class RecipeDetail extends React.Component {
     return (
       <div className="wrapper">
         <div>
-          <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"/>
+          <img className="side-nav-img"
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe"
+          />
         </div>
 
         {this.state.openUpdate ?
@@ -146,7 +148,7 @@ class RecipeDetail extends React.Component {
             </section>
 
             <section className="recipe-detail-info">
-              <h2>{recipe.name}</h2>
+              <h2>{ recipe.name }</h2>
 
               <div className="recipe-detail-choices">
                 <section id="recipe-detail-icon-wrapper">
@@ -180,15 +182,14 @@ class RecipeDetail extends React.Component {
                   </div>
 
                   <div id="recipe-button-wrapper">
-                      <i className="fa fa-pencil fa-lg" aria-hidden="true"
-                          onClick={ this.handleUpdate }>
-                      </i>
+                    <i className="fa fa-pencil fa-lg" aria-hidden="true"
+                        onClick={ this.handleUpdate }>
+                    </i>
                   </div>
 
                   <div id="recipe-button-wrapper">
                     <i className="material-icons trash-can-recipe"
-                        style={ styles }
-                        onClick={ this.handleDelete }>
+                        style={ styles } onClick={ this.handleDelete }>
                         delete_forever
                     </i>
                   </div>
@@ -210,36 +211,36 @@ class RecipeDetail extends React.Component {
                   {recipe.image_url !== "" ?
                     <img src={ recipe.image_url } alt={ recipe.name }/> :
                     <img
-                        src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"/>
+                        src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
+                    />
                   }
                 </figure>
 
                 <section className="recipe-detail-content1">
-                  <div className="recipe-1">
-                    <div className="recipe-detail-servings-title">Servings: </div>
-                    <div className="recipe-servings-text">
-                        {recipe.serving === 0 ? "Not Specified" : recipe.serving}
+                  <div className="recipe-subsection">
+                    <div className="recipe-detail-title">Servings: </div>
+                    <div className="recipe-detail-text1">
+                      {recipe.serving === 0 ? "Not Specified" : recipe.serving}
                     </div>
                   </div>
 
-                  <div className="recipe-1">
+                  <div className="recipe-subsection">
                     <div className="recipe-detail-title">Rating: </div>
-                    <div className="recipe-text">{recipe.rating === 0 ?
-                        "No Rating Yet" : recipe.rating}
+                    <div className="recipe-detail-text1">
+                      {recipe.rating === 0 ? "No Rating Yet" : recipe.rating}
                     </div>
                   </div>
 
-                  <div className="recipe-1">
+                  <div className="recipe-subsection">
                     <div  className="recipe-detail-title">Website: </div>
                     <a href={ recipe.link }
-                        className="recipe-detail-link">{ recipe.link }
+                        className="recipe-detail-website">{ recipe.link }
                     </a>
                   </div>
 
-                  <div>
-                    <h3 className="recipe-detail-description-title">Description</h3>
-                    <div className="recipe-description-text">
-                        { recipe.description }
+                  <div className="recipe-detail-description-wrapper">
+                    <h3 className="recipe-detail-title2">Description</h3>
+                    <div className="recipe-detail-text2">{ recipe.description }
                     </div>
                   </div>
                 </section>
@@ -248,30 +249,26 @@ class RecipeDetail extends React.Component {
               <div className="recipe-detail-content2">
                 <section className="recipe-detail-ingredients">
                   <h3 className="recipe-detail-title2">Ingredients</h3>
-                  <ul>{this.strSplit(recipe.ingredients).map((line, idx) => {
-                    return (
-                      <li key={ idx }>{ line }</li>
-                    )
-                  })}
+                  <ul>
+                    {this.strSplit(recipe.ingredients).map((line, idx) => {
+                      return (<li key={ idx }>{ line }</li>)
+                    })}
                   </ul>
                 </section>
 
                 <section className="recipe-detail-directions">
-                  <h3 className="recipe-detail-title3">Directions</h3>
-                  <ul>{this.strSplit(recipe.directions).map((line, idx) => {
-                    return (
-                      <li key={ idx }>{ line }</li>
-                    )
-                  })}
+                  <h3 className="recipe-detail-title2">Directions</h3>
+                  <ul>
+                    {this.strSplit(recipe.directions).map((line, idx) => {
+                      return (<li key={ idx }>{ line }</li>)
+                    })}
                   </ul>
                 </section>
-
               </div>
 
               <section>
                 <h3 className="recipe-detail-title2">Cooking Notes</h3>
-                <div className="recipe-detail-notes">{ recipe.notes }
-                </div>
+                <div className="recipe-detail-text2">{ recipe.notes }</div>
               </section>
             </section>
           </div>

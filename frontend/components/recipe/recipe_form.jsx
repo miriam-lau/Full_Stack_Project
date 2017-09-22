@@ -49,100 +49,95 @@ class RecipeForm extends React.Component {
           <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"/>
         </div>
 
-        <form className="recipe-form" onSubmit={this.handleSubmit}>
-          <h2 className="new-recipe-title">New Recipe</h2>
+        <form className="recipe-form" onSubmit={ this.handleSubmit }>
+          <h2 className="recipe-form-title">New Recipe</h2>
 
-          <section className="recipe-form-input">
-            <div>
-              <span>Name</span>
-              <input className="input-field" type="text"
-                  value={ this.state.name } placeholder="Recipe Name" onChange={ this.update("name") } />
-            </div>
+          <div className="recipe-form-section">
+            <span className="recipe-form-section-name">Name</span>
+            <input className="recipe-form-placeholder-text" type="text"
+                value={ this.state.name } placeholder="Recipe Name" onChange={ this.update("name") }
+            />
+          </div>
 
-            <div className="recipe-form-part1">
-              <div className="recipe-form-part4">
-                <span>Image</span>
-                <div className="update-recipe-img">
-                  <figure>
-                    <div className="upload-img-text">
-                        Upload an Image
-                    </div>
-                    <input id="upload-img-file" type="file" accept="image/*"/>
-                  </figure>
-                </div>
-              </div>
-
-              <div className="recipe-form-part3">
-                <div className="recipe-form-part2">
-                  <span>Servings</span>
-                  <input className="input-field" type="number" min="0"
-                      value={ this.state.serving }
-                      placeholder="Number of Servings"
-                      onChange={ this.update("serving") }
-                  />
-                </div>
-
-                <div className="recipe-form-part2">
-                  <span>Rating</span>
-                  <input className="input-field" type="number" min="0" max="10"
-                      value={ this.state.rating }
-                      placeholder="Rating from 1 to 10"
-                      onChange={ this.update("rating") }
-                  />
-                </div>
-
-                <div className="recipe-form-part2">
-                  <span>Website</span>
-                  <textarea className="input-field-description" type="text"
-                      value={ this.state.link } rows="2" placeholder="URL"
-                      onChange={ this.update("link") }
-                  />
-                </div>
-
-                <div className="recipe-form-part2">
-                  <span>Description</span>
-                  <textarea className="input-field-description"
-                      value={ this.state.description }
-                      placeholder="Short Description" rows="3"
-                      onChange={ this.update("description") }
-                  />
-                </div>
-
+          <div className="recipe-form-section2">
+            <div className="recipe-form-section">
+              <span className="recipe-form-section-name">Image</span>
+              <div className="recipe-form-img">
+                <figure>
+                  <div className="upload-img-text">Upload an Image</div>
+                  <input id="upload-img-file" type="file" accept="image/*"/>
+                </figure>
               </div>
             </div>
 
-            <div>
-              <span>Ingredients</span>
-              <textarea className="recipe-form-part5"
+            <div className="recipe-form-subsection-wrapper">
+              <div className="recipe-form-section">
+                <span className="recipe-form-section-name">Servings</span>
+                <input className="recipe-form-placeholder-text" type="number" min="0"
+                    value={ this.state.serving }
+                    placeholder="Number of Servings"
+                    onChange={ this.update("serving") }
+                />
+              </div>
+              <div className="recipe-form-section">
+                <span className="recipe-form-section-name">Rating</span>
+                <input className="recipe-form-placeholder-text" type="number" min="0" max="10"
+                    value={ this.state.rating }
+                    placeholder="Rating from 1 to 10"
+                    onChange={ this.update("rating") }
+                />
+              </div>
+              <div className="recipe-form-section">
+                <span className="recipe-form-section-name">Website</span>
+                <textarea className="recipe-form-placeholder-text" type="text"
+                    value={ this.state.link } rows="2" placeholder="URL"
+                    onChange={ this.update("link") }
+                />
+              </div>
+              <div className="recipe-form-section">
+                <span className="recipe-form-section-name">Description</span>
+                <textarea className="recipe-form-placeholder-text"
+                    value={ this.state.description }
+                    placeholder="Short Description" rows="3"
+                    onChange={ this.update("description") }
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="recipe-form-section2">
+            <div className="recipe-form-ingredients">
+              <span className="recipe-form-section-name">Ingredients</span>
+              <textarea className="recipe-form-placeholder-text"
                   value={ this.state.ingredients }
                   placeholder="List Ingredients (Separate each ingredient with
                       a new line)" rows="11"
                   onChange={ this.update("ingredients") }
               />
             </div>
-
-            <div>
-              <span>Directions</span>
-              <textarea className="recipe-form-part5"
+            <div className="recipe-form-directions">
+              <span className="recipe-form-section-name">Directions</span>
+              <textarea className="recipe-form-placeholder-text"
                   value={ this.state.directions }
                   placeholder="List Directions (Separate each direction with a
                       new line)" rows="11"
                   onChange={ this.update("directions") }
               />
             </div>
-            <div>
-              <span>Notes</span>
-              <textarea className="recipe-form-part5" value={ this.state.notes }
-                  placeholder="Cooking Notes" rows="3"
-                  onChange={ this.update("notes") }
-              />
-            </div>
+          </div>
 
-            <div>
-              <span></span>
-              <button className="recipe-form-button">Save Recipe</button>
-            </div>
-          </section>
+          <div className="recipe-form-section">
+            <span className="recipe-form-section-name">Notes</span>
+            <textarea className="recipe-form-placeholder-text" value={ this.state.notes }
+                placeholder="Cooking Notes" rows="3"
+                onChange={ this.update("notes") }
+            />
+          </div>
+
+          <div>
+            <span></span>
+            <button className="recipe-form-button">Save Recipe</button>
+          </div>
         </form>
       </div>
     )

@@ -15,15 +15,15 @@ class RecipeIndexItem extends React.Component{
     return (
       <div className="recipe-item">
         <Link to={ `/recipes/${recipe.id}` }>
-          <GridTile style={ gridTileStyle }
-            key={ recipe.image_url }
-            title={ recipe.name }
-          >
+          <GridTile style={ gridTileStyle } key={ recipe.image_url }
+            title={ recipe.name }>
             <div id="recipe-item-img-div">
               {recipe.image_url != "" ?
                 <img src={ recipe.image_url } id="recipe-item-img" /> :
-                <img src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
-                    id="recipe-item-img" />
+                <img
+                    src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
+                    id="recipe-item-img"
+                />
               }
             </div>
           </GridTile>

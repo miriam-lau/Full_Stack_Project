@@ -72,7 +72,7 @@ class PersonalGreeting extends React.Component {
             {this.state.openTutorial ?
               <Drawer
                   width={ 400 }
-                  containerStyle={ { height: "calc(100% - 69px)", top: 69 } }
+                  containerStyle={ { height: "calc(100% - 69px)", top: 77 } }
                   openSecondary={ true }>
                 <div className="drawer-icon">
                   <i className="material-icons closeX"
@@ -91,7 +91,7 @@ class PersonalGreeting extends React.Component {
             {this.state.openConversion ?
               <Drawer
                   width={ 400 }
-                  containerStyle={ { height: "calc(100% - 69px)", top: 69 } }
+                  containerStyle={ { height: "calc(100% - 69px)", top: 77 } }
                   openSecondary={ true }>
                   <div className="drawer-icon">
                     <i className="material-icons closeX"

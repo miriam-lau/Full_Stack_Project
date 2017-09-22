@@ -100,7 +100,7 @@ class Home extends React.Component {
           </div>
 
           <div>
-            <h2 className="home-titles">Add Items to Groceries</h2>
+            <h2 className="home-titles">Add Items to Grocery List</h2>
             <img
                 src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg"
                 alt="splash-img"
@@ -123,7 +123,7 @@ class Home extends React.Component {
               auto-update feature: after purchasing groceries, click a button and myPantry will combine duplicate items and add new items to your pantry from your Grocery page.</p>
             </section>
             <section>
-              <h3>Add Items to Groceries</h3>
+              <h3>Add Items to Grocery List</h3>
               <p>Grocery Shopping has never been easier! Add items to your grocery list. Check off items to transfer them to the "Purchased" list. Click a button to add purchased items to your pantry.</p>
             </section>
             <section>

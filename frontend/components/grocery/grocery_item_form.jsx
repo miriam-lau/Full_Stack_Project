@@ -98,10 +98,12 @@ class GroceryItemForm extends React.Component {
         if (duplicateItem != null) {
           let quantity = parseFloat(item.quantity) +
               parseFloat(duplicateItem.quantity);
+          item.quantity = quantity;
 
+          duplicateItem.unit = singularizeUnit(duplicateItem.unit);
           let itemUnit = quantity > 1 ?
-              pluralizeUnit(duplicateItem.unit) :
-              singularizeUnit(duplicateItem.unit);
+              pluralizeUnit(duplicateItem.unit) : duplicateItem.unit;
+          item.unit = itemUnit;
 
           let currentQuantityDisplay = generateDisplayQuantity(item);
 

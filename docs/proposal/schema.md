@@ -54,7 +54,6 @@ description     | text      |
 directions      | text      |
 notes           | text      |
 link            | string    |
-due_date        | string    |
 user_id         | integer   | not null, foreign key
 
 #### Associations

@@ -15,7 +15,6 @@ myPantry is a web application for cooking enthusiasts. myPantry allows users to 
 #### Pantry Items & Reminders
 - Users can add, update and delete pantry items. Pantry items are organized by category.
 - Users can add and delete reminders. Reminders are organized by due date.
-- Recipes that have a "date to make" are also listed in the Reminder section.
 
 ![pantry page](./docs/pantry1.png)
 
@@ -28,7 +27,6 @@ myPantry is a web application for cooking enthusiasts. myPantry allows users to 
 #### Favorite Recipes
 - Users can add, update, and delete recipes.
 - Clicking on a recipe image will take the user to that recipe's detail page.
-- Users can choose a date to make the recipe.
 
 ![recipe page](./docs/recipe1.png)
 

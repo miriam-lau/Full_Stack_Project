@@ -43,4 +43,4 @@ This application allows users to keep track of what's in their pantry, with func
 - User can add or update a recipe by using either the new recipe or update recipe form. Forms include allowing the user to upload a custom image, or a default image will be provided.
 - User can delete recipes.
 - User can click on the recipe image in the recipe index page to be taken to the recipe detail page.
-- In the detail page, a user can edit or delete the recipe, and choose a date to make the recipe.
+- In the detail page, a user can edit or delete the recipe.

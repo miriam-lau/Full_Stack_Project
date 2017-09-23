@@ -22,11 +22,11 @@ class ReminderForm extends React.Component {
   constructor(props) {
     super(props);
     let moment = require("moment");
-    this.state = { name: "", date: "", due_date: "", modalIsOpen: false,
+    this.state = { name: "", due_date: "", modalIsOpen: false,
         errors: false, selectedDay: moment().format("MM-DD-YYYY") };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.changeDueDate = this.changeDueDate.bind(this);
+    this.handleSetDate = this.handleSetDate.bind(this);
 
     this.openModal = this.openModal.bind(this);
     // this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -59,35 +59,7 @@ class ReminderForm extends React.Component {
   */
   update(property) {
     return event => {
-      if (property == "due_date") {
-        let month = event.getMonth() + 1;
-        let monthStr = "";
-        monthStr = (month < 10) ? ("0" + month) : ("" + month);
-
-        let dayStr = "";
-        let day = event.getDate();
-        dayStr = (day < 10) ? ("0" + day) : ("" + day);
-
-        let year = event.getFullYear();
-        let customDate = monthStr + "-" + dayStr + "-" + year;
-        console.log(customDate);
-
-        this.setState({ due_date: customDate });
-        this.closeModal();
-      } else {
-        this.setState({ [property]: event.target.value }, () => {
-          console.log("in set state of property");
-          if (this.state.date == "customDate") {
-            this.openModal();
-          } else if (this.state.date == "today") {
-            let today = moment().format("MM-DD-YYYY");
-            this.setState({ due_date: today });
-          } else if (this.state.date == "tomorrow") {
-            let tomorrow = moment().add(1, "day").format("MM-DD-YYYY");
-            this.setState({ due_date: tomorrow });
-          }
-        });
-      }
+      this.setState({ [property]: event.target.value });
     }
   }
 
@@ -95,8 +67,37 @@ class ReminderForm extends React.Component {
     On click, resets due_date to an empty string.
     @param {event}
   */
-  changeDueDate(event) {
-    this.setState({ due_date: "" });
+  handleSetDate(event) {
+    console.log("in reminder set date");
+
+    let month = event.getMonth() + 1;
+    let monthStr = "";
+    monthStr = (month < 10) ? ("0" + month) : ("" + month);
+
+    let dayStr = "";
+    let day = event.getDate();
+    dayStr = (day < 10) ? ("0" + day) : ("" + day);
+
+    let year = event.getFullYear();
+    let customDate = monthStr + "-" + dayStr + "-" + year;
+
+    console.log(customDate);
+
+    this.setState({ due_date: customDate }, () => {
+      this.closeModal();
+      // state is not getting updated before handle Submit function.
+      // console.log("in handle submit");
+      // console.log(this.state.due_date);
+      // let newReminder = {
+      //   name: this.state.name,
+      //   due_date: this.state.due_date
+      // };
+      //
+      // console.log("new Reminder");
+      // console.log(newReminder);
+      //
+      // this.props.createReminder({ reminder: newReminder });
+    });
   }
 
   /*
@@ -110,7 +111,16 @@ class ReminderForm extends React.Component {
       this.setState({ due_date: "None" });
     }
 
-    let newReminder = this.state;
+    console.log("in handle submit");
+    console.log(this.state.due_date);
+    let newReminder = {
+      name: this.state.name,
+      due_date: this.state.due_date
+    };
+
+    console.log("new Reminder");
+    console.log(newReminder);
+
     this.props.createReminder({ reminder: newReminder });
   }
 
@@ -127,23 +137,9 @@ class ReminderForm extends React.Component {
             onChange={ this.update("name") }
           />
 
-          {this.state.due_date == "" ?
-              <select className="form-date"
-                  onChange={ this.update("date") }>
-                <option selected="true" disabled="disabled">
-                    Select a Due Date</option>
-                <option value="today">Today</option>
-                <option value="tomorrow">Tomorrow</option>
-                <option value="customDate">Select a Date</option>
-              </select> :
-              <div className="selectedCustomDate">
-                <input className="form-date-input" type="text"
-                    value={ this.state.due_date } onClick={ this.changeDueDate }
-                />
-                <i className="fa fa-sort-desc" aria-hidden="true"></i>
-              </div>
-          }
-
+          <i className="fa fa-calendar fa-lg" aria-hidden="true"
+              onClick={ this.openModal }>
+          </i>
           <Modal
               isOpen={ this.state.modalIsOpen }
               onAfterOpen={ this.afterOpenModal }
@@ -158,7 +154,7 @@ class ReminderForm extends React.Component {
             <DayPicker
               enableOutsideDays
               selectedDays={ this.state.selectedDay }
-              onDayClick={ this.update("due_date") }
+              onDayClick={ this.handleSetDate }
             />
           </Modal>
 
@@ -177,3 +173,20 @@ class ReminderForm extends React.Component {
 }
 
 export default ReminderForm;
+
+// {this.state.due_date == "" ?
+//     <select className="form-date"
+//         onChange={ this.update("date") }>
+//       <option selected="true" disabled="disabled">
+//           Select a Due Date</option>
+//       <option value="today">Today</option>
+//       <option value="tomorrow">Tomorrow</option>
+//       <option value="customDate">Select a Date</option>
+//     </select> :
+//     <div className="selectedCustomDate">
+//       <input className="form-date-input" type="text"
+//           value={ this.state.due_date } onClick={ this.changeDueDate }
+//       />
+//       <i className="fa fa-sort-desc" aria-hidden="true"></i>
+//     </div>
+// }

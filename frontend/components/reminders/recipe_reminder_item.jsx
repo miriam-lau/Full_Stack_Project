@@ -16,6 +16,7 @@ class RecipeReminderItem extends React.Component {
   */
 // when to use this function?
   displayDate(due_date) {
+    console.log("infinitely looping?");
     let moment = require("moment");
     let todayString = moment().format("MM-DD-YYYY");
     let todaySplit = todayString.split("-");
@@ -34,18 +35,18 @@ class RecipeReminderItem extends React.Component {
       let recipeYear = parseInt(recipeDateSplit[2]);
     }
 
-    if (recipeMonth === currentMonth && recipeYear === currentYear) {
-      if (recipeDay === currentDay) {
-        this.setState({ dateCategory: "Today" });
-      } else if (recipeDay <= (currentDay + 7)) {
-        this.setState({ dateCategory: "This Week" });
-      }
-    } else if (recipeMonth < currentMonth || recipeYear < currentYear ||
-        (recipeMonth === currentMonth && recipeDay < currentDay)) {
-      this.setState({ dateCategory: "Overdue" });
-    } else {
-      this.setState({ dateCategory: "Coming Weeks" });
-    }
+    // if (recipeMonth === currentMonth && recipeYear === currentYear) {
+    //   if (recipeDay === currentDay) {
+    //     this.setState({ dateCategory: "Today" });
+    //   } else if (recipeDay <= (currentDay + 7)) {
+    //     this.setState({ dateCategory: "This Week" });
+    //   }
+    // } else if (recipeMonth < currentMonth || recipeYear < currentYear ||
+    //     (recipeMonth === currentMonth && recipeDay < currentDay)) {
+    //   this.setState({ dateCategory: "Overdue" });
+    // } else {
+    //   this.setState({ dateCategory: "Coming Weeks" });
+    // }
   }
 
   /*
@@ -67,10 +68,10 @@ class RecipeReminderItem extends React.Component {
     console.log(recipe);
     console.log(recipe.due_date);
 
-    // if (recipe.due_date != "none") {
-    //   console.log(recipe);
-    //   this.displayDate(recipe.due_date);
-    // }
+    if (recipe.due_date != "none") {
+      console.log(recipe);
+      this.displayDate(recipe.due_date);
+    }
 
     console.log("current state after displaydate");
     console.log(this.state);

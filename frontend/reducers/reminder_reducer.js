@@ -2,11 +2,11 @@ import merge from 'lodash/merge';
 import { RECEIVE_ALL_REMINDERS, RECEIVE_REMINDER, CREATE_REMINDER,
     DELETE_REMINDER, RECEIVE_ERRORS } from '../actions/reminder_actions';
 
-const noErrors = Object.freeze({
-  errors: []
-});
+// const noErrors = Object.freeze({
+//   errors: []
+// });
 
-const ReminderReducer = (state = noErrors, action) => {
+const ReminderReducer = (state = {}, action) => {
   let newState;
   Object.freeze(state);
   switch (action.type) {

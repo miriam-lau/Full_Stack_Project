@@ -85,7 +85,10 @@ export const findMatchingItem = (allItems, id, item) => {
 export const generateDisplayQuantity = (item) => {
   let currentQuantityDisplay = item.quantity;
   if (item.unit != null) {
-    currentQuantityDisplay += " " + item.unit;
+    let quantity = item.quantity.toFixed(1);
+    currentQuantityDisplay = quantity + " " + item.unit;
+  } else {
+    currentQuantityDisplay = quantity;
   }
   return currentQuantityDisplay;
 }

@@ -4,9 +4,9 @@ import { RECEIVE_ALL_GROCERY_ITEMS, RECEIVE_GROCERY_ITEM,
   RECEIVE_ERRORS, UPDATE_GROCERY_QUANTITY_DISPLAY } from '../actions/grocery_actions';
 import generateDisplayQuantity from "../components/utils/item_helpers";
 
-const noErrors = Object.freeze({
-  errors: []
-});
+// const noErrors = Object.freeze({
+//   errors: []
+// });
 
 const groceryItemWithDisplayQuantity = (groceryItem) => {
   let currentQuantityDisplay = groceryItem.quantity;
@@ -18,7 +18,7 @@ const groceryItemWithDisplayQuantity = (groceryItem) => {
   return groceryItem;
 }
 
-const GroceryReducer = (state = noErrors, action) => {
+const GroceryReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_GROCERY_ITEMS: {

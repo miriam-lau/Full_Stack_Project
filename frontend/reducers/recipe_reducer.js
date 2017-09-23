@@ -1,11 +1,11 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, CREATE_RECIPE, UPDATE_RECIPE, DELETE_RECIPE, RECEIVE_RECIPE_ERRORS } from '../actions/recipe_actions';
 
-const noErrors = Object.freeze({
-  errors: []
-});
+// const noErrors = Object.freeze({
+//   errors: [],
+// });
 
-const RecipeReducer = (state = noErrors, action) => {
+const RecipeReducer = (state = {}, action) => {
   let newState;
   Object.freeze(state);
   switch (action.type) {

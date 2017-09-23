@@ -1,27 +1,45 @@
 [myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Miriam Lau.
 
-myPantry is a web application for cooking enthusiasts. myPantry allows users to add items to their pantry, update and delete current pantry items, make grocery lists and update their pantry with purchased grocery items.
+myPantry is a web application for cooking enthusiasts. myPantry allows users to add items to their pantry and grocery, and update or delete items in their pantry and grocery. With a click of a checkbox or button, users can transfer groceries to purchase, and auto-update the pantry with purchased groceries. Users can add, update and delete recipes, and set reminders and their due dates.
 
 ![homepage](./docs/homepage1.png)
 
 
 ## Features
-- Users can create accounts with secure authentication.
-- Add pantry and grocery items.
-- Update and delete pantry and grocery items.
+
+#### Secure Authentication
+- Users can create accounts or sign in to their accounts with secure authentication.
+
+![session modals]()
+
+#### Pantry Items & Reminders
+- Users can add, update and delete pantry items. Pantry items are organized by category.
+- Users can add and delete reminders. Reminders are organized by due date.
+- Recipes that have a "date to make" are also listed in the Reminder section.
 
 ![pantry page](./docs/pantry1.png)
 
-- Generate grocery lists and add items to "Purchased". Move items from
-  "Purchased" list back to grocery list.
+#### Grocery Shopping List
+- Users can add, update, and delete grocery items.
+- Users can transfer groceries "Purchased" by clicking the checkbox and move purchased items to their Pantry by clicking the "Add to Pantry" button. Duplicate items with the same unit will be combined in the Pantry.
 
 ![grocery page](./docs/grocery1.png)
 
-- Auto-update your pantry with "Purchased" grocery items.
-- Searching for items in your grocery list and pantry.
-- Add personal recipes.
+#### Favorite Recipes
+- Users can add, update, and delete recipes.
+- Clicking on a recipe image will take the user to that recipe's detail page.
+- Users can choose a date to make the recipe.
 
 ![recipe page](./docs/recipe1.png)
+
+#### Search
+- Users can search for items in their grocery or pantry.
+
+#### Conversion Calculator
+- A calculator assists users in converting quantities to different measurement units.
+
+#### User Guide
+- A user guide (info icon in top navigation bar) provides information on how to use the application.
 
 
 ## Project Design

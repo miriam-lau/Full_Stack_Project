@@ -1,9 +1,6 @@
-[myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Meiyen Lau.
+[myPantry](https://mypantry.herokuapp.com/#/) is a personal project by Miriam Lau.
 
-myPantry is a web application for cooking enthusiasts. Inspired by
-RemembertheMilk, myPantry allows users to add items to their pantry,
-update and delete current pantry items, make grocery lists and
-update their pantry with purchased grocery items.
+myPantry is a web application for cooking enthusiasts. myPantry allows users to add items to their pantry, update and delete current pantry items, make grocery lists and update their pantry with purchased grocery items.
 
 ![homepage](./docs/homepage1.png)
 
@@ -28,17 +25,13 @@ update their pantry with purchased grocery items.
 
 
 ## Project Design
-myPantry was designed and built in about 2 weeks.
-
-A [proposal](./docs/proposal/development_README.md) was drafted to with an implementation timeline
-during the development process.
+A [proposal](./docs/proposal/development_README.md) was drafted with an implementation timeline during the development process.
 
 A [database schema](./docs/proposal/schema.md) was prepared in addition to the design proposal.
 
 
 ## Technology
-myPantry is a single-page application utilizing the Rails framework and
-the React library.
+myPantry is a single-page application implementing the Rails framework (backend) and the React library (frontend).
 - [Backend Dependencies](./docs/backend_tech.md)
 - [Frontend Dependencies](./docs/frontend_tech.md)
 

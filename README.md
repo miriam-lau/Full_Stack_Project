@@ -43,9 +43,9 @@ myPantry is a web application for cooking enthusiasts. myPantry allows users to 
 
 
 ## Project Design
-A [proposal](./docs/proposal/development_README.md) was drafted with an implementation timeline during the development process.
-
-A [database schema](./docs/proposal/schema.md) was prepared in addition to the design proposal.
+- A [proposal](./docs/proposal/development_README.md) was drafted with an implementation timeline during the development process.
+- [Wireframes](./docs/proposal/wireframe_doc.md) were created and used to convey the website design.
+- A [database schema](./docs/proposal/schema.md) was prepared in addition to the design proposal.
 
 
 ## Technology

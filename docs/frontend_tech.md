@@ -1,4 +1,4 @@
-# Frontend
+# Frontend Technologies
 
 ## npm (Node package manager)
 npm is the default package manager for JavaScript in Node.js. npm was used to install all the dependencies. npm consists of a command line client that allows users to distribute JavaScript modules available on the registry.

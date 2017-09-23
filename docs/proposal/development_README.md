@@ -1,4 +1,4 @@
-# myPantry
+# Development of *myPantry*
 
 ## Summary
 This application allows users to keep track of what's in their pantry, with functions to add, update, and delete pantry items. Users can also add, update and delete items to their grocery, and transfer purchased items to their pantry. Users can add, update and delete recipes, and set reminders and their due dates.

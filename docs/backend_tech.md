@@ -1,4 +1,4 @@
-# Backend
+# Backend Technologies
 
 ## Heroku
 Heroku is the host for the myPantry web application. Heroku is a cloud platform used by developers to build, scale, and deploy web applications.

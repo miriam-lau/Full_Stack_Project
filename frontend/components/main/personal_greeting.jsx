@@ -60,7 +60,7 @@ class PersonalGreeting extends React.Component {
 
         <div className="header">
           <section className="header2">
-            <h2 className="header-name">Hello, &nbsp;
+            <h2 className="header-name">Hi, &nbsp;
               { this.props.currentUser.username }!
             </h2>
           </section>

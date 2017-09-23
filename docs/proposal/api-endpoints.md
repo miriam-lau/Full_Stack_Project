@@ -13,7 +13,6 @@ Users:
 - POST /api/session
 - DELETE /api/session
 
-
 ## Grocery
 - GET /api/grocery
 - POST /api/grocery
@@ -35,4 +34,9 @@ Users:
 - GET /api/recipes/:id
 - PATCH /api/recipes/:id
 - DELETE /api/recipes/:id
-- recipes/search for match of params.name
+
+## Reminders
+- GET /api/reminders
+- POST /api/reminders
+- GET /api/reminders/:id
+- DELETE /api/reminders/:id

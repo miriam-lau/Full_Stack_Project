@@ -70,6 +70,13 @@
         link: "string",  
         recipe_id: 1
     }
+  },
+  reminder: {
+    1: {
+      id: 1
+      name: "string"
+      user_id: 1,
+    }
   }
 }
 ```

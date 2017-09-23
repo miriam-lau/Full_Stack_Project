@@ -13,41 +13,49 @@
 
 **Greeting Container**
 - Personal Greeting
-  + Search Container
-    + Search
+  + Navigation Bar
+    + Search Container
+      + Search
+    + User Guide
+    + Conversion Calculator
+    + SignOut
   + Sidebar
     + Grocery Index Container
     + Pantry Index Container
-  + Guide
-  + Measurements
-  + SignOut
+    + Recipe Index Container
 
 **Grocery Index Container**
 - Grocery Index
   + Grocery Index Item
   + Grocery Form
+- Purchased Groceries
 
 **Pantry Index Container**
 - Pantry Index
   + Pantry Index Item
   + Pantry Form
+- Reminder Index
+  + Reminder Items
+
+**Recipe Index Container**
+- New Recipe Form
+- Recipe Index Item
+  + Recipe Detail
+    + Update Recipe Form
 
 
 # Routes
 
-| Path                   | Component               |
-|------------------------|-------------------------|
-| /                      | App                     |
-| /signup                | AuthFormContainer       |
-| /signin                | AuthFormContainer       |
-| /home                  | HomeContainer           |
-| /groceries             | GroceryContainer        |
-| /groceries/new         | GroceryFormContainer    |
-| /groceries/:id/edit    | Update                  |
-| /groceries/:id         | Show                    |
-| /groceries/:id         | Delete                  |
-| /pantry_items          | PantryItemContainer     |
-| /pantry_items/new      | PantryItemFormContainer |
-| /pantry_items/:id/edit | Update                  |
-| /pantry_items/:id      | Show                    |
-| /pantry_items/:id      | Delete                  |
+| Path            | Component                                            |
+|-----------------|------------------------------------------------------|
+| /               | App                                                  |
+| /signup         | AuthFormContainer                                    |
+| /signin         | AuthFormContainer                                    |
+| /home           | HomeContainer                                        |
+| /pantry_items   | PantryIndex, PantryIndexItem, NewPantryItemForm,     |
+|                 |   UpdatePantryItem, ReminderIndex, ReminderIndexItem |
+| /groceries      | GroceryIndex, GroceryIndexItem, NewGroceryItemForm,  |
+|                 |   UpdateGroceryItem                                  |
+| /recipes        | RecipeIndex                                          |
+| /recipes/new    | NewRecipeForm                                        |
+| /recipes/:id    | RecipeDetail, UpdateRecipe                           |

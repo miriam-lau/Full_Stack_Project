@@ -135,7 +135,7 @@ class Conversion extends React.Component {
   render() {
     return (
       <div>
-        <div className="drawer-text">Conversion Calculator</div>
+        <h2 className="drawer-text">Conversion Calculator</h2>
         <div className="converter">
           <div className="conversion-div1">
             <TextField className="enter-quantity" id="text-field-default"

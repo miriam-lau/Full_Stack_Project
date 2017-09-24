@@ -19,26 +19,23 @@ class PantryIndex extends React.Component {
     return (
       <div className="wrapper">
         <div>
-          <img
-              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png"
-              alt="side-bar-img-pantry" className="side-nav-img"
+          <img className="side-nav-img"
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png" alt="side-bar-img-pantry"
           />
         </div>
 
         <div className="index">
-          <section>
-            <h2 className="index-title">Pantry</h2>
-          </section>
+          <h2 className="index-title">Pantry</h2>
 
-          <div className="add-item">
+          <section className="add-item">
             <PantryItemFormContainer />
-          </div>
+          </section>
 
           {indexCategory.map((category, idx) => {
             return (
               <div key={ idx } className="index-category-section">
-                <h3 className="index-category">{ category === "" ?
-                    "Uncategorized" : category}
+                <h3 className="index-category">
+                  { category === "" ? "Uncategorized" : category}
                 </h3>
 
                 <ul className="items">
@@ -58,7 +55,7 @@ class PantryIndex extends React.Component {
           })}
         </div>
 
-        <div className="reminders">
+        <div className="reminders-wrapper">
           <ReminderIndexContainer />
         </div>
       </div>

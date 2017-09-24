@@ -16,12 +16,13 @@ class RecipeIndex extends React.Component {
 
   render() {
     const recipes = this.props.recipes;
+
     return (
       <div>
         <div className="wrapper">
           <div>
-            <img
-                src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"
+            <img className="side-nav-img"
+                src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe"
             />
           </div>
 
@@ -33,9 +34,7 @@ class RecipeIndex extends React.Component {
               />
             </section>
 
-            <section>
-              <h2 className="recipe-title">Recipes</h2>
-            </section>
+            <h2 className="recipe-title">Recipes</h2>
 
             <div className="recipe-list">
               {this.props.recipes.map((item) => {

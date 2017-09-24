@@ -52,6 +52,15 @@
 }
 
 // New recipe and update recipe forms
+.recipe-add-item-error {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: red;
+  margin: auto;
+  text-align: center;
+}
+
 .recipe-form {
   background-color: #BCBCF2;
 }

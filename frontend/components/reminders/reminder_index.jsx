@@ -77,14 +77,12 @@ class ReminderIndex extends React.Component {
     const reminders = this.props.reminders;
 
     return (
-      <div>
-        <section>
-          <h2 className="index-title">Reminders</h2>
-        </section>
+      <div className="reminders">
+        <h2 className="index-title">Reminders</h2>
 
-        <div className="add-reminder">
+        <section className="add-reminder">
           <ReminderFormContainer />
-        </div>
+        </section>
 
         {reminderCategory.map((category, idx) => {
           return (

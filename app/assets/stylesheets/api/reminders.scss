@@ -1,3 +1,14 @@
+.reminders {
+  min-width: 600px;
+  max-width: 600px;
+  height: auto;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: #BCBCF2;
+  overflow: auto;
+}
+
 // item index component
 .add-reminder {
   border: 1px solid #333399;

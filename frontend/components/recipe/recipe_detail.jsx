@@ -61,9 +61,6 @@ class RecipeDetail extends React.Component {
   render() {
     const recipeId = parseInt(this.props.match.params.id);
     const recipe = this.props.recipe[recipeId];
-    console.log("In recipe detail render");
-    console.log(recipe);
-    console.log("recipe detail end");
     // if type recipes.recipe_id it will become a string literal, need index
     if (!recipe) return null;
 

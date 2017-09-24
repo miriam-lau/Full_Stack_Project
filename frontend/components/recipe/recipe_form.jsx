@@ -1,10 +1,23 @@
 import React from "react";
 
+/*
+  Returns error message if "shouldShow" is true.
+  @param {props} if true props.message is passed in
+*/
+function ErrorBanner(props) {
+  if (props.shouldShow) {
+    return (
+      <div className="recipe-add-item-error">{ props.message }</div>
+    );
+  }
+  return null;
+}
+
 class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: "", image_url: "", link: "", serving: "",
-      rating: "", ingredients: "", description: "", directions: "", notes: ""};
+      rating: "", ingredients: "", description: "", directions: "", notes: "", errors: false };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -24,6 +37,12 @@ class RecipeForm extends React.Component {
   */
   handleSubmit(event) {
     event.preventDefault();
+
+    if (this.state.name === "") {
+      this.setState({ errors: true });
+      return;
+    }
+
     let newRecipe = {
       name: this.state.name,
       image_url: this.state.image_url,
@@ -46,7 +65,8 @@ class RecipeForm extends React.Component {
     return (
       <div className="wrapper">
         <div>
-          <img src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" className="side-nav-img"/>
+          <img className="side-nav-img"
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe" />
         </div>
 
         <form className="recipe-form" onSubmit={ this.handleSubmit }>
@@ -55,7 +75,8 @@ class RecipeForm extends React.Component {
           <div className="recipe-form-section">
             <span className="recipe-form-section-name">Name</span>
             <input className="recipe-form-placeholder-text" type="text"
-                value={ this.state.name } placeholder="Recipe Name" onChange={ this.update("name") }
+                value={ this.state.name } placeholder="Recipe Name"
+                onChange={ this.update("name") }
             />
           </div>
 
@@ -73,16 +94,16 @@ class RecipeForm extends React.Component {
             <div className="recipe-form-subsection-wrapper">
               <div className="recipe-form-section">
                 <span className="recipe-form-section-name">Servings</span>
-                <input className="recipe-form-placeholder-text" type="number" min="0"
-                    value={ this.state.serving }
+                <input className="recipe-form-placeholder-text"
+                    type="number" min="0" value={ this.state.serving }
                     placeholder="Number of Servings"
                     onChange={ this.update("serving") }
                 />
               </div>
               <div className="recipe-form-section">
                 <span className="recipe-form-section-name">Rating</span>
-                <input className="recipe-form-placeholder-text" type="number" min="0" max="10"
-                    value={ this.state.rating }
+                <input className="recipe-form-placeholder-text"
+                    type="number" min="0" max="10" value={ this.state.rating }
                     placeholder="Rating from 1 to 10"
                     onChange={ this.update("rating") }
                 />
@@ -128,14 +149,17 @@ class RecipeForm extends React.Component {
 
           <div className="recipe-form-section">
             <span className="recipe-form-section-name">Notes</span>
-            <textarea className="recipe-form-placeholder-text" value={ this.state.notes }
-                placeholder="Cooking Notes" rows="3"
+            <textarea className="recipe-form-placeholder-text"
+                value={ this.state.notes } placeholder="Cooking Notes" rows="3"
                 onChange={ this.update("notes") }
             />
           </div>
 
+          <ErrorBanner shouldShow={ this.state.errors }
+              message="Invalid entry. Recipe must have name."
+          />
+
           <div>
-            <span></span>
             <button className="recipe-form-button">Save Recipe</button>
           </div>
         </form>

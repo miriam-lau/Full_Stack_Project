@@ -126,6 +126,7 @@ class PantryIndexItem extends React.Component {
     return (
       <div>
         <div className="update-item-form-div">
+        
           <div className="checkbox-placeholder"></div>
 
           <form className="update-item-form">

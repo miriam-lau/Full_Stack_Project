@@ -1,11 +1,18 @@
+.grocery-purchases-wrapper {
+  width: 100%;
+  min-width: 600px;
+  background-color: #BCBCF2;
+  height: auto;
+  overflow: auto;
+}
+
 // index component
 .grocery-purchases {
-  width: 100%;
+  min-width: 600px;
+  max-width: 600px;
   height: auto;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  font-weight: 900;
-  background-color: white;
   border-radius: 5px;
   background-color: #BCBCF2;
 }

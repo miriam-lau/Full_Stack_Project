@@ -49,8 +49,9 @@ class ModalForm extends React.Component {
             onRequestClose={ openModal("") } style={ sessionModalStyle } contentLabel="session-form">
 
           <div className="modal-icon">
-            <i className="material-icons closeX"
-                onClick={ openModal("") }>close</i>
+            <i className="material-icons closeX" onClick={ openModal("") }>
+              close
+            </i>
           </div>
 
           {form}

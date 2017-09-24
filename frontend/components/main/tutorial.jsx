@@ -8,7 +8,7 @@ class Tutorial extends React.Component {
   render() {
     return (
       <div>
-        <div className="drawer-text-guide">User Guide</div>
+        <h2 className="drawer-text-guide">User Guide</h2>
         <div className="tutorial">
           <section>
             <p><span>Navigation: &nbsp;</span> Click between tabs on the left.</p>

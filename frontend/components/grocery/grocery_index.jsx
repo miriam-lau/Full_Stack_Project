@@ -47,31 +47,28 @@ class GroceryIndex extends React.Component {
     return (
       <div className="wrapper">
         <div>
-          <img
-              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447613/side_nav_grocery_fi2cgm.png"
-              alt="side-bar-img-grocery" className="side-nav-img"
+          <img className="side-nav-img"
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447613/side_nav_grocery_fi2cgm.png" alt="side-bar-img-grocery"
           />
         </div>
 
         <div className="index">
-          <section>
-            <h2 className="index-title">Grocery</h2>
-          </section>
+          <h2 className="index-title">Grocery</h2>
 
-          <div className="add-item">
+          <section className="add-item">
             <GroceryItemFormContainer />
-          </div>
+          </section>
 
           {indexCategory.map((category, idx) => {
             return (
               <div key={ idx } className="index-category-section">
-                <h3 className="index-category">{category === "" ?
-                    "Uncategorized" : category}
+                <h3 className="index-category">
+                    {category === "" ? "Uncategorized" : category}
                 </h3>
                 <ul className="items">
                   {this.props.groceryItems.map((item) => {
-                    if ((item.purchased === false) &&
-                        (item.category === category)) {
+                    if (item.purchased === false &&
+                        item.category === category) {
                       return (
                         <GroceryIndexItemContainer
                           key={ item.id }
@@ -86,45 +83,43 @@ class GroceryIndex extends React.Component {
           })}
         </div>
 
-        <div className="grocery-purchases">
-          <section>
+        <div className="grocery-purchases-wrapper">
+          <div className="grocery-purchases">
             <h2 className="index-title">Purchased</h2>
-          </section>
 
-          <div className="add-to-pantry-div">
-            <section>
+            <section className="add-to-pantry-div">
               <button className="add-to-pantry-button"
                   onClick={ this.handleSubmit }>Add to Pantry
               </button>
+
+              <div className="add-success">
+                {this.state.success === true ? "Add Successful!" : ""}
+              </div>
             </section>
 
-            <div className="add-success">
-              {(this.state.success === true) ? "Add Successful!" : "" }
-            </div>
+            {indexCategory.map((category, idx) => {
+              return (
+                <div key={ idx } className="purchased-grocery-category-section">
+                  <h3 className="index-category">
+                      {category === "" ? "Uncategorized" : category}
+                  </h3>
+                  <ul className="items">
+                    {this.props.groceryItems.map((item) => {
+                      if (item.purchased === true &&
+                          item.category === category) {
+                        return (
+                          <GroceryIndexItemContainer
+                            key={ item.id }
+                            groceryItem={ item }
+                          />
+                        )
+                      }
+                    })}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
-
-          {indexCategory.map((category, idx) => {
-            return (
-              <div key = { idx } className="purchased-grocery-category-section">
-                <h3 className="index-category">{category === "" ?
-                    "Uncategorized" : category}
-                </h3>
-                <ul className="items">
-                  {this.props.groceryItems.map((item) => {
-                    if ((item.purchased === true) &&
-                        (item.category === category)) {
-                      return (
-                        <GroceryIndexItemContainer
-                          key={ item.id }
-                          groceryItem={ item }
-                        />
-                      )
-                    }
-                  })}
-                </ul>
-              </div>
-            )
-          })}
         </div>
       </div>
     );

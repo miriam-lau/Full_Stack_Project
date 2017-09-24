@@ -1,5 +1,18 @@
 import React from "react";
 
+/*
+  Returns error message if "shouldShow" is true.
+  @param {props} if true props.message is passed in
+*/
+function ErrorBanner(props) {
+  if (props.shouldShow) {
+    return (
+      <div className="recipe-add-item-error">{ props.message }</div>
+    );
+  }
+  return null;
+}
+
 class RecipeUpdate extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +41,11 @@ class RecipeUpdate extends React.Component {
     event.preventDefault();
     let recipe = this.props.recipe;
 
+    if (this.state.name === "") {
+      this.setState({ errors: true });
+      return;
+    }
+
     let updatedRecipe = {
       id: recipe.id,
       name: this.state.name,
@@ -47,8 +65,7 @@ class RecipeUpdate extends React.Component {
 
   render() {
     const recipe = this.props.recipe;
-    console.log("in recipe update");
-    console.log(recipe);
+
     return (
       <form className="recipe-form" onSubmit={ this.handleSubmit }>
         <h2 className="recipe-form-title">Update Recipe</h2>
@@ -140,8 +157,11 @@ class RecipeUpdate extends React.Component {
           />
         </div>
 
+        <ErrorBanner shouldShow={ this.state.errors }
+            message="Invalid entry. Recipe must have name."
+        />
+
         <div>
-          <span></span>
           <button className="recipe-form-button">Update Recipe</button>
         </div>
       </form>

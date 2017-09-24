@@ -12,6 +12,7 @@ class RecipeIndexItem extends React.Component{
 
   render() {
     const recipe = this.props.recipe;
+
     return (
       <div className="recipe-item">
         <Link to={ `/recipes/${recipe.id}` }>
@@ -20,9 +21,8 @@ class RecipeIndexItem extends React.Component{
             <div id="recipe-item-img-div">
               {recipe.image_url != "" ?
                 <img src={ recipe.image_url } id="recipe-item-img" /> :
-                <img
+                <img id="recipe-item-img"
                     src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
-                    id="recipe-item-img"
                 />
               }
             </div>

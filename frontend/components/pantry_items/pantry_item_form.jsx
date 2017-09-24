@@ -108,7 +108,7 @@ class PantryItemForm extends React.Component {
           item.unit = itemUnit;
 
           let currentQuantityDisplay = generateDisplayQuantity(item);
-          
+
           let updateDuplicateItem = {
             id: duplicateItem.id,
             name: duplicateItem.name,

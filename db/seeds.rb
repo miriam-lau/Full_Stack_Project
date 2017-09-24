@@ -55,7 +55,16 @@ reminder1 = Reminder.create(name: "Every Monday: Grocery Shopping",
   due_date: "", user_id: guest.id)
 reminder2 = Reminder.create(name: "Every Wednesday: Farmer's
   Market", due_date: "", user_id: guest.id)
-
+reminder3 = Reminder.create(name: "Cook dinner", due_date: "09-24-2017",
+  user_id: guest.id)
+reminder4 = Reminder.create(name: "Birthday Party, 7 pm at Farmer Brown's",
+  due_date: "09-25-2017", user_id: guest.id)
+reminder5 = Reminder.create(name: "Check for expired items", due_date:
+  "09-30-2017", user_id: guest.id)
+reminder6 = Reminder.create(name: "Bake a cake", due_date: "11-10-2017",
+  user_id: guest.id)
+reminder7 = Reminder.create(name: "Anniversay Dinner", due_date: "10-20-2017",
+  user_id: guest.id)
 
 grocery1 = Grocery.create(category: "Fruits and Vegetables", name: "Banana",
   quantity: 2, unit: "", user_id: guest.id, purchased: false)

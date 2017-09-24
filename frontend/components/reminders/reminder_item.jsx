@@ -5,13 +5,6 @@ import { styles } from "../utils/material_ui_styles";
 class ReminderItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
-
-  handleDelete(event) {
-    event.preventDefault;
-    return this.props.deleteReminder(this.props.reminder.id)
-      .then(() => { this.props.history.push("/pantry_items")});
   }
 
   render() {
@@ -28,7 +21,7 @@ class ReminderItem extends React.Component {
 
         <i className="material-icons trash-can"
             style={ styles }
-            onClick={ this.handleDelete }>
+            onClick={ () => this.props.deleteReminder(reminder.id) }>
           delete_forever
         </i>
       </div>

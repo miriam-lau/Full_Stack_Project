@@ -61,10 +61,11 @@ class RecipeDetail extends React.Component {
   render() {
     const recipeId = parseInt(this.props.match.params.id);
     const recipe = this.props.recipe[recipeId];
+    console.log("In recipe detail render");
+    console.log(recipe);
+    console.log("recipe detail end");
     // if type recipes.recipe_id it will become a string literal, need index
     if (!recipe) return null;
-    let disabledDays = {};
-    let selectedDay = this.state.selectedDay;
 
     return (
       <div className="wrapper">
@@ -75,7 +76,10 @@ class RecipeDetail extends React.Component {
         </div>
 
         {this.state.openUpdate ?
-          <RecipeUpdateContainer recipe={ recipe } /> :
+          <RecipeUpdateContainer
+            recipe={ recipe }
+            handleUpdate={ this.handleUpdate }
+          /> :
           <div className="recipe-detail">
             <section className="recipe-link-wrapper">
               <Link className="recipe-link" to="/recipes">All Recipes</Link>

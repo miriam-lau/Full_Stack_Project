@@ -58,10 +58,7 @@ export const createRecipe = (recipe) => dispatch => {
 
 export const updateRecipe = (recipe) => dispatch => {
   return APIUtil.updateRecipe(recipe)
-    .then(recipeRes => {
-      console.log("in recipe actions");
-      console.log(recipeRes);
-      (dispatch(receiveUpdateRecipe(recipeRes)))},
+    .then(recipeRes => { (dispatch(receiveUpdateRecipe(recipeRes)))},
     err => (dispatch(receiveRecipeErrors(err.responseJSON)))
   )
 };

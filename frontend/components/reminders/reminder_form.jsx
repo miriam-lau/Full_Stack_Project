@@ -107,6 +107,8 @@ class ReminderForm extends React.Component {
     };
 
     this.props.createReminder({ reminder: newReminder });
+    this.selectedDueDate = "";
+    this.setState({ name: "" });
   }
 
   render() {

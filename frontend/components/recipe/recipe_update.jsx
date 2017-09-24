@@ -5,7 +5,7 @@ class RecipeUpdate extends React.Component {
     super(props);
     let recipe = this.props.recipe;
     this.state = { name: recipe.name, image_url: recipe.image_url,
-        link: recipe.link, serving: recipe.serving, rating: recipe.rating, ingredients: recipe.ingredients, description: recipe.description, directions: recipe.directions, notes: recipe.notes};
+        link: recipe.link, serving: recipe.serving, rating: recipe.rating, ingredients: recipe.ingredients, description: recipe.description, directions: recipe.directions, notes: recipe.notes };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -41,14 +41,14 @@ class RecipeUpdate extends React.Component {
       notes: this.state.notes
     }
 
-    this.props.updateRecipe({ recipe: updatedRecipe }).then( (recipe) => {
-        this.props.history.push("/recipes");
-        //should re-render show page but it doesn't work, cannot push to recipe id again- is there a way to re-render the show page?
-      });
+    this.props.updateRecipe({ recipe: updatedRecipe });
+    this.props.handleUpdate(event);
   }
 
   render() {
     const recipe = this.props.recipe;
+    console.log("in recipe update");
+    console.log(recipe);
     return (
       <form className="recipe-form" onSubmit={ this.handleSubmit }>
         <h2 className="recipe-form-title">Update Recipe</h2>

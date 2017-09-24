@@ -21,7 +21,7 @@ const ReminderReducer = (state = {}, action) => {
       return newState;
     case DELETE_REMINDER:
       newState = merge({}, state);
-      delete newState[Object.keys(action.reminder)[0]];
+      delete newState[action.reminder.reminder_id];
       return newState;
     case RECEIVE_ERRORS:
       newState = merge({}, state, action.errors);

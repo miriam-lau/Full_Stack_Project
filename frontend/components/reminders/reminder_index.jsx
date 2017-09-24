@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 
 import ReminderFormContainer from "./reminder_form_container";
-import ReminderItemContainer from "./reminder_item_container";
+import ReminderItem from "./reminder_item";
 
 // Categories for reminders
 const reminderCategory =
@@ -69,6 +69,10 @@ class ReminderIndex extends React.Component {
     return (dateCategory === category);
   }
 
+  handleDelete(event) {
+    console.log("here");
+  }
+
   render() {
     const reminders = this.props.reminders;
 
@@ -93,9 +97,10 @@ class ReminderIndex extends React.Component {
                 {this.props.reminders.map((reminder) => {
                   if (this.isCategory(reminder.due_date, category)) {
                     return (
-                      <ReminderItemContainer
+                      <ReminderItem
                         key={ reminder.id }
                         reminder={ reminder }
+                        deleteReminder = { this.props.deleteReminder }
                       />
                     )
                   }

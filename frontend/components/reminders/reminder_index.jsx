@@ -2,16 +2,15 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 
 import ReminderFormContainer from "./reminder_form_container";
-import ReminderItem from "./reminder_item";
+import ReminderItemContainer from "./reminder_item_container";
 
 // Categories for reminders
 const reminderCategory =
-    ["Overdue", "None", "Due Today", "This Week", "Coming Weeks"];
+    ["Overdue", "None", "Due Today", "Upcoming Reminders"];
 
 class ReminderIndex extends React.Component {
   constructor(props) {
     super(props);
-
     this.isCategory = this.isCategory.bind(this);
   }
 
@@ -19,7 +18,12 @@ class ReminderIndex extends React.Component {
     this.props.requestAllReminders();
   }
 
-  // check the Date of the reminder, return true if fits, else false
+  /*
+    Sets the date category for the reminder. Returns true if the date category matches the category passed in.
+    param {string} due date of reminder
+    param {category} category
+    return {boolean}
+  */
   isCategory(due_date, category) {
     let moment = require("moment");
     let todayString = moment().format("MM-DD-YYYY");
@@ -41,33 +45,32 @@ class ReminderIndex extends React.Component {
       let reminderDay = parseInt(reminderDateSplit[1]);
       let reminderYear = parseInt(reminderDateSplit[2]);
 
-      if (reminderMonth === currentMonth && reminderYear === currentYear) {
-        if (reminderDay === currentDay) {
-          dateCategory = "Due Today";
-        } else if (reminderDay <= (currentDay + 7)) {
-          dateCategory = "This Week";
+      if (reminderYear === currentYear) {
+        if (reminderMonth === currentMonth) {
+          if (reminderDay === currentDay) {
+            dateCategory = "Due Today";
+          } else if (reminderDay > currentDay) {
+            dateCategory = "Upcoming Reminders";
+          } else {
+            dateCategory = "Overdue";
+          }
+        } else if (reminderMonth > currentMonth) {
+          dateCategory = "Upcoming Reminders";
+        } else {
+          dateCategory = "Overdue";
         }
-      } else if (reminderMonth < currentMonth || reminderYear < currentYear ||
-          (reminderMonth === currentMonth && reminderDay < currentDay)) {
-        dateCategory = "Overdue";
+      } else if (reminderYear > currentYear) {
+        dateCategory = "Upcoming Reminders";
       } else {
-        dateCategory = "Coming Weeks";
+        dateCategory = "Overdue";
       }
     }
 
-    console.log("in isCategory function");
-    console.log(dateCategory);
-    console.log(category);
     return (dateCategory === category);
   }
 
   render() {
     const reminders = this.props.reminders;
-
-    console.log("in reminder index");
-    reminders.map((reminder) => {
-      console.log(reminder);
-    });
 
     return (
       <div>
@@ -90,10 +93,9 @@ class ReminderIndex extends React.Component {
                 {this.props.reminders.map((reminder) => {
                   if (this.isCategory(reminder.due_date, category)) {
                     return (
-                      <ReminderItem
+                      <ReminderItemContainer
                         key={ reminder.id }
                         reminder={ reminder }
-                        deleteReminder={ this.props.deleteReminder }
                       />
                     )
                   }

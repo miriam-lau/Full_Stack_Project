@@ -21,7 +21,12 @@ class SearchResults extends React.Component {
   render() {
     return(
       <div>
-        <div className="search-results-nav-bar"></div>
+        <div>
+          <img className="side-nav-img"
+              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447620/side_nav_pantry_f4sutn.png" alt="side-bar-img-pantry"
+          />
+        </div>
+        
         <div className="search-result">
           { this.ErrorMessage() }
           {this.props.searchItems.map((item, idx) => {

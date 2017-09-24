@@ -34,18 +34,20 @@
   left: 0;
   min-width: 180px;
   max-width: 180px;
-  min-height: 1210px;
-  max-height: 1210px;
+  min-height: 1086px;
+  max-height: 1086px;
   height: 100%;
   background-color: #E6E6FA;
 }
 
 .search-result {
   min-width: 600px;
-  min-height: 1200px;
+  min-height: 1076px;
+  max-height: 1076px;
   border-radius: 5px;
   margin: 10px 10px 0 10px;
   background-color: #BCBCF2;
+  overflow-y: auto;
 }
 
 .search-error {
@@ -61,5 +63,5 @@
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
   font-weight: bold;
-  padding: 10px 0 0 15px;
+  padding: 10px 0 0 20px;
 }

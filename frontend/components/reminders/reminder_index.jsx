@@ -69,10 +69,6 @@ class ReminderIndex extends React.Component {
     return (dateCategory === category);
   }
 
-  handleDelete(event) {
-    console.log("here");
-  }
-
   render() {
     const reminders = this.props.reminders;
 

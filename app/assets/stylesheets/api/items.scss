@@ -3,7 +3,8 @@
   display: flex;
   width: 100%;
   left: 160px;
-  min-height: 1200px;
+  // min-height: 1000px;
+  height: 100%;
   padding-top: 10px;
 }
 
@@ -13,8 +14,8 @@
   left: 0;
   min-width: 160px;
   max-width: 160px;
-  min-height: 1210px;
-  max-height: 1210px;
+  min-height: 1086px;
+  max-height: 1086px;
   height: 100%;
   opacity: 0.5;
   object-fit: cover;
@@ -23,7 +24,7 @@
 .index {
   min-width: 600px;
   max-width: 600px;
-  height: 1200px;
+  height: 1076px;
   background-color: white;
   margin: 0 0 0 10px;
   border-radius: 5px;
@@ -60,7 +61,6 @@
 .index-category {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  font-weight: 900;
   margin: 8px 15px 2px 15px;
   padding: 3px 10px 3px 10px;
   background-color: #E6E6FA;
@@ -123,7 +123,6 @@
   flex-direction: row;
   font-family: 'Nunito', sans-serif;
   font-size: 10px;
-  font-weight: bold;
   font-style: italic;
   color: red;
 }
@@ -146,7 +145,6 @@
 .add-item-error {
   font-family: 'Nunito', sans-serif;
   font-size: 10px;
-  font-weight: bold;
   font-style: italic;
   color: red;
   margin: 0 0 5px 10px;

@@ -122,11 +122,11 @@ class PantryIndexItem extends React.Component {
 
   render() {
     const pantryItem = this.props.pantryItem;
-    console.log(pantryItem);
+  
     return (
       <div>
         <div className="update-item-form-div">
-        
+
           <div className="checkbox-placeholder"></div>
 
           <form className="update-item-form">

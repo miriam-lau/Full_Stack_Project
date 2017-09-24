@@ -6,6 +6,7 @@
 - Create Account modal
 
 #### Pantry & Reminder
+- Reminder Date Picker modal
 
 #### Grocery
 
@@ -13,7 +14,6 @@
 - New Recipe Form
 - Recipe Detail
  - Update Recipe Form
- - Recipe Date Picker Modal
 
 #### Drawers
 - User Guide drawer
@@ -50,8 +50,8 @@
 #### Create Account
 ![create_account](./wireframes/create_account_modal.png)
 
-#### Recipe Date Picker
-![recipe_calendar](./wireframes/recipe_calendar_modal.png)
+#### Reminder Date Picker
+![reminder_calendar](./wireframes/reminder_calendar_modal.png)
 
 
 ### Drawers (Conversion Calculator and User Guide)

@@ -29,6 +29,24 @@
   min-width: 332px;
 }
 
+.button-date-wrapper {
+  display: flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: #333399;
+  min-width: 186px;
+  cursor: pointer;
+}
+
+.button-date {
+  min-width: 100px;
+}
+
+.fa-caret-down {
+  margin: 2px 0 0 15px;
+}
+
 .selectedCustomDate {
   display: flex;
   flex-direction: row;

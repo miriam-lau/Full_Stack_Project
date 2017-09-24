@@ -33,33 +33,41 @@ class ReminderIndex extends React.Component {
     let reminderYear = -1;
 
     let dateCategory;
-    if (due_date === "None") {
+    if (due_date === "") {
       dateCategory = "None";
     } else {
       let reminderDateSplit = due_date.split("-");
       let reminderMonth = parseInt(reminderDateSplit[0]);
       let reminderDay = parseInt(reminderDateSplit[1]);
       let reminderYear = parseInt(reminderDateSplit[2]);
-    }
 
-    if (reminderMonth === currentMonth && reminderYear === currentYear) {
-      if (reminderDay === currentDay) {
-        dateCategory = "Today";
-      } else if (reminderDay <= (currentDay + 7)) {
-        dateCategory = "This Week";
+      if (reminderMonth === currentMonth && reminderYear === currentYear) {
+        if (reminderDay === currentDay) {
+          dateCategory = "Due Today";
+        } else if (reminderDay <= (currentDay + 7)) {
+          dateCategory = "This Week";
+        }
+      } else if (reminderMonth < currentMonth || reminderYear < currentYear ||
+          (reminderMonth === currentMonth && reminderDay < currentDay)) {
+        dateCategory = "Overdue";
+      } else {
+        dateCategory = "Coming Weeks";
       }
-    } else if (reminderMonth < currentMonth || reminderYear < currentYear ||
-        (reminderMonth === currentMonth && reminderDay < currentDay)) {
-      dateCategory = "Overdue";
-    } else {
-      dateCategory = "Coming Weeks";
     }
 
+    console.log("in isCategory function");
+    console.log(dateCategory);
+    console.log(category);
     return (dateCategory === category);
   }
 
   render() {
     const reminders = this.props.reminders;
+
+    console.log("in reminder index");
+    reminders.map((reminder) => {
+      console.log(reminder);
+    });
 
     return (
       <div>
@@ -80,12 +88,14 @@ class ReminderIndex extends React.Component {
 
               <ul className="reminder-items">
                 {this.props.reminders.map((reminder) => {
-                  {this.isCategory(reminder.due_date, category) ?
+                  if (this.isCategory(reminder.due_date, category)) {
+                    return (
                       <ReminderItem
                         key={ reminder.id }
                         reminder={ reminder }
                         deleteReminder={ this.props.deleteReminder }
-                      /> : ""
+                      />
+                    )
                   }
                 })}
               </ul>

@@ -9,9 +9,10 @@ class ReminderItem extends React.Component {
 
   render() {
     const reminder = this.props.reminder;
+    console.log("in reminder item");
     return (
       <div className="reminder-item">
-        <div>{ reminder.name } </div>
+        <div>{ reminder.due_date } : { reminder.name } </div>
 
         <i className="material-icons trash-can"
             style={ styles }

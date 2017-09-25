@@ -37,7 +37,7 @@ class ReminderIndex extends React.Component {
     let reminderYear = -1;
 
     let dateCategory;
-    if (due_date === "") {
+    if (due_date === "" || due_date == null) {
       dateCategory = "None";
     } else {
       let reminderDateSplit = due_date.split("-");
@@ -88,11 +88,11 @@ class ReminderIndex extends React.Component {
               </h3>
 
               <ul className="reminder-items">
-                {this.props.reminders.map((reminder) => {
+                {this.props.reminders.map((reminder, idx) => {
                   if (this.isCategory(reminder.due_date, category)) {
                     return (
                       <ReminderItem
-                        key={ reminder.id }
+                        key={ idx }
                         reminder={ reminder }
                         deleteReminder = { this.props.deleteReminder }
                       />

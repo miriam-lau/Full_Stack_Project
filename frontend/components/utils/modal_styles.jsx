@@ -35,7 +35,6 @@ export const sessionModalStyle = {
    left: 0,
    right: 0,
    bottom: 0,
-   opactiy: "1",
    backgroundColor: "rgba(55, 55, 55, 0.9)"
   },
   content : {

@@ -23,9 +23,19 @@ class SearchForm extends React.Component {
     this.setState({ name: inputValue }, () => {
       const name = this.state.name
       this.props.requestAllSearchItems({name}).then((searchItems) => {
-        let retrievedSearchTerms = searchItems.map(function(result) {
-          return result.name;
-        });
+        // let retrievedSearchTerms = searchItems.map(function(result) {
+        //   return result.name;
+        // });
+
+        let retrievedSearchTerms = [];
+        if (searchItems.length == 1) {
+          retrievedSearchTerms.push(searchItems);
+        } else if (searchItems.length > 1) {
+          searchItems.map((result) => {
+            retrievedSearchTerms.push(result.name);
+          });
+        }
+
         this.setState({ dataSource: retrievedSearchTerms });
       });
     });

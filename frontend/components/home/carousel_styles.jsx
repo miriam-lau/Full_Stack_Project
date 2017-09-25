@@ -9,7 +9,7 @@ const CarouselStyles = [
             style={ this.getButtonStyles(this.props.currentSlide === 0
                 && !this.props.wrapAround) }>
           <img
-              src="http://res.cloudinary.com/miriam-lau/image/upload/v1497910926/left_arrow_zijqiu.png" id="left-button"
+              src="https://res.cloudinary.com/miriam-lau/image/upload/v1497910926/left_arrow_zijqiu.png" id="left-button"
               onClick={ this.handleClick }
           />
         </button>
@@ -39,7 +39,7 @@ const CarouselStyles = [
             style={ this.getButtonStyles(this.props.currentSlide +
                 this.props.slidesToScroll >= this.props.slideCount && !this.props.wrapAround) }>
           <img
-              src="http://res.cloudinary.com/miriam-lau/image/upload/v1497910923/right_arrow_amcxml.png" id="right-button"
+              src="https://res.cloudinary.com/miriam-lau/image/upload/v1497910923/right_arrow_amcxml.png" id="right-button"
               onClick={ this.handleClick }
           />
         </button>

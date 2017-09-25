@@ -51,7 +51,7 @@ class PersonalGreeting extends React.Component {
             <div className="greeting">myPantry</div>
             <div>
               <img className="icon"
-                  src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_308/v1505960077/mypantry_icon.001_zht9v9.png" alt="icon"
+                  src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_308/v1505960077/mypantry_icon.001_zht9v9.png" alt="icon"
               />
             </div>
           </div>

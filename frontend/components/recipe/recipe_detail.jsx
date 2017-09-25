@@ -68,7 +68,7 @@ class RecipeDetail extends React.Component {
       <div className="wrapper">
         <div>
           <img className="side-nav-img"
-              src="http://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe"
+              src="https://res.cloudinary.com/miriam-lau/image/upload/v1498447618/side_nav_recipe_c4agb9.png" alt="side-bar-img-recipe"
           />
         </div>
 
@@ -108,7 +108,7 @@ class RecipeDetail extends React.Component {
                   {recipe.image_url !== "" ?
                     <img src={ recipe.image_url } alt={ recipe.name }/> :
                     <img
-                        src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
+                        src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
                     />
                   }
                 </figure>

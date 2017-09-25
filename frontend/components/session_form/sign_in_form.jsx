@@ -59,56 +59,40 @@ class SignInForm extends React.Component {
 
   render() {
     return(
-      <div className="session-form-container">
+      <div className="session-form-wrapper">
         <form onSubmit={ this.handleSubmit }>
           <div className="session-form">
             <h2 className="session-title">Sign In</h2>
-            <br />
 
             <label>Username</label>
-            <br />
             <input type="text" value={ this.state.username }
-                onChange={ this.update("username") } className="signin-input"
+                onChange={ this.update("username") } className="session-input"
             />
-            <br />
-            <br />
 
             <label>Password</label>
-            <br />
             <input type="password" value={ this.state.password }
-                onChange={ this.update("password") } className="signin-input"
+                onChange={ this.update("password") } className="session-input"
             />
-            <br />
-            <br />
-            <div>{ this.renderErrors() }</div>
-            <br />
 
-            <input className="session-button" type="submit" value="Sign In" />
+            <div>{ this.renderErrors() }</div>
+
+            <input className="session-signin-button" type="submit"
+                value="Sign In"
+            />
           </div>
         </form>
 
-        <div className="session-form">
-          <br />
-          <br />
-          <section className="session-question-div">
-            <span className="session-question">New to</span>
-            <span className="session-question-logo"> myPantry</span>
-            <span className="session-question">&nbsp;?</span>
-          </section>
-          <br />
-          <br />
+        <section className="session-question-div">
+          <span className="session-question">New to</span>
+          <span className="session-question-logo"> myPantry</span>
+          <span className="session-question">&nbsp;?</span>
+        </section>
 
-          <div >
-            <input className="create-session-button"
-                onClick={ this.props.openModal("signup") }
-                value="Create Account"
-            />
-          </div>
-        </div>
+        <input className="session-button"
+            onClick={ this.props.openModal("signup") } value="Create Account"
+        />
 
-        <br />
-        <br />
-        <button className="guest-session-button"
+        <button className="session-button"
             onClick={ this.handleGuestSignIn }>Guest Sign In
         </button>
       </div>

@@ -485,3 +485,11 @@
 .recipe-detail-directions {
   width: 100%;
 }
+
+// Firefox sizing for wrapper elements
+@-moz-document url-prefix() {
+  .recipe-index, .recipe-detail, .recipe-form {
+    min-height: 1093px;
+    max-height: 1093px;
+  }
+}

@@ -79,58 +79,44 @@ class SignUpForm extends React.Component {
 
   render() {
     return(
-      <div className="session-form-container">
+      <div className="session-form-wrapper">
         <form onSubmit={ this.handleSubmit }>
           <div className="session-form">
             <h2 className="session-title">Create Account</h2>
-            <br />
 
             <label>Username</label>
-            <br />
             <input type="text" value={ this.state.username }
-                onChange={ this.update("username") } className="signup-input"
+                onChange={ this.update("username") } className="session-input"
             />
-            <br />
-            <br />
 
             <label>Email</label>
-            <br />
             <input type="text" value={ this.state.email }
-                onChange={ this.update("email") } className="signup-input"
+                onChange={ this.update("email") } className="session-input"
             />
-            <br />
-            <br />
 
             <label>Password</label>
-            <br />
             <input type="password" value={ this.state.password }
-                onChange={ this.update("password") } className="signup-input"
+                onChange={ this.update("password") } className="session-input"
             />
-            <br />
-            <br />
 
             <label>Re-enter Password</label>
-            <br />
             <input type="password" value={ this.state.re_entered_password }
                 onChange={ this.update("re_entered_password") }
-                className="signup-input"
+                className="session-input"
             />
 
             <ErrorBanner shouldShow={ !this.state.matching_passwords }
                 message="Passwords must match"
             />
-            <br />
-            <br />
+
             <div>{ this.renderErrors() }</div>
-            <br />
-            <input className="session-button" type="submit"
+            <input className="session-signin-button" type="submit"
                 value="Create Account"
             />
           </div>
         </form>
-        <br />
-        <br />
-        <button className="guest-session-button"
+
+        <button className="session-button"
             onClick={ this.handleGuestSignIn }>Guest Sign In
         </button>
       </div>

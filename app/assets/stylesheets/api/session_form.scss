@@ -1,22 +1,33 @@
-.form-greeting {
-  font-size: 16px;
-  font-family: 'Pacifico', cursive;
-  width: 100%;
-  text-align: center;
-  background-color: #E6E6FA;
-  color: white;
-  padding: 5px 0 5px 0;
+.session-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 220px;
+  padding-bottom: 20px;
 }
 
 .session-title {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
-  margin: auto;
+  margin-bottom: 30px;
   width: 100%;
+}
+
+.session-form {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
+
+.session-input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 94%;
+  border: 1px solid #D3D3D3;
 }
 
 .session-question-div {
   text-align: center;
+  padding-top: 10px;
 }
 
 .session-question {
@@ -34,23 +45,7 @@
   width: 100%;
 }
 
-.session-form-container {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 100%;
-  padding-bottom: 20px;
-}
-
-.session-form {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  margin: auto;
-  width: 220px;
-}
-
 .sign-up-error {
-  width: 220px;
   margin: auto;
   text-align: center;
   list-style: none;
@@ -60,25 +55,14 @@
   font-style: italic;
 }
 
-.session-button {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
+.session-signin-button {
   width: 100%;
-  background-color: #333399;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid #333399;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.5s;
 }
 
-.create-session-button {
+.session-button, .session-signin-button {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: bold;
-  width: 210px;
   background-color: #333399;
   color: white;
   border-radius: 5px;
@@ -86,50 +70,15 @@
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
-  padding: 5px 0 5px 0;
+  margin: 20px 0 10px 0;
+  padding: 6px 0;
 }
 
-.guest-session-button {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  width: 220px;
-  background-color: #333399;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid #333399;
-  text-align: center;
-  align-self: center;
-  cursor: pointer;
-  transition: 0.5s;
-  padding: 5px 0 5px 0;
-}
-
-.button-link {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  background-color: #333399;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid #333399;
-  text-align: center;
-  padding: 5px 0 5px 0;
-  width: 100%;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.create-session-button:hover, .session-button:hover, .guest-session-button:hover, .button-link:hover {
+.session-button:hover, .session-signin-button:hover {
   background-color: #E6E6FA;
   color: black;
   border: 1px solid #333399;;
   transition: 0.5s;
-}
-
-input {
-  padding: 5px;
-  width: 94%;
-  border: 1px solid #D3D3D3;
 }
 
 .modal-icon {

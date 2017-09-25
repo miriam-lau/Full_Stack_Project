@@ -11,6 +11,13 @@
   overflow: auto;
 }
 
+@-moz-document url-prefix() {
+  .reminders-wrapper {
+    min-height: 1093px;
+    max-height: 1093px;
+  }
+}
+
 .reminder-titles {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;

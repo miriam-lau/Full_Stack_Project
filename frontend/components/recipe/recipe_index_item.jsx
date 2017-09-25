@@ -22,7 +22,7 @@ class RecipeIndexItem extends React.Component{
               {recipe.image_url != "" ?
                 <img src={ recipe.image_url } id="recipe-item-img" /> :
                 <img id="recipe-item-img"
-                    src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
+                    src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_300/v1499837766/recipe_img_ifau7s.jpg"
                 />
               }
             </div>

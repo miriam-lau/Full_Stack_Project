@@ -53,7 +53,7 @@
 
 
 ## Technology
-myPantry is a single-page application implementing the Rails framework (backend) and the React library (frontend).
+myPantry is a single-page application implementing the *Rails* framework (backend) and the *React* library (frontend).
 - [Backend Dependencies](./docs/backend_tech.md)
 - [Frontend Dependencies](./docs/frontend_tech.md)
 

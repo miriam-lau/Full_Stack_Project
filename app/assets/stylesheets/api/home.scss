@@ -105,3 +105,9 @@
   background-color: #E6E6FA;
   width: 100%;
 }
+
+@-moz-document url-prefix() {
+  .carousel-arrows {
+    opacity: 0;
+  }
+}

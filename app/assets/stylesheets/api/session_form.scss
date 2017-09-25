@@ -25,7 +25,7 @@
   border: 1px solid #D3D3D3;
 }
 
-.session-question-div {
+.session-question-wrapper {
   text-align: center;
   padding-top: 10px;
 }
@@ -55,11 +55,11 @@
   font-style: italic;
 }
 
-.session-signin-button {
+.session-form-button {
   width: 100%;
 }
 
-.session-button, .session-signin-button {
+.session-button, .session-form-button {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -74,7 +74,7 @@
   padding: 6px 0;
 }
 
-.session-button:hover, .session-signin-button:hover {
+.session-button:hover, .session-form-button:hover {
   background-color: #E6E6FA;
   color: black;
   border: 1px solid #333399;;

@@ -108,11 +108,10 @@ class SignUpForm extends React.Component {
             <ErrorBanner shouldShow={ !this.state.matching_passwords }
                 message="Passwords must match"
             />
-
             <div>{ this.renderErrors() }</div>
-            <input className="session-signin-button" type="submit"
-                value="Create Account"
-            />
+
+            <button className="session-form-button" type="submit">Create Account
+            </button>
           </div>
         </form>
 

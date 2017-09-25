@@ -1,12 +1,8 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_GROCERY_ITEMS, RECEIVE_GROCERY_ITEM,
-  CREATE_GROCERY_ITEM, UPDATE_GROCERY_ITEM, DELETE_GROCERY_ITEM,
-  RECEIVE_ERRORS, UPDATE_GROCERY_QUANTITY_DISPLAY } from '../actions/grocery_actions';
+    CREATE_GROCERY_ITEM, UPDATE_GROCERY_ITEM, DELETE_GROCERY_ITEM,
+    RECEIVE_ERRORS, UPDATE_GROCERY_QUANTITY_DISPLAY } from '../actions/grocery_actions';
 import generateDisplayQuantity from "../components/utils/item_helpers";
-
-// const noErrors = Object.freeze({
-//   errors: []
-// });
 
 const groceryItemWithDisplayQuantity = (groceryItem) => {
   let currentQuantityDisplay = groceryItem.quantity;
@@ -14,7 +10,6 @@ const groceryItemWithDisplayQuantity = (groceryItem) => {
     currentQuantityDisplay += " " + groceryItem.unit;
   }
   groceryItem.currentQuantityDisplay = currentQuantityDisplay;
-  // groceryItem.currentQuantityDisplay = generateDisplayQuantity(groceryItem);
   return groceryItem;
 }
 

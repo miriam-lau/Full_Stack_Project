@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   signin: user => dispatch(signin(user)),
   signup: user => dispatch(signup(user)),
-  clearErrors: () => dispatch(receiveErrors([])),
+  clearErrors: () => dispatch(receiveErrors([]))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ModalForm));

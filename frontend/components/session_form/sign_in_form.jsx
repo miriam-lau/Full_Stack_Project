@@ -76,21 +76,20 @@ class SignInForm extends React.Component {
 
             <div>{ this.renderErrors() }</div>
 
-            <input className="session-signin-button" type="submit"
-                value="Sign In"
-            />
+            <button className="session-form-button" type="submit">Sign In
+            </button>
           </div>
         </form>
 
-        <section className="session-question-div">
+        <section className="session-question-wrapper">
           <span className="session-question">New to</span>
           <span className="session-question-logo"> myPantry</span>
           <span className="session-question">&nbsp;?</span>
         </section>
 
-        <input className="session-button"
-            onClick={ this.props.openModal("signup") } value="Create Account"
-        />
+        <button className="session-button"
+            onClick={ this.props.openModal("signup") }>Create Account
+        </button>
 
         <button className="session-button"
             onClick={ this.handleGuestSignIn }>Guest Sign In

@@ -30,7 +30,7 @@ class ReminderForm extends React.Component {
     this.handleSetDate = this.handleSetDate.bind(this);
 
     this.openModal = this.openModal.bind(this);
-    // this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -39,10 +39,10 @@ class ReminderForm extends React.Component {
     this.setState({ modalIsOpen: true });
   }
 
-  // afterOpenModal() {
+  afterOpenModal() {
     // references are now sync'd and can be accessed.
     // this.subtitle.style.color = '#f00';
-  // }
+  }
 
   // Closes the modal
   closeModal() {

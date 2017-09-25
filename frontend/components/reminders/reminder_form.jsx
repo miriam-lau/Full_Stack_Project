@@ -24,7 +24,7 @@ class ReminderForm extends React.Component {
     let moment = require("moment");
     let selectedDueDate = "";
     this.state = { name: "", modalIsOpen: false, errors: false,
-        selectedDay: moment().format("MM-DD-YYYY") };
+        selectedDay: null };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSetDate = this.handleSetDate.bind(this);
@@ -139,7 +139,8 @@ class ReminderForm extends React.Component {
               isOpen={ this.state.modalIsOpen }
               onAfterOpen={ this.afterOpenModal }
               onRequestClose={ this.closeModal }
-              style={ reminderModalStyle } >
+              style={ reminderModalStyle }
+              contentLabel="reminder-calendar-modal">
             <div className="modal-icon">
               <i className="material-icons calendar-closeX"
                   onClick={ this.closeModal }>close</i>

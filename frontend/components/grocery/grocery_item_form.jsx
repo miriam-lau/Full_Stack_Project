@@ -159,8 +159,7 @@ class GroceryItemForm extends React.Component {
           <div className="form-categories-wrapper">
             <select className="form-categories"
                 onChange={ this.update("category") }>
-              <option selected="true" disabled="disabled">
-                  Select a Category</option>
+              <option value="">Select a Category</option>
               {formCategory.map((category, idx) => {
                 return (
                   <option key={ idx } value={ category }>{ category }</option>

@@ -67,7 +67,7 @@ export const hintTextStyle = {
   "bottom": "2px",
   "color": "#333399",
   "width": "330px",
-  "font-style": "italic"
+  "fontStyle": "italic"
 }
 
 export const gridTileStyle = {
@@ -84,7 +84,7 @@ export const gridTileStyle = {
 export const conversionHintTextStyle = {
   "bottom": "3px",
   "color": "#333399",
-  "margin-left": "18px",
+  "marginLeft": "18px",
   "fontStyle": "italic"
 }
 
@@ -93,9 +93,9 @@ export const conversionAddItemTextBoxStyle = {
   "fontSize": "13px",
   "width": "140px",
   "display": "inline",
-  "text-align": "center",
+  "textAlign": "center",
   "height": "35px",
-  "border-bottom": "1px solid #C0C0C0",
+  "borderBottom": "1px solid #C0C0C0",
   "color": "#333399"
 }
 

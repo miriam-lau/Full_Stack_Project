@@ -37,10 +37,10 @@ class RecipeIndex extends React.Component {
             <h2 className="recipe-title">Recipes</h2>
 
             <div className="recipe-list">
-              {this.props.recipes.map((item) => {
+              {this.props.recipes.map((item, idx) => {
                 return (
                   <RecipeIndexItem
-                    key={ item.id }
+                    key={ idx }
                     recipe={ item }
                   />
                 )}

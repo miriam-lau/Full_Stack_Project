@@ -3,7 +3,6 @@
   display: flex;
   width: 100%;
   left: 160px;
-  // min-height: 1000px;
   height: 100%;
   padding-top: 10px;
 }
@@ -22,8 +21,8 @@
 }
 
 .index {
-  min-width: 600px;
-  max-width: 600px;
+  min-width: 610px;
+  max-width: 610px;
   height: 1076px;
   background-color: white;
   margin: 0 0 0 10px;
@@ -34,7 +33,6 @@
 .index-title {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  font-weight: 900;
   margin: 10px 0 20px 15px;
 }
 
@@ -87,15 +85,33 @@
   width: 332px;
 }
 
-.form-categories {
+.form-categories-wrapper {
+  width: 187px;
+  display: flex;
+}
+
+.form-categories, .uncategorized-items {
+  width: 170px;
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
   font-style: italic;
-  font-weight: 900;
   color: #333399;
-  margin-right: 11px;
-  margin-top: 1px;
   cursor: pointer;
+  -webkit-appearance: none;
+  z-index: 1;
+}
+
+.form-categories {
+  margin: 1px 11px 0 0;
+}
+
+.uncategorized-items {
+  margin: 0 11px 0 10px;
+}
+
+// overlay select HTML elements with down caret
+#fa-caret-down-item-add-form {
+  margin: 8px 0 0 -20px;
 }
 
 // index item component
@@ -105,16 +121,7 @@
 
 .update-item-form {
   display: flex;
-  margin-right: 16px;
-}
-
-.uncategorized-items {
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-style: italic;
-  font-weight: 900;
-  color: #333399;
-  margin-left: 10px;
+  margin-right: 14px;
 }
 
 // item-errors

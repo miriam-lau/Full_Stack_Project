@@ -12,7 +12,7 @@ This application allows users to keep track of what's in their pantry, with func
 - Database: Design database schema and how the sample state will look.
 
 #### Phase II (2 days): New account creation, sign in, and guest login
-- Backend setup with a functioning Rails project.
+- Backend setup with a functioning *Rails* project.
 - Frontend user authentication.
 
 #### Phase III (4 days): Create model, controller, API, and React components for pantry and grocery
@@ -23,7 +23,7 @@ This application allows users to keep track of what's in their pantry, with func
 
 #### Phase IV (2 days): Create model, controller, API, and React components for reminders
 - User can create and delete reminders, and optionally set due dates for reminders.
-- Reminders with due dates will be assigned to date categories (e.g. "Due Today", "Due In One Week", etc).
+- Reminders with due dates will be assigned to date categories (e.g. "Due Today", "Upcoming Reminders", etc).
 
 #### Phase V (1 day): Create React components for Search, User Guide, and Conversion Calculator
 - User can search for an item in their pantry and grocery, and if found, will return a list of that item's quantity and unit.
@@ -37,7 +37,7 @@ This application allows users to keep track of what's in their pantry, with func
 
 #### Phase VII (1 day): A production README and launching on Heroku
 - Create a production README, include backend and frontend technologies used, and future implementations.
-- Host application on Heroku and implement changes (if needed).
+- Host application on *Heroku* and implement changes (if needed).
 
 #### Bonus (2 days): Create model, controller, API, and React components for recipes
 - User can add or update a recipe by using either the new recipe or update recipe form. Forms include allowing the user to upload a custom image, or a default image will be provided.

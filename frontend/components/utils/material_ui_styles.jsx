@@ -12,32 +12,28 @@ export const underlineStyle = {
 export const quantityStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
-  "fontWeight": "bold",
   "width": "110px",
   "display": "inline",
   "textAlign": "left",
   "marginRight": "20px",
-  "height": "30px",
+  "height": "30px"
 }
 
 export const itemStyleDefault = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
-  "fontWeight": "bold",
   "width": "346px",
   "display": "inline",
   "height": "30px",
-  // "marginRight": "20px"
+  "marginRight": "12px"
 }
 
 export const itemStyleCategory = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
-  "fontWeight": "bold",
-  "width": "165px",
+  "width": "171px",
   "display": "inline",
-  "height": "30px",
-  // "marginRight": "20px"
+  "height": "30px"
 }
 
 export const checkboxStyles = {
@@ -60,7 +56,6 @@ export const styles = {
 export const addItemStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
-  "fontWeight": "bold",
   "width": "332px",
   "display": "inline",
   "marginLeft": "10px",
@@ -69,7 +64,7 @@ export const addItemStyle = {
 }
 
 export const hintTextStyle = {
-  "bottom": "3px",
+  "bottom": "2px",
   "color": "#333399",
   "width": "330px",
   "font-style": "italic"
@@ -96,7 +91,6 @@ export const conversionHintTextStyle = {
 export const conversionAddItemTextBoxStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
-  "fontWeight": "bold",
   "width": "140px",
   "display": "inline",
   "text-align": "center",
@@ -125,7 +119,6 @@ export const searchTextStyle = {
 export const searchFontStyle = {
   "fontFamily": "'Nunito', sans-serif",
   "fontSize": "13px",
-  "fontWeight": "bold",
   "color": "black",
   "display": "inline",
   "bottom": "4px"

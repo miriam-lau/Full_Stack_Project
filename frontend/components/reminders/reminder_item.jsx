@@ -11,8 +11,8 @@ class ReminderItem extends React.Component {
     const reminder = this.props.reminder;
 
     return (
-      <div className="reminder-item">
-        <div>
+      <div className="reminder-item-wrapper">
+        <div className="reminder-item">
           {reminder.due_date === "" ?
               "" : <span>{ reminder.due_date } : &nbsp; &nbsp; </span>
           }

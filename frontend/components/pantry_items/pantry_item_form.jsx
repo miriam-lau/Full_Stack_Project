@@ -158,16 +158,23 @@ class PantryItemForm extends React.Component {
               onChange={ this.update("temp") }
           />
 
-          <select className="form-categories"
-              onChange={ this.update("category") }>
-            <option selected="true" disabled="disabled">
-                Select a Category</option>
-            {formCategory.map((category, idx) => {
-              return (
-                <option key={ idx } value={ category }>{ category }</option>
-              )
-            })};
-          </select>
+          <div className="form-categories-wrapper">
+            <select className="form-categories"
+                onChange={ this.update("category") }>
+              <option selected="true" disabled="disabled">
+                  Select a Category</option>
+              {formCategory.map((category, idx) => {
+                return (
+                  <option className="form-categories-options"
+                      key={ idx } value={ category }>{ category}
+                  </option>
+                )
+              })};
+            </select>
+
+            <i className="fa fa-caret-down" id="fa-caret-down-item-add-form"
+                aria-hidden="true"></i>
+          </div>
 
           <div className="plus-circle">
             <i className="fa fa-plus-circle fa-lg" aria-hidden="true"

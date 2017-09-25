@@ -157,6 +157,8 @@ class Conversion extends React.Component {
                   )
                 })};
               </select>
+              <i className="fa fa-caret-down" id="fa-caret-down-select"
+                  aria-hidden="true"></i>
             </div>
           </div>
 
@@ -176,6 +178,8 @@ class Conversion extends React.Component {
                   )
                 })};
               </select>
+              <i className="fa fa-caret-down" id="fa-caret-down-select"
+                  aria-hidden="true"></i>
             </div>
           </div>
         </div>

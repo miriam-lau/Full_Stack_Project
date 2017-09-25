@@ -27,7 +27,6 @@
   padding: 15px;
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  font-weight: 900;
   text-transform: uppercase;
   border-radius: 10px;
   border: 1px solid #E6E6FA;
@@ -35,7 +34,6 @@
   text-align: center;
   cursor: pointer;
   transition: 0.5s;
-  // z-index: 1;
 }
 
 .guest-sign-in:hover {
@@ -51,7 +49,6 @@
   top: 263px;
   text-align: center;
   font-family: 'Nunito', sans-serif;
-  font-weight: 900;
   font-size: 50px;
   color: white;
   z-index: 1;
@@ -63,7 +60,6 @@
   top: 225px;
   text-align: center;
   font-family: 'Pacifico', cursive;
-  font-weight: 900;
   font-size: 70px;
   color: white;
   z-index: 1;
@@ -104,7 +100,6 @@
   justify-content: space-around;
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
-  font-weight: bold;
   padding: 25px 0 25px 0;
   border-top: 5px solid #E6E6FA;
   background-color: #E6E6FA;

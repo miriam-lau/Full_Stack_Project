@@ -37,7 +37,6 @@
 .recipe-item {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
-  font-weight: 900;
   margin: 10px 0 0 0;
 }
 
@@ -249,7 +248,6 @@
   color: #333399;
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
-  font-weight: bold;
 }
 
 /* Mozilla Firefox 4 to 18 */
@@ -258,7 +256,6 @@
    opacity:  1;
    font-family: 'Nunito', sans-serif;
    font-size: 13px;
-   font-weight: bold;
 }
 
 /* Mozilla Firefox 19+ */
@@ -267,7 +264,6 @@
    opacity:  1;
    font-family: 'Nunito', sans-serif;
    font-size: 13px;
-   font-weight: bold;
 }
 
 /* Internet Explorer 10-11 */
@@ -275,7 +271,6 @@
    color: #333399;
    font-family: 'Nunito', sans-serif;
    font-size: 13px;
-   font-weight: bold;
 }
 
 /* Microsoft Edge */
@@ -283,7 +278,6 @@
    color: #333399;
    font-family: 'Nunito', sans-serif;
    font-size: 13px;
-   font-weight: bold;
 }
 
 
@@ -371,65 +365,13 @@
 
 // Recipe detail links
 .fa-pencil {
-  padding: 8.5px 7px 0px 7px;
+  padding: 7.5px 7px 0px 7px;
   transform: scale(1.05);
 }
 
-.fa-calendar {
-  padding: 8.5px 6px 0px 6px;
-  transform: scale(0.9);
-}
-
 .trash-can-recipe {
-  padding: 3.5px 3.4px;
+  padding: 4px 3.4px;
 }
-
-.recipe-calendar-closeX {
-  padding: 5px 0 0 5px;
-  cursor: pointer;
-}
-
-.recipe-calendar-closeX:hover {
-  color: red;
-  cursor: pointer;
-}
-
-.recipe-calendar-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  color: #333399;
-  padding: 0 15px;
-}
-
-.recipe-calendar-directions {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  padding: 20px 15px;
-  text-align: left;
-  color: #333399;
-}
-
-.recipe-calendar-form {
-  display: flex;
-  flex-direction: column;
-  padding: 0 10px;
-}
-
-.recipe-calendar-submit {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  background-color: #333399;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid #333399;
-  text-align: center;
-  padding: 5px 0 5px 0;
-  width: 100%;
-  margin: 20px 0;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
 
 // Recipe detail component
 .recipe-detail-info {

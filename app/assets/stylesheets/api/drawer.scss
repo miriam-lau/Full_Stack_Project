@@ -47,7 +47,6 @@
   margin: 0 0 20px 21px;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  font-weight: 900;
   color: #333399;
 }
 
@@ -55,7 +54,6 @@
   margin: 0 0 26px 21px;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  font-weight: 900;
   color: #333399;
 }
 
@@ -80,7 +78,6 @@
 .conversion, .tutorial {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  font-weight: 500;
   color: #333399;
   width: 350px;
 }
@@ -90,7 +87,6 @@
 }
 
 .conversion-topic, .tutorial section span {
-  font-weight: 900;
   font-style: italic;
   text-align: center;
 }
@@ -102,7 +98,6 @@
 .conversion-text-result {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  font-weight: 900;
   text-align: center;
   width: 140px;
   height: 35px;
@@ -116,19 +111,14 @@
 .conversion-text-to {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  font-weight: 900;
   color: #333399;
   padding: 30px 20px 0 20px;
   vertical-align: middle;
   width: 20px;
 }
 
-select {
-  border-radius: 0;
-  border: 0;
-}
-
 .conversion-unit-selector {
+  display: flex;
   padding: 5px 0 3px 8px;
   background-color: #f2f2f2;
   border-bottom-right-radius: 3px;
@@ -136,7 +126,14 @@ select {
 }
 
 .conversion-select {
+  width: 128px;
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
-  font-weight: 900;
+  -webkit-appearance: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#fa-caret-down-select {
+  margin: 0 0 0 -15px;
 }

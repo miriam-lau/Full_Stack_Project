@@ -31,27 +31,25 @@
 .header-name {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  font-weight: bold;
 }
 
-.header-button, .header-link {
+.header-link {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  font-weight: bold;
   background-color: #E6E6FA;
   color: black;
   border-radius: 5px;
-  border: 1px solid #E6E6FA;
+  border: 2px solid #E6E6FA;
   text-align: center;
   padding: 3px 8px 3px 8px;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.header-button:hover, .header-link:hover {
+.header-link:hover {
   background-color: #333399;
   color: white;
-  border: 1px solid #E6E6FA;
+  border: 2px solid #E6E6FA;
   transition: 0.5s;
 }
 
@@ -65,7 +63,6 @@
 .nav-link {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  font-weight: bold;
   align-items: flex-end;
   width: auto;
   text-align: center;
@@ -84,7 +81,6 @@
 }
 
 .nav-link > button:hover {
-  font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -110,8 +106,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   height: 20px;
-  padding: 10px 0 10px 0;
-  font-weight: bold;
+  padding: 10px 0;
   color: black;
   text-align: center;
   border-top: 1px #E6E6FA solid;
@@ -164,10 +159,9 @@
   justify-content: space-around;
   font-family: 'Nunito', sans-serif;
   font-size: 10px;
-  font-weight: 900;
   background-color: #E6E6FA;
   color: white;
-  padding: 40px 0 40px 0;
+  padding: 40px 0;
   width: 100%;
 }
 

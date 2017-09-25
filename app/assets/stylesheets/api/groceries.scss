@@ -1,6 +1,6 @@
 .grocery-purchases-wrapper {
   width: 100%;
-  min-width: 600px;
+  min-width: 595px;
   background-color: #BCBCF2;
   height: auto;
   overflow: auto;
@@ -8,8 +8,8 @@
 
 // index component
 .grocery-purchases {
-  min-width: 600px;
-  max-width: 600px;
+  min-width: 595px;
+  max-width: 595px;
   height: auto;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
@@ -29,7 +29,6 @@
 .add-to-pantry-button {
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
-  font-weight: bold;
   background-color: #333399;
   color: white;
   border-radius: 5px;
@@ -53,7 +52,6 @@
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-style: italic;
-  font-weight: 900;
   color: green;
   padding: 5px 0 15px 15px;
 }

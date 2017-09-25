@@ -1,6 +1,6 @@
 .reminders {
-  min-width: 600px;
-  max-width: 600px;
+  min-width: 595px;
+  max-width: 595px;
   height: auto;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
@@ -46,7 +46,7 @@
   font-size: 13px;
   font-style: italic;
   color: #333399;
-  min-width: 186px;
+  min-width: 181px;
   cursor: pointer;
 }
 
@@ -73,7 +73,6 @@
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
   font-style: italic;
-  font-weight: 900;
   color: #333399;
   margin-top: 1px;
   border: none;
@@ -83,7 +82,6 @@
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
   font-style: italic;
-  font-weight: 900;
   color: #333399;
   margin-right: 20px;
   margin-top: 1px;
@@ -113,7 +111,7 @@
 .reminder-items {
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
-  margin: 8px 15px 2px 15px;
+  margin: 8px 11px 2px 15px;
   padding: 3px 7px 3px 10px;
 }
 
@@ -121,11 +119,11 @@
   padding-bottom: 5px;
 }
 
-.reminder-item {
+.reminder-item-wrapper {
   display: flex;
   flex-direction: row;
 }
 
-.reminder-item > div {
+.reminder-item {
   width: 100%;
 }

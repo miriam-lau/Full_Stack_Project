@@ -122,11 +122,10 @@ class PantryIndexItem extends React.Component {
 
   render() {
     const pantryItem = this.props.pantryItem;
-  
+
     return (
       <div>
         <div className="update-item-form-div">
-
           <div className="checkbox-placeholder"></div>
 
           <form className="update-item-form">
@@ -148,17 +147,23 @@ class PantryIndexItem extends React.Component {
             />
 
             {pantryItem.category === "" ?
-              <select className="uncategorized-items"
-                  onChange={ this.update("category") }>
-                <option selected="true" disabled="disabled">
-                  Select a Category
-                </option>
-                {formCategory.map((category, idx) => {
-                  return (
-                    <option key={ idx } value={ category }>{ category }</option>
-                  )
-                })};
-              </select> : ""}
+              <div className="form-categories-wrapper">
+                <select className="uncategorized-items"
+                    onChange={ this.update("category") }>
+                  <option selected="true" disabled="disabled">
+                    Select a Category
+                  </option>
+                  {formCategory.map((category, idx) => {
+                    return (
+                      <option key={ idx } value={ category }>{ category }
+                      </option>
+                    )
+                  })};
+                </select>
+                <i className="fa fa-caret-down"
+                    id="fa-caret-down-item-add-form" aria-hidden="true"></i>
+              </div> : ""
+            }
           </form>
 
           <i className="material-icons trash-can"

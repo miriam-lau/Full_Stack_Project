@@ -11,7 +11,6 @@
 .calendar-title {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
-  font-weight: 900;
   color: #333399;
   padding: 0 15px;
 }
@@ -30,7 +29,6 @@
   padding: 1rem 0;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  font-weight: 900;
 }
 
 .DayPicker-Month {
@@ -112,42 +110,14 @@
   vertical-align: middle;
 }
 
-// .DayPicker-WeekNumber {
-//   display: table-cell;
-//   padding: .5rem;
-//   text-align: right;
-//   vertical-align: middle;
-//   min-width: 1rem;
-//   font-size: 0.75em;
-//   cursor: pointer;
-//   color: #8b9898;
-// }
-
 .DayPicker--interactionDisabled .DayPicker-Day {
   cursor: default;
 }
-
-// .DayPicker-Footer {
-//   display: table-caption;
-//   caption-side: bottom;
-//   padding-top: .5rem;
-// }
-
-// .DayPicker-TodayButton {
-//   border: none;
-//   background-image: none;
-//   background-color: transparent;
-//   box-shadow: none;
-//   cursor: pointer;
-//   color: #4A90E2;
-//   font-size: 0.875em;
-// }
 
 /* Default modifiers */
 
 .DayPicker-Day--today {
   color: #333399;
-  font-weight: 900;
   background-color: #E6E6FA;
 }
 

@@ -105,7 +105,14 @@ class Home extends React.Component {
           </div>
 
           <div>
-            <h2 className="home-titles">Create and Save Recipes</h2>
+            <h2 className="home-titles">Create Reminders for Tasks</h2>
+            <img
+                src="http://res.cloudinary.com/miriam-lau/image/upload/v1497914916/splash4_e7n1pw.jpg" alt="splash-img"
+            />
+          </div>
+
+          <div>
+            <h2 className="home-titles">Save Your Favorite Recipes</h2>
             <img
                 src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg" alt="splash-img"/>
           </div>
@@ -114,16 +121,19 @@ class Home extends React.Component {
         <div className="app-info">
           <section>
             <h3>Keep Track of Your Pantry</h3>
-            <p>Always know what you have in your pantry.  Check out the
-            auto-update feature: after purchasing groceries, click a button and myPantry will combine duplicate items and add new items to your pantry from your Grocery page.</p>
+            <p>Always know what you have in your pantry, and the amount of an item you currently have.</p>
           </section>
           <section>
             <h3>Add Items to Grocery List</h3>
-            <p>Grocery Shopping has never been easier! Add items to your grocery list. Check off items to transfer them to the "Purchased" list. Click a button to add purchased items to your pantry.</p>
+            <p>Check off items to transfer them to the "Purchased" list. Click a button to add purchased items to your pantry.</p>
           </section>
           <section>
-            <h3>Create and Save Recipes</h3>
-            <p>Save your favorite recipes in myPantry.  Create and view your recipes in the Recipe page. Add personal notes, upload food photos, and rate your recipes.</p>
+            <h3>Create Reminders for Tasks</h3>
+            <p>Add reminders and set due dates. Reminders will be automatically organized by date categories.</p>
+          </section>
+          <section>
+            <h3>Save Your Favorite Recipes</h3>
+            <p>Create and view your recipes, add personal notes, upload photos, and rate your recipes.</p>
             </section>
         </div>
 

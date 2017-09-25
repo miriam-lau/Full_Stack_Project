@@ -21,7 +21,7 @@ const sessionLinks = ({ modalOpen, openModal, signin, signup, errors,
           <div className="greeting">myPantry</div>
           <div>
             <img className="icon"
-                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_308/v1505960077/mypantry_icon.001_zht9v9.png" alt="icon"
+                src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_308/v1505960077/mypantry_icon.001_zht9v9.png" alt="icon"
             />
           </div>
         </div>
@@ -86,35 +86,35 @@ class Home extends React.Component {
           <div className="home-panels">
             <h2 className="home-titles1">myPantry</h2>
             <img
-                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914784/splash1_ewnc3w.jpg" alt="splash-img"
+                src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914784/splash1_ewnc3w.jpg" alt="splash-img"
             />
           </div>
 
           <div>
             <h2 className="home-titles">Keep Track of Your Pantry</h2>
             <img
-                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091372/splash6_ltuu4o.jpg" alt="splash-img"
+                src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091372/splash6_ltuu4o.jpg" alt="splash-img"
             />
           </div>
 
           <div>
             <h2 className="home-titles">Add Items to Grocery List</h2>
             <img
-                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg" alt="splash-img"
+                src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1498091070/splash5_ahikxd.jpg" alt="splash-img"
             />
           </div>
 
           <div>
             <h2 className="home-titles">Create Reminders for Tasks</h2>
             <img
-                src="http://res.cloudinary.com/miriam-lau/image/upload/v1497914916/splash4_e7n1pw.jpg" alt="splash-img"
+                src="https://res.cloudinary.com/miriam-lau/image/upload/v1497914916/splash4_e7n1pw.jpg" alt="splash-img"
             />
           </div>
 
           <div>
             <h2 className="home-titles">Save Your Favorite Recipes</h2>
             <img
-                src="http://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg" alt="splash-img"/>
+                src="https://res.cloudinary.com/miriam-lau/image/upload/c_scale,w_3000/v1497914707/splash2_lqb1eb.jpg" alt="splash-img"/>
           </div>
         </Carousel>
 

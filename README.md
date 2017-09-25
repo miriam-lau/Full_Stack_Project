@@ -3,7 +3,7 @@
 
 ## Summary
 
-** *myPantry* ** is a web application for cooking enthusiasts. ** *myPantry* ** allows users to keep track of their pantry items, and update their pantry after purchasing items from their grocery page. Users can also create a library of their favorite recipes, and use the reminders feature to keep track of daily or upcoming tasks.
+*myPantry* is a web application for cooking enthusiasts. *myPantry* allows users to keep track of their pantry items, and update their pantry after purchasing items from their grocery page. Users can also create a library of their favorite recipes, and use the reminders feature to keep track of daily or upcoming tasks.
 
 ![homepage](./docs/website_pics/homepage_pic.png)
 

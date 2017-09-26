@@ -23,7 +23,6 @@ class ModalForm extends React.Component {
 
   // Opens session modal
   openModal() {
-    this.props.clearErrors();
     this.closeModal();
     this.setState({ modalIsOpen: true });
   }
@@ -35,6 +34,7 @@ class ModalForm extends React.Component {
 
   // Closes session modal
   closeModal() {
+    this.props.clearErrors();
     this.setState({ modalIsOpen: false });
   }
 

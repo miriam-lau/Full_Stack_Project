@@ -56,7 +56,10 @@ class Home extends React.Component {
     @param {type} type is either "Sign In" or "Sign Up"
   */
   openModal(type) {
-    return () => this.setState({ modalOpen: type });
+    return () => {
+      this.props.clearErrors();
+      this.setState({ modalOpen: type });
+    };
   }
 
   /*

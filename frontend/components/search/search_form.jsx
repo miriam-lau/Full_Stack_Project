@@ -26,7 +26,6 @@ class SearchForm extends React.Component {
         // let retrievedSearchTerms = searchItems.map(function(result) {
         //   return result.name;
         // });
-
         let retrievedSearchTerms = [];
         if (searchItems.length == 1) {
           retrievedSearchTerms.push(searchItems);
@@ -42,7 +41,8 @@ class SearchForm extends React.Component {
   }
 
   // On submit, pushes to path "/search".
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     this.props.history.push("/search");
   }
 
